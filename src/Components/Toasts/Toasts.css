@@ -1,0 +1,9 @@
+.MainToasts {
+  background-color: var(--Primary-Color) !important;
+  color: var(--Dark-Color) !important;
+  position: fixed;
+  top: 48em;
+  right: 1em;
+  text-align: center;
+  z-index: 99999;
+}

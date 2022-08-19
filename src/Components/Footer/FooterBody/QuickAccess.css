@@ -1,0 +1,59 @@
+.QuickAccess-Footer {
+  text-align: justify;
+  line-height: 2.5em;
+  margin: 0 8em;
+}
+
+.QuickAccess-Footer h3 {
+  font-size: 1.3em;
+  color: var(--Primary-Color);
+  padding: 0.5em 0;
+}
+.QuickAccess-Footer .QuickAccess-List-Group {
+  font-size: 1em;
+}
+
+.QuickAccess-Footer .QuickAccess-List-Group .QuickAccess-List {
+  cursor: pointer;
+}
+.QuickAccess-Footer .QuickAccess-List-Group .QuickAccess-List:hover {
+  color: var(--Hover-Color);
+}
+.QuickAccess-Footer .QuickAccess-List-Group .QuickAccess-List span {
+  padding: 01em;
+}
+.QuickAccess-Footer
+  .QuickAccess-List-Group
+  .QuickAccess-List
+  .Icon-QuickAccess {
+  font-size: 1.3em;
+  color: var(--Hover-Color);
+}
+.QuickAccess-Footer
+  .QuickAccess-List-Group
+  .QuickAccess-List
+  .Icon-QuickAccess:hover {
+  color: var(--Hover-Color);
+  transform: scale(1.2);
+}
+@media (max-width: 1024px) {
+  .QuickAccess-Footer {
+    margin: 0 1.7em;
+  }
+}
+
+@media (max-width: 500px){
+  .QuickAccess-Footer h3 {
+    font-size: 1em;
+  }
+  .QuickAccess-List span {
+    font-size: .8em;
+  }
+  .QuickAccess-Footer
+  .QuickAccess-List-Group
+  .QuickAccess-List
+  .Icon-QuickAccess {
+    font-size: 1em;
+  }
+
+}

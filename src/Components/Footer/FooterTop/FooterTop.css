@@ -1,0 +1,15 @@
+.Container-FooterTop{
+    width: var(--Max-Width);
+    margin: 0 auto;
+}
+
+.wrapper-FooterTop{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+@media (max-width:1024px){
+    .Container-FooterTop{
+        display: none;
+    }
+}

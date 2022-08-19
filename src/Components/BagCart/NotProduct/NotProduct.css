@@ -1,0 +1,28 @@
+.NotProduct-BagCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Icon-NotProduct-BagCart {
+  font-size: 5em;
+  opacity: 0.2;
+  margin-top: 0.5em;
+}
+
+.Description-NotProduct-BagCart {
+  margin: 2em 0;
+}
+
+.Back-Product {
+  color: var(--White-Color);
+  background-color: var(--Danger-Color);
+  border: none;
+  border-radius: 0.3em;
+  padding: 0.8em;
+  font-size: .8em;
+}
+
+.Back-Product:hover {
+  background-color: var(--Danger-Hover-Color);
+}

@@ -1,0 +1,52 @@
+.Footer-Contact{
+    text-align: justify;
+    line-height: 2.5em;
+    margin: 0 2em;
+}
+
+.Footer-Contact h3{
+    font-size: 1.1em;
+    color: var(--Primary-Color);
+    padding: .5em 0;
+}
+
+.FooterContact-List-Group .FooterContact-List{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: grab;
+} 
+
+.FooterContact-List-Group .FooterContact-List:hover{
+    color: var(--Hover-Color);
+}
+
+.FooterContact-List-Right .Icon-FooterContact{
+    font-size: 1.3em;
+    color: var(--Primary-Color);
+}
+
+.FooterContact-List-Right .Icon-FooterContact:hover{
+    color: var(--Hover-Color);
+    transform: scale(1.2);
+}
+
+.FooterContact-List-Right span{
+    padding: 0 1em;
+}
+
+.FooterContact-List-Left .FooterContact-English{
+    font-family: sans-serif !important;
+}
+
+@media (max-width: 500px) {
+    .Footer-Contact h3{
+        font-size: 1em;
+    }  
+    .FooterContact-List-Right .Icon-FooterContact{
+        font-size: 1em;
+    }
+    .FooterContact-List-Left,.FooterContact-List-Right span{
+        font-size: .8em;
+    }
+}

@@ -1,0 +1,32 @@
+.Container-Carousel {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 4em 0 2em 0;
+}
+
+
+
+.Img-Carousel {
+  height: 17em !important;
+  border-radius: 3em;
+}
+
+.Carousei-Cart {
+    position: absolute;
+  font-size: 1.1em;
+  background-color: darkblue;
+  color: var(--White-Color);
+  padding: .6em 1em ;
+  border: none;
+  border-radius: .3em;
+  right: -5em;
+  bottom: 0;
+
+}
+ .ali{
+    font-size: 2em;
+    color: red;
+    font-weight: bold;
+    text-align: start;
+ }

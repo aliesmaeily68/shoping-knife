@@ -1,0 +1,38 @@
+.Container-Categories {
+  position: relative;
+  width: 18.2em;
+  height: 0;
+  background-color: var(--Secondary-Color);
+  z-index: 100;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  top: 1em;
+  transition: .6s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ShowCategories {
+    height: 100%;
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.Container-Categories .Main-Category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 1em;
+  opacity: 0.8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.Container-Categories .Main-Category:hover {
+  background-color: rgb(237, 237, 237);
+}
+.ُSubCategories {
+  position: absolute;
+  top: 0;
+  right: 18.15em;
+}

@@ -1,0 +1,65 @@
+.Container-SubCategories {
+  position: relative;
+  width: 55em;
+  height: 0;
+  overflow-y: auto;
+  background-color: var(--Secondary-Color);
+  cursor: default;
+  top: .5em;
+  transition: all 0.7s;
+}
+
+.ShowSubCategories {
+  height: 25em;
+  top: 0;
+}
+
+.Img-SubCategories img {
+  width: 100%;
+  height: 100%;
+}
+
+.Img-SubCategories {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  bottom: 0;
+  left: 0;
+}
+
+.wrapper-SubCategories {
+  display: flex;
+  align-items: flex-start;
+}
+
+.Main-SubCategories {
+  padding: 1em;
+}
+
+.Title-SubCategories {
+  padding: 1em 0;
+  opacity: 0.8;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.Title-SubCategories:hover {
+  opacity: 1;
+}
+
+.List-Group-SubCategories {
+  margin-top: 1em;
+  z-index: 10;
+}
+.List-Group-SubCategories .List-SubCategories {
+  font-size: 0.8em;
+  padding: 0.5em;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.List-Group-SubCategories .List-SubCategories:hover {
+  opacity: 1;
+  z-index: 10;
+}

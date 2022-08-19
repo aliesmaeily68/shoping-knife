@@ -1,0 +1,15 @@
+.Footer-Title{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.Footer-Title .BrTitle{
+    height: 1px;
+    width: 30%;
+    background-color: var(--Text-Light-Color);
+}
+.Main-Footer-Title{
+    margin: 0 1em;
+}

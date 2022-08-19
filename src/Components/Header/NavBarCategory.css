@@ -1,0 +1,32 @@
+.NavBar-Category {
+  position: relative;
+}
+
+.Wrapper-NavbarCategory {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8em 0.5em;
+  background-color: var(--Primary-Color);
+  color: var(--Text-Color);
+  cursor: pointer;
+}
+
+.Wrapper-NavbarCategory:hover {
+  background-color: var(--Hover-Color);
+}
+
+.NavBar-Category .NavBar-Category-right .Main-Icon-NavBar {
+  font-size: 1.5em;
+  margin-left: 0.4em;
+}
+
+.NavBar-Category .NavBar-Category-left {
+  font-size: 1.5em;
+}
+
+.Categories {
+  position: absolute;
+  top: 3.1em;
+  left: 0;
+}

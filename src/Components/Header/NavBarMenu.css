@@ -1,0 +1,39 @@
+.NavBar-Menu {
+  width: 100%;
+  height: 100%;
+}
+
+.List-Grop-NavBar-Menu {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+.List-Grop-NavBar-Menu a li {
+  padding: 0.5em 0;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin: 0 1em;
+  /* color: var(--Text-Light-Color); */
+}
+
+.List-Grop-NavBar-Menu a {
+  color: var(--Text-Light-Color);
+}
+
+.List-Grop-NavBar-Menu a li:hover {
+  border-bottom: 2px solid var(--Primary-Color);
+  color: var(--Text-Light-Color) !important;
+}
+.List-Grop-NavBar-Menu a:hover {
+  color: var(--Text-Light-Color) !important;
+}
+.active {
+  color: var(--Text-Color) !important;
+  background-color: var(--Primary-Color);
+  border-radius: 0.3em;
+}
+a.active:hover{
+  color: var(--Text-Color) !important;
+}

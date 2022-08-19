@@ -1,0 +1,100 @@
+.Proposal-products-Card {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Proposal-products-Card .Proposal-Product-Card {
+  width: 12.5em;
+  position: relative;
+  padding: 2em 0;
+  background-color: var(--White-Color);
+}
+
+.Proposal-products-Card .Proposal-Product-Card .Proposal-Icon-Card-Product {
+  position: absolute;
+  top: 0.5em;
+  left: 1.5em;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.Proposal-Product-Wrapper-Card {
+  position: relative;
+}
+
+.Proposal-Product-Discount {
+  position: absolute;
+  background-color: var(--Primary-Color);
+  color: var(--Dark-Color);
+  font-size: 0.8em;
+  border-radius: 1em;
+  padding: 0.3em 0.7em;
+  top: -1em;
+  right: 1.5em;
+  z-index: 10;
+  cursor: default;
+}
+
+.Proposal-Card-Product-Body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Proposal-Card-Product-Title {
+  padding: 1em;
+  font-weight: bold;
+  cursor: default;
+}
+
+.Proposal-Price-Product-Card {
+  display: flex;
+  align-items: center;
+  cursor: default;
+  padding: 0.5em 0;
+}
+
+.Proposal-Price-Product-Card .Proposal-Price-Card {
+  padding: 0 0.5em;
+  font-size: 0.9em;
+  color: var(--White-Color);
+  color: red;
+}
+
+.Proposal-Price-Discount-Card {
+  font-size: 0.8em;
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+.Proposal-Conter-Product-Card {
+  margin: 0.5em 0;
+  padding: 0.5em;
+  font-size: 0.8em;
+  border-radius: 0.3em;
+  background-color: var(--Primary-Color);
+  color: var(--Dark-Color);
+  cursor: default;
+}
+
+.Proposal-Conter-Product-Card span {
+  padding: 0 0.3em;
+}
+
+.Proposal-Card-Product-Body .Proposal-Insert-Cart {
+  border: none;
+  background-color: var(--Dark-Color);
+  color: var(--White-Color);
+  opacity: .9;
+  padding: 0.7em;
+  margin-bottom: 2em;
+  margin-top: 0.5em;
+  border-radius: 0.3em;
+  font-size: 0.8em;
+}
+.Proposal-Card-Product-Body .Proposal-Insert-Cart:hover {
+  opacity: 1;
+}

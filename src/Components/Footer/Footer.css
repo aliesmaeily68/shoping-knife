@@ -1,0 +1,5 @@
+.Main-Footer {
+  background-color: var(--Dark-Color);
+  color: var(--Text-Light-Color);
+  width: 100%;
+}

@@ -1,0 +1,16 @@
+.Card-Icons {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+}
+
+.card-Icon {
+  padding: 0.4em 0;
+  transition: 0.5s;
+  opacity: 0.6;
+}
+
+.card-Icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}

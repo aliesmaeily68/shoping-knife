@@ -1,0 +1,12 @@
+.Footer-Story{
+    text-align: justify;
+    line-height: 2.5em;
+    font-size: .9em;
+    margin: 0 2em;
+}
+
+.Footer-Story h3{
+    font-size: 1.3em;
+    color: var(--Primary-Color);
+    padding: .5em 0;
+}

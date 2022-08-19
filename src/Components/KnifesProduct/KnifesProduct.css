@@ -1,0 +1,19 @@
+
+.KnifesProduct-Category-Title-Br{
+  display: flex;
+  align-items: center;
+  margin-bottom:1em ;
+  padding: 2em ;
+}
+
+.KnifesProduct-Category-Title{
+  font-size: 1.5em;
+  margin: 0 2em 0 .7em;
+  text-shadow: .1em .1em 1em #000;
+}
+
+.KnifesProduct-Category-Br{
+  width: 65%;
+  height: 1.5px;
+  background-color: rgba(0,0,0,.1);
+}

@@ -1,0 +1,48 @@
+.Container-BagCart{
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 320px;
+    height: 100vh;
+    z-index: 9999;
+    background-color: var(--Secondary-Color);
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .8s;
+}
+
+.Show-BagCart{
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+    filter: drop-shadow(15px 0 25px #000);
+}
+
+.Title-Close-BagCart{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: var(--Secondary-Color);
+   z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+}
+
+.Title-BagCart{
+    font-weight: bold;
+    margin-right: 1.5em;
+}
+
+.Close-BagCart{
+    font-size: 2em;
+    cursor: pointer;
+    margin-left: .5em;
+}
+
+.Close-BagCart:hover{
+    color: var(--Danger-Color);
+}

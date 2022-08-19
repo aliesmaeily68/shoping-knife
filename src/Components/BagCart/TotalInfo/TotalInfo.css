@@ -1,0 +1,54 @@
+.Total-Info-BagCart {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-top: 1px solid rgba(0 ,0 ,0 ,.3);
+  background-color: var(--Secondary-Color);
+}
+
+.Total-BagCart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1em 0;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.Price-Total-BagCart {
+  margin: 0 1em;
+  color: var(--Hover-Color);
+}
+
+.Btn-Cart-BagCart {
+    width: 20em;
+  padding: 1em 0;
+  font-size: 0.8em;
+  border: none;
+  border-radius: 0.3em;
+  background-color: rgb(238, 238, 238);
+}
+
+.Btn-Cart-BagCart:hover {
+  background-color: rgb(217, 217, 217);
+}
+
+.Checkout-BagCart{
+    width: 20em;
+    padding: 1em 0;
+    font-size: 0.8em;
+    border: none;
+    border-radius: 0.3em;
+    background-color: var(--Primary-Color);
+    margin: 1em 0;
+    /* color: var(--White-Color); */
+}
+
+.Checkout-BagCart:hover{
+    background-color: var(--Hover-Color);
+}
