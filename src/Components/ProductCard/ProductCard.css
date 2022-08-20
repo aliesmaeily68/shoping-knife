@@ -1,0 +1,96 @@
+.Product-Card {
+  width: 18em;
+  position: relative;
+  box-shadow: 0.2em 0.2em 1em rgba(0, 0, 0, 0.5);
+  transition: 0.6s;
+  padding: 2em 0;
+}
+.Product-Card:hover {
+  border-radius: 0.3em;
+  transform: scale(1.01);
+  border: 2px solid var(--Primary-Color);
+}
+
+.Product-Card .Icon-Card-Product {
+  position: absolute;
+  top: 0.5em;
+  left: 1.5em;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.Product-Wrapper-Card {
+  position: relative;
+}
+
+.Product-Discount {
+  position: absolute;
+  background-color: var(--Primary-Color);
+  color: var(--Dark-Color);
+  font-size: 0.8em;
+  border-radius: 1em;
+  padding: 0.3em 0.7em;
+  top: -1em;
+  right: 1.5em;
+  z-index: 10;
+  cursor: default;
+}
+
+.Card-Product-Body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Card-Product-Title {
+  padding: 1em;
+  font-weight: bold;
+  cursor: default;
+}
+
+.Price-Product-Card {
+  display: flex;
+  align-items: center;
+  cursor: default;
+  padding: 0.5em 0;
+}
+
+.Price-Product-Card .Price-Card {
+  padding: 0 0.5em;
+  font-size: 0.9em;
+  color: var(--Dark-Color);
+  color: red;
+}
+
+.Price-Discount-Card {
+  font-size: 0.8em;
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+.MoreInfo-Product-Card {
+  margin: 0.5em 0;
+  padding: 0.5em;
+  font-size: 0.8em;
+  border-radius: 0.3em;
+  background-color: darkblue;
+  color: var(--White-Color);
+  cursor: default;
+}
+
+.MoreInfo-Product-Card span {
+  padding: 0 0.3em;
+}
+
+.Card-Product-Body .Insert-Cart {
+  border: none;
+  background-color: var(--Primary-Color);
+  padding: 0.5em;
+  margin-bottom: 2em;
+  margin-top: 0.5em;
+  border-radius: 0.3em;
+  font-size: 0.9em;
+}
+.Card-Product-Body .Insert-Cart:hover {
+  background-color: var(--Hover-Color);
+}

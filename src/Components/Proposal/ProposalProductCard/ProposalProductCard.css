@@ -70,7 +70,7 @@
   text-decoration: line-through;
 }
 
-.Proposal-Conter-Product-Card {
+.Proposal-MoreInfo-Product-Card {
   margin: 0.5em 0;
   padding: 0.5em;
   font-size: 0.8em;
@@ -80,7 +80,7 @@
   cursor: default;
 }
 
-.Proposal-Conter-Product-Card span {
+.Proposal-MoreInfo-Product-Card span {
   padding: 0 0.3em;
 }
 
@@ -88,7 +88,7 @@
   border: none;
   background-color: var(--Dark-Color);
   color: var(--White-Color);
-  opacity: .9;
+  opacity: 0.9;
   padding: 0.7em;
   margin-bottom: 2em;
   margin-top: 0.5em;

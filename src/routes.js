@@ -12,7 +12,8 @@ import Article from './Pages/Article/Article'
 import Conditions from './Pages/Conditions/Conditions'
 import Checkout from './Pages/Checkout/Checkout'
 import Cart from './Pages/Cart/Cart'
-
+import CommentsProduct from './Pages/MainProduct/Commentsproduct/CommentsProduct'
+import DescriptionProduct from './Pages/MainProduct/DescriptionProduct/DescriptionProduct'
 
 
 let routes = [
@@ -22,8 +23,11 @@ let routes = [
     { path: '/login', element: <Login /> },
     { path: '/*', element: <Notfound /> },
     { path: '/product', element: <Product /> },
-    { path: '/product/:productTitle', element: <MainProduct /> },
-    { path: '/product/:categoriesTitle', element: <MainCategory /> },
+    { path: '/product/:productTitle/*', element: <MainProduct />,children:[
+        { path:"commentsproduct", element:<CommentsProduct />},
+        { path:"descriptionproduct", element:<DescriptionProduct />},
+    ] },
+    { path: '/:categoriesTitle', element: <MainCategory /> },
     { path: '/shuffle', element: <Shuffle /> },
     { path: '/contact', element: <Contact /> },
     { path: '/article', element: <Article /> },

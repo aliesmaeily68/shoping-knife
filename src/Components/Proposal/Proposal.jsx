@@ -2,12 +2,9 @@ import React from "react";
 import ProposalProductCard from "./ProposalProductCard/ProposalProductCard";
 import ProposalProductCategoryCard from './ProposalProductCategoryCard/ProposalProductCategory'
 import "./Proposal.css";
-import { useContext } from "react";
-import { AllProposalProductContext } from "../../Contexts/ProposalProductContext";
+
 
 export default function Proposal() {
-  const DataContext=useContext(AllProposalProductContext)
-  console.log(DataContext);
   return (
     <>
       <div className="Container-Proposal-Category">
