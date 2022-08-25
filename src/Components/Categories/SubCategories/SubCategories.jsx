@@ -29,14 +29,14 @@ export default function SubCategories() {
               </div>
 
               <ul className="List-Group-SubCategories">
-                {data.MainInfo.map((product) => (
-                  <li className="List-SubCategories">
-                    {" "}
-                    <Link to={`/product/${product.title}`}>
-                      {product.title}
-                    </Link>
-                  </li>
-                ))}
+                {[...new Set(data.MainInfo.map((p) => p.Category))].map(
+                  (product) => (
+                    <li className="List-SubCategories">
+                      <Link to={`/product/${product}`}>{product}</Link>
+                    </li>
+                  )
+                )}
+
               </ul>
             </div>
           ))}

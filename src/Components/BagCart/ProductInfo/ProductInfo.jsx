@@ -53,9 +53,15 @@ export default function ProductInfo() {
             }`}
             key={product.id}
           >
-            <img
+            {/* <img
               src={`./Image/${product.imgName}`}
               alt="#"
+              className="Img-Product-Info-BagCart"
+            /> */}
+
+            <img
+              src={`./Image/${product.imgName}`}
+              alt="product"
               className="Img-Product-Info-BagCart"
             />
 

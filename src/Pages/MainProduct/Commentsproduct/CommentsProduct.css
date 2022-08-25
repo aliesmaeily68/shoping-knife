@@ -1,0 +1,77 @@
+.CommentsProduct-Container {
+  width: var(--Max-Width);
+  margin: 0 auto;
+  background-color: var(--Secondary-Color);
+}
+
+.CommentsProduct-Wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.CommentsProduct-Star {
+  color: red;
+}
+
+.CommentsProducts {
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Insert-CommentsProduct {
+  padding: 2em;
+  line-height: 2em;
+}
+.Insert-CommentsProduct span,
+.Insert-CommentsProduct h2 {
+  font-size: 0.9em;
+}
+
+.CommentsProduct-Stars {
+  display: flex;
+}
+
+.CommentsProduct-FullStar1,
+.CommentsProduct-FullStar2,
+.CommentsProduct-FullStar3,
+.CommentsProduct-FullStar4,
+.CommentsProduct-FullStar5 {
+  color: var(--Primary-Color);
+}
+
+.CommentsProduct-Name-Email {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CommentsProduct-Name,
+.CommentsProduct-Email {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+}
+
+.CommentsProduct-CheckBox {
+  margin: 0.5em 0;
+  display: flex;
+  align-items: center;
+}
+
+.CommentsProduct-CheckBox input {
+  font-size: 1.2em;
+  margin: 0 0.5em;
+}
+
+.CommentsProduct-CheckBox span {
+  font-size: 0.9em;
+}
+
+.CommentsProduct-Submit {
+  border: none;
+  background-color: var(--Primary-Color);
+  padding: 0.3em 1em;
+  border-radius: 0.3em;
+  margin: 2em 0;
+}

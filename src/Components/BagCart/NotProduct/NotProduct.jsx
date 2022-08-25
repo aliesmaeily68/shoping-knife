@@ -8,6 +8,7 @@ export default function NotProduct() {
   const DataContext = useContext(AllProductContext);
   return (
     <>
+   
       {(DataContext.userCart.length === 0 || DataContext.total == 0 )&& (
           <div className="NotProduct-BagCart">
             <div className="Icon-NotProduct-BagCart">

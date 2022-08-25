@@ -1,11 +1,13 @@
 import { createContext } from "react";
 import { useState } from "react";
-import { AllProduct } from "./../Datas";
+import { AllProduct,FullProduct } from "./../Datas";
 
 export const AllProductContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([AllProduct]);
+  const [fullProducts, setFullProducts] = useState(FullProduct);
+  const [mainProduct, setMainProduct] = useState([]);
   const [showCategories, setShowCategories] = useState(false);
   const [showSubCategories, setShowSubCategories] = useState(false);
   const [showCartBag, setShowCartBag] = useState(false);
@@ -21,6 +23,10 @@ export const ProductsProvider = ({ children }) => {
       value={{
         products,
         setProducts,
+        fullProducts,
+        setFullProducts,
+        mainProduct,
+        setMainProduct,
         showCategories,
         setShowCategories,
         showSubCategories,

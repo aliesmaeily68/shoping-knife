@@ -13,15 +13,15 @@ import './App.css'
 export default function App() {
   let routes = useRoutes(route)
   return (
-    <ProposalProductsProvider>
-      <ProductsProvider>
+    <ProductsProvider>
+      <ProposalProductsProvider>
         <BagCart />
         <Toasts />
         <Header />
         {routes}
         <Footer />
-      </ProductsProvider>
-    </ProposalProductsProvider>
+      </ProposalProductsProvider>
+    </ProductsProvider>
 
   )
 }

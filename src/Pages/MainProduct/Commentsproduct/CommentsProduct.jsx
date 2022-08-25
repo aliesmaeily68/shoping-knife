@@ -1,8 +1,13 @@
 import React from "react";
+import { useContext } from "react";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
+import { AllProductContext } from "../../../Contexts/ProductContext";
+import "./CommentsProduct.css";
 
 export default function CommentsProduct() {
+  const DataContext = useContext(AllProductContext)
+  console.log(DataContext.mainProduct);
   return (
     <div>
       <div className="CommentsProduct-Container">
@@ -12,17 +17,16 @@ export default function CommentsProduct() {
             <span>هیچ دیدگاهی برای این محصول نوشته نشده است</span>
           </div>
           <div className="Insert-CommentsProduct">
-            <h2>اولین کسی باشید که دیگاهی مینویسید"چاقوی جوجه زن"</h2>
+            <h2>اولین کسی باشید که دیگاهی مینویسید"{DataContext.mainProduct && DataContext.mainProduct.title}  "</h2>
             <span>
               نشانی ایمیل شما منتشر نخواهد شد .بخش های مورد نیاز علامت گذاری شده
               اند<span className="CommentsProduct-Star">*</span>
             </span>
             <div className="CommentsProduct-Viewpoint">
-              <span>امتیاز شما :</span>
-              <span className="CommentsProduct-Star">*</span>
               <div className="CommentsProduct-Stars">
-                {" "}
-                <div className="CommentsProduct-EmptyStar1">
+                <span>امتیاز شما :</span>
+                <span className="CommentsProduct-Star">*</span>{" "}
+                {/* <div className="CommentsProduct-EmptyStar1">
                   <AiOutlineStar />
                 </div>
                 <div className="CommentsProduct-EmptyStar2">
@@ -36,7 +40,7 @@ export default function CommentsProduct() {
                 </div>
                 <div className="CommentsProduct-EmptyStar5">
                   <AiOutlineStar />
-                </div>
+                </div> */}
                 <div className="CommentsProduct-FullStar1">
                   <AiFillStar />
                 </div>
@@ -54,27 +58,47 @@ export default function CommentsProduct() {
                 </div>
               </div>
               <div className="CommentsProduct-YourViewPoint">
-                <span>دیدگاه شما :</span>
-                <span className="CommentsProduct-Star">*</span>
-                <textarea
-                  name="YourViewPoint"
-                  id="YourViewPoint"
-                  cols="30"
-                  rows="10"
-                ></textarea>
+                <div className="CommentsProduct-YourViewPoint-Title">
+                  {" "}
+                  <span>دیدگاه شما :</span>
+                  <span className="CommentsProduct-Star">*</span>
+                </div>
+                <div className="CommentsProduct-YourViewPoint-Textarea">
+                  {" "}
+                  <textarea
+                    name="YourViewPoint"
+                    id="YourViewPoint"
+                    cols="70"
+                    rows="7"
+                  ></textarea>
+                </div>
               </div>
               <div className="CommentsProduct-Name-Email">
-                <label htmlFor="name">
-                  <span>نام</span>{" "}
-                  <span className="CommentsProduct-Star">*</span>
-                </label>
-                <input type="text" className="CommentsProduct-Name"/>
-                <label htmlFor="email">
-                  <span>ایمیل</span>{" "}
-                  <span className="CommentsProduct-Star">*</span>
-                  <input type="text" className="CommentsProduct-Email"/>
-                </label>
+                <div className="CommentsProduct-Name">
+                  {" "}
+                  <label htmlFor="name">
+                    <span>نام</span>{" "}
+                    <span className="CommentsProduct-Star">*</span>
+                  </label>
+                  <input type="text" className="CommentsProduct-Name-Input" />
+                </div>
+                <div className="CommentsProduct-Email">
+                  {" "}
+                  <label htmlFor="email">
+                    <span>ایمیل</span>
+                    <span className="CommentsProduct-Star">*</span>
+                  </label>
+                  <input type="text" className="CommentsProduct-Email-Input" />
+                </div>
               </div>
+              <div className="CommentsProduct-CheckBox">
+                <input type="checkbox" />
+                <span>
+                  ذخیره نام ، ایمیل و وبسایت من در مرورگر برای زمانی که دوباره
+                  دیدگاهی می نویسم.
+                </span>
+              </div>
+              <button className="CommentsProduct-Submit">ثبت</button>
             </div>
           </div>
         </div>
