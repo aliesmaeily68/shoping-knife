@@ -1,0 +1,130 @@
+.Total-Product-Cart {
+  display: flex;
+}
+
+.Cart-Item {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.Product-Remove-Cart,
+.Product-Name-Thumbnail-Cart span,
+.Product-Price-Cart {
+  opacity: 0.7;
+}
+
+.Product-Remove-Cart {
+  cursor: pointer;
+}
+.Product-Subtotal-Cart {
+  color: var(--Hover-Color);
+}
+
+.Product-Name-Thumbnail-Cart,
+.Product-Name-Thumbnail-Cart-th {
+  width: 30%;
+  height: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.Product-Name-Thumbnail-Cart img {
+  width: 30%;
+  height: 30%;
+  padding: 1.5em 0;
+}
+
+.Table-Product-Cart {
+  flex: 2;
+}
+.Table-Product-Cart table thead {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.Table-Product-Cart table thead tr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1em 0 1em 5em;
+}
+
+.Total-Cart {
+  flex: 1;
+}
+
+.Cart-InsertToBagCart {
+  margin: 1.5em 0;
+  display: flex;
+  align-items: center;
+}
+
+.Cart-increasOrdecreas-Product {
+  display: flex;
+  align-items: center;
+  margin-left: 1.5em;
+}
+
+.Cart-increas {
+  padding: 0.25em 0.7em;
+  font-size: 1em;
+  border-top-right-radius: 0.2em;
+  border-bottom-right-radius: 0.2em;
+  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.Cart-decreas {
+  padding: 0 0.5em;
+  font-size: 1.5em;
+  border-top-left-radius: 0.2em;
+  border-bottom-left-radius: 0.2em;
+  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.Cart-increasOrdecreas-Product button:hover {
+  background-color: var(--Hover-Color);
+}
+
+.Cart-increasOrdecreas-Product span {
+  padding: 0.25em 1em;
+  font-size: 1em;
+  opacity: 0.8;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.DisCountCode-Cart {
+  margin: 1.5em 0;
+  display: flex;
+  align-items: center;
+}
+
+#DisCountCode-Cart-Input {
+  outline: none;
+  border: none;
+  border-radius: 0.3em;
+  padding: 0.5em 1em;
+  margin-left: 1em;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1), -1px -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+#DisCountCode-Cart-Input:hover {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5), -1px -1px 1px rgba(0, 0, 0, 0.5);
+}
+
+#DisCountCode-Cart-Btn {
+  border: none;
+  padding: 0.6em 1em;
+  font-size: 1.1em;
+  background-color: var(--Primary-Color);
+  color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.3em;
+}
+
+#DisCountCode-Cart-Btn:hover {
+  background-color: var(--Hover-Color);
+}

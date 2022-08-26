@@ -1,0 +1,97 @@
+
+.Title-Edit-Invoice-Checkout h1{
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 1em 0;
+}
+
+.FirstName-LastName-Form-Checkout {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5em 0;
+}
+
+.FirstName-Form-Checkout,
+.LastName-Form-Checkout {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+
+.FirstName-Form-Checkout label,
+.LastName-Form-Checkout label,
+.CompanyName-Checkout label,
+.CountryName-Checkout label,
+.StateName-Checkout label,
+.CityName-Checkout label,
+.AddressName-Checkout label,
+.PostalCode-Checkout label,
+.TellNumber-Checkout label,
+.Password-Checkout label,
+.UserName-Checkout label,
+.Main-MoreInfo-Checkout label,
+.Email-Checkout label {
+  padding: 0.5em;
+}
+
+.CompanyName-Checkout,
+.CountryName-Checkout,
+.StateName-Checkout,
+.CityName-Checkout,
+.AddressName-Checkout,
+.PostalCode-Checkout,
+.TellNumber-Checkout,
+.Password-Checkout,
+.UserName-Checkout,
+.Main-MoreInfo-Checkout,
+.Email-Checkout {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em 0;
+}
+
+.FirstName-Form-Checkout input,
+.LastName-Form-Checkout input,
+.CompanyName-Checkout input,
+.CountryName-Checkout input,
+.StateName-Checkout input,
+.CityName-Checkout input,
+.AddressName-Checkout input,
+.PostalCode-Checkout input,
+.TellNumber-Checkout input,
+.Email-Checkout input,
+.Password-Checkout input,
+.UserName-Checkout input,
+#MoreInfo,
+#Country-Checkout,
+#State-Checkout {
+  outline: none;
+  border-radius: 0.3em;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  /* box-shadow:1px 1px 2px  rgba(0,0,0,.1),-1px -1px 2px  rgba(0,0,0,.1); */
+}
+#Country-Checkout,
+#State-Checkout {
+  padding: 0.3em 0;
+  font-size: 0.8em;
+}
+
+.UserName-Password-Checkout{
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 2em;
+    border-radius: .3em;
+    margin: 1.5em 0;
+}
+
+.MoreInfo-Checkout h2{
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 1em 0;
+}
+
+#MoreInfo::placeholder{
+    padding: 1em .5em;
+    font-size: .9em;
+}

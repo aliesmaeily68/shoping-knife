@@ -1,0 +1,76 @@
+.YourOrder-Checkout {
+  width: 100%;
+  background-color: #efeded;
+  padding: 2em;
+}
+
+.YourOrder-Checkout h2 {
+  padding: 1em 2em;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.Table-YourOrder-Checkout {
+  background-color: var(--White-Color);
+  border-radius: 0.3em;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), -1px -1px 2px rgba(0, 0, 0, 0.1);
+}
+.Table-YourOrder-Checkout table {
+  width: 100%;
+}
+
+.Table-YourOrder-Checkout table thead tr,
+.Table-YourOrder-Checkout table tfoot tr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+.Table-YourOrder-Checkout table tbody tr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  opacity: 0.7;
+}
+
+#Total-Table-YourOrder-Checkout {
+  color: var(--Primary-Color);
+}
+
+.YourOrder-Checkout h3 {
+  padding: 1.5em;
+}
+
+.Total-FooterTitle-YourOrder-Checkout {
+  background-color: var(--White-Color);
+  padding: 1.2em 1em;
+  width: 100%;
+  margin-bottom: 1.5em;
+
+  border-radius: 0.3em;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), -1px -1px 2px rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.Hr-YourOrder-Checkout {
+  width: 100%;
+  opacity: 0.5;
+}
+
+#Btn-YourOrder-Checkout {
+  border: none;
+  border-radius: 0.3em;
+  width: 100%;
+  background-color: var(--Primary-Color);
+  padding: 1em 0;
+  margin: 0.7em 0;
+}
+
+#Btn-YourOrder-Checkout:hover {
+  background-color: var(--Hover-Color);
+  font-weight: bold;
+}

@@ -1,0 +1,20 @@
+.Container-Checkout {
+  width: var(--Max-Width);
+  margin: 3em auto;
+}
+.Star-Checkout {
+  color: var(--Danger-Color);
+}
+
+.Wrapper-Checkout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.BeforeRegisteringCheckout {
+  width: 50%;
+  grid-column: 1 / span 2;
+}
+.Container-YourOrder-Checkout {
+  padding: 1.5em;
+}

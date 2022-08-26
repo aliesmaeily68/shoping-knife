@@ -1,0 +1,93 @@
+.Before-Registering {
+  margin: 1.5em 0;
+}
+
+.Before-Registering .Click-Before-Registering {
+  color: var(--Danger-Color);
+  cursor: pointer;
+}
+
+.Container-Form-Before-Registering {
+  width: 80%;
+  border-radius: 0.3em;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  margin-top: 2em;
+  height: 0;
+  opacity: 0;
+  padding: 0;
+  transition: all 0.7s;
+  overflow: hidden;
+}
+
+.Container-Form-Before-Registering-Active {
+  height: inherit;
+  opacity: 1;
+  padding: 2em;
+}
+
+.Star-Before-Registering {
+  color: var(--Danger-Color);
+}
+
+.Paragraph-Form-Before-Registering {
+  font-size: 0.9em;
+  opacity: 0.7;
+  line-height: 1.5em;
+  padding: 1em 0;
+}
+
+.UserNameOrEmail-Before-Registering,
+.Password-Before-Registering {
+  margin: 0.5em 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.UserNameOrEmail-Before-Registering label,
+.Password-Before-Registering label {
+  padding: 0.5em;
+}
+
+.UserNameOrEmail-Before-Registering input,
+.Password-Before-Registering input {
+  outline: none;
+  border-radius: 0.3em;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.Btn-Before-Registering {
+  border: none;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: var(--Primary-Color);
+  font-size: 1.1em;
+  padding: 0.5em 0;
+  border-radius: 0.3em;
+  margin: 0.5em 0;
+}
+
+.Btn-Before-Registering:hover {
+  background-color: var(--Hover-Color);
+}
+
+.Forget-RemembearMy-Before-Registering {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1em 0;
+}
+
+.RemembearMy-Before-Registering {
+  display: flex;
+  align-items: center;
+}
+
+.Checkbox-RemembearMy-Before-Registering {
+  cursor: pointer;
+  margin-left: 0.7em;
+}
+
+.Forget-Before-Registering {
+  cursor: pointer;
+  color: var(--Danger-Color);
+}

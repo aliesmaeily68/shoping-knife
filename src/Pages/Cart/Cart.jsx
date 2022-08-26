@@ -1,123 +1,66 @@
-import React from "react";
-import { AiOutlineClose } from "react-icons/ai";
-import { BsArrowLeft } from "react-icons/bs";
+import React, { useContext } from "react";
+import { BsCartX } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import BreadcrumbCheckoutCart from "../../Components/BreadcrumbCheckoutCart/BreadcrumbCheckoutCart";
+import TableProductCart from "../../Components/Cart/TableProductCart";
+
+import { AllProductContext } from "../../Contexts/ProductContext";
+
 import "./Cart.css";
 
 export default function Cart() {
+  const DataContext = useContext(AllProductContext);
+
   return (
     <>
-      <div className="Breadcrumb-Cart">
-        <div className="Container-Breadcrumb-Cart">
-          {" "}
-          <span>سبد خرید</span>
-          <span>
-            <BsArrowLeft />
-          </span>
-          <span>تسویه حساب</span>
-          <span>
-            <BsArrowLeft />
-          </span>
-          <span>تکمیل خرید</span>
+      <BreadcrumbCheckoutCart />
+
+      {!DataContext.userCart.length ? (
+        <div className="NotProduct-Cart">
+          <div className="Icon-NotProduct-Cart">
+            <BsCartX />
+          </div>
+          <div className="Description-NotProduct-Cart">
+            <span> سبد خرید شما در حال حاضر خالی است😔</span>
+          </div>
+          <Link to={"/product"}>
+            {" "}
+            <button className="Back-Product-Cart">بازگشت به فروشگاه</button>
+          </Link>
         </div>
-      </div>
-      <div className="Container-Cart">
-        <div className="Wrapper-Cart">
-          <div className="Total-Product-Cart">
-            <div className="Table-Product-Cart">
-              <table>
-                <thead>
-                  <tr>
-                    <th class="Product-Remove-Cart-th">&nbsp;</th>
-                    <th class="Product-Name-Thumbnail-Cart-th">محصول</th>
-                    <th class="Product-Price-Cart-th">قیمت</th>
-                    <th class="Product-Quantity-Cart-th">تعداد</th>
-                    <th class="Product-Subtotal-Cart-th">جمع جزء</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="Cart-Item">
-                    <td class="Product-Remove-Cart">
-                      <AiOutlineClose />
-                    </td>
-                    <td class="Product-Name-Thumbnail-Cart">
-                      <img src="./Image/0.jpeg" alt="" />
-                      <div className="Title-Cart">
-                        <span>چاقوی جوجه زن</span>
-                      </div>
-                    </td>
-                    <td class="Product-Price-Cart" data-title="قیمت">
-                      <span>15000 تومان</span>
-                    </td>
-                    <td class="Product-Quantity-Cart" data-title="تعداد">
-                      {" "}
-                      <div className="Cart-InsertToBagCart">
-                        <div className="Cart-increasOrdecreas-Product">
-                          <button
-                            className="Cart-increas"
-                            // onClick={IncreaseCounter}
-                          >
-                            +
-                          </button>
-                          <span>1</span>
-                          <button
-                            className="Cart-decreas"
-                            // onClick={DecreasCounter}
-                          >
-                            -
-                          </button>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="Product-Subtotal-Cart" data-title="جمع جزء">
-                      15000 تومان
-                    </td>
-                  </tr>
-
-                  <tr className="Cart-Item">
-                    <td class="Product-Remove-Cart">
-                      <AiOutlineClose />
-                    </td>
-                    <td class="Product-Name-Thumbnail-Cart">
-                      <img src="./Image/0.jpeg" alt="" />
-                      <div className="Title-Cart">
-                        <span>چاقوی جوجه زن</span>
-                      </div>
-                    </td>
-
-                    <td class="Product-Price-Cart" data-title="قیمت">
-                      <span>15000 تومان</span>
-                    </td>
-                    <td class="Product-Quantity-Cart" data-title="تعداد">
-                      {" "}
-                      <div className="Cart-InsertToBagCart">
-                        <div className="Cart-increasOrdecreas-Product">
-                          <button
-                            className="Cart-increas"
-                            // onClick={IncreaseCounter}
-                          >
-                            +
-                          </button>
-                          <span>1</span>
-                          <button
-                            className="Cart-decreas"
-                            // onClick={DecreasCounter}
-                          >
-                            -
-                          </button>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="Product-Subtotal-Cart" data-title="جمع جزء">
-                      15000 تومان
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+      ) : (
+        <div className="Container-Cart">
+          <div className="Wrapper-Cart">
+            <div className="Total-Product-Cart">
+              <TableProductCart />
+              <div className="Container-Total-Cart">
+                <div className="Wrapper-Total-Cart">
+                  <div className="Total-Cart">
+                    <span>جمع خرید</span>
+                    <span>{DataContext.total} تومان</span>
+                  </div>
+                  <div className="Discount-Cart">
+                    <span>جمع تخفیف</span>
+                    <span>0 تومان</span>
+                  </div>
+                  <div className="PostPrice-Cart">
+                    <span>هزینه ارسال </span>
+                    <span>رایگان</span>
+                  </div>
+                  <div className="AmountPayable-Cart">
+                    <span>مبلغ قابل پرداخت </span>
+                    <span>{DataContext.total} تومان</span>
+                  </div>
+                  <Link to={"/checkout"}>
+                    {" "}
+                    <button id="Total-Cart-Btn">ادامه جهت تسویه حساب</button>
+                  </Link>
+                </div>
+              </div>
             </div>
-            <div className="Total-Cart"></div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
