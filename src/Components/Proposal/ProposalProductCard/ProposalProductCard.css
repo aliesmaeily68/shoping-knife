@@ -1,13 +1,13 @@
 .Proposal-products-Card {
   width: 100%;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5em;
 }
 
 .Proposal-products-Card .Proposal-Product-Card {
-  width: 12.5em;
+  width: 100%;
   position: relative;
   padding: 2em 0;
   background-color: var(--White-Color);
@@ -97,4 +97,31 @@
 }
 .Proposal-Card-Product-Body .Proposal-Insert-Cart:hover {
   opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .Proposal-Price-Discount-Card,
+  .Proposal-MoreInfo-Product-Card,
+  .Proposal-Card-Product-Body .Proposal-Insert-Cart,
+  .Proposal-Product-Discount {
+    font-size: 0.7em;
+  }
+
+  .Proposal-Card-Product-Title,
+  .Proposal-Price-Product-Card .Proposal-Price-Card {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 768px) {
+  .Proposal-products-Card {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5em;
+  }
+}
+
+@media (max-width: 500px) {
+  .Proposal-products-Card {
+    grid-template-columns: 1fr;
+  }
 }

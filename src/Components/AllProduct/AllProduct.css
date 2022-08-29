@@ -1,7 +1,7 @@
 .All-Product {
   height: 100%;
-  /* background-color: var(--White-Color); */
-  margin: 3em;
+  width: 1500px;
+  margin: 3em auto;
 }
 
 .Product-Category-Title {
@@ -29,9 +29,10 @@
   background-color: var(--Dark-Color);
 }
 
-.products-Card {
+.Allproducts-Card {
   margin: 0 auto;
-  width: 80em;
+  width: 90%;
+  margin: 0 auto;
   cursor: pointer;
   display: grid;
   grid-template-columns: repeat(4, 1fr);

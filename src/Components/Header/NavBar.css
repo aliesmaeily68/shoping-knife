@@ -1,12 +1,12 @@
 .Main-NavBar {
-  width: 100%;
-
-  background-color: var(--Third-Color);
+  width: 1500px;
+  margin: 0 auto;
+  background-color: var(--Dark-Color);
 }
 
 .Container-NavBar {
   width: var(--Max-Width);
-  margin: 0 auto;
+  margin: 0 auto !important;
 }
 
 .Wrapper-NavBar {
@@ -22,5 +22,9 @@
 @media (max-width: 1024px) {
   .Main-NavBar {
     display: none;
+  }
+  .Main-NavBar {
+    width: 100%;
+ 
   }
 }

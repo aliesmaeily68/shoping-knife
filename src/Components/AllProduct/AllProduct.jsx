@@ -19,7 +19,7 @@ export default function AllProduct() {
                 <div className="Br-CategoryTitle"></div>
               </div>
 
-              <div className="products-Card">
+              <div className="Allproducts-Card">
                 {product.Info.map((data) =>
                   data.MainInfo.map((product) => (
                     <ProductCard {...product} />

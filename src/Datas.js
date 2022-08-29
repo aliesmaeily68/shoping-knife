@@ -1,7 +1,7 @@
 
 let AllProduct = [
     {
-        MainCategory: { id: 1, title: 'چاقوی زنجان', imgName: '1.png' },
+        MainCategory: { id: 1, title: 'چاقوی زنجان', imgName: '1.png',imgName2:'چاقوی کلکسیونی دوتیغه.png' },
         Info: [
             {
                 CategoryTitle: 'چاقوی آشپزخانه',
@@ -31,7 +31,7 @@ let AllProduct = [
     },
 
     {
-        MainCategory: { id: 2, title: 'مس زنجان', imgName: '35.png' },
+        MainCategory: { id: 2, title: 'مس زنجان', imgName: 'لیوان مسی دسته دار.png',imgName2:'لیوان مسی دسته دار.png'  },
         Info: [
             {
                 CategoryTitle: 'لوازم آشپزخانه',
@@ -57,7 +57,7 @@ let AllProduct = [
 
 
     {
-        MainCategory: { id: 3, title: 'میناکاری ', imgName: '34.png' },
+        MainCategory: { id: 3, title: 'میناکاری ', imgName: 'آجیل خوری مینا کاری.png',imgName2:'آجیل خوری مینا کاری.png'  },
         Info: [
             {
                 CategoryTitle: 'لوازم تزئینی ',

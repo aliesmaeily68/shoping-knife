@@ -4,17 +4,16 @@
 }
 .Border-Proposal-Card{
   position: absolute;
-  top: .5em;
+  top: .25em;
   left: .5em;
   z-index: 999;
   border: 2px solid rgba(0, 0, 0, .05);
   border-radius: .3em;
-  width: 10em;
-  height: 5em;
+  width: 90%;
+  height: 90%;
 }
 
 .Container-Proposal-Product-Category {
-  width: 11em;
   height: 6em;
   background-color: rgb(240, 239, 239);
   border-radius: 0.7em;
@@ -60,4 +59,28 @@
   top:1em ;
   width: 90%;
   height: 90%;
+}
+
+@media (max-width: 1024px){
+  .Container-Proposal-Product-Category{
+    height: 8em;
+  }
+  
+}
+@media (max-width: 768px){
+  .Container-Proposal-Product-Category{
+    height: 11em;
+  }
+
+  .Proposal-Product-Category-Text {
+    grid-column: 4 / span 5;
+    font-size: 2em;
+  }
+
+  .Proposal-Product-Category-Btn {
+    grid-column: 5 / span 3;
+   font-size: 1.5em;
+  
+  }
+  
 }

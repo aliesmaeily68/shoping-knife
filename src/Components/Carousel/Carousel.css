@@ -1,32 +1,131 @@
 .Container-Carousel {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: 4em 0 2em 0;
+  width: 1500px;
+  margin: 3em auto;
 }
 
-
-
+.Home-Carousel {
+  width: 75%;
+  height: 18em;
+  margin: 0 auto;
+}
 .Img-Carousel {
-  height: 17em !important;
-  border-radius: 3em;
+  height: 16em !important;
+  margin-right: 30em;
 }
 
-.Carousei-Cart {
-    position: absolute;
-  font-size: 1.1em;
-  background-color: darkblue;
-  color: var(--White-Color);
-  padding: .6em 1em ;
+
+.Carousel-Btn {
+  position: absolute;
+  background-color: var(--Primary-Color);
+  padding: 0.6em 1em;
   border: none;
-  border-radius: .3em;
-  right: -5em;
-  bottom: 0;
-
+  border-radius: 3em;
+  right: -2em;
+  bottom: 1em;
+  border: 3px solid var(--Dark-Color);
+  transition: all 0.5s;
 }
- .ali{
-    font-size: 2em;
-    color: red;
-    font-weight: bold;
-    text-align: start;
- }
+
+.Carousel-Btn:hover {
+  background-color: var(--White-Color);
+  border: 3px solid var(--Hover-Color);
+}
+
+.Carousel-Title {
+  position: absolute;
+  font-size: 1.8em;
+  font-weight: bold;
+  right: -1em;
+  bottom: 5em;
+}
+
+.Carousel-Paragraph {
+  position: absolute;
+  right: -2em;
+  bottom: 5.5em;
+}
+
+@media (max-width: 1024px) {
+  .Container-Carousel {
+    width: 100%;
+  
+  }
+  .Home-Carousel {
+    width: 90%;
+  }
+
+  .Img-Carousel {
+    margin-right: 25em;
+    height: 16em !important;
+  }
+}
+
+@media (max-width: 832px) {
+  .Home-Carousel {
+    width: 100%;
+    height: 15em;
+  }
+
+  .Img-Carousel {
+    margin: 2em 22em 0 0;
+    height: 11em !important;
+  }
+
+  .Carousel-Title {
+    font-size: 1.5em;
+    font-weight: 600;
+    bottom: 5em;
+  }
+
+  .Carousel-Paragraph {
+    font-size: 0.9em;
+    font-weight: 400;
+    bottom: 5em;
+  }
+
+  .Carousel-Btn {
+    right: 0;
+    bottom: 0em;
+  }
+}
+@media (max-width: 630px){
+  .Img-Carousel {
+    margin: 2em 16em 0 0;
+  }
+}
+@media (max-width: 500px) {
+  .Container-Carousel {
+    margin:1.5em 0 !important;
+  }
+
+  .Home-Carousel {
+    height: 12em;
+  }
+
+  .Img-Carousel {
+    margin: 1em 13em 0 0;
+    height: 7em !important;
+  }
+
+  .Carousel-Title {
+    font-size: 0.9em;
+    font-weight: 500;
+    right: -1em;
+    bottom: -1em;
+  }
+
+  .Carousel-Paragraph {
+    display: none;
+  }
+
+  .Carousel-Btn {
+    font-size: 0.8em;
+    right: 0;
+    bottom: 2em;
+  }
+}
+@media (max-width: 376px){
+  .Img-Carousel {
+    margin: 1em 10em 0 0;
+  }
+}

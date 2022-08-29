@@ -1,5 +1,12 @@
 .Main-Footer {
   background-color: var(--Dark-Color);
   color: var(--Text-Light-Color);
-  width: 100%;
+  width:1500px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px){
+  .Main-Footer {
+    width:100%;
+  }
 }

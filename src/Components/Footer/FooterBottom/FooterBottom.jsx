@@ -8,12 +8,10 @@ export default function FooterBottom() {
     <>
       {/* /////////////for media>1024///// */}
       <div className="Footer-Bottom">
-        <Container>
-          <hr />
-          <p className="FooterBottom-Paragraph">
-            طراحی شده توسط علی اسمعیلی و رویا تاران{" "}
-          </p>
-        </Container>
+        <hr />
+        <p className="FooterBottom-Paragraph">
+          طراحی شده توسط علی اسمعیلی و رویا تاران{" "}
+        </p>
       </div>
 
       {/* /////////////for media<1024///// */}

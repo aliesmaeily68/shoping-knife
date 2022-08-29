@@ -1,19 +1,90 @@
-
-.KnifesProduct-Category-Title-Br{
+.KnifesProduct-Category-Title-Br {
   display: flex;
   align-items: center;
-  margin-bottom:1em ;
-  padding: 2em ;
+  margin-bottom: 1em;
+  padding: 2em;
 }
 
-.KnifesProduct-Category-Title{
+.KnifesProduct-Category-Title {
   font-size: 1.5em;
-  margin: 0 2em 0 .7em;
-  text-shadow: .1em .1em 1em #000;
+  font-weight: bold;
+  margin: 0 2em 0 0.7em;
+  text-shadow: 0.1em 0.1em 1em #000;
 }
 
-.KnifesProduct-Category-Br{
+.KnifesProduct-Category-Br {
   width: 65%;
   height: 1.5px;
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.products-Card {
+  margin: 0 auto;
+  width: 90%;
+  margin: 1em auto !important;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  row-gap: 2em;
+}
+
+@media (max-width: 1024px) {
+  .KnifesProduct-Category-Br {
+    display: none;
+  }
+  .KnifesProduct-Category-Title {
+    margin: 0 auto !important;
+  }
+  .All-Product {
+    width: 100% !important;
+    margin: 1em auto !important;
+  }
+ 
+
+  .products-Card {
+    width:90%;
+    gap: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  
+  .All-Product {
+    width: 85%;
+  }
+
+  .products-Card {
+    width: 80%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5em;
+  }
+}
+
+@media (max-width: 500px) {
+  .KnifesProduct-Category-Title {
+    font-size: 1.1em;
+  }
+
+  .products-Card {
+    /* width: 100%;//// */
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 1.5em;
+  }
+
+}
+
+@media (max-width: 380px) {
+  .KnifesProduct-Category-Title {
+    font-size: 1em;
+  }
+
+  .All-Product {
+    width: 95%;
+  }
+
+  .products-Card {
+    width: 95%;
+    row-gap: 0.5em;
+  }
 }

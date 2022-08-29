@@ -1,0 +1,23 @@
+[33mcommit db5ffe991f4ebe7c249ab3490e918ce3c8565cea[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: allisan <ali.61111@gmail.com>
+Date:   Fri Aug 26 23:37:28 2022 +0430
+
+    completing the page cart
+
+[33mcommit e2def41c4112064432bc743379861dba5de911e1[m
+Author: allisan <ali.61111@gmail.com>
+Date:   Thu Aug 25 15:33:59 2022 +0430
+
+    creat Cart Component and updating product text and discreption &comments products component
+
+[33mcommit ddae2aeadea26b7e74dee5d6e02551fbf4395054[m
+Author: allisan <ali.61111@gmail.com>
+Date:   Sat Aug 20 16:54:43 2022 +0430
+
+    change knifeProduct and All Product component whiht creating productCart
+
+[33mcommit 3b5118217f19f745f2a8d3aec0edb944ba9fa716[m
+Author: allisan <ali.61111@gmail.com>
+Date:   Fri Aug 19 12:50:56 2022 +0430
+
+    creat logic cod for bag cart & creat product cart for shoping ,home

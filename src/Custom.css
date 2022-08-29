@@ -140,11 +140,11 @@ a ,a:hover {
 :root {
   --Primary-Color: rgb(234, 181, 67);
   --Secondary-Color: rgb(252, 250, 248);
-  --Third-Color: #001219;
+  --Third-Color: #272626;
   --Hover-Color: #f9af26;
   --Text-Color: #001219;
   --Text-Light-Color: #ffffff;
-  --Dark-Color: #000;
+  --Dark-Color: #272626;
   --White-Color: #ffffff;
   --Danger-Color:#fc3535;
   --Danger-Hover-Color:#ff0000;

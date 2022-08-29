@@ -94,3 +94,14 @@
 .Card-Product-Body .Insert-Cart:hover {
   background-color: var(--Hover-Color);
 }
+@media (max-width: 1024px){
+  .Product-Card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px){
+  .Product-Card {
+    box-shadow: 0.1em 0.1em .1em rgba(0, 0, 0, 0.2),-0.1em -0.1em .1em rgba(0, 0, 0, 0.2);
+  }
+}

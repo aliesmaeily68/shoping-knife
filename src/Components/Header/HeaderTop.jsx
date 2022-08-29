@@ -41,7 +41,7 @@ export default function HeaderTop() {
           </div>
           <div className="ShopingBag-HeaderTop-M1024">
             <BsCart2  onClick={()=>DataContext.setShowCartBag(true)}/>
-            <span>0</span>
+            <span>{DataContext.cartConter}</span>
           </div>
         </div>
         <FixeHeader />

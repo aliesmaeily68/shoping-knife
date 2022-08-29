@@ -21,6 +21,7 @@ export default function Proposal() {
               </div>
             </div>
           </div>
+          
           <div style={{ height: "100px", overflow: "hidden" }}>
             <svg
               viewBox="0 0 500 150"

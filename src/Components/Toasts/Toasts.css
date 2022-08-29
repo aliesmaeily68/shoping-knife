@@ -7,3 +7,9 @@
   text-align: center;
   z-index: 99999;
 }
+@media (max-width: 1024px){
+  .MainToasts{
+    top: 0;
+    right:0;
+  }
+}

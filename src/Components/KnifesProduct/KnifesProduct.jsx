@@ -15,10 +15,10 @@ export default function KnifesProduct() {
           <div className="products-wrapper">
             <div className="KnifesProduct-Category-Title-Br">
               {" "}
-              <h2 className="KnifesProduct-Category-Title">
+              <h1 className="KnifesProduct-Category-Title">
                 {" "}
                 نمونه های برتر چاقوی زنجان{" "}
-              </h2>
+              </h1>
               <div className="KnifesProduct-Category-Br"></div>
             </div>
 

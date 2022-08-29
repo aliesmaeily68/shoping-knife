@@ -1,59 +1,42 @@
+import { useContext } from "react";
 import Carousel from "react-bootstrap/Carousel";
+import { AllProductContext } from "../../Contexts/ProductContext";
+import { Link } from "react-router-dom";
 import "./Carousel.css";
 
 function CarouselImage() {
+  const DataContext = useContext(AllProductContext);
+
   return (
     <>
       <div className="Container-Carousel">
-        <Carousel variant="dark" className="w-50  rounded-pill">
-          <Carousel.Item className="bg-transparent">
-            <img
-              className="d-block Img-Carousel  w-100"
-              src="./Image/35.png"
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              {/* <button className="Carousei-Cart">مشاهده محصولات</button> */}
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item className="bg-transparent">
-            <img
-              className="d-block Img-Carousel  w-100"
-              src="./Image/36.jpg"
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              {/* <button className="Carousei-Cart">مشاهده محصولات</button> */}
-            </Carousel.Caption>
-          </Carousel.Item>
-
-          <Carousel.Item className="bg-transparent">
-            <img
-              className="d-block Img-Carousel  w-100"
-              src="./Image/33.png"
-              alt="Second slide"
-            />
-            <Carousel.Caption>
-            {/* <button className="Carousei-Cart">مشاهده محصولات</button>
-              <h5>مینا کاری زنجان</h5>
-              <p className="ali">تزئینات متفاوت از صنایع دستی زنجان .</p> */}
-            </Carousel.Caption>
-          </Carousel.Item>
-
-          <Carousel.Item className="bg-transparent">
-            <img
-              className="d-block Img-Carousel  w-100"
-              src="./Image/34.png"
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-            {/* <button className="Carousei-Cart">مشاهده محصولات</button>
-              <h5>Third slide label</h5>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p> */}
-            </Carousel.Caption>
-          </Carousel.Item>
+        <Carousel className=" Home-Carousel rounded-3 bg-dark ">
+          {DataContext.products[0].map((product) => (
+            <Carousel.Item className="bg-transparent Img-Carousel1" key={product.id}>
+              <Link to={`/product/${product.MainCategory.title}`}>
+                <img
+                  className="d-block Img-Carousel  w-50"
+                  src={`./Image/${product.MainCategory.imgName2}`}
+                  alt="First slide"
+                />
+              </Link>
+              <Carousel.Caption>
+                <Link to={`/product/${product.MainCategory.title}`}>
+                  <h2 className="Carousel-Title">
+                    ارسال سریع به سراسر ایران !
+                  </h2>
+                </Link>
+                <Link to={`/product/${product.MainCategory.title}`}>
+                  <p className="Carousel-Paragraph">
+                    ارسال سریع و رایگان برای خریدهای بالای 5 میلیون 
+                  </p>
+                </Link>
+                <Link to={`/product/${product.MainCategory.title}`}>
+                  <button className="Carousel-Btn">خرید کن ! </button>
+                </Link>
+              </Carousel.Caption>
+            </Carousel.Item>
+          ))}
         </Carousel>
       </div>
     </>

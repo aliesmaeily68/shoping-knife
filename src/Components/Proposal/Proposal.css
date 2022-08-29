@@ -1,5 +1,6 @@
 .Container-Proposal-Category {
-  margin: 5em 0;
+  width: 1500px;
+  margin: 5em auto;
 }
 
 .Proposal-Category {
@@ -10,6 +11,7 @@
 }
 .Proposal {
   width: 100%;
+  margin: 0 auto;
   height: 25em;
   background-color: var(--Dark-Color);
 }
@@ -86,4 +88,215 @@
   height: 1.5px;
   background-color: var(--Dark-Color);
   opacity: 0.1;
+}
+
+@media (max-width: 1024px) {
+  .Container-Proposal-Category {
+    width: 100% !important;
+  }
+
+  .Proposal-Category {
+    height: 37em;
+  }
+
+  .Proposal {
+    height: 22em;
+  }
+
+  .Proposal-Wrapper {
+    width: 95%;
+  }
+  .Proposal-text {
+    font-size: 1.2em;
+  }
+
+  .Proposal-btn {
+    font-size: 0.8em;
+  }
+
+  .Proposal-Products {
+    height: 20em;
+  }
+  .Proposal-Product-Category {
+    width: 75%;
+    transform: scale(1.2);
+    margin: 0 auto;
+    height: 8em;
+  }
+
+  .Proposal-Product-Category-Title {
+    margin-bottom: 1em;
+  }
+
+  .Br-Proposal-Product-Category-Title {
+    width: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .Container-Proposal-Category {
+    margin-bottom: 35em;
+  }
+  .Proposal-Wrapper {
+    flex-direction: column;
+  }
+  .Proposal-text-btn {
+    margin-bottom: 3em ;
+    grid-template-columns:  1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .Proposal-text {
+    grid-column: 1 / span 8;
+    text-align: center;
+  }
+
+  .Proposal-btn {
+   display: none;
+  }
+
+  .Proposal-Category {
+    height: 80em;
+  }
+
+  .Proposal {
+    height: 65em;
+  }
+  .Proposal-Product-Category {
+    grid-template-columns: 1fr;
+    width: 50%;
+  }
+
+  .Proposal-Product-Category-Title {
+    width: 50%;
+    margin: 1.5em auto;
+  }
+  .Proposal-Product-Category-Title h2 {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .Br-Proposal-Product-Category-Title {
+    display: none;
+  }
+}
+@media (max-width: 650px){
+  .Proposal-Category {
+    height: 75em;
+  }
+
+  .Proposal {
+    height: 60em;
+  }
+}
+@media (max-width: 500px) {
+  .Container-Proposal-Category {
+    margin-bottom: 37em;
+    margin-top: 0;
+  }
+
+  .Proposal-Wrapper {
+    flex-direction: column;
+  }
+  .Proposal-text-btn {
+    margin-bottom: 3em ;
+    grid-template-columns:  1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .Proposal-text {
+    grid-column: 1 / span 8;
+    text-align: center;
+  }
+
+  .Proposal-btn {
+   display: none;
+  }
+
+  .Proposal-Category {
+    height: 155em;
+  }
+
+  .Proposal {
+    height: 145em;
+  }
+  .Proposal-Product-Category{
+    grid-template-columns: 1fr;
+    width: 75%;
+  }
+
+  .Proposal-Product-Category-Title {
+    width: 100%;
+   margin: 0 auto;
+   margin-bottom: 1.5em;
+  }
+  .Proposal-Product-Category-Title h2 {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .Br-Proposal-Product-Category-Title {
+    display: none;
+  }
+}
+@media (max-width: 475px){
+  .Proposal-Category {
+    height: 152em;
+  }
+
+  .Proposal {
+    height: 142em;
+  }
+}
+@media (max-width: 450px){
+  .Proposal-Category {
+    height: 148em;
+  }
+
+  .Proposal {
+    height: 138em;
+  }
+}
+@media (max-width: 425px){
+  .Proposal-Category {
+    height: 144em;
+  }
+
+  .Proposal {
+    height: 134em;
+  }
+}
+@media (max-width: 400px){
+  .Proposal-Category {
+    height: 140em;
+  }
+
+  .Proposal {
+    height: 130em;
+  }
+}
+@media (max-width: 375px){
+  .Proposal-Category {
+    height: 136em;
+  }
+
+  .Proposal {
+    height: 126em;
+  }
+}
+@media (max-width: 350px){
+  .Proposal-Category {
+    height: 131em;
+  }
+
+  .Proposal {
+    height: 122em;
+  }
+}
+@media (max-width: 325px){
+  .Proposal-Category {
+    height: 127em;
+  }
+
+  .Proposal {
+    height: 118em;
+  }
 }
