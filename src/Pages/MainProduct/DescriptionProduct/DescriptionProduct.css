@@ -1,7 +1,12 @@
 .DescriptionProduct{
-    width: var(--Max-Width);
+    width:1500px;
     margin: 0 auto;
     padding: 1em 3em ;
+}
+
+.Wrapper-DescriptionProduct{
+    width: var(--Max-Width);
+    margin: 0 auto;
 }
 
 .DescriptionProduct h1{
@@ -18,4 +23,17 @@
 .DescriptionProduct p{
     text-align: justify;
     line-height: 2em;
+}
+
+@media (max-width: 1024px) {
+    .DescriptionProduct{
+        width:100%;
+        margin: 0 auto;
+        padding: 1em 3em ;
+    }
+    
+    .Wrapper-DescriptionProduct{
+        width: 100%;
+        margin: 0 auto;
+    }
 }

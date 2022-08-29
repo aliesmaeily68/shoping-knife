@@ -68,8 +68,8 @@ export default function CommentsProduct() {
                   <textarea
                     name="YourViewPoint"
                     id="YourViewPoint"
-                    cols="70"
-                    rows="7"
+                    cols="10"
+                    rows="1"
                   ></textarea>
                 </div>
               </div>

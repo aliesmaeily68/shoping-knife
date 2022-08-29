@@ -1,12 +1,14 @@
 .CommentsProduct-Container {
-  width: var(--Max-Width);
+  width: 1500px;
   margin: 0 auto;
   background-color: var(--Secondary-Color);
 }
 
 .CommentsProduct-Wrapper {
+  width: var(--Max-Width);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  margin: 0 auto;
 }
 
 .CommentsProduct-Star {
@@ -17,6 +19,7 @@
   padding: 2em;
   display: flex;
   justify-content: space-between;
+  align-items: start;
 }
 
 .Insert-CommentsProduct {
@@ -53,6 +56,16 @@
   width: 49%;
 }
 
+.CommentsProduct-Name input,
+.CommentsProduct-Email input,
+#YourViewPoint {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+#YourViewPoint {
+  width: 100%;
+  height: 10em;
+}
+
 .CommentsProduct-CheckBox {
   margin: 0.5em 0;
   display: flex;
@@ -74,4 +87,63 @@
   padding: 0.3em 1em;
   border-radius: 0.3em;
   margin: 2em 0;
+}
+
+@media (max-width: 1024px) {
+  .CommentsProduct-Container {
+    width: 100%;
+  }
+
+  .CommentsProduct-Wrapper {
+    width: 100%;
+  }
+
+  .CommentsProducts {
+    margin-top: 2em;
+    padding: 0.5em;
+    justify-content: space-around;
+  }
+
+  .CommentsProducts h2 {
+    font-size: 0.7em;
+  }
+
+  .CommentsProducts span {
+    font-size: 0.6em;
+  }
+}
+
+@media (max-width: 768px) {
+  .CommentsProduct-Wrapper {
+    grid-template-columns: 1fr;
+  }
+  .CommentsProducts {
+    padding: 2em 0;
+  }
+
+  .CommentsProducts h2,
+  .CommentsProducts span {
+    font-size: 0.9em;
+  }
+  .Insert-CommentsProduct {
+    padding: 0;
+  }
+  .CommentsProduct-CheckBox input {
+    margin: 0;
+  }
+  .CommentsProduct-CheckBox span {
+    font-size: 0.7em;
+  }
+}
+@media (max-width: 425px) {
+  .CommentsProducts h2,
+  .CommentsProducts span {
+    font-size: 0.7em;
+  }
+  .CommentsProduct-Name-Email {
+    flex-direction: column;
+  }
+  .CommentsProduct-CheckBox span {
+    font-size: 0.5em;
+  }
 }
