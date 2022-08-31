@@ -21,9 +21,6 @@ export default function NavBarMenu() {
         <NavLink to={"/article"}>
           <li className="List-NavBar-Menu">مقالات  </li>
         </NavLink>
-        <NavLink to={"/conditions"}>
-          <li className="List-NavBar-Menu"> قوانین و مقررات </li>
-        </NavLink>
         <NavLink to={"/contact"}>
           <li className="List-NavBar-Menu">تماس با ما</li>
         </NavLink>

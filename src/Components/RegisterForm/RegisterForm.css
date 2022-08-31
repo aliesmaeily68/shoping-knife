@@ -1,0 +1,45 @@
+.Wrapper-RegisterForm {
+    padding: 1em;
+  }
+  
+  .Name-RegisterForm,
+  .Email-RegisterForm,
+  .password-RegisterForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .Star-RegisterForm {
+    color: var(--Danger-Color);
+  }
+  
+  .Email-RegisterForm label,
+  .Name-RegisterForm label,
+  .password-RegisterForm label {
+    padding: 1em 0;
+  }
+  .Email-RegisterForm input,
+  .Name-RegisterForm input,
+  .password-RegisterForm input {
+    border-radius: 0.3em;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0.2em 0;
+  }
+  
+  .Submit-RegisterForm {
+    border: none;
+    background-color: var(--Primary-Color);
+    width: 100%;
+    padding: 0.5em 0;
+    font-size: 1.2em;
+    margin: 2em 0;
+    border-radius: 0.3em;
+  }
+  
+  .Submit-RegisterForm:hover {
+    background-color: var(--Hover-Color);
+  }
+  
+
+  

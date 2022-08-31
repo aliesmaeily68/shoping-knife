@@ -1,26 +1,44 @@
 .Breadcrumb-Cart-Checkout {
-    background-color: rgb(237, 238, 239);
-    line-height: 5em;
-    height: 5em;
+  width: 1500px;
+  background-color: rgb(237, 238, 239);
+  line-height: 5em;
+  height: 5em;
+}
+
+.Container-Breadcrumb-Cart-Checkout {
+  width: var(--Max-Width);
+  margin: 0 auto;
+}
+
+.Container-Breadcrumb-Cart-Checkout span {
+  font-size: 1.2em;
+  margin: 0 0.3em;
+  opacity: 0.7;
+}
+
+#Container-Breadcrumb-Cart-Checkout {
+  opacity: 1;
+  cursor: pointer;
+}
+
+#Container-Breadcrumb-Checkout:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+@media (max-width: 1024px) {
+  .Breadcrumb-Cart-Checkout {
+    width: 100%;
   }
-  
   .Container-Breadcrumb-Cart-Checkout {
-    width: var(--Max-Width);
-    margin: 0 auto;
+    width: 80%;
   }
-  
   .Container-Breadcrumb-Cart-Checkout span {
-    font-size: 1.2em;
-    margin: 0 0.3em;
-    opacity: 0.7;
+    font-size: 1em;
   }
-  
-  #Container-Breadcrumb-Cart-Checkout {
-    opacity: 1;
-    cursor: pointer;
+}
+@media (max-width: 500px) {
+
+  .Container-Breadcrumb-Cart-Checkout span {
+    font-size: .7em;
   }
-  
-  #Container-Breadcrumb-Checkout:hover {
-    opacity: 1;
-    cursor: pointer;
-  }
+}

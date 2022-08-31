@@ -1,8 +1,7 @@
-
-.Title-Edit-Invoice-Checkout h1{
-    font-size: 1.3em;
-    font-weight: bold;
-    padding: 1em 0;
+.Title-Edit-Invoice-Checkout h1 {
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 1em 0;
 }
 
 .FirstName-LastName-Form-Checkout {
@@ -78,20 +77,30 @@
   font-size: 0.8em;
 }
 
-.UserName-Password-Checkout{
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    padding: 2em;
-    border-radius: .3em;
-    margin: 1.5em 0;
+.UserName-Password-Checkout {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 2em;
+  border-radius: 0.3em;
+  margin: 1.5em 0;
 }
 
-.MoreInfo-Checkout h2{
-    font-size: 1.2em;
-    font-weight: bold;
-    margin: 1em 0;
+.MoreInfo-Checkout h2 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 1em 0;
 }
 
-#MoreInfo::placeholder{
-    padding: 1em .5em;
-    font-size: .9em;
+#MoreInfo::placeholder {
+  padding: 1em 0.5em;
+  font-size: 0.9em;
+}
+
+@media (max-width: 425px) {
+  .FirstName-LastName-Form-Checkout {
+    flex-direction: column;
+  }
+  .FirstName-Form-Checkout,
+  .LastName-Form-Checkout {
+    width: 100%;
+  }
 }

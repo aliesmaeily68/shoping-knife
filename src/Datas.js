@@ -109,4 +109,27 @@ ProposalProducts.map(products => {
     products.AllProposalProduct.map(product => FullProduct.push(product))
 })
 
-export { AllProduct, ProposalProducts, FullProduct }
+const ContactAnswerQuestionData=[
+    {
+        id:1,
+        answer:'لورم ایپسوم متن ساختگی برای ایجاد (1)',
+        question:'لورم ایپسوم متن ساختگی برای ایجاد  لورم ایپسوم متن ساختگی برای ایجاد (1)'
+    },
+    {
+        id:2,
+        answer:'لورم ایپسوم متن ساختگی برای ایجاد (2)',
+        question:'لورم ایپسوم متن ساختگی برای ایجاد  لورم ایپسوم متن ساختگی برای ایجاد (2)'
+    },
+    {
+        id:3,
+        answer:'لورم ایپسوم متن ساختگی برای ایجاد (3)',
+        question:'لورم ایپسوم متن ساختگی برای ایجاد  لورم ایپسوم متن ساختگی برای ایجاد (3)'
+    },
+    {
+        id:4,
+        answer:'لورم ایپسوم متن ساختگی برای ایجاد (4)',
+        question:'لورم ایپسوم متن ساختگی برای ایجاد  لورم ایپسوم متن ساختگی برای ایجاد (4)'
+    },
+]
+
+export { AllProduct, ProposalProducts, FullProduct,ContactAnswerQuestionData }

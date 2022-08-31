@@ -4,6 +4,7 @@ import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer'
 import route from './routes'
 import BagCart from './Components/BagCart/BagCart'
+import LoginSidebar from "./Components/LoginSidebar/LoginSidebar";
 import { ProductsProvider } from './Contexts/ProductContext'
 import { ProposalProductsProvider } from "./Contexts/ProposalProductContext";
 import Toasts from "./Components/Toasts/Toasts";
@@ -16,6 +17,7 @@ export default function App() {
     <ProductsProvider>
       <ProposalProductsProvider>
         <BagCart />
+        <LoginSidebar />
         <Toasts />
         <Header />
         {routes}

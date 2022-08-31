@@ -1,0 +1,57 @@
+.Wrapper-LoginRegister {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.Container-LoginRegister-LoginForm,
+.Container-LoginRegister-RegisterForm {
+  padding: 0 6em;
+  margin: 6em 0;
+}
+
+.Container-LoginRegister-RegisterForm {
+  border-right: 1.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.Wrapper-LoginRegister-RegisterForm h2,
+.Wrapper-LoginRegister-LoginForm h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 1.5em;
+}
+
+@media (max-width: 1024px) {
+  .Container-LoginRegister-LoginForm,
+  .Container-LoginRegister-RegisterForm {
+    padding: 0 3em;
+    margin: 3em 0;
+  }
+}
+@media (max-width: 768px) {
+  .Container-LoginRegister-LoginForm,
+  .Container-LoginRegister-RegisterForm {
+    padding: 0 7em;
+    margin: 1em 0;
+  }
+
+  .Wrapper-LoginRegister {
+    grid-template-columns: 1fr;
+  }
+
+  .Container-LoginRegister-RegisterForm {
+    border-right:none;
+  }
+
+  .Wrapper-LoginRegister-RegisterForm h2,
+  .Wrapper-LoginRegister-LoginForm h2 {
+    padding: 0.5em;
+  }
+}
+
+@media (max-width: 550px) {
+  .Container-LoginRegister-LoginForm,
+  .Container-LoginRegister-RegisterForm {
+    padding: 0 1em;
+  }
+}

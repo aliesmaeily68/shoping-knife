@@ -1,5 +1,5 @@
 .Container-Checkout {
-  width: var(--Max-Width);
+  width: 1500px;
   margin: 3em auto;
 }
 .Star-Checkout {
@@ -17,4 +17,21 @@
 }
 .Container-YourOrder-Checkout {
   padding: 1.5em;
+}
+@media (max-width :1024px){
+  .Container-Checkout {
+    width: 100%;
+  }
+}
+@media (max-width :768px){
+  .Container-Checkout {
+    margin-bottom: 0 ;
+  }
+  .BeforeRegisteringCheckout {
+    width: 100%;
+    grid-column: 1 / span 1;
+  }
+  .Wrapper-Checkout {
+    grid-template-columns: 1fr;
+  }
 }

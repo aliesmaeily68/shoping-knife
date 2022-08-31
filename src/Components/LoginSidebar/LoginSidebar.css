@@ -1,0 +1,56 @@
+.Container-LoginSidebar{
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 320px;
+    height: 100vh;
+    z-index: 9999;
+    background-color: var(--Secondary-Color);
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .8s;
+}
+
+.Show-LoginSidebar{
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+    filter: drop-shadow(15px 0 25px #000);
+}
+
+.Title-Close-LoginSidebar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: var(--Secondary-Color);
+   z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4em;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+}
+
+.Title-LoginSidebar{
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-right: 1.5em;
+}
+
+.Close-LoginSidebar{
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: 1.5em;
+}
+
+.Close-LoginSidebar:hover{
+    color: var(--Danger-Color);
+}
+
+.Br-LoginSidebar{
+    width: 90%;
+    margin: 0 auto;
+    height: 1.5px;
+    background-color: rgba(0,0,0,.1);
+}

@@ -1,0 +1,61 @@
+.Breadcrumb-Contact {
+  width: 1500px;
+  background-color: rgb(237, 238, 239);
+  line-height: 5em;
+  height: 5em;
+}
+
+.Container-Breadcrumb-Contact {
+  width: var(--Max-Width);
+  margin: 0 auto;
+}
+
+.Container-Breadcrumb-Contact span {
+  font-size: 1.2em;
+  margin: 0 0.3em;
+  opacity: 0.7;
+}
+
+#Breadcrumb-Contact-Home {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.Container-Contact {
+  width: 1500px;
+}
+
+.Wrapper-Contact {
+  width: var(--Max-Width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .Breadcrumb-Contact {
+    width: 100%;
+  }
+  .Container-Breadcrumb-Contact {
+    width: 80%;
+  }
+  .Container-Breadcrumb-Contact span {
+    font-size: 1em;
+  }
+  .Container-Contact {
+    width: 100%;
+  }
+
+  .Wrapper-Contact {
+    width: 100%;
+  }
+}
+@media (max-width: 650px) {
+  .Container-Breadcrumb-Contact span {
+    font-size: 0.7em;
+  }
+
+  .Wrapper-Contact {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,7 +1,7 @@
 import Home from './Pages/Home/Home'
 import About from './Pages/About/About'
 import Favorites from './Pages/Favorites/Favorites'
-import Login from './Pages/Login/Login'
+import LoginRegister from './Pages/LoginRegister/LoginRegister' 
 import MainProduct from './Pages/MainProduct/MainProduct'
 import Notfound from './Pages/Notfound/Notfound'
 import Product from './Pages/Product/Product'
@@ -20,7 +20,7 @@ let routes = [
     { path: '/', element: <Home /> },
     { path: '/about', element: <About /> },
     { path: '/favorites', element: <Favorites /> },
-    { path: '/login', element: <Login /> },
+    { path: '/login-register', element: <LoginRegister /> },
     { path: '/*', element: <Notfound /> },
     { path: '/product', element: <Product /> },
     { path: '/product/:productTitle/*', element: <MainProduct />,children:[

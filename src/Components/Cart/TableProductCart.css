@@ -1,5 +1,5 @@
-.Total-Product-Cart {
-  display: flex;
+.Table-Product-Cart {
+  flex: 2;
 }
 
 .Cart-Item {
@@ -37,9 +37,6 @@
   padding: 1.5em 0;
 }
 
-.Table-Product-Cart {
-  flex: 2;
-}
 .Table-Product-Cart table thead {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -127,4 +124,54 @@
 
 #DisCountCode-Cart-Btn:hover {
   background-color: var(--Hover-Color);
+}
+
+@media (max-width: 1024px) {
+  .Table-Product-Cart {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  .Product-Name-Thumbnail-Cart img {
+    width: 50%;
+    height: 50%;
+  }
+  .Product-Price-Cart,
+  .Title-Cart,
+  .Cart-increas,
+  .Cart-increasOrdecreas-Product span,
+  .Cart-increasOrdecreas-Product span,
+  .Product-Subtotal-Cart {
+    font-size: 0.9em;
+  }
+  .Cart-decreas {
+    font-size: 1.3em;
+  }
+}
+@media (max-width: 500px) {
+  .Table-Product-Cart table thead tr {
+    display: none;
+  }
+  .Cart-Item {
+    flex-direction: column;
+  }
+  .Product-Remove-Cart{
+    margin-top: 2em;
+    align-self: start;
+  }
+  .Product-Name-Thumbnail-Cart {
+    width: 100%;
+  }
+
+  #DisCountCode-Cart-Input {
+    width: 50%;
+  }
+  #DisCountCode-Cart-Input::placeholder {
+    font-size: 0.9em;
+  }
+
+  #DisCountCode-Cart-Btn {
+    font-size: 0.9em;
+  }
 }

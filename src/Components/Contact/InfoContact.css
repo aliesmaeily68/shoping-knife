@@ -1,0 +1,82 @@
+.Wrapper-InfoContact {
+  padding: 1.5em;
+}
+
+.Wrapper-InfoContact .InfoContact {
+  display: inline-block;
+  padding: 1em 0;
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+.Wrapper-InfoContact h1 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 1em 0;
+}
+
+.Name-Email-InfoContact,
+.TellNumber-CompaniName-InfoContact {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Name-InfoContact,
+.Email-InfoContact,
+.TellNumber-InfoContact,
+.CompaniName-InfoContact,
+.Message-InfoContact {
+  display: flex;
+  flex-direction: column;
+}
+
+.Name-InfoContact input,
+.Email-InfoContact input,
+.TellNumber-InfoContact input,
+.CompaniName-InfoContact input,
+#MessageInfoContact {
+  outline: none;
+  padding: 0.3em 2em;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 0.3em;
+}
+
+.Name-InfoContact label,
+.Email-InfoContact label,
+.TellNumber-InfoContact label,
+.CompaniName-InfoContact label,
+.Message-InfoContact label {
+  font-size: 0.9em;
+  padding: 1em 0;
+}
+
+#MessageInfoContact {
+  height: 8em;
+}
+
+.Submit-InfoContact {
+  border: none;
+  margin: 2em;
+  padding: 0.5em 1em;
+  background-color: var(--Primary-Color);
+  border-radius: 0.3em;
+}
+
+.Submit-InfoContact:hover {
+  background-color: var(--Hover-Color);
+}
+
+@media (max-width: 1024px) {
+  .Name-InfoContact input,
+  .Email-InfoContact input,
+  .TellNumber-InfoContact input,
+  .CompaniName-InfoContact input {
+    width: 95%;
+    padding: 0;
+  }
+
+  #MessageInfoContact {
+    padding: 0;
+  }
+}

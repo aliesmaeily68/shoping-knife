@@ -1,0 +1,63 @@
+.Wrapper-LoginForm {
+  padding: 1em;
+}
+
+.NameOrEmail-LoginForm,
+.password-LoginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.Star-LoginForm {
+  color: var(--Danger-Color);
+}
+
+.NameOrEmail-LoginForm label,
+.password-LoginForm label {
+  padding: 1em 0;
+}
+.NameOrEmail-LoginForm input,
+.password-LoginForm input {
+  border-radius: 0.3em;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.2em 0;
+}
+
+.Submit-LoginForm {
+  border: none;
+  background-color: var(--Primary-Color);
+  width: 100%;
+  padding: 0.5em 0;
+  font-size: 1.2em;
+  margin: 2em 0;
+  border-radius: 0.3em;
+}
+
+.Submit-LoginForm:hover {
+  background-color: var(--Hover-Color);
+}
+
+.Forget-Remember-LoginForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Forget-Remember-LoginForm span {
+  font-size: 0.8em;
+}
+
+.Remember-LoginForm {
+  display: flex;
+  align-items: center;
+}
+
+.Remember-LoginForm input {
+  margin-left: 0.3em;
+}
+
+.Forget-LoginForm {
+  color: var(--Danger-Color);
+  cursor: pointer;
+}

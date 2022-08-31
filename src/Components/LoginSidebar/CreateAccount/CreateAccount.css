@@ -1,0 +1,23 @@
+.IconUser-CreateAccount{
+   font-size: 5em;
+   opacity: .1;
+   margin: .3em 1.5em ;
+}
+
+.Title-CreateAccount{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5em;
+}
+
+.Title-CreateAccount h3{
+    font-size: .9em;
+    padding: .5em;
+}
+
+.Link-CreateAccount{
+    border-bottom: 2px solid var(--Danger-Color);
+    cursor: pointer;
+  
+}
