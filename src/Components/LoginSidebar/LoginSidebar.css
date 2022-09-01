@@ -54,3 +54,9 @@
     height: 1.5px;
     background-color: rgba(0,0,0,.1);
 }
+
+@media(max-width:1024px){
+   .Wrapper-LoginSidebar{
+    padding-bottom: 3em;
+   }
+}

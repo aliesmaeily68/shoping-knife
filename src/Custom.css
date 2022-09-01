@@ -134,6 +134,10 @@ a ,a:hover {
   text-decoration: none;
 }
 
+input{
+  text-indent: 1em !important;
+}
+
 /* ////////////font url////////// */
 @import url("https://gitcdn.ir/library/PersianFonts/vazir/style.css");
 

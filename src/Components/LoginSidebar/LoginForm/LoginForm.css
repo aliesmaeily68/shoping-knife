@@ -16,14 +16,30 @@
 .password-LoginForm label {
   padding: 1em 0;
 }
-.NameOrEmail-LoginForm input,
-.password-LoginForm input {
+.NameOrEmail-LoginForm input {
   border-radius: 0.3em;
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 0.2em 0;
 }
 
+.Eye-Password-LoginForm {
+  position: relative;
+}
+
+.Eye-Password-LoginForm input {
+  border-radius: 0.3em;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.2em 0;
+  width: 100%;
+}
+.Eye-LoginForm {
+  position: absolute;
+  top: .4em;
+  left:  1em;
+  cursor: pointer;
+}
 .Submit-LoginForm {
   border: none;
   background-color: var(--Primary-Color);

@@ -1,8 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { UsersContext } from "../../../Contexts/UsersContext";
 
 import "./LoginForm.css";
 
 export default function LoginForm() {
+  const DataUsersContext = useContext(UsersContext);
   return (
     <>
       <div className="Container-LoginForm">
@@ -20,7 +25,31 @@ export default function LoginForm() {
                 <span>رمز ورود</span>
                 <span className="Star-LoginForm">*</span>
               </label>
-              <input type="password" />
+              {DataUsersContext.showPasswordLoginForm ? (
+                <div className="Eye-Password-LoginForm">
+                  <div className="Eye-LoginForm">
+                    <AiOutlineEyeInvisible
+                      size={20}
+                      onClick={() =>
+                        DataUsersContext.setShowPasswordLoginForm(false)
+                      }
+                    />
+                  </div>
+                  <input type="password" />
+                </div>
+              ) : (
+                <div className="Eye-Password-LoginForm">
+                  <div className="Eye-LoginForm">
+                    <AiOutlineEye
+                      size={20}
+                      onClick={() =>
+                        DataUsersContext.setShowPasswordLoginForm(true)
+                      }
+                    />
+                  </div>
+                  <input type="text" />
+                </div>
+              )}
             </div>
             <button className="Submit-LoginForm">ورود</button>
             <div className="Forget-Remember-LoginForm">
@@ -30,9 +59,12 @@ export default function LoginForm() {
                   <span>مرا به خاطر بسپار</span>
                 </label>
               </div>
-              <span className="Forget-LoginForm">
-                رمز عبور را فراموش کرده اید؟
-              </span>
+              <Link to={"/login-register/lost-account"}>
+                {" "}
+                <span className="Forget-LoginForm">
+                  رمز عبور را فراموش کرده اید؟
+                </span>{" "}
+              </Link>
             </div>
           </form>
         </div>

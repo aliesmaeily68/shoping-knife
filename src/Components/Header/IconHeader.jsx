@@ -7,16 +7,22 @@ import { BsCart2 } from "react-icons/bs";
 import { BsBag } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { AllProductContext } from "../../Contexts/ProductContext";
+import { UsersContext } from "../../Contexts/UsersContext";
 
 export default function IconHeader(props) {
   const DataContext = useContext(AllProductContext);
+  const DataUsersContext = useContext(UsersContext);
 
   return (
     <div className="Icons-Header">
       <div className="Icon-Header">
-        <Link to={"/login"}>
-          <FaRegUser className="Main-Icon-Headar" />
-        </Link>
+        <FaRegUser
+          className="Main-Icon-Headar"
+          onClick={() => {
+            DataContext.setShowCartBag(false);
+            DataUsersContext.setShowLoginSidebar(true);
+          }}
+        />
       </div>
       <div className="Icon-Header">
         <span>0</span>
@@ -36,12 +42,18 @@ export default function IconHeader(props) {
         {props.IconName ? (
           <BsCart2
             className="Main-Icon-Headar"
-            onClick={() => DataContext.setShowCartBag(true)}
+            onClick={() => {
+              DataUsersContext.setShowLoginSidebar(false);
+              DataContext.setShowCartBag(true);
+            }}
           />
         ) : (
           <BsBag
             className="Main-Icon-Headar"
-            onClick={() => DataContext.setShowCartBag(true)}
+            onClick={() => {
+              DataUsersContext.setShowLoginSidebar(false);
+              DataContext.setShowCartBag(true);
+            }}
           />
         )}
       </div>
