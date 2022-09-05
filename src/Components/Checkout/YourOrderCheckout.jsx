@@ -3,11 +3,99 @@ import { useContext } from "react";
 
 import { BiX } from "react-icons/bi";
 import { AllProductContext } from "../../Contexts/ProductContext";
+import { UsersContext } from "../../Contexts/UsersContext";
 
 import "./YourOrderCheckout.css";
 
 export default function YourOrderCheckout() {
   const DataContext = useContext(AllProductContext);
+  const DataUsersContext = useContext(UsersContext);
+
+  const SubmitCheckoutHandler = () => {
+    const RegexNameCheckout = /../;
+    const RegexNotEmpty = /./;
+    const RegexPostalCode = /^[0-9]{10}$/;
+    const RegexTellNumber = /09(1[0-9]|3[1-9]|2[012]|9[012])([0-9]{7})/;
+    const RegexEmail = /^\w+([\.-]?\w)*@\w+([\.-]?\w)*(\.\w{2,3})+$/;
+    const RegexPassword = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+
+    if (RegexNameCheckout.test(DataUsersContext.firstNameCheckout)) {
+      DataUsersContext.setValidFirstNameCheckout(true);
+    } else {
+      DataUsersContext.setValidFirstNameCheckout(false);
+    }
+
+    if (RegexNameCheckout.test(DataUsersContext.lastNameCheckout)) {
+      DataUsersContext.setValidLastNameCheckout(true);
+    } else {
+      DataUsersContext.setValidLastNameCheckout(false);
+    }
+
+    if (RegexNotEmpty.test(DataUsersContext.cityNameCheckout)) {
+      DataUsersContext.setValidCityNameCheckout(true);
+    } else {
+      DataUsersContext.setValidCityNameCheckout(false);
+    }
+
+    if (RegexNotEmpty.test(DataUsersContext.addressNameCheckout)) {
+      DataUsersContext.setValidAddressNameCheckout(true);
+    } else {
+      DataUsersContext.setValidAddressNameCheckout(false);
+    }
+
+    if (RegexPostalCode.test(DataUsersContext.postalCodeCheckout)) {
+      DataUsersContext.setValidPostalCodeCheckout(true);
+    } else {
+      DataUsersContext.setValidPostalCodeCheckout(false);
+    }
+
+    if (RegexTellNumber.test(DataUsersContext.tellNumberCheckout)) {
+      DataUsersContext.setValidTellNumberCheckout(true);
+    } else {
+      DataUsersContext.setValidTellNumberCheckout(false);
+    }
+
+    if (RegexEmail.test(DataUsersContext.emailCheckout)) {
+      DataUsersContext.setValidEmailCheckout(true);
+    } else {
+      DataUsersContext.setValidEmailCheckout(false);
+    }
+
+    if (RegexPassword.test(DataUsersContext.passwordCheckout)) {
+      DataUsersContext.setValidPasswordCheckout(true);
+    } else {
+      DataUsersContext.setValidPasswordCheckout(false);
+    }
+    if (RegexNotEmpty.test(DataUsersContext.userNameCheckout)) {
+      DataUsersContext.setValidUserNameCheckout(true);
+    } else {
+      DataUsersContext.setValidUserNameCheckout(false);
+    }
+
+    if (
+      DataUsersContext.notCleanInputForFirstTimeCheckout &&
+      DataUsersContext.validFirstNameCheckout &&
+      DataUsersContext.validLastNameCheckout &&
+      DataUsersContext.validCityNameCheckout &&
+      DataUsersContext.validAddressNameCheckout &&
+      DataUsersContext.validPostalCodeCheckout &&
+      DataUsersContext.validTellNumberCheckout &&
+      DataUsersContext.validEmailCheckout &&
+      DataUsersContext.validPasswordCheckout&&
+      DataUsersContext.validUserNameCheckout
+    ) {
+      DataUsersContext.setFirstNameCheckout("");
+      DataUsersContext.setLastNameCheckout("");
+      DataUsersContext.setCityNameCheckout("");
+      DataUsersContext.setAddressNameCheckout("");
+      DataUsersContext.setPostalCodeCheckout("");
+      DataUsersContext.setTellNumberCheckout("");
+      DataUsersContext.setEmailCheckout("");
+      DataUsersContext.setPasswordCheckout("");
+      DataUsersContext.setUserNameCheckout("");
+    }
+    DataUsersContext.setNotCleanInputForFirstTimeCheckout(true);
+  };
   return (
     <>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -29,22 +117,27 @@ export default function YourOrderCheckout() {
             </thead>
             <tbody>
               {DataContext.userCart &&
-                DataContext.userCart.map((product, index) => (product.conter !=0 &&
-                  <tr key={product.id}>
-                    <td>
-                      {" "}
-                      <span>{product.title} </span>
-                      <BiX />
-                      <span>{product.conter}</span>
-                    </td>
-                    <td> {product.conter * product.price} تومان</td>
-                  </tr>
-                ))}
+                DataContext.userCart.map(
+                  (product, index) =>
+                    product.conter != 0 && (
+                      <tr key={product.id}>
+                        <td>
+                          {" "}
+                          <span>{product.title} </span>
+                          <BiX />
+                          <span>{product.conter}</span>
+                        </td>
+                        <td> {product.conter * product.price} تومان</td>
+                      </tr>
+                    )
+                )}
             </tbody>
             <tfoot>
               <tr>
                 <td>جمع کل</td>
-                <td id="Total-Table-YourOrder-Checkout">{DataContext.total} تومان</td>
+                <td id="Total-Table-YourOrder-Checkout">
+                  {DataContext.total} تومان
+                </td>
               </tr>
             </tfoot>
           </table>
@@ -56,7 +149,12 @@ export default function YourOrderCheckout() {
         <div className="Hr-YourOrder-Checkout">
           <hr />
         </div>
-        <button id="Btn-YourOrder-Checkout">ثبت سفارش</button>
+        <button
+          id="Btn-YourOrder-Checkout"
+          onClick={() => SubmitCheckoutHandler()}
+        >
+          ثبت سفارش
+        </button>
       </div>
     </>
   );

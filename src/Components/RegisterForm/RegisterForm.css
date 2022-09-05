@@ -26,6 +26,25 @@
   padding: 0.2em 0;
 }
 
+.ValidMessage-Input-Name-RegisterForm,
+.ValidMessage-Input-Email-RegisterForm,
+.ValidMessage-Input-Password-RegisterForm {
+  border: 2px solid var(--Danger-Color) !important;
+}
+.ValidMessage-Name-RegisterForm,
+.ValidMessage-Email-RegisterForm,
+.ValidMessage-Password-RegisterForm {
+  display: none;
+}
+.NotValidMessage-Name-RegisterForm,
+.NotValidMessage-Email-RegisterForm,
+.NotValidMessage-Password-RegisterForm {
+  display: block;
+  font-size: 0.8em;
+  color: var(--Danger-Color);
+  padding: 1em;
+}
+
 .Eye-Password-RegisterForm {
   position: relative;
 }

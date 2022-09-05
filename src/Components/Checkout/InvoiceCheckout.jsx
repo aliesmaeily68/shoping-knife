@@ -1,7 +1,22 @@
 import React from "react";
-import './InvoiceCheckout.css'
+import { useRef } from "react";
+import { useContext } from "react";
+import { UsersContext } from "../../Contexts/UsersContext";
+import "./InvoiceCheckout.css";
 
 export default function InvoiceCheckout() {
+  const DataUsersContext = useContext(UsersContext);
+
+  const FirstNameCheckoutRef = useRef();
+  const LastNameCheckoutRef = useRef();
+  const CityNameCheckoutRef = useRef();
+  const AddressNameCheckoutRef = useRef();
+  const PostalCodeCheckoutRef = useRef();
+  const TellNumberCheckoutRef = useRef();
+  const EmailCheckoutRef = useRef();
+  const PasswordCheckoutRef = useRef();
+  const UserNameCheckoutRef = useRef();
+
   return (
     <>
       <div className="Edit-Invoice-Checkout">
@@ -15,15 +30,64 @@ export default function InvoiceCheckout() {
                 <span>نام</span>
                 <span className="Star-Checkout">*</span>
               </label>
-              <input type="text" />
+              <input
+                value={DataUsersContext.firstNameCheckout}
+                type="text"
+                ref={FirstNameCheckoutRef}
+                onChange={(e) =>
+                  DataUsersContext.setFirstNameCheckout(e.target.value)
+                }
+                className={`${
+                  DataUsersContext.validFirstNameCheckout
+                    ? ""
+                    : "ValidMessage-Input-FirstName-Checkout"
+                }`}
+                onKeyDown={() =>
+                  DataUsersContext.setValidFirstNameCheckout(true)
+                }
+              />
+              <span
+                className={` ${
+                  DataUsersContext.validFirstNameCheckout
+                    ? "ValidMessage-FirstName-Checkout"
+                    : "NotValidMessage-FirstName-Checkout"
+                }`}
+              >
+                نام نمی تواند کمتر از دو حرف باشد
+              </span>
             </div>
+
             <div className="LastName-Form-Checkout">
               {" "}
               <label htmlFor="">
                 <span>نام خانوادگی</span>
                 <span className="Star-Checkout">*</span>
               </label>
-              <input type="text" />
+              <input
+                value={DataUsersContext.lastNameCheckout}
+                type="text"
+                ref={LastNameCheckoutRef}
+                onChange={(e) =>
+                  DataUsersContext.setLastNameCheckout(e.target.value)
+                }
+                className={`${
+                  DataUsersContext.validLastNameCheckout
+                    ? ""
+                    : "ValidMessage-Input-LastName-Checkout"
+                }`}
+                onKeyDown={() =>
+                  DataUsersContext.setValidLastNameCheckout(true)
+                }
+              />
+              <span
+                className={` ${
+                  DataUsersContext.validLastNameCheckout
+                    ? "ValidMessage-LastName-Checkout"
+                    : "NotValidMessage-LastName-Checkout"
+                }`}
+              >
+                نام خانوادگی نمی تواند کمتر از دو حرف باشد
+              </span>
             </div>
           </div>
 
@@ -33,81 +97,249 @@ export default function InvoiceCheckout() {
             </label>
             <input type="text" />
           </div>
+
           <div className="CountryName-Checkout">
             <label htmlFor="">
               <span>کشور </span>
               <span className="Star-Checkout">*</span>
             </label>
-            <select
-              name="CountryName"
-              id="Country-Checkout"
-            >
+            <select name="CountryName" id="Country-Checkout">
               <option value="Iran">ایران</option>
             </select>
           </div>
+
           <div className="StateName-Checkout">
             <label htmlFor="">
               <span>استان </span>
               <span className="Star-Checkout">*</span>
             </label>
-            <select
-              name="CountryName"
-              id="State-Checkout"
-            >
+            <select name="CountryName" id="State-Checkout">
               <option value="zanjan">زنجان</option>
               <option value="tehran">تهران</option>
               <option value="gazvin">قزوین</option>
             </select>
           </div>
+
           <div className="CityName-Checkout">
             <label htmlFor="">
               <span>شهر </span>
               <span className="Star-Checkout">*</span>
             </label>
-            <input type="text" />
+            <input
+              value={DataUsersContext.cityNameCheckout}
+              type="text"
+              ref={CityNameCheckoutRef}
+              onChange={(e) =>
+                DataUsersContext.setCityNameCheckout(e.target.value)
+              }
+              className={`${
+                DataUsersContext.validCityNameCheckout
+                  ? ""
+                  : "ValidMessage-Input-CityName-Checkout"
+              }`}
+              onKeyDown={() => DataUsersContext.setValidCityNameCheckout(true)}
+            />
+            <span
+              className={` ${
+                DataUsersContext.validCityNameCheckout
+                  ? "ValidMessage-CityName-Checkout"
+                  : "NotValidMessage-CityName-Checkout"
+              }`}
+            >
+              فیلد مورد نظر را پر نمایید
+            </span>
           </div>
+
           <div className="AddressName-Checkout">
             <label htmlFor="">
               <span>آدرس </span>
               <span className="Star-Checkout">*</span>
             </label>
-            <input type="text" />
+            <input
+              value={DataUsersContext.addressNameCheckout}
+              type="text"
+              ref={AddressNameCheckoutRef}
+              onChange={(e) =>
+                DataUsersContext.setAddressNameCheckout(e.target.value)
+              }
+              className={`${
+                DataUsersContext.validAddressNameCheckout
+                  ? ""
+                  : "ValidMessage-Input-AddressName-Checkout"
+              }`}
+              onKeyDown={() =>
+                DataUsersContext.setValidAddressNameCheckout(true)
+              }
+            />
+            <span
+              className={` ${
+                DataUsersContext.validAddressNameCheckout
+                  ? "ValidMessage-AddressName-Checkout"
+                  : "NotValidMessage-AddressName-Checkout"
+              }`}
+            >
+              فیلد مورد نظر را پر نمایید
+            </span>
           </div>
+
           <div className="PostalCode-Checkout">
             <label htmlFor="">
               <span>کد پستی(بدون فاصله و با اعداد انگلیسی) </span>
               <span className="Star-Checkout">*</span>
             </label>
-            <input type="text" />
+            <input
+              value={DataUsersContext.postalCodeCheckout}
+              type="text"
+              ref={PostalCodeCheckoutRef}
+              onChange={(e) =>
+                DataUsersContext.setPostalCodeCheckout(e.target.value)
+              }
+              className={`${
+                DataUsersContext.validPostalCodeCheckout
+                  ? ""
+                  : "ValidMessage-Input-PostalCode-Checkout"
+              }`}
+              onKeyDown={() =>
+                DataUsersContext.setValidPostalCodeCheckout(true)
+              }
+            />
+            <span
+              className={` ${
+                DataUsersContext.validPostalCodeCheckout
+                  ? "ValidMessage-PostalCode-Checkout"
+                  : "NotValidMessage-PostalCode-Checkout"
+              }`}
+            >
+              کدپستی وارد شده صحیح نمی باشد
+            </span>
           </div>
+
           <div className="TellNumber-Checkout">
             <label htmlFor="">
               <span>تلفن </span>
               <span className="Star-Checkout">*</span>
             </label>
-            <input type="text" />
+            <input
+              value={DataUsersContext.tellNumberCheckout}
+              type="text"
+              ref={TellNumberCheckoutRef}
+              onChange={(e) =>
+                DataUsersContext.setTellNumberCheckout(e.target.value)
+              }
+              className={`${
+                DataUsersContext.validTellNumberCheckout
+                  ? ""
+                  : "ValidMessage-Input-TellNumber-Checkout"
+              }`}
+              onKeyDown={() =>
+                DataUsersContext.setValidTellNumberCheckout(true)
+              }
+            />
+            <span
+              className={` ${
+                DataUsersContext.validTellNumberCheckout
+                  ? "ValidMessage-TellNumber-Checkout"
+                  : "NotValidMessage-TellNumber-Checkout"
+              }`}
+            >
+              شماره وارد شده صحیح نمی باشد
+            </span>
           </div>
+
           <div className="Email-Checkout">
             <label htmlFor="">
               <span>آدرس ایمیل </span>
               <span className="Star-Checkout">*</span>
             </label>
-            <input type="text" />
+            <input
+              value={DataUsersContext.emailCheckout}
+              type="text"
+              ref={EmailCheckoutRef}
+              onChange={(e) =>
+                DataUsersContext.setEmailCheckout(e.target.value)
+              }
+              className={`${
+                DataUsersContext.validEmailCheckout
+                  ? ""
+                  : "ValidMessage-Input-Email-Checkout"
+              }`}
+              onKeyDown={() => DataUsersContext.setValidEmailCheckout(true)}
+            />
+            <span
+              className={` ${
+                DataUsersContext.validEmailCheckout
+                  ? "ValidMessage-Email-Checkout"
+                  : "NotValidMessage-Email-Checkout"
+              }`}
+            >
+              ایمیل وارد شده صحیح نمی باشد
+            </span>
           </div>
+
           <div className="UserName-Password-Checkout">
             <div className="UserName-Checkout">
               <label htmlFor="">
                 <span>نام کاربری </span>
                 <span className="Star-Checkout">*</span>
               </label>
-              <input type="text" />
-            </div>{" "}
+              <input
+              value={DataUsersContext.UserNameCheckout}
+              type="text"
+              ref={UserNameCheckoutRef}
+              onChange={(e) =>
+                DataUsersContext.setUserNameCheckout(e.target.value)
+              }
+              className={`${
+                DataUsersContext.validUserNameCheckout
+                  ? ""
+                  : "ValidMessage-Input-UserName-Checkout"
+              }`}
+              onKeyDown={() =>
+                DataUsersContext.setValidUserNameCheckout(true)
+              }
+            />
+            <span
+              className={` ${
+                DataUsersContext.validUserNameCheckout
+                  ? "ValidMessage-UserName-Checkout"
+                  : "NotValidMessage-UserName-Checkout"
+              }`}
+            >
+              فیلد مورد نظر را پر نمایید
+            </span>
+            </div>
+
             <div className="Password-Checkout">
               <label htmlFor="">
                 <span>ایجاد کلمه عبور حساب کاربری </span>
                 <span className="Star-Checkout">*</span>
               </label>
-              <input type="text" />
+              <input
+                value={DataUsersContext.passwordCheckout}
+                type="text"
+                ref={PasswordCheckoutRef}
+                onChange={(e) =>
+                  DataUsersContext.setPasswordCheckout(e.target.value)
+                }
+                className={`${
+                  DataUsersContext.validPasswordCheckout
+                    ? ""
+                    : "ValidMessage-Input-Password-Checkout"
+                }`}
+                onKeyDown={() =>
+                  DataUsersContext.setValidPasswordCheckout(true)
+                }
+              />
+              <span
+                className={` ${
+                  DataUsersContext.validPasswordCheckout
+                    ? "ValidMessage-Password-Checkout"
+                    : "NotValidMessage-Password-Checkout"
+                }`}
+              >
+                گذرواژه باید حداقل 6 کاراکتر و شامل حروف بزرگ و کوچک انگلیسی و
+                عدد باشد
+              </span>
             </div>
           </div>
           <div className="MoreInfo-Checkout">
