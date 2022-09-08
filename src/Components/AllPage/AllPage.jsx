@@ -12,6 +12,7 @@ export default function AllPage() {
   const AllPageHandler = () => {
     DataContext.setShowCartBag(false);
     DataUserContexte.setShowLoginSidebar(false);
+    DataContext.setShowCategories(false)
   };
   return <div onClick={AllPageHandler}>{route}</div>;
 }

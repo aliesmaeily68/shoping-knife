@@ -2,12 +2,14 @@
   width: 1500px;
   margin: 2em auto;
   background-color: var(--Secondary-Color);
+
 }
 
 .MainProduct-wrapper {
   width: var(--Max-Width);
   display: flex;
   margin: 2.5em auto;
+  
 }
 
 .MainProduct-img {
@@ -20,7 +22,7 @@
 }
 
 .MainProduct-ProductInfo {
-  padding: 0 1em;
+  padding:1em;
   border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 0.3em;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
@@ -153,19 +155,21 @@
   font-weight: 300;
 }
 
-.MainProduct-Stock {
+
+.MainProduct-Stock  {
+  color: green;
+  font-weight: 300;
   font-weight: bold;
   margin: 1em 0;
   font-size: 0.9em;
 }
 
-.MainProduct-Stock span {
-  color: green;
+.MainProduct-Stock-Empty {
+  color: var(--Danger-Color) ;
   font-weight: 300;
-}
-
-.Empty-Stock {
-  color: red !important;
+  font-weight: bold;
+  margin: 1em 0;
+  font-size: 0.9em;
 }
 
 .ListGroup-MainProduct-Discription-Comments {

@@ -34,3 +34,9 @@
   font-size: 0.4em;
   display: none;
 }
+
+@media(max-width:768px){
+  .card-Icon:hover .Tooltip-CardIcon{
+    display: none;
+  }
+}

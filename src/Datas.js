@@ -104,7 +104,7 @@ const FullProduct = []
 AllProduct.map(data => data.Info.map(productInfo => productInfo.MainInfo.map(product => {
     FullProduct.push(product)
 })))
-ProposalProducts.map(products => {
+ProposalProducts.map(products=>{
     products.MainProposalProduct.map(product => FullProduct.push(product))
     products.AllProposalProduct.map(product => FullProduct.push(product))
 })

@@ -22,14 +22,7 @@ export default function QuickAccess() {
             <span>مقالات</span>
           </Link>
         </li>
-        <li className="QuickAccess-List">
-          {" "}
-          <Link to={"/conditions"}>
-            {" "}
-            <IoIosArrowDropleft className="Icon-QuickAccess" />
-            <span>قوانین و مقررات</span>
-          </Link>
-        </li>
+
         <li className="QuickAccess-List">
           <Link to={"/about"}>
             {" "}

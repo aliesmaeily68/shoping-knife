@@ -14,33 +14,42 @@ export default function MainProduct() {
 
   let params = useParams();
   let MainProduct = DataContext.fullProducts.find(
-    (product) => params.productTitle.split("-")[0] == product.id
+    (product) => params.productTitle.split("-")[0] === product.id
   );
 
   let hasProduct = DataContext.fullProducts.some(
-    (product) => params.productTitle.split("-")[0] == product.id
+    (product) => params.productTitle.split("-")[0] === product.id
   );
-  DataContext.setMainProduct(MainProduct)
+  DataContext.setMainProduct(MainProduct);
 
-  const IncreaseCounter = () => {
-    setCounterProduct((p) => p + 1);
+  const IncreaseCounter = (MainProduct) => {
+    if (MainProduct.stock === 0) {
+      DataContext.setShowToasts(true);
+      DataContext.setToastTitle("موجودی انبار خالی می باشد .");
+      setTimeout(() => {
+        DataContext.setShowToasts(false);
+      }, 3000);
+    } else {
+      setCounterProduct((p) => p + 1);
+    }
   };
+
   const DecreasCounter = () => {
-    {
-      counterProduct > 0 && setCounterProduct((p) => p - 1);
-    }
+    counterProduct > 0 && setCounterProduct((p) => p - 1);
   };
+
   const AddToCart = () => {
-    {
-      counterProduct > 0 && DataContext.setShowToasts(true);
+    if (counterProduct > 0) {
+      DataContext.setShowToasts(true);
+      DataContext.setToastTitle("محصول با موفقیت به سبد خرید اضافه گردید .");
+      setTimeout(() => {
+        DataContext.setShowToasts(false);
+      }, 3000);
     }
 
-    setTimeout(() => {
-      DataContext.setShowToasts(false);
-    }, 3000);
     const products = [...DataContext.userCart];
     const IsProductInCart = products.some(
-      (Item) => Item.title == MainProduct.title
+      (Item) => Item.title === MainProduct.title
     );
     if (!IsProductInCart) {
       const NewMainProductObj = {
@@ -54,7 +63,7 @@ export default function MainProduct() {
       DataContext.setUserCart((p) => [...p, NewMainProductObj]);
     } else {
       products.map((item) => {
-        if (item.title == MainProduct.title) {
+        if (item.title === MainProduct.title) {
           item.conter = item.conter + counterProduct;
           return true;
         }
@@ -68,6 +77,82 @@ export default function MainProduct() {
     );
     DataContext.setCartConter((p) => p + counterProduct);
     setCounterProduct(0);
+  };
+  const AddToComparison = (MainProduct) => {
+    if (DataContext.userComparison.length < 4) {
+      DataContext.setToastTitle("محصول به مقایسه اضافه گردید .");
+      DataContext.setShowToasts(true);
+      setTimeout(() => {
+        DataContext.setShowToasts(false);
+      }, 3000);
+      const productComparison = [...DataContext.userComparison];
+      const IsProductInComparison = productComparison.some(
+        (Item) => Item.title === MainProduct.title
+      );
+      if (!IsProductInComparison) {
+        DataContext.setComparisonConter((p) => p + 1);
+        const Newobject = {
+          id: MainProduct.id,
+          title: MainProduct.title,
+          price:
+            MainProduct.price -
+            (MainProduct.price * MainProduct.discount) / 100,
+          imgName: MainProduct.imgName,
+          stock: MainProduct.stock,
+          conter: MainProduct.conter,
+          Weight: MainProduct.Weight,
+          genus: MainProduct.genus,
+          usage: MainProduct.usage,
+          Producer: MainProduct.Producer,
+        };
+        DataContext.setUserComparison((p) => [...p, Newobject]);
+      } else {
+        DataContext.setToastTitle("این محصول قبلا به مقایسه اضافه شده است.");
+        DataContext.setShowToasts(true);
+        setTimeout(() => {
+          DataContext.setShowToasts(false);
+        }, 3000);
+      }
+    } else {
+      DataContext.setToastTitle("حداکثر 4 محصول میتوان به مقایسه اضافه کرد.");
+      DataContext.setShowToasts(true);
+      setTimeout(() => {
+        DataContext.setShowToasts(false);
+      }, 3000);
+    }
+  };
+
+  const AddToFavorites = (MainProduct) => {
+    DataContext.setToastTitle("محصول به علاقه مندی ها اضافه گردید .");
+    DataContext.setShowToasts(true);
+    setTimeout(() => {
+      DataContext.setShowToasts(false);
+    }, 3000);
+    const productFavorites = [...DataContext.userFavorites];
+    const IsProductInFavorites = productFavorites.some(
+      (Item) => Item.title === MainProduct.title
+    );
+    if (!IsProductInFavorites) {
+      DataContext.setFavoritesConter((p) => p + 1);
+      const Newobject = {
+        id: MainProduct.id,
+        title: MainProduct.title,
+        price:
+          MainProduct.price - (MainProduct.price * MainProduct.discount) / 100,
+        imgName: MainProduct.imgName,
+        stock: MainProduct.stock,
+        conter: MainProduct.conter,
+      };
+      DataContext.setUserFavorites((p) => [...p, Newobject]);
+    } else {
+      DataContext.setToastTitle(
+        "این محصول قبلا به علاقه مندی ها اضافه شده است."
+      );
+      DataContext.setShowToasts(true);
+      setTimeout(() => {
+        DataContext.setShowToasts(false);
+      }, 3000);
+    }
   };
 
   return (
@@ -118,19 +203,19 @@ export default function MainProduct() {
                 <ul className="MainProduct-ListGroup-ProductInfo">
                   <li className="MainProduct-list-ProductInfo">
                     <RiArrowLeftSLine />
-                    <span>تولید کننده : صنایع چاقو سازی اکبر پلنگی </span>
+                    <span>تولید کننده : {MainProduct.Producer} </span>
                   </li>
                   <li className="MainProduct-list-ProductInfo">
                     <RiArrowLeftSLine />
-                    <span>وزن : 125 گرم</span>
+                    <span>وزن : {MainProduct.Weight} گرم</span>
                   </li>
                   <li className="MainProduct-list-ProductInfo">
                     <RiArrowLeftSLine />
-                    <span>جنس : آلمینیوم خالص </span>
+                    <span>جنس : {MainProduct.genus} </span>
                   </li>
                   <li className="MainProduct-list-ProductInfo">
                     <RiArrowLeftSLine />
-                    <span>کاربردها : کشتن گاو </span>
+                    <span>کاربردها : {MainProduct.usage} </span>
                   </li>
                 </ul>
 
@@ -138,7 +223,7 @@ export default function MainProduct() {
                   <div className="MainProduct-increasOrdecreas-Product">
                     <button
                       className="MainProduct-increas"
-                      onClick={IncreaseCounter}
+                      onClick={() => IncreaseCounter(MainProduct)}
                     >
                       +
                     </button>
@@ -159,11 +244,17 @@ export default function MainProduct() {
                 </div>
                 <div className="MainProduct-Icons">
                   <div className="MainProduct-Icon-Comparison">
-                    <TbArrowsShuffle className="MainProduct-MainIcon" />
+                    <TbArrowsShuffle
+                      className="MainProduct-MainIcon"
+                      onClick={() => AddToComparison(MainProduct)}
+                    />
                     <span>مقایسه</span>
                   </div>
                   <div className="MainProduct-Icon-Favorites">
-                    <AiOutlineHeart className="MainProduct-MainIcon" />{" "}
+                    <AiOutlineHeart
+                      className="MainProduct-MainIcon"
+                      onClick={() => AddToFavorites(MainProduct)}
+                    />{" "}
                     <span>افزودن به علاقه مندی</span>
                   </div>
                 </div>
@@ -171,12 +262,18 @@ export default function MainProduct() {
                 <div className="MainProduct-Category-Title">
                   دسته : <span>{MainProduct.Category} </span>
                 </div>
-                <div className="MainProduct-Stock">
+                <div>
                   {/**insert className to span Empty-Stock for EmptyStock */}
-                  وضعیت : <span>موجود</span>
+                  وضعیت :{" "}
+                  {MainProduct.stock === 0 ? (
+                    <span className="MainProduct-Stock-Empty">ناموجود</span>
+                  ) : (
+                    <span className="MainProduct-Stock">موجود</span>
+                  )}
                 </div>
               </div>
             </div>
+
             <hr />
             <div className="MainProduct-Discription-Comments">
               <ul className="ListGroup-MainProduct-Discription-Comments">

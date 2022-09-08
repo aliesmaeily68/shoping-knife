@@ -2,10 +2,17 @@ import React from "react";
 import "./NavBarMenu.css";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { AllProductContext } from "../../Contexts/ProductContext";
 
 export default function NavBarMenu() {
+  const DataContext = useContext(AllProductContext);
+
+  const NavBarMenuHandler = () => {
+    DataContext.setShowCategories(false);
+  };
   return (
-    <div className="NavBar-Menu">
+    <div className="NavBar-Menu" onClick={() => NavBarMenuHandler()}>
       <ul className="List-Grop-NavBar-Menu">
         <NavLink to={"/"} className={(link) => (link.isActive ? "active" : "")}>
           <li className="List-NavBar-Menu ">صفحه نخست</li>
@@ -19,7 +26,7 @@ export default function NavBarMenu() {
         </NavLink>
 
         <NavLink to={"/article"}>
-          <li className="List-NavBar-Menu">مقالات  </li>
+          <li className="List-NavBar-Menu">مقالات </li>
         </NavLink>
         <NavLink to={"/contact"}>
           <li className="List-NavBar-Menu">تماس با ما</li>

@@ -6,11 +6,10 @@ import LostAccount from './Pages/LoginRegister/LostAccount/LostAccount'
 import MainProduct from './Pages/MainProduct/MainProduct'
 import Notfound from './Pages/Notfound/Notfound'
 import Product from './Pages/Product/Product'
-import MainCategory from './Pages/MainCategory/MainCategory'
+// import MainCategory from './Pages/MainCategory/MainCategory'
 import Comparison from './Pages/Comparison/Comparison'
 import Contact from './Pages/Contact/Contact'
 import Article from './Pages/Article/Article'
-import Conditions from './Pages/Conditions/Conditions'
 import Checkout from './Pages/Checkout/Checkout'
 import Cart from './Pages/Cart/Cart'
 import CommentsProduct from './Pages/MainProduct/Commentsproduct/CommentsProduct'
@@ -33,11 +32,8 @@ let routes = [
     { path: '/comparison', element: <Comparison /> },
     { path: '/contact', element: <Contact /> },
     { path: '/article', element: <Article /> },
-    { path: '/conditions', element: <Conditions /> },
     { path: '/checkout', element: <Checkout /> },
     { path: '/cart', element: <Cart /> },
-
-
 ]
 
 export default routes

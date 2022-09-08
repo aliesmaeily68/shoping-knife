@@ -61,9 +61,15 @@
     padding-top: 0.4em;
   }
 
-  .Tooltip-Icon-Header{
-    bottom: 1.8em;
-    right: -8em;
+  .Tooltip-Icon-Header {
+    bottom: 2.7em;
+    right: -3em;
+    z-index: 9999;
+  }
+}
 
+@media (max-width: 768px) {
+  .Icons-Header .Icon-Header:hover .Tooltip-Icon-Header {
+    display: none;
   }
 }

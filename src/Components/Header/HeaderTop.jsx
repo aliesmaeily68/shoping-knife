@@ -11,10 +11,13 @@ import { AllProductContext } from "../../Contexts/ProductContext";
 export default function HeaderTop() {
   const [logoName, SetLogoName] = useState("LOGO");
   const [iconName1, SetIconName1] = useState(true);
-  const DataContext =useContext(AllProductContext)
+  const DataContext = useContext(AllProductContext);
+  const HeaderTopHandler = () => {
+    DataContext.setShowCategories(false)
+  };
 
   return (
-    <div className="Header-Top">
+    <div className="Header-Top"  onClick={() => HeaderTopHandler()}>
       {/* /////For media Max-Width>1024///// */}
       <div className="Container-HeaderTop">
         <div className="Wrapper-HeaderTop">
@@ -36,11 +39,11 @@ export default function HeaderTop() {
           <div className="BsList-HeaderTop-M1024">
             <BsList />
           </div>
-          <div className="Logo-HeaderTop-M1024" >
+          <div className="Logo-HeaderTop-M1024">
             <Logo logoName={logoName} />
           </div>
           <div className="ShopingBag-HeaderTop-M1024">
-            <BsCart2  onClick={()=>DataContext.setShowCartBag(true)}/>
+            <BsCart2 onClick={() => DataContext.setShowCartBag(true)} />
             <span>{DataContext.cartConter}</span>
             <div className="Tooltip-ShopingBag-HeaderTop-M1024">سبد خرید</div>
           </div>

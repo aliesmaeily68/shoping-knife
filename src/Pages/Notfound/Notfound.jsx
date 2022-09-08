@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react";
+
+
+import "./Notfound.css";
 
 export default function Notfound() {
   return (
-    <div>Notfound</div>
-  )
+    <div className="Notfound">
+      <img src="./Image/404.jpg" alt="NotFound" />
+      <h1>صفحه مورد نظر یافت نشد  </h1>
+    </div>
+  );
 }
