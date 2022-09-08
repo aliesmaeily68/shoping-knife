@@ -23,22 +23,29 @@ export default function IconHeader(props) {
             DataUsersContext.setShowLoginSidebar(true);
           }}
         />
+        <div className="Tooltip-Icon-Header">حساب کاربری من </div>
       </div>
+
       <div className="Icon-Header">
-        <span>0</span>
-        <Link to={"/shuffle"}>
+        <span>{DataContext.comparisonConter}</span>
+        <Link to={"/comparison"}>
           {" "}
           <TbArrowsShuffle className="Main-Icon-Headar" />
         </Link>
+        <div className="Tooltip-Icon-Header">مقایسه محصولات</div>
       </div>
+
       <div className="Icon-Header">
-        <span>0</span>
+        <span>{DataContext.favoritesConter}</span>
         <Link to={"/favorites"}>
           <AiOutlineHeart className="Main-Icon-Headar" />
         </Link>
+        <div className="Tooltip-Icon-Header">علاقه مندی ها </div>
       </div>
+
       <div className="Icon-Header">
         <span>{DataContext.cartConter}</span>
+        
         {props.IconName ? (
           <BsCart2
             className="Main-Icon-Headar"
@@ -56,7 +63,9 @@ export default function IconHeader(props) {
             }}
           />
         )}
+         <div className="Tooltip-Icon-Header">سبد خرید </div>
       </div>
+
     </div>
   );
 }

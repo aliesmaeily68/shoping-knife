@@ -42,6 +42,22 @@
     margin-top: 1em;
     cursor: pointer;
   }
+  .ShopingBag-HeaderTop-M1024:hover .Tooltip-ShopingBag-HeaderTop-M1024 {
+    display: block;
+  }
+  
+  .Tooltip-ShopingBag-HeaderTop-M1024 {
+    position: absolute;
+    border: 1px solid rgba(0, 0, 0, 1);
+    background-color: var(--White-Color);
+    bottom: -2em;
+    right: 3.5em;
+    width: 5em;
+    text-align: center;
+    padding: 0.5em 0;
+    font-size: 0.5em;
+    display: none;
+  }
   .ShopingBag-HeaderTop-M1024 span {
     position: absolute;
     font-size: .6em;

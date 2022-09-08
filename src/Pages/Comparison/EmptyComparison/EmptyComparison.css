@@ -1,0 +1,45 @@
+.EmptyComparison {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    row-gap: 2em;
+    margin: 3em 0;
+  }
+  
+  .EmptyComparison-Icon {
+    font-size: 15em;
+    opacity: 0.2;
+  }
+  
+  .EmptyComparison p {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  
+  .EmptyComparison button {
+    color: var(--White-Color);
+    background-color: var(--Danger-Color);
+    border: none;
+    border-radius: 0.3em;
+    padding: 0.8em;
+    font-size: 1.3em;
+  }
+  
+  .EmptyComparison button:hover {
+    background-color: var(--Danger-Hover-Color);
+  }
+  @media (max-width: 768px) {
+    .EmptyComparison-Icon {
+      font-size: 10em;
+    }
+  
+    .EmptyComparison p {
+      font-size: 1.5em;
+    }
+  
+    .EmptyComparison button {
+      font-size: 1em;
+    }
+  }
+  

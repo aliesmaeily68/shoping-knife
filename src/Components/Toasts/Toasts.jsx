@@ -8,7 +8,7 @@ export default function Toasts() {
     return (
         <div className={DataContext.showToasts ? ' MainToasts toast align-items-center show' : 'MainToasts toast align-items-center'} role="alert"  >{/**insert className shwo to shwoing Toasts */}
             <div className="toast-body">
-                محصول با موفقیت به سبد خرید اضافه گردید.
+                {DataContext.toastTitle}
             </div>
         </div>
     )

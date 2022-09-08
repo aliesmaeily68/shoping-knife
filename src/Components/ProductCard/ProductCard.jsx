@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import ProductIconCard from "../AllProduct/ProductIconCard/ProductIconCard";
 import { AllProductContext } from "../../Contexts/ProductContext";
 import { Link } from "react-router-dom";
-import './ProductCard.css'
+import "./ProductCard.css";
 
 export default function ProductCard(props) {
   const DataContext = useContext(AllProductContext);
@@ -13,14 +13,13 @@ export default function ProductCard(props) {
         prevTotal + props.price - (props.price * props.discount) / 100
     );
     DataContext.setCartConter((prevCartConter) => prevCartConter + 1);
+    DataContext.setToastTitle("محصول با موفقیت به سبد خرید اضافه گردید .");
     DataContext.setShowToasts(true);
     setTimeout(() => {
       DataContext.setShowToasts(false);
     }, 3000);
     const products = [...DataContext.userCart];
-    const IsProductInCart = products.some(
-      (Item) => Item.title == props.title 
-    );
+    const IsProductInCart = products.some((Item) => Item.title == props.title);
     if (!IsProductInCart) {
       const Newobject = {
         id: DataContext.userCart.length + 1,
@@ -58,8 +57,7 @@ export default function ProductCard(props) {
               <span className="Price-Discount-Card">{props.price}</span>
               <div>
                 <span className="Price-Card">
-                  {props.price - (props.price * props.discount) / 100}{" "}
-                  تومان
+                  {props.price - (props.price * props.discount) / 100} تومان
                 </span>
               </div>
             </div>

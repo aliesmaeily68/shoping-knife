@@ -7,7 +7,7 @@ import MainProduct from './Pages/MainProduct/MainProduct'
 import Notfound from './Pages/Notfound/Notfound'
 import Product from './Pages/Product/Product'
 import MainCategory from './Pages/MainCategory/MainCategory'
-import Shuffle from './Pages/Shuffle/Shuffle'
+import Comparison from './Pages/Comparison/Comparison'
 import Contact from './Pages/Contact/Contact'
 import Article from './Pages/Article/Article'
 import Conditions from './Pages/Conditions/Conditions'
@@ -30,7 +30,7 @@ let routes = [
         { path:"descriptionproduct", element:<DescriptionProduct />},
     ] },
     // { path: '/:categoriesTitle', element: <MainCategory /> },
-    { path: '/shuffle', element: <Shuffle /> },
+    { path: '/comparison', element: <Comparison /> },
     { path: '/contact', element: <Contact /> },
     { path: '/article', element: <Article /> },
     { path: '/conditions', element: <Conditions /> },

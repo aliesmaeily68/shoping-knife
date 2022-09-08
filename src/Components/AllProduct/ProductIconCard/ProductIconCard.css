@@ -5,6 +5,7 @@
 }
 
 .card-Icon {
+  position: relative;
   padding: 0.4em 0;
   transition: 0.5s;
   opacity: 0.6;
@@ -13,4 +14,23 @@
 .card-Icon:hover {
   opacity: 1;
   transform: scale(1.1);
+}
+
+.card-Icon:hover .Tooltip-CardIcon{
+  display: block;
+}
+
+.Tooltip-CardIcon{
+  clip-path: polygon(13% 0, 100% 0%, 100% 100%, 12% 100%, 12% 65%, 0 48%, 13% 34%);
+  position: absolute;
+  background-color: var(--Dark-Color);
+  color: var(--White-Color);
+  bottom: 1em;
+  right: -11.5em;
+  width: 11em;
+  text-align: center;
+  padding: 1em .1em;
+  padding-left:1.4em;
+  font-size: 0.4em;
+  display: none;
 }

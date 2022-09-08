@@ -1,0 +1,44 @@
+.EmpetyFavorites {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  row-gap: 2em;
+  margin: 3em 0;
+}
+
+.EmpetyFavorites-Icon {
+  font-size: 15em;
+  opacity: 0.2;
+}
+
+.EmpetyFavorites p {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.EmpetyFavorites button {
+  color: var(--White-Color);
+  background-color: var(--Danger-Color);
+  border: none;
+  border-radius: 0.3em;
+  padding: 0.8em;
+  font-size: 1.3em;
+}
+
+.EmpetyFavorites button:hover {
+  background-color: var(--Danger-Hover-Color);
+}
+@media (max-width: 768px) {
+  .EmpetyFavorites-Icon {
+    font-size: 10em;
+  }
+
+  .EmpetyFavorites p {
+    font-size: 1.5em;
+  }
+
+  .EmpetyFavorites button {
+    font-size: 1em;
+  }
+}

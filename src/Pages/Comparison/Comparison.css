@@ -1,0 +1,19 @@
+.Container-Comparison {
+  width: 1500px;
+  margin: 0 auto;
+}
+
+.Wrapper-Comparison {
+  width: var(--Max-Width);
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .Container-Comparison {
+    width: 100%;
+  }
+
+  .Wrapper-Comparison {
+    width: 95%;
+  }
+}

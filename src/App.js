@@ -5,6 +5,7 @@ import AllPage from './Components/AllPage/AllPage';
 import Toasts from "./Components/Toasts/Toasts";
 import BagCart from './Components/BagCart/BagCart'
 import LoginSidebar from "./Components/LoginSidebar/LoginSidebar";
+import Modals from './Components/Modal/Modal';
 import { ProductsProvider } from './Contexts/ProductContext'
 import { ProposalProductsProvider } from "./Contexts/ProposalProductContext";
 import { UsersProvider } from "./Contexts/UsersContext";
@@ -19,6 +20,7 @@ export default function App() {
     <ProductsProvider>
       <ProposalProductsProvider>
         <UsersProvider>
+          <Modals />
           <BagCart />
           <LoginSidebar />
           <Toasts />

@@ -11,6 +11,7 @@ export default function ProposalProductCard() {
   const DataContex = useContext(AllProductContext);
   const DataProposalContext = useContext(AllProposalProductContext);
   const AddtoCart = (product) => {
+    DataContex.setToastTitle('محصول با موفقیت به سبد خرید اضافه گردید .')
     DataContex.setTotal(
       (prevTotal) =>
         prevTotal + product.price - (product.price * product.discount) / 100
@@ -50,7 +51,7 @@ export default function ProposalProductCard() {
             data.MainProposalProduct.map((product) => (
               <div className="Proposal-Product-Card" key={product.id}>
                 <div className="Proposal-Icon-Card-Product">
-                  <ProductIconCard />
+                  <ProductIconCard {...product}/>
                 </div>
                 <div className="Proposal-Product-Wrapper-Card">
                   <div className="Proposal-Product-Discount">
