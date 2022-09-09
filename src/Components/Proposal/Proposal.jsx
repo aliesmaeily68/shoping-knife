@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ProposalProductCard from "./ProposalProductCard/ProposalProductCard";
 import ProposalProductCategoryCard from './ProposalProductCategoryCard/ProposalProductCategory'
 import "./Proposal.css";
@@ -14,7 +15,8 @@ export default function Proposal() {
               {" "}
               <div className="Proposal-text-btn">
                 <span className="Proposal-text">پیشنهاد ویژه شگفت انگیز</span>
-                <button className="Proposal-btn">مشاهده همه</button>
+               
+                <button className="Proposal-btn"> <Link to={'/proposalProducts'}>مشاهده همه</Link> </button>
               </div>
               <div className="Proposal-Products">
                 <ProposalProductCard />

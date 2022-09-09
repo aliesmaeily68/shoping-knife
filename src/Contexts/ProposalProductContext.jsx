@@ -5,7 +5,7 @@ import { ProposalProducts } from "../Datas";
 export const AllProposalProductContext = createContext();
 
 export const ProposalProductsProvider = ({ children }) => {
-  const [proposalProduct, setProposalProduct] = useState([ProposalProducts]);
+  const [proposalProduct, setProposalProduct] = useState(ProposalProducts);
 
 
   return (

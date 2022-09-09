@@ -14,6 +14,9 @@ export default function Categories() {
     DataContext.setImageCategores(product.MainCategory.imgName);
     DataContext.setShowSubCategories(true);
   };
+  const HiddenCategory = () => {
+    DataContext.setShowCategories(false);
+  };
   return (
     <>
       {/**add className ShowCategories to showing Categories */}
@@ -21,24 +24,23 @@ export default function Categories() {
         className={`Container-Categories  ${
           DataContext.showCategories ? "ShowCategories" : ""
         }`}
+        onClick={() => HiddenCategory()}
       >
         <div className="Wrapper-Categories ">
           {DataContext.products.map((data) =>
             data.map((product) => (
-              <div
-                className="Main-Category"
-                onMouseOver={() => ShowSubCategory(product)}
-                onMouseLeave={() => DataContext.setShowSubCategories(false)}
-              >
-                <span>
-                  <Link to={`/product/category:${product.MainCategory.title}`}>
-                    {product.MainCategory.title}{" "}
-                  </Link>
-                </span>
-                <MdKeyboardArrowLeft
-                  style={{ opacity: 0.5, fontSize: "1.2em" }}
-                />{" "}
-              </div>
+              <Link to={`/product/category:${product.MainCategory.title}`}>
+                <div
+                  className="Main-Category"
+                  onMouseOver={() => ShowSubCategory(product)}
+                  onMouseLeave={() => DataContext.setShowSubCategories(false)}
+                >
+                  <span>{product.MainCategory.title} </span>
+                  <MdKeyboardArrowLeft
+                    style={{ opacity: 0.5, fontSize: "1.2em" }}
+                  />{" "}
+                </div>
+              </Link>
             ))
           )}
         </div>

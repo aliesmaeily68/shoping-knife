@@ -12,6 +12,7 @@ import Contact from './Pages/Contact/Contact'
 import Article from './Pages/Article/Article'
 import Checkout from './Pages/Checkout/Checkout'
 import Cart from './Pages/Cart/Cart'
+import ProposalProducts from './Pages/ProposalProducts/ProposalProducts'
 import CommentsProduct from './Pages/MainProduct/Commentsproduct/CommentsProduct'
 import DescriptionProduct from './Pages/MainProduct/DescriptionProduct/DescriptionProduct'
 
@@ -34,6 +35,7 @@ let routes = [
     { path: '/article', element: <Article /> },
     { path: '/checkout', element: <Checkout /> },
     { path: '/cart', element: <Cart /> },
+    { path: '/proposalProducts', element: <ProposalProducts /> },
 ]
 
 export default routes

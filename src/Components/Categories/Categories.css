@@ -6,7 +6,7 @@
   z-index: 100;
   border: 1px solid rgba(0, 0, 0, 0.1);
   top: 1em;
-  transition: .6s;
+  transition: .5s;
   opacity: 0;
   visibility: hidden;
 }
