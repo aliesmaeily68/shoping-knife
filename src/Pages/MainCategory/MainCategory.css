@@ -1,0 +1,19 @@
+.Container-MainCategory{
+    width: 1500px;
+    margin: 3em auto;
+}
+
+.Container-MainCategory h1{
+    width: var(--Max-Width);
+    margin: 1.5em auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+}
+.Wrapper-MainCategory {
+    width: var(--Max-Width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+  row-gap: 2em;
+}

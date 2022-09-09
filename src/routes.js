@@ -6,7 +6,7 @@ import LostAccount from './Pages/LoginRegister/LostAccount/LostAccount'
 import MainProduct from './Pages/MainProduct/MainProduct'
 import Notfound from './Pages/Notfound/Notfound'
 import Product from './Pages/Product/Product'
-// import MainCategory from './Pages/MainCategory/MainCategory'
+import MainCategory from './Pages/MainCategory/MainCategory'
 import Comparison from './Pages/Comparison/Comparison'
 import Contact from './Pages/Contact/Contact'
 import Article from './Pages/Article/Article'
@@ -24,11 +24,11 @@ let routes = [
     { path: '/login-register/lost-account', element: <LostAccount /> },
     { path: '/*', element: <Notfound /> },
     { path: '/product', element: <Product /> },
-    { path: '/product/:productTitle/*', element: <MainProduct />,children:[
+    { path: '/products/:productTitle/*', element: <MainProduct />,children:[
         { path:"commentsproduct", element:<CommentsProduct />},
         { path:"descriptionproduct", element:<DescriptionProduct />},
     ] },
-    // { path: '/:categoriesTitle', element: <MainCategory /> },
+    { path: '/product/:categoriesTitle', element: <MainCategory /> },
     { path: '/comparison', element: <Comparison /> },
     { path: '/contact', element: <Contact /> },
     { path: '/article', element: <Article /> },

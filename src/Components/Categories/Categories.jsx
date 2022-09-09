@@ -31,7 +31,7 @@ export default function Categories() {
                 onMouseLeave={() => DataContext.setShowSubCategories(false)}
               >
                 <span>
-                  <Link to={`/product/${product.MainCategory.title}`}>
+                  <Link to={`/product/category:${product.MainCategory.title}`}>
                     {product.MainCategory.title}{" "}
                   </Link>
                 </span>

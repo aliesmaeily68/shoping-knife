@@ -10,7 +10,7 @@ export default function ProposalProductCategoryCard() {
     <>
       {DataContext.products.map((data) =>
         data.map((product, index) => (
-          <Link to={`/product/${product.MainCategory.title}`}>
+          <Link to={`/product/category:${product.MainCategory.title}`}>
             <div className="Wrapper-Proposal-Product-Category" key={index}>
               <div className="Border-Proposal-Card"></div>
               <img

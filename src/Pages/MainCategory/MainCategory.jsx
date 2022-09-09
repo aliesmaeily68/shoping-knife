@@ -1,7 +1,65 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { useParams } from "react-router";
+import ProductCard from "../../Components/ProductCard/ProductCard";
+import { AllProductContext } from "../../Contexts/ProductContext";
+import "./MainCategory.css";
 
 export default function MainCategory() {
+  const DataContext = useContext(AllProductContext);
+
+  let params = useParams();
+  const MainCategoryFilter = DataContext.products[0].filter(
+    (product) =>
+      product.MainCategory.title == params.categoriesTitle.split(":")[1]
+  );
+  const IsMainCategory = DataContext.products[0].some(
+    (product) =>
+      product.MainCategory.title == params.categoriesTitle.split(":")[1]
+  );
+  const Infocategory = [];
+  DataContext.products[0].map((item) =>
+    item.Info.map((product) => Infocategory.push(product))
+  );
+
+  const InfoCategoryFilter = Infocategory.filter(
+    (product) => product.CategoryTitle == params.categoriesTitle.split(":")[1]
+  );
+  const IsInfoCategory = Infocategory.some(
+    (product) => product.CategoryTitle == params.categoriesTitle.split(":")[1]
+  );
+  const MainInfocategory = [];
+  Infocategory.map((p) => p.MainInfo.map((A) => MainInfocategory.push(A)));
+
+  const MainInfoCategoryFilter = MainInfocategory.filter(
+    (product) => product.Category == params.categoriesTitle.split(":")[1]
+  );
+  const IsMainInfoCategory = MainInfocategory.some(
+    (product) => product.Category == params.categoriesTitle.split(":")[1]
+  );
+
   return (
-    <div>MainCategory</div>
-  )
+    <div className="Container-MainCategory">
+      <h1>{params.categoriesTitle.split(":")[1]}</h1>
+      <div className="Wrapper-MainCategory">
+        {IsMainCategory &&
+          MainCategoryFilter.map((categoryProduct) =>
+            categoryProduct.Info.map((infoProduct) =>
+              infoProduct.MainInfo.map((mainInfoProduct) => (
+                <ProductCard {...mainInfoProduct} />
+              ))
+            )
+          )}
+        {IsInfoCategory &&
+          InfoCategoryFilter.map((categoryProduct) =>
+            categoryProduct.MainInfo.map((infoProduct) => (
+              <ProductCard {...infoProduct} />
+            ))
+          )}
+        {IsMainInfoCategory &&
+          MainInfoCategoryFilter.map((categoryProduct) => (
+            <ProductCard {...categoryProduct} />
+          ))}
+      </div>
+    </div>
+  );
 }

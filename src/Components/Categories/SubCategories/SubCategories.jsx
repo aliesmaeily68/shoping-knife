@@ -22,7 +22,7 @@ export default function SubCategories() {
             <div className="Main-SubCategories">
               <div className="Title-SubCategories">
                 <h3>
-                  <Link to={`/product/${data.CategoryTitle}`}>
+                  <Link to={`/product/category:${data.CategoryTitle}`}>
                     {data.CategoryTitle}{" "}
                   </Link>
                 </h3>
@@ -32,7 +32,7 @@ export default function SubCategories() {
                 {[...new Set(data.MainInfo.map((p) => p.Category))].map(
                   (product) => (
                     <li className="List-SubCategories">
-                      <Link to={`/product/${product}`}>{product}</Link>
+                      <Link to={`/product/category:${product}`}>{product}</Link>
                     </li>
                   )
                 )}

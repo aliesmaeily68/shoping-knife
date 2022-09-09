@@ -48,7 +48,7 @@ export default function ProductCard(props) {
           <div className="Product-Discount">
             <span>{props.discount}%</span>
           </div>
-          <Card.Img variant="top" src={`./Image/${props.imgName}`} />
+          <Card.Img variant="top" src={`../Image/${props.imgName}`} />
           <div className="Card-Product-Body">
             <div className="Card-Product-Title">
               <span> {props.title}</span>
@@ -62,7 +62,7 @@ export default function ProductCard(props) {
               </div>
             </div>
             <div className="MoreInfo-Product-Card">
-              <Link to={`/product/${props.id}-${props.title}`}>
+              <Link to={`/products/${props.id}-${props.title}`}>
                 <span> مشاهده بیشتر</span>
               </Link>
             </div>

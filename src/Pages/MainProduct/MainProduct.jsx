@@ -14,11 +14,11 @@ export default function MainProduct() {
 
   let params = useParams();
   let MainProduct = DataContext.fullProducts.find(
-    (product) => params.productTitle.split("-")[0] === product.id
+    (product) => params.productTitle.split("-")[0] == product.id
   );
 
   let hasProduct = DataContext.fullProducts.some(
-    (product) => params.productTitle.split("-")[0] === product.id
+    (product) => params.productTitle.split("-")[0] == product.id
   );
   DataContext.setMainProduct(MainProduct);
 
