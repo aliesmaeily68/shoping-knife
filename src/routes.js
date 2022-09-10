@@ -12,7 +12,7 @@ import Contact from './Pages/Contact/Contact'
 import Article from './Pages/Article/Article'
 import Checkout from './Pages/Checkout/Checkout'
 import Cart from './Pages/Cart/Cart'
-import ProposalProducts from './Pages/ProposalProducts/ProposalProducts'
+import ProposalProducts from './Pages/Proposals/ProposalProducts'
 import CommentsProduct from './Pages/MainProduct/Commentsproduct/CommentsProduct'
 import DescriptionProduct from './Pages/MainProduct/DescriptionProduct/DescriptionProduct'
 

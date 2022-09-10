@@ -45,19 +45,19 @@ export default function MainCategory() {
           MainCategoryFilter.map((categoryProduct) =>
             categoryProduct.Info.map((infoProduct) =>
               infoProduct.MainInfo.map((mainInfoProduct) => (
-                <ProductCard {...mainInfoProduct} />
+                <ProductCard {...mainInfoProduct} key={mainInfoProduct.id} />
               ))
             )
           )}
         {IsInfoCategory &&
           InfoCategoryFilter.map((categoryProduct) =>
             categoryProduct.MainInfo.map((infoProduct) => (
-              <ProductCard {...infoProduct} />
+              <ProductCard {...infoProduct} key={infoProduct.id}/>
             ))
           )}
         {IsMainInfoCategory &&
           MainInfoCategoryFilter.map((categoryProduct) => (
-            <ProductCard {...categoryProduct} />
+            <ProductCard {...categoryProduct} key={categoryProduct.id}/>
           ))}
       </div>
     </div>

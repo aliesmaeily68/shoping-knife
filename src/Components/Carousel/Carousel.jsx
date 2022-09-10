@@ -31,7 +31,7 @@ function CarouselImage() {
                     ارسال سریع و رایگان برای خریدهای بالای 5 میلیون 
                   </p>
                 </Link>
-                <Link to={`/product/${product.MainCategory.title}`}>
+                <Link to={`/product/category:${product.MainCategory.title}`}>
                   <button className="Carousel-Btn">خرید کن ! </button>
                 </Link>
               </Carousel.Caption>
