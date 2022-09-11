@@ -1,0 +1,112 @@
+.Articles-Container {
+  width: 1500px;
+  height: 45em;
+  margin: 3em auto;
+}
+
+.Articles-Wrapper {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.Articles-Content {
+  width: 100%;
+  height: 20em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 2em;
+  margin-top: 2em;
+}
+
+.Article-Content {
+  width: 80%;
+  height: 20em;
+  position: relative;
+  background-color: var(--Primary-Color);
+}
+
+.Wrpper-Articles-Content {
+  width: 100%;
+  height: 20em;
+  border-radius: 0.3em;
+  position: absolute;
+  top: -0.7em;
+  left: -0.7em;
+  padding: 1em;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+    url("../../../public/Image/41.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.Wrpper-Articles-Content h2 {
+  margin-top: 2em;
+  color: var(--White-Color);
+  font-size: 1.2em;
+}
+.Wrpper-Articles-Content p {
+  line-height: 1.5em;
+  color: var(--White-Color);
+  font-size: 0.9em;
+  text-align: justify;
+  margin: 1.5em 0;
+}
+.Wrpper-Articles-Content button {
+  color: var(--White-Color);
+  border: none;
+  border: 1px solid rgba(247, 246, 246, 0.8);
+  background-color: transparent;
+  font-size: 0.9em;
+  border-radius: 0.3em;
+  padding: 0.6em;
+  margin: 0.5em 10em 0 0;
+}
+
+@media (max-width: 1024px) {
+  .Articles-Container {
+    width: 100%;
+    margin-bottom: 2em;
+  }
+
+  .Articles-Wrapper {
+    width: 90%;
+  }
+
+  .Wrpper-Articles-Content h2 {
+    margin-top: 3em;
+    font-size: 0.9em;
+  }
+  .Wrpper-Articles-Content p {
+    font-size: 0.7em;
+    margin: 1.5em 0;
+  }
+  .Wrpper-Articles-Content button {
+    font-size: 0.7em;
+    margin: 0.5em 5em 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .Articles-Container {
+    height: 65em;
+  }
+
+  .Articles-Content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5em;
+  }
+
+  .Article-Content {
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .Articles-Container {
+    height: 130em;
+  }
+  .Articles-Content {
+    grid-template-columns: 1fr;
+  }
+}

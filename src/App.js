@@ -9,6 +9,7 @@ import Modals from './Components/Modal/Modal';
 import { ProductsProvider } from './Contexts/ProductContext'
 import { ProposalProductsProvider } from "./Contexts/ProposalProductContext";
 import { UsersProvider } from "./Contexts/UsersContext";
+import { ArticleDataProvider } from './Contexts/ArticleDataContext';
 
 import './App.css'
 
@@ -17,6 +18,7 @@ export default function App() {
 
 
   return (
+    <ArticleDataProvider>
     <ProductsProvider>
       <ProposalProductsProvider>
         <UsersProvider>
@@ -30,6 +32,7 @@ export default function App() {
         </UsersProvider>
       </ProposalProductsProvider>
     </ProductsProvider>
+    </ArticleDataProvider>
 
   )
 }

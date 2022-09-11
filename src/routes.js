@@ -10,6 +10,7 @@ import MainCategory from './Pages/MainCategory/MainCategory'
 import Comparison from './Pages/Comparison/Comparison'
 import Contact from './Pages/Contact/Contact'
 import Article from './Pages/Article/Article'
+import MainArticle from './Pages/Article/MainArticle/MainArticle'
 import Checkout from './Pages/Checkout/Checkout'
 import Cart from './Pages/Cart/Cart'
 import ProposalProducts from './Pages/Proposals/ProposalProducts'
@@ -33,6 +34,7 @@ let routes = [
     { path: '/comparison', element: <Comparison /> },
     { path: '/contact', element: <Contact /> },
     { path: '/article', element: <Article /> },
+    { path: '/article/:articleTitle', element: <MainArticle /> },
     { path: '/checkout', element: <Checkout /> },
     { path: '/cart', element: <Cart /> },
     { path: '/proposalProducts', element: <ProposalProducts /> },

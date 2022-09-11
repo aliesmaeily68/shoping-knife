@@ -1,0 +1,223 @@
+.Breadcrumb-MainArticle {
+  width: 1500px;
+  margin: 0 auto;
+  background-color: rgb(237, 238, 239);
+  line-height: 5em;
+  height: 5em;
+}
+
+.Container-Breadcrumb-MainArticle {
+  width: var(--Max-Width);
+  margin: 0 auto;
+}
+
+.Container-Breadcrumb-MainArticle span {
+  font-size: 1.2em;
+  margin: 0 0.3em;
+  opacity: 0.7;
+}
+.Breadcrumb-MainArticle:hover {
+  opacity: 1 !important;
+}
+
+#Breadcrumb-MainArticle {
+  opacity: 1;
+}
+
+.Container-MainArticle {
+  width: 1500px;
+  margin: 3em auto;
+}
+
+.Wrapper-MainArticle {
+  width: var(--Max-Width);
+
+  margin: 0 auto;
+}
+
+.Wrapper-MainArticle h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 2em;
+}
+
+.Wrapper-MainArticle img {
+  width: 60%;
+  margin: 1em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Wrapper-MainArticle p {
+  text-align: justify;
+  line-height: 1.8em;
+  padding: 0 3em;
+}
+
+.CommentsArticle-Container {
+  width: 1500px;
+  margin: 0 auto;
+  background-color: var(--Secondary-Color);
+}
+
+.CommentsArticle-Wrapper {
+  width: 70%;
+  padding: 0 7em;
+}
+
+.CommentsArticle-Star {
+  color: red;
+}
+
+.Insert-CommentsArticle {
+  padding: 2em;
+  line-height: 2em;
+}
+.Insert-CommentsArticle span {
+  font-size: 0.9em;
+}
+.Insert-CommentsArticle h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 1em 0;
+}
+
+.CommentsArticle-Name-Email {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CommentsArticle-Name,
+.CommentsArticle-Email {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+}
+
+.CommentsArticle-Name input,
+.CommentsArticle-Email input,
+#YourViewPoint {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+#YourViewPoint {
+  width: 100%;
+  height: 10em;
+}
+
+.CommentsArticle-CheckBox {
+  margin: 0.5em 0;
+  display: flex;
+  align-items: center;
+}
+
+.CommentsArticle-CheckBox input {
+  font-size: 1.2em;
+  margin: 0 0.5em;
+}
+
+.CommentsArticle-CheckBox span {
+  font-size: 0.9em;
+}
+
+.CommentsArticle-Submit {
+  border: none;
+  background-color: var(--Primary-Color);
+  padding: 0.3em 1em;
+  border-radius: 0.3em;
+  margin: 2em 0;
+}
+
+@media (max-width: 1024px) {
+  .Container-MainArticle {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .Wrapper-MainArticle {
+    width: 100%;
+  }
+  .CommentsArticle-Container {
+    width: 100%;
+  }
+
+  .CommentsArticle-Wrapper {
+    width: 100%;
+  }
+
+  .CommentsArticles {
+    margin-top: 2em;
+    padding: 0.5em;
+    justify-content: space-around;
+  }
+
+  .CommentsArticles h2 {
+    font-size: 0.7em;
+  }
+
+  .CommentsArticles span {
+    font-size: 0.6em;
+  }
+  .Breadcrumb-MainArticle {
+    width: 100%;
+  }
+  .Container-Breadcrumb-MainArticle {
+    width: 80%;
+  }
+  .Container-Breadcrumb-MainArticle span {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .Wrapper-MainArticle h1 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+  .CommentsArticle-Wrapper {
+    padding: 0 3em;
+  }
+  .CommentsArticles {
+    padding: 2em 0;
+  }
+  .Insert-CommentsArticle h2 {
+    font-size: 1.2em;
+  }
+
+  .Insert-CommentsArticle {
+    padding: 0;
+  }
+  .CommentsArticle-CheckBox input {
+    margin: 0;
+  }
+  .CommentsArticle-CheckBox span {
+    font-size: 0.7em;
+  }
+}
+@media (max-width: 500px) {
+  .Container-Breadcrumb-MainArticle span {
+    font-size: 0.6em;
+  }
+  .CommentsArticle-Submit {
+ font-size: .8em;
+  }
+}
+
+@media (max-width: 425px) {
+    .Wrapper-MainArticle h1 {
+        font-size: 1em;
+      }
+    .CommentsArticle-Wrapper {
+        padding: 0 .5em;
+      }
+  .CommentsArticles h2,
+  .CommentsArticles span {
+    font-size: 0.7em;
+  }
+  .CommentsArticle-Name-Email {
+    flex-direction: column;
+  }
+  .CommentsArticle-CheckBox span {
+    font-size: 0.5em;
+  }
+}
