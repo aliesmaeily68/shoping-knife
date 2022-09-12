@@ -11,8 +11,8 @@ export default function AllProduct() {
     <>
       <div className="All-Product">
         <div className="products-Container">
-          {DataContext.products[0].map((product, index) => (
-            <div className="products-wrapper" key={index}>
+          {DataContext.products[0].map((product) => (
+            <div className="products-wrapper" key={product.id}>
               <div className="Product-Category-Title">
                 {" "}
                 <h2>{product.MainCategory.title} </h2>
@@ -22,7 +22,7 @@ export default function AllProduct() {
               <div className="Allproducts-Card">
                 {product.Info.map((data) =>
                   data.MainInfo.map((product) => (
-                    <ProductCard {...product} />
+                    <ProductCard {...product} key={product.id} />
                   ))
                 )}
               </div>

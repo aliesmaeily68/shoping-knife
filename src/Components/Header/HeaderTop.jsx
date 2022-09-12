@@ -7,17 +7,19 @@ import IconHeader from "./IconHeader";
 import { BsCart2 } from "react-icons/bs";
 import { BsList } from "react-icons/bs";
 import { AllProductContext } from "../../Contexts/ProductContext";
+import { AllMobileNavContext } from "../../Contexts/MobailNavDataContext";
 
 export default function HeaderTop() {
+  const DataMobileNavContext = useContext(AllMobileNavContext);
   const [logoName, SetLogoName] = useState("LOGO");
   const [iconName1, SetIconName1] = useState(true);
   const DataContext = useContext(AllProductContext);
   const HeaderTopHandler = () => {
-    DataContext.setShowCategories(false)
+    DataContext.setShowCategories(false);
   };
 
   return (
-    <div className="Header-Top"  onClick={() => HeaderTopHandler()}>
+    <div className="Header-Top" onClick={() => HeaderTopHandler()}>
       {/* /////For media Max-Width>1024///// */}
       <div className="Container-HeaderTop">
         <div className="Wrapper-HeaderTop">
@@ -37,7 +39,9 @@ export default function HeaderTop() {
       <div className="Container-HeaderTop-M1024">
         <div className="Wrapper-HeaderTop-M1024">
           <div className="BsList-HeaderTop-M1024">
-            <BsList />
+            <BsList
+              onClick={() => DataMobileNavContext.setShowMobileNav(true)}
+            />
           </div>
           <div className="Logo-HeaderTop-M1024">
             <Logo logoName={logoName} />

@@ -8,8 +8,10 @@ import LoginSidebar from "./Components/LoginSidebar/LoginSidebar";
 import Modals from './Components/Modal/Modal';
 import { ProductsProvider } from './Contexts/ProductContext'
 import { ProposalProductsProvider } from "./Contexts/ProposalProductContext";
+import { MobileNavProvider } from './Contexts/MobailNavDataContext';
 import { UsersProvider } from "./Contexts/UsersContext";
 import { ArticleDataProvider } from './Contexts/ArticleDataContext';
+import MobileNav from './Components/MobileNav/MobileNav';
 
 import './App.css'
 
@@ -18,21 +20,27 @@ export default function App() {
 
 
   return (
-    <ArticleDataProvider>
-    <ProductsProvider>
-      <ProposalProductsProvider>
-        <UsersProvider>
-          <Modals />
-          <BagCart />
-          <LoginSidebar />
-          <Toasts />
-          <Header />
-          <AllPage />
-          <Footer />
-        </UsersProvider>
-      </ProposalProductsProvider>
-    </ProductsProvider>
-    </ArticleDataProvider>
+    <MobileNavProvider>
+      <ArticleDataProvider>
+        <ProductsProvider>
+          <ProposalProductsProvider>
+
+            <UsersProvider>
+              <MobileNav />
+              <Modals />
+              <BagCart />
+              <LoginSidebar />
+              <Toasts />
+              <Header />
+              <AllPage />
+              <Footer />
+
+            </UsersProvider>
+
+          </ProposalProductsProvider>
+        </ProductsProvider>
+      </ArticleDataProvider>
+    </MobileNavProvider>
 
   )
 }

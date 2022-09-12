@@ -1,0 +1,45 @@
+.Title-Category-MobileNav {
+    margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+}
+.Title-Category-MobileNav h2 {
+  font-size: 0.9em;
+  padding: 1em 0.5em;
+}
+.ListGroup-Category-MobileNav{
+  padding-top: 1em ;
+}
+.ListGroup-Category-MobileNav,.ListGroup-SubCategory-MobileNav {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all .5s;
+}
+.Show-Category ,.Show-SubCategory{
+  height: 100%;
+  opacity: 1;
+  overflow: visible;
+  transition: all .5s;
+}
+.List-Category-MobileNav div {
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 1em 0; */
+  cursor: pointer;
+}
+.ListGroup-SubCategory-MobileNav{
+  padding-bottom: .7em;
+}
+
+.ListGroup-SubCategory-MobileNav li {
+  font-size: 0.7em;
+  padding:0 1em;
+  padding-top: 1.5em;
+  color: var(--Hover-Color);
+}
