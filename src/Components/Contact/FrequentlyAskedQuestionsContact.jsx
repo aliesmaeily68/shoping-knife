@@ -1,14 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { MdKeyboardArrowDown } from "react-icons/md";
-import { RiQuestionAnswerLine } from "react-icons/ri";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { ContactAnswerQuestionData } from "../../Datas";
 import "./FrequentlyAskedQuestionsContact.css";
 
 export default function FrequentlyAskedQuestionsContact() {
-  const [dataQuestion, setDataQuestion] = useState(
-    ContactAnswerQuestionData[0].id
-  );
+  const [dataQuestion, setDataQuestion] = useState(1);
 
   const ShowingQuestion = (DataId) => {
     setDataQuestion(DataId);
@@ -29,10 +26,11 @@ export default function FrequentlyAskedQuestionsContact() {
                   {data.id === dataQuestion ? (
                     <div
                       className="QuestionAnsver-FrequentlyAskedQuestionsContact"
+                      onClick={() => setDataQuestion(false)}
                     >
                       <p>{data.answer}</p>
                       <div className="Icon-FrequentlyAskedQuestionsContact">
-                        <RiQuestionAnswerLine />
+                        <IoIosArrowUp />
                       </div>
                     </div>
                   ) : (
@@ -42,7 +40,7 @@ export default function FrequentlyAskedQuestionsContact() {
                     >
                       <p>{data.answer}</p>
                       <div className="Icon-FrequentlyAskedQuestionsContact">
-                        <MdKeyboardArrowDown />
+                        <IoIosArrowDown />
                       </div>
                     </div>
                   )}

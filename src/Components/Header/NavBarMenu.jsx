@@ -1,6 +1,5 @@
 import React from "react";
 import "./NavBarMenu.css";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AllProductContext } from "../../Contexts/ProductContext";
@@ -21,7 +20,6 @@ export default function NavBarMenu() {
           {" "}
           <li className="List-NavBar-Menu">
             <span>فروشگاه</span>
-            <MdOutlineKeyboardArrowDown />
           </li>
         </NavLink>
 

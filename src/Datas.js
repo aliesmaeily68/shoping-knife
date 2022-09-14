@@ -4,52 +4,52 @@ let AllProduct = [
         MainCategory: { id: 1, title: 'چاقوی زنجان', imgName: '1.png', imgName2: 'چاقوی کلکسیونی دوتیغه.png' },
         Info: [
             {
-                CategoryTitle: 'چاقوی آشپزخانه',
+                CategoryTitle: 'چاقوهای آشپزخانه',
                 MainInfo: [
-                    { id: 1, Category: 'آشپزی و سرآشپز', title: ' چاقوی جوجه زن ', price: 150_000, imgName: '0.jpeg', stock: 0, conter: 0, discount: 10, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 2, Category: 'چوپانی', title: ' چاقوی جوجه زن ', price: 50_000, imgName: '2.jpeg', stock: 12, conter: 0, discount: 12, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 3, Category: 'ضامن دار', title: ' چاقوی جوجه زن ', price: 50_000, imgName: '1.png', stock: 12, conter: 0, discount: 12, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 4, Category: 'چوپانی', title: ' چاقوی جوجه زن ', price: 50_000, imgName: '2.jpeg', stock: 12, conter: 0, discount: 12, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
+                    { id: 1, Category: 'چاقوی آشپزی و سرآشپز', title: 'چاقوی سرآشپز مدل ژاپنی هومی', price: 3_000_000, imgName: 'سرآشپز خاص مدل ژاپنی هومی.png', stock: 0, conter: 0, discount: 10, Weight: 231, genus: 'فولاد ضد زنگ', usage: 'مخصوص انواع گوشت وسبزیجات', Producer: 'استاد فولادوند' },
+                    { id: 2, Category: 'کارد آشپزخانه سلاخی', title: 'چاقوی سلاخی و پوست کن 18 سانتی', price: 173_000, imgName: 'چاقوی_سلاخی_پوست_کن_18_سانتی.png', stock: 12, conter: 0, discount: 12, Weight: 106, genus: 'فولادفنر ماشین', usage: 'سلاخی و پوست کنی', Producer: 'استاد میری' },
+                    { id: 3, Category: 'کارد آشپزخانه دم دستی', title: 'چاقوی دم دستی 19 سانتی ناصر', price: 150_000, imgName: 'چاقوی_دم_دستی_19_سانتی_ناصر-.png', stock: 1, conter: 0, discount: 2, Weight: 75, genus: '420ضد زنگ', usage: 'مناسب برای تهیه سالاد', Producer: 'استاد ناصر' },
+                    { id: 4, Category: 'کارد آشپزخانه دم دستی', title: 'چاقوی دم دستی غفاری تیغه استیل', price: 50_000, imgName: 'چاقوی_دم_دستی_غفاری_استیل-.png', stock: 12, conter: 0, discount: 10, Weight: 135, genus: '420 ضد زنگ', usage: 'مصرف آشپزخانه', Producer: 'استاد غفاری' },
 
                 ]
             },
             {
                 CategoryTitle: 'چاقوی جیبی',
                 MainInfo: [
-                    { id: 5, Category: 'آشپزی و سرآشپز', title: ' چاقوی دنده ای  ', price: 100_000, imgName: '3.jpeg', stock: 5, conter: 0, discount: 15, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 6, Category: 'میوه خوری', title: ' چاقوی ساطور  ', price: 1_050_000, imgName: '4.jpeg', stock: 8, conter: 0, discount: 10, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
+                    { id: 5, Category: 'چاقوی چوپانی زنجان', title:'چاقوی چوپانی بزرگ بیگدلی', price: 100_000, imgName: 'چاقوی_چوپانی_بزرگ_بیگدلی-.png', stock: 5, conter: 0, discount: 15, Weight: 175, genus: 'فنر ماشین', usage: 'ذبح حیوانات', Producer: 'استاد بیگدلی' },
+                    { id: 6, Category: 'چاقوی چوپانی زنجان', title: 'چاقوی چوپانی دسته کرم حمید', price: 1_050_000, imgName: 'چاقوی_چوپانی_دسته_کرم_حمید-.png', stock: 8, conter: 0, discount: 10, Weight: 135, genus: '80crv2', usage: 'مناسب چوپان ها و ذبح حیوانات', Producer: 'استاد حمید دادو' },
                 ]
             },
             {
-                CategoryTitle: 'چاقوی سفارشی',
+                CategoryTitle: 'محصولات خاص و سفارشی',
                 MainInfo: [
-                    { id: 7, Category: 'ضامن دار', title: ' تبر   ', price: 250_000, imgName: '5.jpeg', stock: 0, conter: 0, discount: 20, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 8, Category: 'چوپانی', title: ' چاقوی کبابی  ', price: 180_000, imgName: '6.jpeg', stock: 10, conter: 0, discount: 17, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
+                    { id: 7, Category: 'شمشیرهای موزه ای و تزئینی خاص', title: 'شمشیر عربی کلکسیونی با تیغه برنز', price: 2_500_000, imgName: 'شمشیر_عربی_کلکسیونی_با_تیغه_برنز.png', stock: 1, conter: 0, discount: 3, Weight: 2000, genus: 'شمش برنز', usage: 'مناسب دکور و هدیه', Producer: 'استاد حیدری' },
+                    { id: 8, Category: 'چاقوهای سفارشی و خاص', title: 'چاقوی طرح عقاب با نوک مسی', price: 2_730_000, imgName: 'چاقوی_طرح_عقاب_با_نوک_مسی-.png', stock: 10, conter: 0, discount: 17, Weight: 200, genus: 'فولاد-الیاژ مسی', usage: ' دکوری', Producer: 'استاد صمد زمانی' },
                 ]
             },
         ]
     },
 
     {
-        MainCategory: { id: 2, title: 'مس زنجان', imgName: 'لیوان مسی دسته دار.png', imgName2: 'لیوان مسی دسته دار.png' },
+        MainCategory: { id: 2, title: 'ظروف مسی', imgName: 'لیوان مسی دسته دار.png', imgName2: 'لیوان مسی دسته دار.png' },
         Info: [
             {
-                CategoryTitle: 'لوازم آشپزخانه',
+                CategoryTitle: 'ظروف آشپزخانه',
                 MainInfo: [
-                    { id: 10, Category: 'آجیل خوری', title: '  قابلمه  ', price: 150_000, imgName: '7.jpg', stock: 9, conter: 0, discount: 7, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 11, Category: 'سینی', title: ' سینی ', price: 15_000, imgName: '8.jpg', stock: 4, conter: 0, discount: 14, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
+                    { id: 10, Category: 'کتری و قوری مسی', title: 'کتری مسی چکشی', price: 436_000, imgName: 'کتری_مسی_چکشی-.png', stock: 9, conter: 0, discount: 10, Weight: 1000, genus: 'کاملا مس', usage: 'تزئینات دکوری منزل', Producer: 'تولیدی اریا' },
+                    { id: 11, Category: 'پارچ مسی', title: 'پارچ مسی دسته برنجی', price: 561_000, imgName: 'پارچ مسی دسته برنجی.png', stock: 4, conter: 0, discount: 10, Weight: 780, genus: 'برنج و مس', usage: 'استفاده در منزل', Producer: 'تولیدی اریا'},
 
                 ]
             },
             {
                 CategoryTitle: 'لوازم تزئینی مسی',
                 MainInfo: [
-                    { id: 12, Category: 'سینی', title: ' گلدان   ', price: 100_000, imgName: '9.jpg', stock: 2, conter: 0, discount: 8, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 13, Category: 'پارچ', title: ' گل   ', price: 1_050_000, imgName: '10.jpg', stock: 5, conter: 0, discount: 20, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 14, Category: 'پارچ', title: ' قندان   ', price: 50_000, imgName: '11.jpg', stock: 7, conter: 0, discount: 16, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 15, Category: 'قابلمه', title: ' شکلاتخوری   ', price: 180_000, imgName: '12.jpg', stock: 9, conter: 0, discount: 10, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 16, Category: 'قابلمه', title: ' شکلاتخوری   ', price: 180_000, imgName: '12.jpg', stock: 0, conter: 0, discount: 10, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 17, Category: 'آجیل خوری', title: ' شکلاتخوری   ', price: 180_000, imgName: '12.jpg', stock: 9, conter: 0, discount: 10, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
+                    { id: 12, Category: 'شیرینی خوری و شکلات خوری', title: 'شکلات خوری مسی چکشی', price: 355_000, imgName: 'شکلات_خوری_مسی_چکشی-.png', stock: 2, conter: 0, discount: 15, Weight: 200, genus: 'کاملا مس', usage: 'مناسب برای شکلات خوری', Producer: 'تولیدی اریا' },
+                    { id: 13, Category: 'دستبند مسی', title: 'دستبند پلاک گوسفند', price: 100_000, imgName: 'دستبند_مس_پلاک_گوسفند-.png', stock: 5, conter: 0, discount: 20, Weight: 50, genus: 'چرم گاوی', usage: 'هدیه به دوستان', Producer: 'استاد تاران' },
+                    { id: 14, Category: 'دستبند مسی', title: 'دستبند پلاک فروهر', price: 150_000, imgName: 'دستبند_مسی_فروهر.png', stock: 7, conter: 0, discount: 16, Weight: 50, genus: 'چرم گاوی', usage: 'هدیه به دوستان', Producer: 'استاد تاران' },
+                    { id: 15, Category: 'شیرینی خوری و شکلات خوری', title: 'شیرینی خوری مسی چکشی', price: 464_000, imgName: 'شیرینی_خوری_چکشی-.png', stock: 9, conter: 0, discount: 10, Weight: 543, genus: 'کاملا مس', usage: 'مناسب برای شیرینی خوری', Producer: 'تولیدی اریا' },
+                    { id: 16, Category: 'سماورهای ذغالی', title: 'سماور ذغالی طرح شکمی 6 لیتری', price: 1_800_000, imgName: 'سماور_ذغالی_طرح_شکمی_6_لیتری-.png', stock: 0, conter: 0, discount: 10, Weight: 4000, genus: 'مس خالص', usage: 'دکوراسیون منزل', Producer: 'استاد حسنی' },
+                    { id: 17, Category: 'شیرینی خوری و شکلات خوری', title: 'شکلات خوری درب دار بزرگ', price: 519_000, imgName: 'شکلات_خوری_درب_دار_بزرگ-.png', stock: 9, conter: 0, discount: 10, Weight: 650, genus: 'مس', usage: 'شکلات خوری', Producer: 'استاد تاران' },
                 ]
             },
         ]
@@ -60,16 +60,16 @@ let AllProduct = [
         MainCategory: { id: 3, title: 'مینا کاری', imgName: "آجیل خوری مینا کاری.png", imgName2: "آجیل خوری مینا کاری.png" },
         Info: [
             {
-                CategoryTitle: 'لوازم تزئینی',
+                CategoryTitle: 'لوازم میناکاری',
                 MainInfo: [
-                    { id: 18, Category: 'آجیل خوری', title: ' تابلو   ', price: 150_000, imgName: '13.jpg', stock: 15, conter: 0, discount: 10, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 19, Category: 'تابلو', title: ' قندان    ', price: 100_000, imgName: '19.jpg', stock: 12, conter: 0, discount: 13, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 20, Category: 'تابلو', title: ' سینی ', price: 50_000, imgName: '15.jpg', stock: 7, conter: 0, discount: 19, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 21, Category: 'گلدان', title: 'گلدان  ', price: 15_000, imgName: '16.jpg', stock: 2, conter: 0, discount: 17, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 22, Category: 'گلدان', title: 'پارچ  ', price: 1_050_000, imgName: '17.jpg', stock: 3, conter: 0, discount: 11, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 23, Category: 'آجیل خوری', title: ' آجیل خوری   ', price: 250_000, imgName: '18.jpg', stock: 15, conter: 0, discount: 6, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 24, Category: 'دکوری', title: ' آجیل خوری   ', price: 250_000, imgName: '18.jpg', stock: 15, conter: 0, discount: 6, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
-                    { id: 25, Category: 'دکوری', title: ' آجیل خوری   ', price: 250_000, imgName: '18.jpg', stock: 15, conter: 0, discount: 6, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
+                    { id: 18, Category: "بشقاب میناکاری", title: ' بشقاب میناکاری 30 سانتی   ', price: 350_000, imgName: 'بشقاب_میناکاری_30سانتی-.png', stock: 15, conter: 0, discount: 10, Weight: 387, genus: 'سفالی', usage: 'دکوری', Producer: 'استاد نجفی' },
+                    { id: 19, Category: 'قندان میناکاری', title: 'شیرینی خوری مینا کاری', price: 100_000, imgName: '19.jpg', stock: 12, conter: 0, discount: 13, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
+                    { id: 20, Category: 'قندان میناکاری', title: ' سینی ', price: 50_000, imgName: '15.jpg', stock: 7, conter: 0, discount: 19, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
+                    { id: 21, Category: 'قندان میناکاری', title: 'قندان', price: 15_000, imgName: '16.jpg', stock: 2, conter: 0, discount: 17, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
+                    { id: 22, Category: "بشقاب میناکاری", title: 'بشقاب 19 سانتی میناکاری', price: 450_000, imgName: 'بشقاب_19_سانتی_میناکاری-.png', stock: 3, conter: 0, discount: 11, Weight: 139, genus: 'سفالی', usage: 'دکوری', Producer: 'استاد تاران' },
+                    { id: 23, Category: "بشقاب میناکاری", title: 'بشقاب میناکاری 20سانتی', price: 250_000, imgName: '18.jpg', stock: 15, conter: 0, discount: 6, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
+                    { id: 24, Category: "بشقاب میناکاری", title: 'بشقاب میناکاری 15سانتی', price: 250_000, imgName: '18.jpg', stock: 15, conter: 0, discount: 6, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
+                    { id: 25, Category: "بشقاب میناکاری", title: 'بشقاب میناکاری 35 سانتی', price: 250_000, imgName: '18.jpg', stock: 15, conter: 0, discount: 6, Weight: 20, genus: 'آلومینیومی', usage: 'مصرف آشپزخانه', Producer: 'استاد تاران' },
                 ]
             },
 

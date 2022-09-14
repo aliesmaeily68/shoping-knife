@@ -16,7 +16,8 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.Question-FrequentlyAskedQuestionsContact,.QuestionAnsver-FrequentlyAskedQuestionsContact {
+.Question-FrequentlyAskedQuestionsContact,
+.QuestionAnsver-FrequentlyAskedQuestionsContact {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,9 +25,6 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   cursor: pointer;
   opacity: 0.8;
-}
-.QuestionAnsver-FrequentlyAskedQuestionsContact{
-    cursor: default;
 }
 
 .Question-FrequentlyAskedQuestionsContact:hover {

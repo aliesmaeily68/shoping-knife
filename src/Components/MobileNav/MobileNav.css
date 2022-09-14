@@ -4,7 +4,7 @@
   height: 100%;
   z-index: 9999;
   position: fixed;
-  display: flex;
+  display: none;
   transition: all 0.5s;
   opacity: 0;
   visibility: hidden;
@@ -35,6 +35,11 @@
   padding: 0.5em 1.2em;
 }
 
+@media (max-width: 1024px) {
+  .Container-MobileNav {
+    display: flex;
+  }
+}
 @media (max-width: 768px) {
   .Wrapper-MobileNav-Bg {
     flex: 2;

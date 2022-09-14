@@ -41,7 +41,7 @@ export default function MobileNavCategory() {
                   {showSubCategory === productCategory.MainCategory.id ? (
                     <IoIosArrowUp
                       onClick={() =>
-                        setShowSubCategory(productCategory.MainCategory.id)
+                        setShowSubCategory(false)
                       }
                     />
                   ) : (

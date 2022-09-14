@@ -24,7 +24,6 @@ export default function App() {
       <ArticleDataProvider>
         <ProductsProvider>
           <ProposalProductsProvider>
-
             <UsersProvider>
               <MobileNav />
               <Modals />
@@ -34,9 +33,7 @@ export default function App() {
               <Header />
               <AllPage />
               <Footer />
-
             </UsersProvider>
-
           </ProposalProductsProvider>
         </ProductsProvider>
       </ArticleDataProvider>
