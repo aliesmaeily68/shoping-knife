@@ -61,12 +61,18 @@ export default function YourOrderCheckout() {
       DataUsersContext.setValidEmailCheckout(false);
     }
 
-    if (RegexPassword.test(DataUsersContext.passwordCheckout)) {
+    if (
+      !DataUsersContext.isUserInData &&
+      RegexPassword.test(DataUsersContext.passwordCheckout)
+    ) {
       DataUsersContext.setValidPasswordCheckout(true);
     } else {
       DataUsersContext.setValidPasswordCheckout(false);
     }
-    if (RegexNotEmpty.test(DataUsersContext.userNameCheckout)) {
+    if (
+      !DataUsersContext.isUserInData &&
+      RegexNotEmpty.test(DataUsersContext.userNameCheckout)
+    ) {
       DataUsersContext.setValidUserNameCheckout(true);
     } else {
       DataUsersContext.setValidUserNameCheckout(false);
@@ -80,9 +86,7 @@ export default function YourOrderCheckout() {
       DataUsersContext.validAddressNameCheckout &&
       DataUsersContext.validPostalCodeCheckout &&
       DataUsersContext.validTellNumberCheckout &&
-      DataUsersContext.validEmailCheckout &&
-      DataUsersContext.validPasswordCheckout&&
-      DataUsersContext.validUserNameCheckout
+      DataUsersContext.validEmailCheckout
     ) {
       DataUsersContext.setFirstNameCheckout("");
       DataUsersContext.setLastNameCheckout("");

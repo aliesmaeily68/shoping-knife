@@ -1,0 +1,144 @@
+.Star-BillOrTransportation{
+    color: var(--Danger-Color);
+}
+
+.FirstName-LastName-Form-BillOrTransportation {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1em;
+  margin: 0.5em 0;
+}
+
+.FirstName-Form-BillOrTransportation,
+.LastName-Form-BillOrTransportation {
+  height: 5em;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+}
+.FirstName-Form-BillOrTransportation label,
+.LastName-Form-BillOrTransportation label {
+  grid-row: 1 / span 2;
+  grid-column: 1 / span 8;
+  padding: 0.5em;
+  font-size: 0.8em;
+}
+
+.FirstName-Form-BillOrTransportation input,
+.LastName-Form-BillOrTransportation input {
+  grid-row: 4 / span 3;
+  grid-column: 1 / span 8;
+  align-self: center;
+  outline: none;
+  border-radius: 0.3em;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 0.7em;
+}
+
+.FirstName-Form-BillOrTransportation span,
+.LastName-Form-BillOrTransportation span {
+  grid-row: 7 / span 2;
+  grid-column: 1 / span 8;
+}
+
+.CompanyName-BillOrTransportation label,
+.CountryName-BillOrTransportation label,
+.StateName-BillOrTransportation label,
+.CityName-BillOrTransportation label,
+.AddressName-BillOrTransportation label,
+.PostalCode-BillOrTransportation label,
+.TellNumber-BillOrTransportation label,
+.Email-BillOrTransportation label {
+  font-size: 0.9em;
+  padding: 0.5em;
+}
+
+.CompanyName-BillOrTransportation,
+.CountryName-BillOrTransportation,
+.StateName-BillOrTransportation,
+.CityName-BillOrTransportation,
+.AddressName-BillOrTransportation,
+.PostalCode-BillOrTransportation,
+.TellNumber-BillOrTransportation,
+.Password-BillOrTransportation,
+.UserName-BillOrTransportation,
+.Email-BillOrTransportation {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em 0;
+}
+
+.CompanyName-BillOrTransportation input,
+.CountryName-BillOrTransportation input,
+.StateName-BillOrTransportation input,
+.CityName-BillOrTransportation input,
+.AddressName-BillOrTransportation input,
+.PostalCode-BillOrTransportation input,
+.TellNumber-BillOrTransportation input,
+.Email-BillOrTransportation input,
+#Country-BillOrTransportation,
+#State-BillOrTransportation {
+  outline: none;
+  border-radius: 0.3em;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 0.5em 0;
+}
+
+.ValidMessage-Input-Email-BillOrTransportation,
+.ValidMessage-Input-TellNumber-BillOrTransportation,
+.ValidMessage-Input-PostalCode-BillOrTransportation,
+.ValidMessage-Input-CityName-BillOrTransportation,
+.ValidMessage-Input-AddressName-BillOrTransportation,
+.ValidMessage-Input-LastName-BillOrTransportation,
+.ValidMessage-Input-FirstName-BillOrTransportation {
+  border: 2px solid var(--Danger-Color) !important;
+}
+
+.ValidMessage-Email-BillOrTransportation,
+.ValidMessage-TellNumber-BillOrTransportation,
+.ValidMessage-PostalCode-BillOrTransportation,
+.ValidMessage-CityName-BillOrTransportation,
+.ValidMessage-AddressName-BillOrTransportation,
+.ValidMessage-FirstName-BillOrTransportation,
+.ValidMessage-LastName-BillOrTransportation {
+  display: none;
+}
+
+.NotValidMessage-Email-BillOrTransportation,
+.NotValidMessage-TellNumber-BillOrTransportation,
+.NotValidMessage-PostalCode-BillOrTransportation,
+.NotValidMessage-CityName-BillOrTransportation,
+.NotValidMessage-AddressName-BillOrTransportation,
+.NotValidMessage-FirstName-BillOrTransportation,
+.NotValidMessage-LastName-BillOrTransportation {
+  display: block;
+  font-size: 0.8em;
+  color: var(--Danger-Color);
+  padding: 1em;
+}
+#Country-BillOrTransportation,
+#State-BillOrTransportation {
+  padding: 0.7em 0;
+  font-size: 0.8em;
+}
+.Btn-BillOrTransportationForm{
+    border: none;
+    background-color: var(--Primary-Color);
+    margin: 2em;
+    padding: .6em 1em;
+    border-radius: .3em;
+}
+
+.Btn-BillOrTransportationForm:hover{
+    background-color: var(--Hover-Color);
+}
+
+@media (max-width: 425px) {
+  .FirstName-LastName-Form-BillOrTransportation {
+    flex-direction: column;
+  }
+  .FirstName-Form-BillOrTransportation,
+  .LastName-Form-BillOrTransportation {
+    width: 100%;
+  }
+}

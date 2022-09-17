@@ -19,13 +19,32 @@
   position: absolute;
   border: 1px solid rgba(0, 0, 0, 1);
   background-color: var(--White-Color);
-  bottom: -2.3em;
+  bottom: -2.8em;
   right: -7em;
   width: 8em;
   text-align: center;
   padding: 0.5em 0;
   font-size: 0.8em;
   display: none;
+}
+
+.AccountName-Icon-Header {
+  position: absolute;
+ color:var(--White-Color);
+  bottom: -4.3em;
+  right: -3em; 
+  width: 23em;
+  text-align: center;
+}
+.AccountName-Icon-Header p{
+  display: inline;
+  padding: .5em;
+  font-size: .9em;
+}
+.AccountName-Icon-Header p:nth-child(2){
+  color: rgb(2, 184, 2);
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .Icons-Header .Icon-Header span {

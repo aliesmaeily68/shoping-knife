@@ -275,73 +275,75 @@ export default function InvoiceCheckout() {
               ایمیل وارد شده صحیح نمی باشد
             </span>
           </div>
+          {!DataUsersContext.isUserInData && (
+            <div className="UserName-Password-Checkout">
+              <div className="UserName-Checkout">
+                <label htmlFor="">
+                  <span>نام کاربری </span>
+                  <span className="Star-Checkout">*</span>
+                </label>
+                <input
+                  value={DataUsersContext.UserNameCheckout}
+                  type="text"
+                  ref={UserNameCheckoutRef}
+                  onChange={(e) =>
+                    DataUsersContext.setUserNameCheckout(e.target.value)
+                  }
+                  className={`${
+                    DataUsersContext.validUserNameCheckout
+                      ? ""
+                      : "ValidMessage-Input-UserName-Checkout"
+                  }`}
+                  onKeyDown={() =>
+                    DataUsersContext.setValidUserNameCheckout(true)
+                  }
+                />
+                <span
+                  className={` ${
+                    DataUsersContext.validUserNameCheckout
+                      ? "ValidMessage-UserName-Checkout"
+                      : "NotValidMessage-UserName-Checkout"
+                  }`}
+                >
+                  فیلد مورد نظر را پر نمایید
+                </span>
+              </div>
 
-          <div className="UserName-Password-Checkout">
-            <div className="UserName-Checkout">
-              <label htmlFor="">
-                <span>نام کاربری </span>
-                <span className="Star-Checkout">*</span>
-              </label>
-              <input
-              value={DataUsersContext.UserNameCheckout}
-              type="text"
-              ref={UserNameCheckoutRef}
-              onChange={(e) =>
-                DataUsersContext.setUserNameCheckout(e.target.value)
-              }
-              className={`${
-                DataUsersContext.validUserNameCheckout
-                  ? ""
-                  : "ValidMessage-Input-UserName-Checkout"
-              }`}
-              onKeyDown={() =>
-                DataUsersContext.setValidUserNameCheckout(true)
-              }
-            />
-            <span
-              className={` ${
-                DataUsersContext.validUserNameCheckout
-                  ? "ValidMessage-UserName-Checkout"
-                  : "NotValidMessage-UserName-Checkout"
-              }`}
-            >
-              فیلد مورد نظر را پر نمایید
-            </span>
+              <div className="Password-Checkout">
+                <label htmlFor="">
+                  <span>ایجاد کلمه عبور حساب کاربری </span>
+                  <span className="Star-Checkout">*</span>
+                </label>
+                <input
+                  value={DataUsersContext.passwordCheckout}
+                  type="text"
+                  ref={PasswordCheckoutRef}
+                  onChange={(e) =>
+                    DataUsersContext.setPasswordCheckout(e.target.value)
+                  }
+                  className={`${
+                    DataUsersContext.validPasswordCheckout
+                      ? ""
+                      : "ValidMessage-Input-Password-Checkout"
+                  }`}
+                  onKeyDown={() =>
+                    DataUsersContext.setValidPasswordCheckout(true)
+                  }
+                />
+                <span
+                  className={` ${
+                    DataUsersContext.validPasswordCheckout
+                      ? "ValidMessage-Password-Checkout"
+                      : "NotValidMessage-Password-Checkout"
+                  }`}
+                >
+                  گذرواژه باید حداقل 6 کاراکتر و شامل حروف بزرگ و کوچک انگلیسی و
+                  عدد باشد
+                </span>
+              </div>
             </div>
+          )}
 
-            <div className="Password-Checkout">
-              <label htmlFor="">
-                <span>ایجاد کلمه عبور حساب کاربری </span>
-                <span className="Star-Checkout">*</span>
-              </label>
-              <input
-                value={DataUsersContext.passwordCheckout}
-                type="text"
-                ref={PasswordCheckoutRef}
-                onChange={(e) =>
-                  DataUsersContext.setPasswordCheckout(e.target.value)
-                }
-                className={`${
-                  DataUsersContext.validPasswordCheckout
-                    ? ""
-                    : "ValidMessage-Input-Password-Checkout"
-                }`}
-                onKeyDown={() =>
-                  DataUsersContext.setValidPasswordCheckout(true)
-                }
-              />
-              <span
-                className={` ${
-                  DataUsersContext.validPasswordCheckout
-                    ? "ValidMessage-Password-Checkout"
-                    : "NotValidMessage-Password-Checkout"
-                }`}
-              >
-                گذرواژه باید حداقل 6 کاراکتر و شامل حروف بزرگ و کوچک انگلیسی و
-                عدد باشد
-              </span>
-            </div>
-          </div>
           <div className="MoreInfo-Checkout">
             <h2>اطلاعات بیشتر</h2>
             <div className="Main-MoreInfo-Checkout">

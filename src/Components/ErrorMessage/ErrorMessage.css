@@ -1,0 +1,30 @@
+.Container-ErrorMessage {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  padding: 1em 0;
+  background-color: var(--Danger-Color);
+  color: var(--White-Color);
+  z-index: 9999999;
+}
+
+.Close-ErrorMessage {
+  display: none;
+}
+
+.Wrapper-ErrorMessage {
+  width: var(--Max-Width);
+  margin: 0 auto;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Icon-ErrorMessage{
+    cursor: pointer;
+}
+
+.Icon-ErrorMessage:hover{
+  transform: scale(1.2);
+}

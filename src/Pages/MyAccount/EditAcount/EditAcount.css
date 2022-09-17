@@ -1,0 +1,126 @@
+.Container-EditAcount {
+  width: 100%;
+  margin: 3em auto;
+}
+
+.Wrapper-EditAcount {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.Wrapper-EditAcount form {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1.5em;
+}
+
+.FirstName-LastName-Form-EditAcount {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+}
+
+.Star-EditAcount {
+  color: var(--Danger-Color);
+}
+
+.FirstName-Form-EditAcount,
+.LastName-Form-EditAcount,
+.UserName-Form-EditAcount,
+.Email-Form-EditAcount,
+.Reset-Password-Form-EditAcount,
+.Reset-RepetPassword-Form-EditAcount,
+.Password-Form-EditAcount {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+}
+
+.FirstName-Form-EditAcount label,
+.LastName-Form-EditAcount label,
+.UserName-Form-EditAcount label,
+.Email-Form-EditAcount label,
+.Reset-Password-Form-EditAcount label,
+.Reset-RepetPassword-Form-EditAcount label,
+.Password-Form-EditAcount label {
+  font-size: 0.9em;
+  padding: 0.5em;
+}
+
+.FirstName-Form-EditAcount input,
+.LastName-Form-EditAcount input,
+.UserName-Form-EditAcount input,
+.Email-Form-EditAcount input,
+.Reset-Password-Form-EditAcount input,
+.Reset-RepetPassword-Form-EditAcount input,
+.Password-Form-EditAcount input {
+  width: 100%;
+  padding: 0.3em 0;
+  outline: none;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.3em;
+}
+
+.ValidMessage-Input-Name-EditAcountForm,
+.ValidMessage-Input-UserName-EditAcountForm,
+.ValidMessage-Input-Email-EditAcountForm,
+.ValidMessage-Input-Password-EditAcountForm,
+.ValidMessage-Input-ResetPassword-EditAcountForm,
+.ValidMessage-Input-RepetPassword-EditAcountForm,
+.ValidMessage-Input-LastName-EditAcountForm {
+  border: 2px solid var(--Danger-Color) !important;
+}
+.ValidMessage-Name-EditAcountForm,
+.ValidMessage-UserName-EditAcountForm,
+.ValidMessage-Email-EditAcountForm,
+.ValidMessage-Password-EditAcountForm,
+.ValidMessage-ResetPassword-EditAcountForm,
+.ValidMessage-RepetPassword-EditAcountForm,
+.ValidMessage-LastName-EditAcountForm {
+  display: none;
+}
+.NotValidMessage-Name-EditAcountForm,
+.NotValidMessage-LastName-EditAcountForm,
+.NotValidMessage-Email-EditAcountForm,
+.NotValidMessage-Password-EditAcountForm,
+.NotValidMessage-ResetPassword-EditAcountForm,
+.NotValidMessage-RepetPassword-EditAcountForm,
+.NotValidMessage-UserName-EditAcountForm {
+  display: block;
+  font-size: 0.8em;
+  color: var(--Danger-Color);
+  padding: 1em;
+}
+
+.Resets-password-EditAcount {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1.5em;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  padding: 2em;
+  margin-top: 2em;
+  border-radius: 0.3em;
+}
+.Resets-password-EditAcount h2 {
+  position: absolute;
+  top: -0.7em;
+  right: 2em;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 0 1em;
+  background-color: var(--Secondary-Color);
+}
+
+.Btn-EditAcount {
+  width: 7em;
+  padding: 0.5em 0;
+  border: none;
+  background-color: var(--Primary-Color);
+  border-radius: 0.3em;
+  margin-right: 2em;
+}
+
+.Btn-EditAcount:hover {
+  background-color: var(--Hover-Color);
+}

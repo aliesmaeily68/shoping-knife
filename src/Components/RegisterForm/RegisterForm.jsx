@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { useContext } from "react";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { UsersContext } from "../../Contexts/UsersContext";
@@ -80,7 +80,8 @@ export default function RegisterForm() {
 
               <span
                 className={` ${
-                  DataUsersContext.nameRegisterForm
+                  DataUsersContext.nameRegisterForm ||
+                  DataUsersContext.isKeyDownNameRegisterForm
                     ? "ValidMessage-Name-RegisterForm"
                     : "NotValidMessage-Name-RegisterForm"
                 }`}
@@ -109,7 +110,8 @@ export default function RegisterForm() {
 
               <span
                 className={` ${
-                  DataUsersContext.emailRegisterForm
+                  DataUsersContext.emailRegisterForm ||
+                  DataUsersContext.isKeyDownEmailRegisterForm
                     ? "ValidMessage-Email-RegisterForm"
                     : "NotValidMessage-Email-RegisterForm"
                 }`}
@@ -148,7 +150,8 @@ export default function RegisterForm() {
 
                   <span
                     className={` ${
-                      DataUsersContext.passwordRegisterForm
+                      DataUsersContext.passwordRegisterForm ||
+                      DataUsersContext.isKeyDownPasswordRegisterForm
                         ? "ValidMessage-Password-RegisterForm"
                         : "NotValidMessage-Password-RegisterForm"
                     }`}
@@ -183,7 +186,8 @@ export default function RegisterForm() {
 
                   <span
                     className={` ${
-                      DataUsersContext.passwordRegisterForm
+                      DataUsersContext.passwordRegisterForm ||
+                      DataUsersContext.isKeyDownPasswordRegisterForm
                         ? "ValidMessage-Password-RegisterForm"
                         : "NotValidMessage-Password-RegisterForm"
                     }`}

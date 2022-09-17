@@ -12,7 +12,7 @@ export default function CreateAccount() {
           <FaRegUser className="IconUser-CreateAccount" />
           <div className="Title-CreateAccount">
             <h3>هنوز حساب کاربری ندارید؟</h3>
-            <Link to={"/login-register"}>
+            <Link to={"/my-account"}>
               <h3 className="Link-CreateAccount">ایجاد حساب کاربری</h3>
             </Link>
           </div>

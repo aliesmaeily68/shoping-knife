@@ -43,7 +43,7 @@ export default function Favorites() {
                       </td>
 
                       <td class="Product-Name-Thumbnail-Favorites">
-                        <img src={`./Image/${product.imgName}`} alt="" />
+                        <img src={`../Image/${product.imgName}`} alt="" />
                         <div className="Title-Favorites">
                           <span>{product.title}</span>
                         </div>
@@ -61,7 +61,7 @@ export default function Favorites() {
                         <span>{product.price} تومان</span>
                       </td>
                       <td class="Product-Btn-Favorites" data-title="قیمت">
-                        <Link to={`/product/${product.id}-${product.title}`}>
+                        <Link to={`/products/${product.id}-${product.title}`}>
                           <button>مشاهده بیشتر</button>
                         </Link>
                       </td>

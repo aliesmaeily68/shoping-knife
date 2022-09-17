@@ -1,0 +1,44 @@
+.EmptyOrdersAccount {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  row-gap: 2em;
+  margin: 3em 0;
+}
+
+.EmptyOrdersAccount-Icon {
+  font-size: 15em;
+  opacity: 0.2;
+}
+
+.EmptyOrdersAccount p {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.EmptyOrdersAccount button {
+  color: var(--White-Color);
+  background-color: var(--Danger-Color);
+  border: none;
+  border-radius: 0.3em;
+  padding: 0.8em;
+  font-size: 1.3em;
+}
+
+.EmptyOrdersAccount button:hover {
+  background-color: var(--Danger-Hover-Color);
+}
+@media (max-width: 768px) {
+  .EmptyOrdersAccount-Icon {
+    font-size: 10em;
+  }
+
+  .EmptyOrdersAccount p {
+    font-size: 1.5em;
+  }
+
+  .EmptyOrdersAccount button {
+    font-size: 1em;
+  }
+}

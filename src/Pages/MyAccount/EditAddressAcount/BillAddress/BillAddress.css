@@ -1,0 +1,15 @@
+.Container-BillAddress{
+    width: 100%;
+    margin: 3em auto;
+}
+
+.Wrapper-BillAddress{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.Wrapper-BillAddress h2{
+    font-size: 1.4em;
+    font-weight: bold;
+    padding-bottom:1.5em ;
+}

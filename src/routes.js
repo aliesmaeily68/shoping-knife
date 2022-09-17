@@ -1,8 +1,13 @@
 import Home from './Pages/Home/Home'
 import About from './Pages/About/About'
 import Favorites from './Pages/Favorites/Favorites'
-import LoginRegister from './Pages/LoginRegister/LoginRegister' 
-import LostAccount from './Pages/LoginRegister/LostAccount/LostAccount'
+import MyAccount from './Pages/MyAccount/MyAccount'
+import OrdersAccount from './Pages/MyAccount/OrdersAccount/OrdersAccount'
+import EditAcount from './Pages/MyAccount/EditAcount/EditAcount'
+import EditAddressAcount from './Pages/MyAccount/EditAddressAcount/EditAddressAcount'
+import BillAddress from './Pages/MyAccount/EditAddressAcount/BillAddress/BillAddress'
+import TransportationAddress from './Pages/MyAccount/EditAddressAcount/TransportationAddress/TransportationAddress'
+import LostAccount from './Pages/MyAccount/LostAccount/LostAccount'
 import MainProduct from './Pages/MainProduct/MainProduct'
 import Notfound from './Pages/Notfound/Notfound'
 import Product from './Pages/Product/Product'
@@ -22,14 +27,32 @@ let routes = [
     { path: '/', element: <Home /> },
     { path: '/about', element: <About /> },
     { path: '/favorites', element: <Favorites /> },
-    { path: '/login-register', element: <LoginRegister /> },
-    { path: '/login-register/lost-account', element: <LostAccount /> },
+    {
+        path: '/my-account/*', element: <MyAccount />, children: [
+            { path: "orders", element: <OrdersAccount /> },
+            { path: "edit-account", element: <EditAcount /> },
+            { path: "favorites", element: <Favorites /> },
+            {
+                path: "edit-address/*", element: <EditAddressAcount />, children: [
+                    { path:"bill-address", element: <BillAddress /> },
+                    { path: "transportation-address", element: <TransportationAddress /> },
+                ]
+            },
+        ]
+    },
+
+    { path: "/orders", element: <OrdersAccount /> },
+    { path: "/edit-account", element: <EditAcount /> },
+    { path: "/edit-address", element: <EditAddressAcount /> },
+    { path: '/my-account/lost-account', element: <LostAccount /> },
     { path: '/*', element: <Notfound /> },
     { path: '/product', element: <Product /> },
-    { path: '/products/:productTitle/*', element: <MainProduct />,children:[
-        { path:"commentsproduct", element:<CommentsProduct />},
-        { path:"descriptionproduct", element:<DescriptionProduct />},
-    ] },
+    {
+        path: '/products/:productTitle/*', element: <MainProduct />, children: [
+            { path: "commentsproduct", element: <CommentsProduct /> },
+            { path: "descriptionproduct", element: <DescriptionProduct /> },
+        ]
+    },
     { path: '/product/:categoriesTitle', element: <MainCategory /> },
     { path: '/comparison', element: <Comparison /> },
     { path: '/contact', element: <Contact /> },

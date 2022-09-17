@@ -1,13 +1,13 @@
 .Container-Favorites {
   margin: 0 auto;
-  width: 1500px;
+  width: 100%;
 }
 .Wrapper-Favorites {
-  width: var(--Max-Width);
+  width: 100%;
   margin: 0 auto !important;
 }
 .Table-Favorites table {
-  width: 85%;
+  width: 90%;
   margin: 3em auto;
   border: 2px solid rgba(0, 0, 0, 0.1);
 }

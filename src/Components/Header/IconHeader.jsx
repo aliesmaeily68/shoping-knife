@@ -8,6 +8,7 @@ import { BsBag } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { AllProductContext } from "../../Contexts/ProductContext";
 import { UsersContext } from "../../Contexts/UsersContext";
+import AccountDropDown from "../AccountDropDown/AccountDropDown";
 
 export default function IconHeader(props) {
   const DataContext = useContext(AllProductContext);
@@ -15,18 +16,45 @@ export default function IconHeader(props) {
 
   return (
     <div className="Icons-Header">
-      <div className="Icon-Header">
-        <FaRegUser
-          className="Main-Icon-Headar"
-          onClick={() => {
-            DataContext.setShowCartBag(false);
-            DataUsersContext.setShowLoginSidebar(true);
-          }}
-        />
-        <div className="Tooltip-Icon-Header">حساب کاربری من </div>
-      </div>
+      {DataUsersContext.isUserInData && DataUsersContext.userType == "user" ? (
+        <div
+          className="Icon-Header"
+          onMouseOver={() => DataUsersContext.setShowAccountDropDown(true)}
+          onMouseLeave={() => DataUsersContext.setShowAccountDropDown(false)}
+        >
+          <Link
+            to={"/my-account"}
+            onClick={() => DataUsersContext.setShowAccountRoute(false)}
+          >
+            <FaRegUser className="Main-Icon-Headar" />
+          </Link>
 
-      <div className="Icon-Header">
+          <div className="Tooltip-Icon-Header">حساب کاربری من</div>
+          <div className="AccountName-Icon-Header">
+            <p>سلام</p>
+            <p>{DataUsersContext.loginFormUserNameOrEmailValue}</p>
+            <p>به سایت ما خوش آمدید</p>
+          </div>
+
+          {DataUsersContext.showAccountDropDown && <AccountDropDown />}
+        </div>
+      ) : (
+        <div className="Icon-Header">
+          <FaRegUser
+            className="Main-Icon-Headar"
+            onClick={() => {
+              DataContext.setShowCartBag(false);
+              DataUsersContext.setShowLoginSidebar(true);
+            }}
+          />
+          <div className="Tooltip-Icon-Header">ورود/ثبت نام</div>
+        </div>
+      )}
+
+      <div
+        className="Icon-Header"
+        onClick={() => DataUsersContext.setShowAccountDropDown(false)}
+      >
         <span>{DataContext.comparisonConter}</span>
         <Link to={"/comparison"}>
           {" "}
@@ -35,7 +63,10 @@ export default function IconHeader(props) {
         <div className="Tooltip-Icon-Header">مقایسه محصولات</div>
       </div>
 
-      <div className="Icon-Header">
+      <div
+        className="Icon-Header"
+        onClick={() => DataUsersContext.setShowAccountDropDown(false)}
+      >
         <span>{DataContext.favoritesConter}</span>
         <Link to={"/favorites"}>
           <AiOutlineHeart className="Main-Icon-Headar" />
@@ -43,9 +74,12 @@ export default function IconHeader(props) {
         <div className="Tooltip-Icon-Header">علاقه مندی ها </div>
       </div>
 
-      <div className="Icon-Header">
+      <div
+        className="Icon-Header"
+        onClick={() => DataUsersContext.setShowAccountDropDown(false)}
+      >
         <span>{DataContext.cartConter}</span>
-        
+
         {props.IconName ? (
           <BsCart2
             className="Main-Icon-Headar"
@@ -63,9 +97,8 @@ export default function IconHeader(props) {
             }}
           />
         )}
-         <div className="Tooltip-Icon-Header">سبد خرید </div>
+        <div className="Tooltip-Icon-Header">سبد خرید </div>
       </div>
-
     </div>
   );
 }
