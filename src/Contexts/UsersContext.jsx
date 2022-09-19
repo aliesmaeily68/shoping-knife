@@ -6,12 +6,16 @@ export const UsersContext = createContext();
 export const UsersProvider = ({ children }) => {
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [titleErrorMessage, setTitleErrorMessage] = useState();
-  const [userType, setUserType] = useState("user");
+  const [userType, setUserType] = useState("admin");
   const [loginFormUserNameOrEmailValue, setLoginFormUserNameOrEmailValue] =
     useState();
   const [loginFormPasswordValue, setLoginFormPasswordValue] = useState();
   const [isUserInData, setIsUserInData] = useState(false);
-  const [showBillOrTransportationAddressRoute, setShowBillOrTransportationAddressRoute] = useState(false);
+  const [showDashboardAdmin, setShowDashboardAdmin] = useState(false);
+  const [
+    showBillOrTransportationAddressRoute,
+    setShowBillOrTransportationAddressRoute,
+  ] = useState(false);
   const [showAccountRoute, setShowAccountRoute] = useState(false);
   const [showAccountDropDown, setShowAccountDropDown] = useState(false);
   const [showLoginSidebar, setShowLoginSidebar] = useState(false);
@@ -37,12 +41,18 @@ export const UsersProvider = ({ children }) => {
   const [passwordEditAcountForm, setPasswordEditAcountForm] = useState(true);
   const [isKeyDownPasswordEditAcountForm, setIsKeyDownPasswordEditAcountForm] =
     useState(true);
-  const [resetPasswordEditAcountForm, setResetPasswordEditAcountForm] = useState(true);
-  const [isKeyDownResetPasswordEditAcountForm, setIsKeyDownResetPasswordEditAcountForm] =
+  const [resetPasswordEditAcountForm, setResetPasswordEditAcountForm] =
     useState(true);
-  const [repetPasswordEditAcountForm, setRepetPasswordEditAcountForm] = useState(true);
-  const [isKeyDownRepetPasswordEditAcountForm, setIsKeyDownRepetPasswordEditAcountForm] =
+  const [
+    isKeyDownResetPasswordEditAcountForm,
+    setIsKeyDownResetPasswordEditAcountForm,
+  ] = useState(true);
+  const [repetPasswordEditAcountForm, setRepetPasswordEditAcountForm] =
     useState(true);
+  const [
+    isKeyDownRepetPasswordEditAcountForm,
+    setIsKeyDownRepetPasswordEditAcountForm,
+  ] = useState(true);
   const [emailRegisterForm, setEmailRegisterForm] = useState(true);
   const [isKeyDownEmailRegisterForm, setIsKeyDownEmailRegisterForm] =
     useState(true);
@@ -77,22 +87,46 @@ export const UsersProvider = ({ children }) => {
     notCleanInputForFirstTimeCheckout,
     setNotCleanInputForFirstTimeCheckout,
   ] = useState(false);
-  const [firstNameBillOrTransportation, setFirstNameBillOrTransportation] = useState("");
-  const [validFirstNameBillOrTransportation, setValidFirstNameBillOrTransportation] = useState(true);
-  const [lastNameBillOrTransportation, setLastNameBillOrTransportation] = useState("");
-  const [validLastNameBillOrTransportation, setValidLastNameBillOrTransportation] = useState(true);
-  const [cityNameBillOrTransportation, setCityNameBillOrTransportation] = useState("");
-  const [validCityNameBillOrTransportation, setValidCityNameBillOrTransportation] = useState(true);
-  const [addressNameBillOrTransportation, setAddressNameBillOrTransportation] = useState("");
-  const [validAddressNameBillOrTransportation, setValidAddressNameBillOrTransportation] =
+  const [firstNameBillOrTransportation, setFirstNameBillOrTransportation] =
+    useState("");
+  const [
+    validFirstNameBillOrTransportation,
+    setValidFirstNameBillOrTransportation,
+  ] = useState(true);
+  const [lastNameBillOrTransportation, setLastNameBillOrTransportation] =
+    useState("");
+  const [
+    validLastNameBillOrTransportation,
+    setValidLastNameBillOrTransportation,
+  ] = useState(true);
+  const [cityNameBillOrTransportation, setCityNameBillOrTransportation] =
+    useState("");
+  const [
+    validCityNameBillOrTransportation,
+    setValidCityNameBillOrTransportation,
+  ] = useState(true);
+  const [addressNameBillOrTransportation, setAddressNameBillOrTransportation] =
+    useState("");
+  const [
+    validAddressNameBillOrTransportation,
+    setValidAddressNameBillOrTransportation,
+  ] = useState(true);
+  const [postalCodeBillOrTransportation, setPostalCodeBillOrTransportation] =
+    useState("");
+  const [
+    validPostalCodeBillOrTransportation,
+    setValidPostalCodeBillOrTransportation,
+  ] = useState(true);
+  const [tellNumberBillOrTransportation, setTellNumberBillOrTransportation] =
+    useState("");
+  const [
+    validTellNumberBillOrTransportation,
+    setValidTellNumberBillOrTransportation,
+  ] = useState(true);
+  const [emailBillOrTransportation, setEmailBillOrTransportation] =
+    useState("");
+  const [validEmailBillOrTransportation, setValidEmailBillOrTransportation] =
     useState(true);
-  const [postalCodeBillOrTransportation, setPostalCodeBillOrTransportation] = useState("");
-  const [validPostalCodeBillOrTransportation, setValidPostalCodeBillOrTransportation] = useState(true);
-  const [tellNumberBillOrTransportation, setTellNumberBillOrTransportation] = useState("");
-  const [validTellNumberBillOrTransportation, setValidTellNumberBillOrTransportation] = useState(true);
-  const [emailBillOrTransportation, setEmailBillOrTransportation] = useState("");
-  const [validEmailBillOrTransportation, setValidEmailBillOrTransportation] = useState(true);
-  
 
   return (
     <UsersContext.Provider
@@ -109,6 +143,8 @@ export const UsersProvider = ({ children }) => {
         setLoginFormPasswordValue,
         isUserInData,
         setIsUserInData,
+        showDashboardAdmin,
+        setShowDashboardAdmin,
         showBillOrTransportationAddressRoute,
         setShowBillOrTransportationAddressRoute,
         showAccountRoute,

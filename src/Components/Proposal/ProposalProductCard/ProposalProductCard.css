@@ -23,6 +23,10 @@
 
 .Proposal-Product-Wrapper-Card {
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .Proposal-Product-Discount {

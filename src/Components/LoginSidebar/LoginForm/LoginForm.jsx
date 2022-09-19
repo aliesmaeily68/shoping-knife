@@ -12,8 +12,7 @@ export default function LoginForm() {
   const IsUserInData = IsUser(
     DataUsersContext.loginFormUserNameOrEmailValue,
     DataUsersContext.loginFormUserNameOrEmailValue,
-    DataUsersContext.loginFormPasswordValue,
-    DataUsersContext.userType
+    DataUsersContext.loginFormPasswordValue
   );
 
   const SubmitLoginForm = (e) => {

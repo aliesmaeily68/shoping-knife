@@ -16,10 +16,14 @@ export default function Footer() {
     DataContext.setShowCategories(false);
   };
   return (
-    <div className="Main-Footer" onClick={MainFooterHandler}>
-      <FooterTop />
-      <FooterBody />
-      <FooterBottom />
-    </div>
+    <>
+      {!DataUserContexte.showDashboardAdmin && (
+        <div className="Main-Footer" onClick={MainFooterHandler}>
+          <FooterTop />
+          <FooterBody />
+          <FooterBottom />
+        </div>
+      )}
+    </>
   );
 }

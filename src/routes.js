@@ -21,6 +21,7 @@ import Cart from './Pages/Cart/Cart'
 import ProposalProducts from './Pages/Proposals/ProposalProducts'
 import CommentsProduct from './Pages/MainProduct/Commentsproduct/CommentsProduct'
 import DescriptionProduct from './Pages/MainProduct/DescriptionProduct/DescriptionProduct'
+import DashboardAdmin from './Pages/DashboardAdmin/DashboardAdmin'
 
 
 let routes = [
@@ -34,7 +35,7 @@ let routes = [
             { path: "favorites", element: <Favorites /> },
             {
                 path: "edit-address/*", element: <EditAddressAcount />, children: [
-                    { path:"bill-address", element: <BillAddress /> },
+                    { path: "bill-address", element: <BillAddress /> },
                     { path: "transportation-address", element: <TransportationAddress /> },
                 ]
             },
@@ -61,6 +62,7 @@ let routes = [
     { path: '/checkout', element: <Checkout /> },
     { path: '/cart', element: <Cart /> },
     { path: '/proposalProducts', element: <ProposalProducts /> },
+    { path: '/dashboard-admin', element: <DashboardAdmin /> },
 ]
 
 export default routes

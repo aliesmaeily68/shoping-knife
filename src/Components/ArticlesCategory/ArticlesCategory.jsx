@@ -19,6 +19,7 @@ export default function ArticlesCategory() {
                 <h2>{DataArticleContext.mainArticleHomeData[0].title}</h2>
                 <p>{DataArticleContext.mainArticleHomeData[0].paragraphCard}</p>
                 <Link
+                  onClick={() => window.scrollTo(0, 0)}
                   to={`/article/${DataArticleContext.mainArticleHomeData[0].id}-${DataArticleContext.mainArticleHomeData[0].title}`}
                 >
                   <button>ادامه مطلب...</button>
@@ -29,21 +30,31 @@ export default function ArticlesCategory() {
           </div>
 
           <div className="Articles-Category-Content">
-            {DataArticleContext.articleHomeData.length && DataArticleContext.articleHomeData.map(
-              (article) => (
+            {DataArticleContext.articleHomeData.length &&
+              DataArticleContext.articleHomeData.map((article) => (
                 <div className="Article-Category-Content" key={article.id}>
-                  <div className="Wrpper-Articles-Category-Content">
+                  <div
+                    className="Wrpper-Articles-Category-Content"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(" +
+                        `./Image/${article.img}` +
+                        ")",
+                    }}
+                  >
                     {" "}
                     <h2>{article.title}</h2>
                     <p>{article.paragraphCard}</p>
-                    <Link to={`/article/${article.id}-${article.title}`}>
+                    <Link
+                      to={`/article/${article.id}-${article.title}`}
+                      onClick={() => window.scrollTo(0, 0)}
+                    >
                       {" "}
                       <button>ادامه مطلب...</button>
                     </Link>
                   </div>
                 </div>
-              )
-            )}
+              ))}
           </div>
         </div>
       </div>

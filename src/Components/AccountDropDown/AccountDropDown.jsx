@@ -6,7 +6,10 @@ import "./AccountDropDown.css";
 export default function AccountDropDown() {
   const DataUsersContext = useContext(UsersContext);
   return (
-    <div className="Container-AccountDropDown">
+    <div
+      className="Container-AccountDropDown"
+      onClick={() => DataUsersContext.setShowAccountDropDown(false)}
+    >
       <div className="Wrapper-AccountDropDown">
         <ul className="ListGroup-AccountDropDown">
           <Link
@@ -15,12 +18,22 @@ export default function AccountDropDown() {
           >
             <li>پیشخوان</li>
           </Link>
+          {DataUsersContext.userType == "admin" && (
+            <Link
+              to={"/dashboard-admin"}
+              onClick={() => DataUsersContext.setShowDashboardAdmin(true)}
+            >
+              <li>پنل مدیریت</li>
+            </Link>
+          )}
+
           <Link
             to={"/my-account/orders"}
             onClick={() => DataUsersContext.setShowAccountRoute(true)}
           >
             <li>سفارش ها</li>
           </Link>
+
           <Link
             to={"/my-account/edit-address"}
             onClick={() => {
@@ -30,6 +43,7 @@ export default function AccountDropDown() {
           >
             <li>آدرس ها</li>
           </Link>
+
           <Link
             to={"/my-account/edit-account"}
             onClick={() => DataUsersContext.setShowAccountRoute(true)}
@@ -42,6 +56,7 @@ export default function AccountDropDown() {
           >
             <li>علاقه مندی ها</li>
           </Link>
+
           <Link
             to={"/my-account"}
             onClick={() => DataUsersContext.setIsUserInData(false)}

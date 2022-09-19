@@ -13,10 +13,18 @@ export default function Article() {
             {DataArticleContext.articlesData.length &&
               DataArticleContext.articlesData.map((article) => (
                 <div className="Article-Content" key={article.id}>
-                  <div className="Wrpper-Articles-Content">
+                  <div
+                    className="Wrpper-Articles-Content"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(" +
+                        `./Image/${article.img}` +
+                        ")",
+                    }}
+                  >
                     <h2>{article.title}</h2>
                     <p>{article.paragraphCard}</p>
-                    <Link to={`/article/${article.id}-${article.title}`}>
+                    <Link to={`/article/${article.id}-${article.title}`} onClick={()=> window.scrollTo(0, 0)} >
                       <button>ادامه مطلب ...</button>
                     </Link>
                   </div>

@@ -16,7 +16,7 @@ export default function Proposal() {
               <div className="Proposal-text-btn">
                 <span className="Proposal-text">پیشنهاد ویژه شگفت انگیز</span>
                
-                <button className="Proposal-btn"> <Link to={'/proposalProducts'}>مشاهده همه</Link> </button>
+                <button className="Proposal-btn"> <Link to={'/proposalProducts'} onClick={()=> window.scrollTo(0, 0)}>مشاهده همه</Link> </button>
               </div>
               <div className="Proposal-Products">
                 <ProposalProductCard />

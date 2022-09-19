@@ -1,15 +1,19 @@
-import React from 'react'
-import HeaderTop from './HeaderTop'
-import NavBar from './NavBar'
-import './Header.css'
-
+import React, { useContext } from "react";
+import HeaderTop from "./HeaderTop";
+import NavBar from "./NavBar";
+import "./Header.css";
+import { UsersContext } from "../../Contexts/UsersContext";
 
 export default function Header() {
-
+  const DataUserContexte = useContext(UsersContext);
   return (
-    <header className='header' >
-        <HeaderTop />
-        <NavBar />
-    </header>
-  )
+    <>
+      {!DataUserContexte.showDashboardAdmin && (
+        <header className="header">
+          <HeaderTop />
+          <NavBar />
+        </header>
+      )}
+    </>
+  );
 }

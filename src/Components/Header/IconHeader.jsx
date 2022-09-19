@@ -16,7 +16,7 @@ export default function IconHeader(props) {
 
   return (
     <div className="Icons-Header">
-      {DataUsersContext.isUserInData && DataUsersContext.userType == "user" ? (
+      {DataUsersContext.isUserInData  ? (
         <div
           className="Icon-Header"
           onMouseOver={() => DataUsersContext.setShowAccountDropDown(true)}

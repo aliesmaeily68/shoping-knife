@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import { GoLocation } from "react-icons/go";
 import { AiOutlineOrderedList } from "react-icons/ai";
 import { BsHeart } from "react-icons/bs";
@@ -32,6 +33,21 @@ export default function MyAccountContent() {
           کاربری و کلمه عبور خود را ویرایش کنید .
         </p>
         <ul className="ListGroup-MyAccountContent">
+          {DataUsersContext.userType == "admin" && (
+            <Link
+              to={"/dashboard-admin"}
+              onClick={() => DataUsersContext.setShowDashboardAdmin(true)}
+            >
+              <li>
+                <div className="Icon-MyAccountContent">
+                  <MdOutlineAdminPanelSettings />
+                </div>
+
+                <h3>پنل مدیریت</h3>
+              </li>
+            </Link>
+          )}
+
           <Link
             to={"orders"}
             onClick={() => DataUsersContext.setShowAccountRoute(true)}

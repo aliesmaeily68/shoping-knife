@@ -116,8 +116,6 @@
   top: -0.7em;
   left: -0.7em;
   padding: 1em;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-    url("../../../public/Image/41.jpg");
   background-size: cover;
   background-position: center;
 }

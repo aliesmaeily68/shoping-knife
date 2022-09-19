@@ -18,6 +18,16 @@ export default function AccountSideBar() {
           >
             <li>پیشخوان</li>
           </Link>
+
+          {DataUsersContext.userType == "admin" && (
+            <Link
+              to={"/dashboard-admin"}
+              onClick={() => DataUsersContext.setShowDashboardAdmin(true)}
+            >
+              <li>پنل مدیریت</li>
+            </Link>
+          )}
+          
           <Link
             to={"orders"}
             onClick={() => DataUsersContext.setShowAccountRoute(true)}
