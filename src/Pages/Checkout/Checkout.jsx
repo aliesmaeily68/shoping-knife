@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import InvoiceCheckout from "../../Components/Checkout/InvoiceCheckout";
 import BeforeRegisteringCheckout from "../../Components/Checkout/BeforeRegisteringCheckout";
 import YourOrderCheckout from "../../Components/Checkout/YourOrderCheckout";
@@ -8,6 +8,9 @@ import { UsersContext } from "../../Contexts/UsersContext";
 
 export default function Checkout() {
   const DataUsersContext = useContext(UsersContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <BreadcrumbCheckoutCart />

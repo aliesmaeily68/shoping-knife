@@ -14,10 +14,27 @@
   color: rgba(0, 0, 0, 0.5);
   border: none;
   display: none;
+  z-index: 999999;
 }
 .Btn-ScrollTop:hover{
   background-color: #cacfd4;
 }
 .Show-ScrollTop {
   display: block;
+}
+
+@media(max-width:1024px){
+  .Btn-ScrollTop{
+    width: 3em;
+    height: 3em;
+    bottom: 3em;
+    left: 1em;
+  }
+}
+@media(max-width:500px){
+  .Btn-ScrollTop{
+    width: 2.5em;
+    height: 2.5em;
+    left: 0.2em;
+  }
 }

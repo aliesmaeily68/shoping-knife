@@ -31,9 +31,16 @@
         margin: 0 auto;
         padding: 1em 3em ;
     }
+
+    
     
     .Wrapper-DescriptionProduct{
         width: 100%;
         margin: 0 auto;
+    }
+}
+@media (max-width: 768px) {
+    .DescriptionProduct h1{
+    text-align: center;
     }
 }

@@ -6,11 +6,14 @@ import { NavLink, Outlet, useParams, Navigate, Link } from "react-router-dom";
 import "./MainProduct.css";
 import { useContext } from "react";
 import { AllProductContext } from "../../Contexts/ProductContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function MainProduct() {
   const [counterProduct, setCounterProduct] = useState(0);
   const DataContext = useContext(AllProductContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   let params = useParams();
   let MainProduct = DataContext.fullProducts.find(

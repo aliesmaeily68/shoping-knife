@@ -30,6 +30,14 @@
 }
 
 @media (max-width: 768px) {
+  .Container-MainCategory {
+    margin: .2em auto;
+  }
+  .Container-MainCategory h1 {
+    margin-top: 0;
+    margin-bottom: 1em;
+    display: none;
+  }
   .Wrapper-MainCategory {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5em;

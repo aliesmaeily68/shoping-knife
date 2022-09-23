@@ -1,9 +1,12 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Link } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
 import "./About.css";
 
 export default function About() {
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  })
   return (
     <>
       <div className="Breadcrumb-About">

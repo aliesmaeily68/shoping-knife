@@ -20,7 +20,7 @@ export default function AccountDropDown() {
           </Link>
           {DataUsersContext.userType == "admin" && (
             <Link
-              to={"/dashboard-admin"}
+              to={"/dashboard-admin/dashboard-home"}
               onClick={() => DataUsersContext.setShowDashboardAdmin(true)}
             >
               <li>پنل مدیریت</li>

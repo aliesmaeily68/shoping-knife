@@ -62,7 +62,7 @@ export default function ProductCard(props) {
               </div>
             </div>
             <div className="MoreInfo-Product-Card">
-              <Link to={`/products/${props.id}-${props.title}`}>
+              <Link to={`/products/${props.id}-${props.title}`} >
                 <span> مشاهده بیشتر</span>
               </Link>
             </div>

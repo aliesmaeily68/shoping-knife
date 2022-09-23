@@ -66,10 +66,13 @@
 @media (max-width: 1024px) {
   .Articles-Container {
     width: 100%;
-    margin-bottom: 2em;
+    margin: 1em auto;
   }
 
   .Articles-Wrapper {
+    width: 90%;
+  }
+  .Article-Content {
     width: 90%;
   }
 
@@ -90,6 +93,7 @@
 @media (max-width: 768px) {
   .Articles-Container {
     height: 65em;
+    margin: .5em auto;
   }
 
   .Articles-Content {

@@ -21,6 +21,11 @@
 @media (max-width :1024px){
   .Container-Checkout {
     width: 100%;
+    margin: .3em auto;
+  }
+  .Container-YourOrder-Checkout {
+    padding: .5em;
+    padding-top: 0;
   }
 }
 @media (max-width :768px){

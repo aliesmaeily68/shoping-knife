@@ -13,3 +13,12 @@
     font-weight: bold;
     padding-bottom:1.5em ;
 }
+@media(max-width:768px){
+    .Container-BillAddress{
+        margin: .7em auto;
+    } 
+    .Wrapper-BillAddress h2{
+        font-size: 1.2em;
+        padding-bottom:.5em ;
+    }
+}

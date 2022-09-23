@@ -1,25 +1,25 @@
-.Container-LostAccount{
-    width: 1500px;
-    margin: 4em 0;
+.Container-LostAccount {
+  width: 1500px;
+  margin: 4em 0;
 }
 
-.Wrapper-LostAccount{
-    width: 30%;
-    margin: 0 auto;
+.Wrapper-LostAccount {
+  width: 30%;
+  margin: 0 auto;
 }
 
-.Wrapper-LostAccount h1{
-    opacity: .7;
-    text-align: justify;
-    line-height: 1.5em;
+.Wrapper-LostAccount h1 {
+  opacity: 0.7;
+  text-align: justify;
+  line-height: 1.5em;
 }
 
-.hr-LostAccount{
-    opacity: .5;
-    margin: 1.5em;
+.hr-LostAccount {
+  opacity: 0.5;
+  margin: 1.5em;
 }
 
-.NameOrEmail-LostAccount{
+.NameOrEmail-LostAccount {
   display: flex;
   flex-direction: column;
 }
@@ -29,38 +29,46 @@
 }
 
 .NameOrEmail-LostAccount input {
-    border-radius: 0.3em;
-    outline: none;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 0.2em 0;
+  border-radius: 0.3em;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.2em 0;
+}
+
+.Submit-LostAccount {
+  border: none;
+  background-color: var(--Primary-Color);
+  width: 100%;
+  padding: 0.6em 0;
+  margin: 2em 0;
+  border-radius: 0.3em;
+}
+
+.Submit-LostAccount:hover {
+  background-color: var(--Hover-Color);
+}
+
+@media (max-width: 1024px) {
+  .Container-LostAccount {
+    width: 100%;
+  }
+
+  .Wrapper-LostAccount {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .Container-LostAccount {
+    margin: 1em auto;
+  }
+  .hr-LostAccount {
+    opacity: 0.5;
+    margin: 0.5em;
+    margin-bottom: 0;
   }
 
   .Submit-LostAccount {
-    border: none;
-    background-color: var(--Primary-Color);
-    width: 100%;
-    padding: .6em 0;
-    margin: 2em 0;
-    border-radius: 0.3em;
+    margin: 1em 0;
   }
-  
-  .Submit-LostAccount:hover {
-    background-color: var(--Hover-Color);
-  }
-
-  @media(max-width:1024px){
-    .Container-LostAccount{
-        width: 100%;
-    }
-
-    .Wrapper-LostAccount{
-        width: 50%;
-    }
-  }
-
-  @media(max-width:1024px){
-
-    .Wrapper-LostAccount{
-        width: 70%;
-    }
-  }
+}

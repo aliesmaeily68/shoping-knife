@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./EditAddressAcount.css";
 import { Outlet } from "react-router";
 import { UsersContext } from "../../../Contexts/UsersContext";
 export default function EditAddressAcount() {
   const DataUsersContext = useContext(UsersContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       {DataUsersContext.showBillOrTransportationAddressRoute ? (

@@ -95,7 +95,7 @@ export default function ProductIconCard(props) {
           <div className="Tooltip-CardIcon">افزودن به علاقه مندی </div>
         </div>
         <div className="card-Icon">
-          <Link to={`/product/${props.id}-${props.title}`}>
+          <Link to={`/products/${props.id}-${props.title}`} >
             <CgMoreO />
           </Link>
           <div className="Tooltip-CardIcon">مشاهده بیشتر </div>

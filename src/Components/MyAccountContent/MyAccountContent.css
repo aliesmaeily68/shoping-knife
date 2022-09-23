@@ -62,11 +62,16 @@
   }
   .ListGroup-MyAccountContent {
     gap: 1.5em;
+    margin: 1.5em 0;
   }
 }
 @media (max-width: 768px) {
+  .Container-MyAccountContent {
+    margin: 0.2em auto;
+  }
   .ListGroup-MyAccountContent {
     grid-template-columns: repeat(3, 1fr);
     gap: 1em;
+    margin: 1em 0;
   }
 }

@@ -9,6 +9,7 @@ export default function AllPage() {
   let route = useRoutes(routes);
   const DataContext = useContext(AllProductContext);
   const DataUserContexte = useContext(UsersContext);
+ 
   const AllPageHandler = () => {
     DataContext.setShowCartBag(false);
     DataUserContexte.setShowLoginSidebar(false);

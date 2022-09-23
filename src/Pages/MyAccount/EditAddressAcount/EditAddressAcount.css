@@ -44,3 +44,18 @@
 .ListGroup-EditAddressAcount li p{
     opacity: .4;
 }
+ @media(max-width:768px){
+  .Wrapper-EditAddressAcount h2 {
+    margin:  0;
+  }
+  .Container-EditAddressAcount {
+    margin: 1em auto;
+  }
+ }
+ @media(max-width:425px){
+  .ListGroup-EditAddressAcount {
+    grid-template-columns: 1fr;
+    text-align: center;
+    row-gap: 1em;
+  }
+ }

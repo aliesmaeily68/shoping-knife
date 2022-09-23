@@ -54,3 +54,13 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   visibility: visible;
 }
+@media(max-width:1024px){
+  .Wrapper-FrequentlyAskedQuestionsContact {
+    padding-top: 0;
+  }
+}
+@media(max-width:768px){
+  .Wrapper-FrequentlyAskedQuestionsContact {
+    padding: .3em;
+  }
+}

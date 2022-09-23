@@ -79,4 +79,13 @@
   #MessageInfoContact {
     padding: 0;
   }
+  .Submit-InfoContact {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .Wrapper-InfoContact {
+    padding: .5em;
+  }
 }

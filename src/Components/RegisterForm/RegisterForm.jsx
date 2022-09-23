@@ -127,15 +127,15 @@ export default function RegisterForm() {
               {DataUsersContext.showPasswordRegisterForm ? (
                 <div className="Eye-Password-RegisterForm">
                   <div className="Eye-RegisterForm">
-                    <AiOutlineEyeInvisible
+                    <AiOutlineEye
                       size={20}
                       onClick={() =>
-                        DataUsersContext.setShowPasswordRegisterForm(false)
+                        DataUsersContext.setShowPasswordRegisterForm(true)
                       }
                     />
                   </div>
                   <input
-                    type="password"
+                    type="text"
                     ref={PasswordRegisterFormRef}
                     className={`${
                       DataUsersContext.passwordRegisterForm ||
@@ -163,15 +163,15 @@ export default function RegisterForm() {
               ) : (
                 <div className="Eye-Password-RegisterForm">
                   <div className="Eye-RegisterForm">
-                    <AiOutlineEye
+                    <AiOutlineEyeInvisible
                       size={20}
                       onClick={() =>
-                        DataUsersContext.setShowPasswordRegisterForm(true)
+                        DataUsersContext.setShowPasswordRegisterForm(false)
                       }
                     />
                   </div>
                   <input
-                    type="text"
+                    type="password"
                     ref={PasswordRegisterFormRef}
                     className={`${
                       DataUsersContext.passwordRegisterForm ||

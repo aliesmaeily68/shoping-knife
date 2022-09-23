@@ -1,0 +1,123 @@
+.Insert-New-Product-Form {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  row-gap: 1.5em;
+  margin: 0 3em;
+  background-color: rgb(224, 224, 224);
+  border-radius: 0.3em;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all .6s;
+}
+
+.Show--New-Product-Form {
+  height: 100%;
+  padding: 3em 0;
+  overflow: visible;
+  opacity: 1;
+  margin-top: 3em;
+}
+
+.Icon-Close-New-Product {
+  color: var(--Danger-Color);
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.Insert-New-Product-Form div {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+}
+
+.Insert-New-Product-Form label {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.8);
+  padding-right: 0.5em;
+}
+.Insert-New-Product-Form input {
+  width: 80%;
+  margin: 0 auto;
+  outline: none;
+  padding: 0.5em 0;
+  border-radius: 0.3em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.Insert-New-Product-Form input:focus {
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+
+.ValidMessage-Input-ProducerForm,
+.ValidMessage-Input-UsageForm,
+.ValidMessage-Input-GenusForm,
+.ValidMessage-Input-WeightForm,
+.ValidMessage-Input-DiscountForm,
+.ValidMessage-Input-StockForm,
+.ValidMessage-Input-ImgProductForm,
+.ValidMessage-Input-PriceForm,
+.ValidMessage-Input-TitleForm,
+.ValidMessage-Input-SubCategoryForm,
+.ValidMessage-Input-CategoryForm,
+.ValidMessage-Input-Img2MainCategoryForm,
+.ValidMessage-Input-Img1MainCategoryForm,
+.ValidMessage-Input-MainCategoryForm {
+  border: 2px solid var(--Danger-Color) !important;
+}
+
+.ValidMessage-ProducerForm,
+.ValidMessage-UsageForm,
+.ValidMessage-GenusForm,
+.ValidMessage-WeightForm,
+.ValidMessage-DiscountForm,
+.ValidMessage-StockForm,
+.ValidMessage-ImgProductForm,
+.ValidMessage-PriceForm,
+.ValidMessage-TitleForm,
+.ValidMessage-SubCategoryForm,
+.ValidMessage-CategoryForm,
+.ValidMessage-Img2MainCategoryForm,
+.ValidMessage-Img1MainCategoryForm,
+.ValidMessage-MainCategoryForm {
+  display: none;
+}
+
+.NotValidMessage-ProducerForm,
+.NotValidMessage-UsageForm,
+.NotValidMessage-GenusForm,
+.NotValidMessage-WeightForm,
+.NotValidMessage-DiscountForm,
+.NotValidMessage-StockForm,
+.NotValidMessage-ImgProductForm,
+.NotValidMessage-PriceForm,
+.NotValidMessage-TitleForm,
+.NotValidMessage-SubCategoryForm,
+.NotValidMessage-CategoryForm,
+.NotValidMessage-Img2MainCategoryForm,
+.NotValidMessage-Img1MainCategoryForm,
+.NotValidMessage-MainCategoryForm {
+  display: block;
+  font-size: 0.8em;
+  color: var(--Danger-Color);
+  padding: 1em ;
+  margin-right: 4em;
+}
+
+.Btn-Insert-Product {
+  width: 45%;
+  margin: 0 auto;
+  border: none;
+  background-color: var(--Primary-Color);
+  padding: 0.7em 0;
+  border-radius: 0.3em;
+  margin-top: 2em;
+}

@@ -118,7 +118,7 @@
     grid-template-columns: 1fr;
   }
   .CommentsProducts {
-    padding: 2em 0;
+    padding:  0;
   }
 
   .CommentsProducts h2,
@@ -133,6 +133,10 @@
   }
   .CommentsProduct-CheckBox span {
     font-size: 0.7em;
+  }
+  .CommentsProduct-Submit {
+  
+    margin: .5em 0;
   }
 }
 @media (max-width: 425px) {

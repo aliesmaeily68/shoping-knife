@@ -35,7 +35,7 @@ export default function MyAccountContent() {
         <ul className="ListGroup-MyAccountContent">
           {DataUsersContext.userType == "admin" && (
             <Link
-              to={"/dashboard-admin"}
+              to={"/dashboard-admin/dashboard-home"}
               onClick={() => DataUsersContext.setShowDashboardAdmin(true)}
             >
               <li>

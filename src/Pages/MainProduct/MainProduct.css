@@ -206,14 +206,21 @@
   .ListGroup-MainProduct-Discription-Comments {
     display: flex;
     align-items: center;
-    margin: 2.5em 2em;
+    margin: 1.5em 2em;
   }
 }
 
 @media (max-width: 768px){
+  .MainProduct-Container {
+    margin: .5em auto;
+  }
   .MainProduct-wrapper {
     width: 80%;
+    margin:  0 auto;
    flex-direction: column;
+  }
+  .ListGroup-MainProduct-Discription-Comments {
+    margin: 0 2em;
   }
 }
 @media (max-width: 425px){

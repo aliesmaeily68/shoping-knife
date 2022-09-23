@@ -21,7 +21,7 @@ export default function AccountSideBar() {
 
           {DataUsersContext.userType == "admin" && (
             <Link
-              to={"/dashboard-admin"}
+              to={"/dashboard-admin/dashboard-home"}
               onClick={() => DataUsersContext.setShowDashboardAdmin(true)}
             >
               <li>پنل مدیریت</li>

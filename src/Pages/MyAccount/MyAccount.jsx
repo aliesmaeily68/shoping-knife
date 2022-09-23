@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import LoginForm from "../../Components/LoginSidebar/LoginForm/LoginForm";
 import RegisterForm from "../../Components/RegisterForm/RegisterForm";
 import { UsersContext } from "../../Contexts/UsersContext";
@@ -10,6 +10,9 @@ import { Outlet } from "react-router";
 
 export default function MyAccount() {
   const DataUsersContext = useContext(UsersContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       {!DataUsersContext.isUserInData && (

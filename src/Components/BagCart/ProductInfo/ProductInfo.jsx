@@ -60,7 +60,7 @@ export default function ProductInfo() {
             /> */}
 
             <img
-              src={`./Image/${product.imgName}`}
+              src={`../Image/${product.imgName}`}
               alt="product"
               className="Img-Product-Info-BagCart"
             />

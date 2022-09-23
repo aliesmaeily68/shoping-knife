@@ -1,0 +1,47 @@
+.Container-SidebarDashboard {
+  width: 100%;
+  height: 100%;
+  background-color: var(--Dark-Color);
+  color: var(--White-Color);
+}
+
+.Wrapper-SidebarDashboard h1 {
+  font-weight: bold;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 2.5em 0 1em 0;
+}
+
+.Hr-SidebarDashboard {
+  width: 80%;
+  height: 1px;
+  background-color: var(--White-Color);
+  margin: 0 auto;
+}
+
+.ListGroup-SidebarDashboard {
+  margin-top: 1em;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+}
+.ListGroup-SidebarDashboard a li {
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+  padding: .5em;
+}
+.ListGroup-SidebarDashboard a li:hover {
+  background-color: var(--Dark-Color);
+  color: var(--Hover-Color);
+}
+
+.Back-Close-SidebarDashboard:hover {
+  color: var(--Danger-Color) !important;
+}
+/* @media(max-width:1024px){
+  .Container-SidebarDashboard {
+padding-bottom: 10em;
+  }
+} */

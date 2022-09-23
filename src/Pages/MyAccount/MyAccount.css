@@ -36,7 +36,7 @@
   .Container-LoginRegister-LoginForm,
   .Container-LoginRegister-RegisterForm {
     padding: 0 3em;
-    margin: 3em 0;
+    margin: 2em 0;
   }
   .Container-MyAccount {
     width: 100%;
@@ -47,7 +47,7 @@
   .Container-LoginRegister-LoginForm,
   .Container-LoginRegister-RegisterForm {
     padding: 0 7em;
-    margin: 1em 0;
+    margin: .5em 0;
     
   }
 

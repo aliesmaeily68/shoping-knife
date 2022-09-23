@@ -37,7 +37,7 @@ export default function ArticlesCategory() {
                     className="Wrpper-Articles-Category-Content"
                     style={{
                       backgroundImage:
-                        "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(" +
+                        "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(" +
                         `./Image/${article.img}` +
                         ")",
                     }}

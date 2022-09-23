@@ -22,6 +22,13 @@ import ProposalProducts from './Pages/Proposals/ProposalProducts'
 import CommentsProduct from './Pages/MainProduct/Commentsproduct/CommentsProduct'
 import DescriptionProduct from './Pages/MainProduct/DescriptionProduct/DescriptionProduct'
 import DashboardAdmin from './Pages/DashboardAdmin/DashboardAdmin'
+import DashboardHome from './Pages/DashboardAdmin/DashboardHome/DashboardHome'
+import DashboardProduct from './Pages/DashboardAdmin/DashboardProduct/DashboardProduct'
+import DashboardProposal from './Pages/DashboardAdmin/DashboardProposal/DashboardProposal'
+import DashboardUser from './Pages/DashboardAdmin/DashboardUser/DashboardUser'
+import DashboardComment from './Pages/DashboardAdmin/DashboardComment/DashboardComment'
+import DashboardArticle from './Pages/DashboardAdmin/DashboardArticle/DashboardArticle'
+import DashboardOrder from './Pages/DashboardAdmin/DashboardOrder/DashboardOrder'
 
 
 let routes = [
@@ -62,7 +69,17 @@ let routes = [
     { path: '/checkout', element: <Checkout /> },
     { path: '/cart', element: <Cart /> },
     { path: '/proposalProducts', element: <ProposalProducts /> },
-    { path: '/dashboard-admin', element: <DashboardAdmin /> },
+    { path: '/dashboard-admin/*', element: <DashboardAdmin />,children:[
+        { path: "dashboard-home", element: <DashboardHome /> },
+        { path: "dashboard-product", element: <DashboardProduct /> },
+        { path: "dashboard-proposal", element: <DashboardProposal /> },
+        { path: "dashboard-user", element: <DashboardUser /> },
+        { path: "dashboard-comment", element: <DashboardComment /> },
+        { path: "dashboard-article", element: <DashboardArticle /> },
+        { path: "dashboard-order", element: <DashboardOrder/> },
+    
+    ]
+},
 ]
 
 export default routes

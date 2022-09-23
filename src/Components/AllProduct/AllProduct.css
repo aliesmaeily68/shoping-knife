@@ -59,9 +59,12 @@
 }
 
 @media (max-width: 768px) {
+  .All-Product {
+    margin: .5em auto;
+  }
   .Product-Category-Title {
     padding: 0;
-    margin: 2em 0;
+    margin: .5em 0;
     flex-direction: column;
     justify-content: center;
   }

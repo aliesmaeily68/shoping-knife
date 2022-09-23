@@ -90,3 +90,8 @@
   cursor: pointer;
   color: var(--Danger-Color);
 }
+@media(max-width:1024px){
+  .Before-Registering {
+   margin-bottom: 0;
+  }
+}

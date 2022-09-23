@@ -1,7 +1,10 @@
-import React from "react";
-import './LostAccount.css'
+import React, { useEffect } from "react";
+import "./LostAccount.css";
 
 export default function LostAccount() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className="Container-LostAccount">
@@ -24,4 +27,3 @@ export default function LostAccount() {
     </>
   );
 }
-

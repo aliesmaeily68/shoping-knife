@@ -27,8 +27,8 @@
 
 .Wrapper-About {
   width: var(--Max-Width);
-  margin: 3em auto;
-  padding: 5em;
+  margin: 1em auto;
+  padding: 3em;
   border-radius: 0.3em;
   border: 2px solid rgba(0, 0, 0, 0.1);
 }
@@ -62,9 +62,32 @@
   .Wrapper-About {
     width: 90%;
   }
-}
-@media (max-width: 650px) {
-  .Container-Breadcrumb-About span {
-    font-size: 0.7em;
+  .Wrapper-About p {
+    font-size: 1em;
   }
+}
+@media (max-width: 768px) {
+  .Wrapper-About {
+    margin: .5em auto;
+    padding: 2em;
+  }
+  .Wrapper-About h1 {
+    text-align: center;
+  }
+  .Container-Breadcrumb-About span {
+    font-size: 1em;
+  }
+  .Wrapper-About p {
+    font-size: .9em;
+  }
+}
+@media (max-width: 500px) {
+  .Wrapper-About {
+    padding: .5em;
+  }
+  .Wrapper-About h1 {
+    text-align: center;
+    font-size: 1.2em;
+  }
+  
 }

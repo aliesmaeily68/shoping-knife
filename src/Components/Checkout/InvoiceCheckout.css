@@ -152,6 +152,11 @@
   font-size: 0.9em;
 }
 
+@media (max-width: 1024px) {
+  .Title-Edit-Invoice-Checkout h1 {
+    padding: 0 1em 1em 0;
+  }
+}
 @media (max-width: 425px) {
   .FirstName-LastName-Form-Checkout {
     flex-direction: column;

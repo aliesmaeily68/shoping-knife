@@ -46,9 +46,13 @@
     border-radius: 0.3em;
     background-color: var(--Primary-Color);
     margin: 1em 0;
-    /* color: var(--White-Color); */
 }
 
 .Checkout-BagCart:hover{
     background-color: var(--Hover-Color);
+}
+@media(max-width:1024px){
+  .Total-Info-BagCart {
+  bottom: 2em;
+  }
 }

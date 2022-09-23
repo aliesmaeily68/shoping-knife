@@ -1,0 +1,37 @@
+.Container-TopbarDashboard {
+  width: 100%;
+  height: 5em;
+  background-color: var(--Dark-Color);
+  color: var(--White-Color);
+}
+
+.Wrapper-TopbarDashboard {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Wrapper-TopbarDashboard img {
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 100%;
+}
+
+.User-Info-TopbarDashboard {
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+}
+
+.User-Info-TopbarDashboard div{
+    font-size: .8em;
+    line-height: 1.5em;
+    color: var(--Hover-Color);
+}
+
+.Wrapper-TopbarDashboard h4 span{
+  color: rgb(0, 190, 0);
+  padding: 0 .5em;
+  font-weight: bold;
+}

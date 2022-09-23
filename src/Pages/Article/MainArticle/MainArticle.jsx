@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
 import { AllArticleDataContext } from "../../../Contexts/ArticleDataContext";
@@ -7,6 +7,9 @@ import "./MainArticle.css";
 
 export default function MainArticle() {
   const DataArticleContext = useContext(AllArticleDataContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[]);
 
   let params = useParams();
   const Articles = [...DataArticleContext.allArticle];

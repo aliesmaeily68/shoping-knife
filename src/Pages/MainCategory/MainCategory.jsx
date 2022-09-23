@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 import { AllProductContext } from "../../Contexts/ProductContext";
@@ -6,6 +6,10 @@ import "./MainCategory.css";
 
 export default function MainCategory() {
   const DataContext = useContext(AllProductContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   let params = useParams();
   const MainCategoryFilter = DataContext.products[0].filter(
@@ -52,12 +56,12 @@ export default function MainCategory() {
         {IsInfoCategory &&
           InfoCategoryFilter.map((categoryProduct) =>
             categoryProduct.MainInfo.map((infoProduct) => (
-              <ProductCard {...infoProduct} key={infoProduct.id}/>
+              <ProductCard {...infoProduct} key={infoProduct.id} />
             ))
           )}
         {IsMainInfoCategory &&
           MainInfoCategoryFilter.map((categoryProduct) => (
-            <ProductCard {...categoryProduct} key={categoryProduct.id}/>
+            <ProductCard {...categoryProduct} key={categoryProduct.id} />
           ))}
       </div>
     </div>

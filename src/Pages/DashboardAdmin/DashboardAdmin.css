@@ -1,0 +1,19 @@
+.Container-DashboardAdmin {
+  width: 1500px;
+  margin: 0 auto;
+  height: 100vh;
+  background-color: var(--Secondary-Color);
+}
+
+.Wrapper-DashboardAdmin {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+
+.Container-Routes-Dashboard{
+  width: 95%;
+  margin: 3em auto;
+}

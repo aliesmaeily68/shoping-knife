@@ -124,3 +124,9 @@
 .Btn-EditAcount:hover {
   background-color: var(--Hover-Color);
 }
+
+@media(max-width:768px){
+  .Container-EditAcount {
+    margin: .7em auto;
+  }
+}

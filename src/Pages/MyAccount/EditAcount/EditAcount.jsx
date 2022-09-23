@@ -1,9 +1,12 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef ,useEffect } from "react";
 import { UsersContext } from "../../../Contexts/UsersContext";
 import "./EditAcount.css";
 
 export default function EditAcount() {
   const DataUsersContext = useContext(UsersContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const NameEditAcountFormRef = useRef();
   const LastNameEditAcountFormRef = useRef();

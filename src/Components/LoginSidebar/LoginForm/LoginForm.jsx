@@ -61,24 +61,6 @@ export default function LoginForm() {
               {DataUsersContext.showPasswordLoginForm ? (
                 <div className="Eye-Password-LoginForm">
                   <div className="Eye-LoginForm">
-                    <AiOutlineEyeInvisible
-                      size={20}
-                      onClick={() =>
-                        DataUsersContext.setShowPasswordLoginForm(false)
-                      }
-                    />
-                  </div>
-                  <input
-                    value={DataUsersContext.loginFormPasswordValue}
-                    type="password"
-                    onChange={(e) =>
-                      DataUsersContext.setLoginFormPasswordValue(e.target.value)
-                    }
-                  />
-                </div>
-              ) : (
-                <div className="Eye-Password-LoginForm">
-                  <div className="Eye-LoginForm">
                     <AiOutlineEye
                       size={20}
                       onClick={() =>
@@ -89,6 +71,24 @@ export default function LoginForm() {
                   <input
                     value={DataUsersContext.loginFormPasswordValue}
                     type="text"
+                    onChange={(e) =>
+                      DataUsersContext.setLoginFormPasswordValue(e.target.value)
+                    }
+                  />
+                </div>
+              ) : (
+                <div className="Eye-Password-LoginForm">
+                  <div className="Eye-LoginForm">
+                    <AiOutlineEyeInvisible
+                      size={20}
+                      onClick={() =>
+                        DataUsersContext.setShowPasswordLoginForm(false)
+                      }
+                    />
+                  </div>
+                  <input
+                    value={DataUsersContext.loginFormPasswordValue}
+                    type="password"
                     onChange={(e) =>
                       DataUsersContext.setLoginFormPasswordValue(e.target.value)
                     }

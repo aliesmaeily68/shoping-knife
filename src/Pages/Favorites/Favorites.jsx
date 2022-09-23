@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { AllProductContext } from "../../Contexts/ProductContext";
@@ -8,11 +8,14 @@ import "./Favorites.css";
 
 export default function Favorites() {
   const DataContext = useContext(AllProductContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const ShowModalFavorit = (RemoveFavoritesId) => {
     DataContext.setShowModal(true);
     DataContext.setRemoveFavoritesId(RemoveFavoritesId);
     DataContext.setShowModalFavorites(true);
-    DataContext.setTitleModal("آیا محصول مورد نظر از علاقه مندی ها حذف شود؟")
+    DataContext.setTitleModal("آیا محصول مورد نظر از علاقه مندی ها حذف شود؟");
   };
   return (
     <>

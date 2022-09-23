@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { BsCartX } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import BreadcrumbCheckoutCart from "../../Components/BreadcrumbCheckoutCart/BreadcrumbCheckoutCart";
@@ -10,6 +10,9 @@ import "./Cart.css";
 
 export default function Cart() {
   const DataContext = useContext(AllProductContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

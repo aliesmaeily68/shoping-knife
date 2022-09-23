@@ -114,6 +114,7 @@
  
   .Table-Favorites table {
     width: 100%;
+    margin: .3em auto;
   }
  
   .Product-Name-Thumbnail-Favorites {
