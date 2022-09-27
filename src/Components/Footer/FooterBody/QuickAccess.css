@@ -1,7 +1,7 @@
 .QuickAccess-Footer {
   text-align: justify;
   line-height: 2.5em;
-  margin: 0 8em;
+  margin: 0 6.5em;
 }
 
 .QuickAccess-Footer h3 {
@@ -20,7 +20,7 @@
   color: var(--Hover-Color);
 }
 .QuickAccess-Footer .QuickAccess-List-Group .QuickAccess-List span {
-  padding: 01em;
+  padding: 1em;
 }
 .QuickAccess-Footer
   .QuickAccess-List-Group

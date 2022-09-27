@@ -1,9 +1,3 @@
-.All-Product {
-  height: 100%;
-  width: 1500px;
-  margin: 3em auto;
-}
-
 .Product-Category-Title {
   margin-top: 2em;
   margin-right: 4em;
@@ -30,14 +24,14 @@
 }
 
 .Allproducts-Card {
-  margin: 0 auto;
   width: 90%;
   margin: 0 auto;
+  margin-bottom: 1.5em;
   cursor: pointer;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
-  row-gap: 2em;
+  gap: 2em;
 }
 
 @media (max-width: 1024px) {

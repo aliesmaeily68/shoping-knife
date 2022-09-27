@@ -15,7 +15,7 @@ export default function (props) {
   return (
     <div className="Logo" onClick={()=>LogoHandler()}>
       <Link to={"/"}>
-        <img src={`./Image/${props.logoName}.png `} alt="Logo" />
+        <img src={`../Image/${props.logoName}.png `} alt="Logo" />
       </Link>
     </div>
   );

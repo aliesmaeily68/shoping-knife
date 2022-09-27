@@ -1,14 +1,11 @@
 .CommentsProduct-Container {
-  width: 1500px;
-  margin: 0 auto;
   background-color: var(--Secondary-Color);
 }
 
 .CommentsProduct-Wrapper {
-  width: var(--Max-Width);
+  width: 90%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin: 0 auto;
 }
 
 .CommentsProduct-Star {
@@ -118,7 +115,7 @@
     grid-template-columns: 1fr;
   }
   .CommentsProducts {
-    padding:  0;
+    padding: 0;
   }
 
   .CommentsProducts h2,
@@ -135,8 +132,7 @@
     font-size: 0.7em;
   }
   .CommentsProduct-Submit {
-  
-    margin: .5em 0;
+    margin: 0.5em 0;
   }
 }
 @media (max-width: 425px) {

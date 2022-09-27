@@ -16,12 +16,17 @@ export default function LoginSidebar() {
           DataUsersContext.showLoginSidebar ? "Show-LoginSidebar" : ""
         }`}
       >
+        <div
+          className="BgDark-LoginSidebar"
+          onClick={() => DataUsersContext.setShowLoginSidebar(false)}
+        ></div>
+
         <div className="Wrapper-LoginSidebar">
           <div className="Title-Close-LoginSidebar">
             <h2 className="Title-LoginSidebar">ورود</h2>
             <AiOutlineClose
               className="Close-LoginSidebar"
-              onClick={()=>DataUsersContext.setShowLoginSidebar(false)}
+              onClick={() => DataUsersContext.setShowLoginSidebar(false)}
             />
           </div>
           <LoginForm />

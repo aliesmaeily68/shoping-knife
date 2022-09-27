@@ -1,10 +1,5 @@
-.Container-Comparison {
-  width: 1500px;
-  margin: 0 auto;
-}
-
 .Wrapper-Comparison {
-  width: var(--Max-Width);
+  width: 90%;
   margin: 0 auto;
 }
 

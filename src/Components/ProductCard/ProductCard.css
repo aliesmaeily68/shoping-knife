@@ -1,5 +1,5 @@
 .Product-Card {
-  width: 18em;
+  width: 100%;
   height: 100%;
   position: relative;
   box-shadow: 0.2em 0.2em 1em rgba(0, 0, 0, 0.5);
@@ -103,7 +103,6 @@
 
 @media (max-width: 1024px){
   .Product-Card {
-    width: 100%;
     box-shadow: 0.1em 0.1em .1em rgba(0, 0, 0, 0.2), -0.1em -0.1em .1em rgba(0, 0, 0, 0.2);
   }
 }

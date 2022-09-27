@@ -1,5 +1,5 @@
 .Breadcrumb-Cart-Checkout {
-  width: 1500px;
+  width: 100%;
   margin: 0 auto;
   background-color: rgb(237, 238, 239);
   line-height: 5em;
@@ -7,7 +7,7 @@
 }
 
 .Container-Breadcrumb-Cart-Checkout {
-  width: var(--Max-Width);
+  width: 85%;
   margin: 0 auto;
 }
 

@@ -1,6 +1,6 @@
 .Container-Categories {
   position: relative;
-  width: 18.2em;
+  /* width: 18.2em; */
   height: 0;
   background-color: var(--Secondary-Color);
   z-index: 100;
@@ -34,5 +34,5 @@
 .ُSubCategories {
   position: absolute;
   top: 0;
-  right: 18.15em;
+  right:100%;
 }

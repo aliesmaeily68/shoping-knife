@@ -1,6 +1,5 @@
 .Container-FooterBody {
-  width: var(--Max-Width);
-  margin: 0 auto;
+  padding: 0 .5em;
 }
 .Container-FooterBody-M1024 {
   display: none;
@@ -18,7 +17,7 @@
     display: block;
     /* margin-bottom: 8em; */
   }
-  .Wrapper-FooterBody-M1024 .hr{
+  .Wrapper-FooterBody-M1024 .hr {
     display: none;
   }
   .Wrapper-FooterBody-M1024 {
@@ -30,7 +29,7 @@
   .Wrapper-FooterBody-M1024 {
     grid-template-columns: repeat(1, 1fr);
   }
-  .Wrapper-FooterBody-M1024 .hr{
+  .Wrapper-FooterBody-M1024 .hr {
     display: block;
     width: 85%;
     margin: 0 auto;

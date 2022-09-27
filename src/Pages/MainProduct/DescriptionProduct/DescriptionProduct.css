@@ -1,12 +1,9 @@
 .DescriptionProduct{
-    width:1500px;
-    margin: 0 auto;
     padding: 1em 3em ;
 }
 
 .Wrapper-DescriptionProduct{
-    width: var(--Max-Width);
-    margin: 0 auto;
+    width: 90%;
 }
 
 .DescriptionProduct h1{

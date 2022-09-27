@@ -26,7 +26,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
-  row-gap: 2em;
+  gap: 2em;
 }
 
 @media (max-width: 1024px) {

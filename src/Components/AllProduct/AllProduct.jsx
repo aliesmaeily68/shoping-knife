@@ -9,26 +9,24 @@ export default function AllProduct() {
 
   return (
     <>
-      <div className="All-Product">
-        <div className="products-Container">
-          {DataContext.products[0].map((product) => (
-            <div className="products-wrapper" key={product.id}>
-              <div className="Product-Category-Title">
-                {" "}
-                <h2>{product.MainCategory.title} </h2>
-                <div className="Br-CategoryTitle"></div>
-              </div>
-
-              <div className="Allproducts-Card">
-                {product.Info.map((data) =>
-                  data.MainInfo.map((product) => (
-                    <ProductCard {...product} key={product.id} />
-                  ))
-                )}
-              </div>
+      <div className="products-Container">
+        {DataContext.products[0].map((product) => (
+          <div className="products-wrapper" key={product.id}>
+            <div className="Product-Category-Title">
+              {" "}
+              <h2>{product.MainCategory.title} </h2>
+              <div className="Br-CategoryTitle"></div>
             </div>
-          ))}
-        </div>
+
+            <div className="Allproducts-Card">
+              {product.Info.map((data) =>
+                data.MainInfo.map((product) => (
+                  <ProductCard {...product} key={product.id} />
+                ))
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );

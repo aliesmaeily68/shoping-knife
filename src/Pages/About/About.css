@@ -1,13 +1,11 @@
 .Breadcrumb-About {
-  width: 1500px;
   background-color: rgb(237, 238, 239);
   line-height: 5em;
   height: 5em;
 }
 
 .Container-Breadcrumb-About {
-  width: var(--Max-Width);
-  margin: 0 auto;
+  width: 90%;
 }
 
 .Container-Breadcrumb-About span {
@@ -21,12 +19,8 @@
   cursor: pointer;
 }
 
-.Container-About {
-  width: 1500px;
-}
-
 .Wrapper-About {
-  width: var(--Max-Width);
+  width: 90%;
   margin: 1em auto;
   padding: 3em;
   border-radius: 0.3em;

@@ -1,11 +1,13 @@
 .Container-FooterTop{
-    width: var(--Max-Width);
-    margin: 0 auto;
+    padding: 0 7em;
 }
 
 .wrapper-FooterTop{
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1.5fr 2.5fr 1fr;
+}
+.Logo-FooterTop{
+    width: 70%;
 }
 
 @media (max-width:1024px){

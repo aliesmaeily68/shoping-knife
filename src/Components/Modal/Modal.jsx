@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { AllProductContext } from "../../Contexts/ProductContext";
+import ReactDOM from "react-dom";
 import "./Modal.css";
 
 export default function Modals() {
@@ -29,14 +30,11 @@ export default function Modals() {
       DataContext.setShowModalComparison(false);
     }
   };
-  return (
-    <>
-      {/**insert className ShowModal to Showing Modal */}
-      <div
-        className={`Container-Modal ${
-          DataContext.showModal ? "ShowModal" : ""
-        }`}
-      >
+  return ReactDOM.createPortal(
+    <div
+      className={`Container-Modal ${DataContext.showModal ? "ShowModal" : ""}`}
+    >
+      <div className="Wrapper-Modal">
         <div className="close-Modal">
           <AiOutlineClose onClick={() => DataContext.setShowModal(false)} />
         </div>
@@ -55,6 +53,7 @@ export default function Modals() {
           </button>
         </div>
       </div>
-    </>
+    </div>,
+    document.getElementById("Modal")
   );
 }

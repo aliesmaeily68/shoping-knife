@@ -1,18 +1,12 @@
-.Container-Carousel {
-  width: 1500px;
-  margin: 3em auto;
-}
-
 .Home-Carousel {
   width: 75%;
   height: 18em;
-  margin: 0 auto;
+  margin: 1.5em auto;
 }
 .Img-Carousel {
   height: 16em !important;
   margin-right: 30em;
 }
-
 
 .Carousel-Btn {
   position: absolute;
@@ -48,7 +42,6 @@
 @media (max-width: 1024px) {
   .Container-Carousel {
     width: 100%;
-  
   }
   .Home-Carousel {
     width: 90%;
@@ -88,14 +81,14 @@
     bottom: 0em;
   }
 }
-@media (max-width: 630px){
+@media (max-width: 630px) {
   .Img-Carousel {
     margin: 2em 16em 0 0;
   }
 }
 @media (max-width: 500px) {
   .Container-Carousel {
-    margin:1.5em 0 !important;
+    margin: 1.5em 0 !important;
   }
 
   .Home-Carousel {
@@ -124,7 +117,7 @@
     bottom: 2em;
   }
 }
-@media (max-width: 376px){
+@media (max-width: 376px) {
   .Img-Carousel {
     margin: 1em 10em 0 0;
   }

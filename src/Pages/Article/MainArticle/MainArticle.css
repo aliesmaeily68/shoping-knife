@@ -1,13 +1,11 @@
 .Breadcrumb-MainArticle {
-  width: 1500px;
-  margin: 0 auto;
   background-color: rgb(237, 238, 239);
   line-height: 5em;
   height: 5em;
 }
 
 .Container-Breadcrumb-MainArticle {
-  width: var(--Max-Width);
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -25,13 +23,11 @@
 }
 
 .Container-MainArticle {
-  width: 1500px;
   margin: 3em auto;
 }
 
 .Wrapper-MainArticle {
-  width: var(--Max-Width);
-
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -56,8 +52,6 @@
 }
 
 .CommentsArticle-Container {
-  width: 1500px;
-  margin: 0 auto;
   background-color: var(--Secondary-Color);
 }
 

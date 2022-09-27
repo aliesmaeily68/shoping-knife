@@ -1,12 +1,11 @@
 .Breadcrumb-Contact {
-  width: 1500px;
   background-color: rgb(237, 238, 239);
   line-height: 5em;
   height: 5em;
 }
 
 .Container-Breadcrumb-Contact {
-  width: var(--Max-Width);
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -21,12 +20,8 @@
   cursor: pointer;
 }
 
-.Container-Contact {
-  width: 1500px;
-}
-
 .Wrapper-Contact {
-  width: var(--Max-Width);
+  width: 90%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);

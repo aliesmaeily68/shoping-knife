@@ -10,23 +10,21 @@ export default function KnifesProduct() {
 
   return (
     <>
-      <div className="All-Product">
-        <div className="products-Container">
-          <div className="products-wrapper">
-            <div className="KnifesProduct-Category-Title-Br">
+      <div className="products-Container">
+        <div className="products-wrapper">
+          <div className="KnifesProduct-Category-Title-Br">
+            {" "}
+            <h1 className="KnifesProduct-Category-Title">
               {" "}
-              <h1 className="KnifesProduct-Category-Title">
-                {" "}
-                نمونه های برتر چاقوی زنجان{" "}
-              </h1>
-              <div className="KnifesProduct-Category-Br"></div>
-            </div>
+              نمونه های برتر چاقوی زنجان{" "}
+            </h1>
+            <div className="KnifesProduct-Category-Br"></div>
+          </div>
 
-            <div className="products-Card">
-              {DataContext.products[0][0].Info.map((data) =>
-                data.MainInfo.map((product) => <ProductCard {...product} />)
-              )}
-            </div>
+          <div className="products-Card">
+            {DataContext.products[0][0].Info.map((data) =>
+              data.MainInfo.map((product) => <ProductCard {...product} />)
+            )}
           </div>
         </div>
       </div>

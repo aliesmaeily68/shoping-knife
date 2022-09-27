@@ -2,7 +2,7 @@
   background-color: var(--Primary-Color) !important;
   color: var(--Dark-Color) !important;
   position: fixed;
-  top: 48em;
+  bottom: 1em;
   right: 1em;
   text-align: center;
   z-index: 99999;

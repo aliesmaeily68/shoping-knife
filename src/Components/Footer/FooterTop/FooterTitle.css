@@ -7,9 +7,9 @@
 
 .Footer-Title .BrTitle{
     height: 1px;
-    width: 30%;
+    width: 23%;
     background-color: var(--Text-Light-Color);
 }
 .Main-Footer-Title{
-    margin: 0 1em;
+    margin: 0 .7em;
 }

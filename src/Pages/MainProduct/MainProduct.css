@@ -1,12 +1,11 @@
 .MainProduct-Container {
-  width: 1500px;
   margin: 2em auto;
   background-color: var(--Secondary-Color);
 
 }
 
 .MainProduct-wrapper {
-  width: var(--Max-Width);
+  width: 90%;
   display: flex;
   margin: 2.5em auto;
   

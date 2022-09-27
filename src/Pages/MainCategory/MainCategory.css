@@ -1,21 +1,21 @@
 .Container-MainCategory {
-  width: 1500px;
+  width: 100%;
   margin: 3em auto;
 }
 
 .Container-MainCategory h1 {
-  width: var(--Max-Width);
+  width: 90%;
   margin: 1.5em auto;
   text-align: center;
   font-weight: bold;
   font-size: 2em;
 }
 .Wrapper-MainCategory {
-  width: var(--Max-Width);
+  width: 90%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  row-gap: 2em;
+  gap: 2em;
 }
 
 @media (max-width: 1024px) {

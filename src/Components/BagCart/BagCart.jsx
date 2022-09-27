@@ -7,15 +7,26 @@ import "./BagCart.css";
 import { AllProductContext } from "../../Contexts/ProductContext";
 
 export default function BagCart() {
-  const DataContext=useContext(AllProductContext)
+  const DataContext = useContext(AllProductContext);
   return (
     <>
-    {/**insert className Show-BagCart to showing the BagCart */}
-      <div className={`Container-BagCart ${DataContext.showCartBag ?'Show-BagCart' : ''}`}> 
+      {/**insert className Show-BagCart to showing the BagCart */}
+      <div
+        className={`Container-BagCart ${
+          DataContext.showCartBag ? "Show-BagCart" : ""
+        }`}
+      >
+        <div
+          className="Bg-Dark-BagCart"
+          onClick={() => DataContext.setShowCartBag(false)}
+        ></div>
         <div className="Wrapper-BagCart">
           <div className="Title-Close-BagCart">
             <div className="Title-BagCart">سبد خرید</div>
-            <div className="Close-BagCart" onClick={()=>DataContext.setShowCartBag(false)}>
+            <div
+              className="Close-BagCart"
+              onClick={() => DataContext.setShowCartBag(false)}
+            >
               <IoIosClose />
             </div>
           </div>

@@ -1,5 +1,4 @@
 .Container-Proposal-Category {
-  width: 1500px;
   margin: 5em auto;
 }
 
@@ -141,8 +140,8 @@
     flex-direction: column;
   }
   .Proposal-text-btn {
-    margin-bottom: 3em ;
-    grid-template-columns:  1fr;
+    margin-bottom: 3em;
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr;
   }
 
@@ -152,7 +151,7 @@
   }
 
   .Proposal-btn {
-   display: none;
+    display: none;
   }
 
   .Proposal-Category {
@@ -179,7 +178,7 @@
     display: none;
   }
 }
-@media (max-width: 650px){
+@media (max-width: 650px) {
   .Proposal-Category {
     height: 75em;
   }
@@ -198,8 +197,8 @@
     flex-direction: column;
   }
   .Proposal-text-btn {
-    margin-bottom: 3em ;
-    grid-template-columns:  1fr;
+    margin-bottom: 3em;
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr;
   }
 
@@ -209,7 +208,7 @@
   }
 
   .Proposal-btn {
-   display: none;
+    display: none;
   }
 
   .Proposal-Category {
@@ -219,15 +218,15 @@
   .Proposal {
     height: 145em;
   }
-  .Proposal-Product-Category{
+  .Proposal-Product-Category {
     grid-template-columns: 1fr;
     width: 75%;
   }
 
   .Proposal-Product-Category-Title {
     width: 100%;
-   margin: 0 auto;
-   margin-bottom: 1.5em;
+    margin: 0 auto;
+    margin-bottom: 1.5em;
   }
   .Proposal-Product-Category-Title h2 {
     width: 100%;
@@ -237,7 +236,7 @@
     display: none;
   }
 }
-@media (max-width: 475px){
+@media (max-width: 475px) {
   .Proposal-Category {
     height: 152em;
   }
@@ -246,7 +245,7 @@
     height: 142em;
   }
 }
-@media (max-width: 450px){
+@media (max-width: 450px) {
   .Proposal-Category {
     height: 148em;
   }
@@ -255,7 +254,7 @@
     height: 138em;
   }
 }
-@media (max-width: 425px){
+@media (max-width: 425px) {
   .Proposal-Category {
     height: 144em;
   }
@@ -264,7 +263,7 @@
     height: 134em;
   }
 }
-@media (max-width: 400px){
+@media (max-width: 400px) {
   .Proposal-Category {
     height: 140em;
   }
@@ -273,7 +272,7 @@
     height: 130em;
   }
 }
-@media (max-width: 375px){
+@media (max-width: 375px) {
   .Proposal-Category {
     height: 136em;
   }
@@ -282,7 +281,7 @@
     height: 126em;
   }
 }
-@media (max-width: 350px){
+@media (max-width: 350px) {
   .Proposal-Category {
     height: 131em;
   }
@@ -291,7 +290,7 @@
     height: 122em;
   }
 }
-@media (max-width: 325px){
+@media (max-width: 325px) {
   .Proposal-Category {
     height: 127em;
   }
