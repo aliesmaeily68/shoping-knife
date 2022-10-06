@@ -27,8 +27,8 @@ export default function MobileNavCategory() {
             showCategory ? "Show-Category" : ""
           }`}
         >
-          {DataProductContext.products[0].length &&
-            DataProductContext.products[0].map((productCategory) => (
+          {DataProductContext.productsDataFlag &&
+            DataProductContext.products1[0].map((productCategory) => (
               <li className="List-Category-MobileNav" key={productCategory.id}>
                 <div>
                   <Link

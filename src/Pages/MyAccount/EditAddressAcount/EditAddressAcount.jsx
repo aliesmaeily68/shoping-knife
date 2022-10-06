@@ -34,7 +34,6 @@ export default function EditAddressAcount() {
                     <span>افزودن</span>
                   </Link>
                 </h3>
-                <p>شما هنوز این آدرس را ثبت نکرده‌اید.</p>
               </li>
               <li>
                 <h3>
@@ -50,7 +49,6 @@ export default function EditAddressAcount() {
                     <span>افزودن</span>
                   </Link>
                 </h3>
-                <p>شما هنوز این آدرس را ثبت نکرده‌اید.</p>
               </li>
             </ul>
           </div>

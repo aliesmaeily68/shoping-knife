@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useRef } from "react";
 import { useContext } from "react";
@@ -16,78 +15,101 @@ export default function BillOrTransportationForm() {
   const TellNumberBillOrTransportationRef = useRef();
   const EmailBillOrTransportationRef = useRef();
 
-  const BillOrTransportationFormHandler=event=>{
-    event.preventDefault()
+  const BillOrTransportationFormHandler = (event) => {
+    event.preventDefault();
     const RegexNameBillOrTransportation = /../;
     const RegexNotEmpty = /./;
     const RegexPostalCode = /^[0-9]{10}$/;
     const RegexTellNumber = /09(1[0-9]|3[1-9]|2[012]|9[012])([0-9]{7})/;
     const RegexEmail = /^\w+([\.-]?\w)*@\w+([\.-]?\w)*(\.\w{2,3})+$/;
 
-    if (RegexNameBillOrTransportation.test(DataUsersContext.firstNameBillOrTransportation)) {
-      DataUsersContext.setValidFirstNameBillOrTransportation(true);
+    if (
+      RegexNameBillOrTransportation.test(DataUsersContext.firstNameCheckout)
+    ) {
+      DataUsersContext.setValidFirstNameCheckout(true);
     } else {
-      DataUsersContext.setValidFirstNameBillOrTransportation(false);
+      DataUsersContext.setValidFirstNameCheckout(false);
     }
 
-    if (RegexNameBillOrTransportation.test(DataUsersContext.lastNameBillOrTransportation)) {
-      DataUsersContext.setValidLastNameBillOrTransportation(true);
+    if (RegexNameBillOrTransportation.test(DataUsersContext.lastNameCheckout)) {
+      DataUsersContext.setValidLastNameCheckout(true);
     } else {
-      DataUsersContext.setValidLastNameBillOrTransportation(false);
+      DataUsersContext.setValidLastNameCheckout(false);
     }
 
-    if (RegexNotEmpty.test(DataUsersContext.cityNameBillOrTransportation)) {
-      DataUsersContext.setValidCityNameBillOrTransportation(true);
+    if (RegexNotEmpty.test(DataUsersContext.cityNameCheckout)) {
+      DataUsersContext.setValidCityNameCheckout(true);
     } else {
-      DataUsersContext.setValidCityNameBillOrTransportation(false);
+      DataUsersContext.setValidCityNameCheckout(false);
     }
 
-    if (RegexNotEmpty.test(DataUsersContext.addressNameBillOrTransportation)) {
-      DataUsersContext.setValidAddressNameBillOrTransportation(true);
+    if (RegexNotEmpty.test(DataUsersContext.addressNameCheckout)) {
+      DataUsersContext.setValidAddressNameCheckout(true);
     } else {
-      DataUsersContext.setValidAddressNameBillOrTransportation(false);
+      DataUsersContext.setValidAddressNameCheckout(false);
     }
 
-    if (RegexPostalCode.test(DataUsersContext.postalCodeBillOrTransportation)) {
-      DataUsersContext.setValidPostalCodeBillOrTransportation(true);
+    if (RegexPostalCode.test(DataUsersContext.postalCodeCheckout)) {
+      DataUsersContext.setValidPostalCodeCheckout(true);
     } else {
-      DataUsersContext.setValidPostalCodeBillOrTransportation(false);
+      DataUsersContext.setValidPostalCodeCheckout(false);
     }
 
-    if (RegexTellNumber.test(DataUsersContext.tellNumberBillOrTransportation)) {
-      DataUsersContext.setValidTellNumberBillOrTransportation(true);
+    if (RegexTellNumber.test(DataUsersContext.tellNumberCheckout)) {
+      DataUsersContext.setValidTellNumberCheckout(true);
     } else {
-      DataUsersContext.setValidTellNumberBillOrTransportation(false);
+      DataUsersContext.setValidTellNumberCheckout(false);
     }
 
-    if (RegexEmail.test(DataUsersContext.emailBillOrTransportation)) {
-      DataUsersContext.setValidEmailBillOrTransportation(true);
+    if (RegexEmail.test(DataUsersContext.emailCheckout)) {
+      DataUsersContext.setValidEmailCheckout(true);
     } else {
-      DataUsersContext.setValidEmailBillOrTransportation(false);
+      DataUsersContext.setValidEmailCheckout(false);
     }
     if (
-      DataUsersContext.validFirstNameBillOrTransportation &&
-      DataUsersContext.validLastNameBillOrTransportation &&
-      DataUsersContext.validCityNameBillOrTransportation &&
-      DataUsersContext.validAddressNameBillOrTransportation &&
-      DataUsersContext.validPostalCodeBillOrTransportation &&
-      DataUsersContext.validTellNumberBillOrTransportation &&
-      DataUsersContext.validEmailBillOrTransportation
+      RegexNameBillOrTransportation.test(DataUsersContext.firstNameCheckout) &&
+      RegexNameBillOrTransportation.test(DataUsersContext.lastNameCheckout) &&
+      RegexNotEmpty.test(DataUsersContext.cityNameCheckout) &&
+      RegexNotEmpty.test(DataUsersContext.addressNameCheckout) &&
+      RegexPostalCode.test(DataUsersContext.postalCodeCheckout) &&
+      RegexTellNumber.test(DataUsersContext.tellNumberCheckout) &&
+      RegexEmail.test(DataUsersContext.emailCheckout)
     ) {
-      DataUsersContext.setFirstNameBillOrTransportation("");
-      DataUsersContext.setLastNameBillOrTransportation("");
-      DataUsersContext.setCityNameBillOrTransportation("");
-      DataUsersContext.setAddressNameBillOrTransportation("");
-      DataUsersContext.setPostalCodeBillOrTransportation("");
-      DataUsersContext.setTellNumberBillOrTransportation("");
-      DataUsersContext.setEmailBillOrTransportation("");
+      let NewUserCheckoutObj = {
+        token: DataUsersContext.userToken,
+        firstName: DataUsersContext.firstNameCheckout,
+        lastName: DataUsersContext.lastNameCheckout,
+        companyName: DataUsersContext.companyNameCheckout,
+        countryName: DataUsersContext.countryNameCheckout,
+        stateName: DataUsersContext.stateNameCheckout,
+        city: DataUsersContext.cityNameCheckout,
+        addressName: DataUsersContext.addressNameCheckout,
+        postalCode: DataUsersContext.postalCodeCheckout,
+        tellNumber: DataUsersContext.tellNumberCheckout,
+        email: DataUsersContext.emailCheckout,
+        password: DataUsersContext.passwordCheckout,
+        moreInfo: DataUsersContext.moreInfoCheckout,
+        userName: DataUsersContext.userNameCheckout,
+        post: DataUsersContext.userpost,
+      };
+
+      fetch(
+        `https://shopingknife-default-rtdb.firebaseio.com/users/${DataUsersContext.userId}.json`,
+        {
+          method: "PUT",
+          body: JSON.stringify(NewUserCheckoutObj),
+        }
+      ).then((response) => console.log(response));
     }
-  }
+  };
 
   return (
     <>
       <div className="Container-BillOrTransportation">
-        <form action="#" onSubmit={(event)=>BillOrTransportationFormHandler(event)}>
+        <form
+          action="#"
+          onSubmit={(event) => BillOrTransportationFormHandler(event)}
+        >
           <div className="FirstName-LastName-Form-BillOrTransportation">
             <div className="FirstName-Form-BillOrTransportation">
               <label htmlFor="">
@@ -95,11 +117,11 @@ export default function BillOrTransportationForm() {
                 <span className="Star-BillOrTransportation">*</span>
               </label>
               <input
-                value={DataUsersContext.firstNameBillOrTransportation}
+                value={DataUsersContext.firstNameCheckout}
                 type="text"
                 ref={FirstNameBillOrTransportationRef}
                 onChange={(e) =>
-                  DataUsersContext.setFirstNameBillOrTransportation(e.target.value)
+                  DataUsersContext.setFirstNameCheckout(e.target.value)
                 }
                 className={`${
                   DataUsersContext.validFirstNameBillOrTransportation
@@ -128,11 +150,11 @@ export default function BillOrTransportationForm() {
                 <span className="Star-BillOrTransportation">*</span>
               </label>
               <input
-                value={DataUsersContext.lastNameBillOrTransportation}
+                value={DataUsersContext.lastNameCheckout}
                 type="text"
                 ref={LastNameBillOrTransportationRef}
                 onChange={(e) =>
-                  DataUsersContext.setLastNameBillOrTransportation(e.target.value)
+                  DataUsersContext.setLastNameCheckout(e.target.value)
                 }
                 className={`${
                   DataUsersContext.validLastNameBillOrTransportation
@@ -159,7 +181,13 @@ export default function BillOrTransportationForm() {
             <label htmlFor="">
               <span>نام شرکت (اختیاری)</span>
             </label>
-            <input type="text" />
+            <input
+              type="text"
+              value={DataUsersContext.companyNameCheckout}
+              onChange={(e) =>
+                DataUsersContext.setCompanyNameCheckout(e.target.value)
+              }
+            />
           </div>
 
           <div className="CountryName-BillOrTransportation">
@@ -167,8 +195,18 @@ export default function BillOrTransportationForm() {
               <span>کشور </span>
               <span className="Star-BillOrTransportation">*</span>
             </label>
-            <select name="CountryName" id="Country-BillOrTransportation">
-              <option value="Iran">ایران</option>
+            <select
+              name="CountryName"
+              id="Country-BillOrTransportation"
+              value={DataUsersContext.countryNameCheckout}
+              onChange={(e) =>
+                DataUsersContext.setCountryNameCheckout(e.target.value)
+              }
+            >
+              <option value="ایران">ایران</option>
+              <option value="ترکیه">ترکیه</option>
+              <option value="کانادا">کانادا</option>
+              <option value="ژاپن">ژاپن</option>
             </select>
           </div>
 
@@ -177,10 +215,17 @@ export default function BillOrTransportationForm() {
               <span>استان </span>
               <span className="Star-BillOrTransportation">*</span>
             </label>
-            <select name="CountryName" id="State-BillOrTransportation">
-              <option value="zanjan">زنجان</option>
-              <option value="tehran">تهران</option>
-              <option value="gazvin">قزوین</option>
+            <select
+              name="CountryName"
+              id="State-BillOrTransportation"
+              value={DataUsersContext.stateNameCheckout}
+              onChange={(e) =>
+                DataUsersContext.setStateNameCheckout(e.target.value)
+              }
+            >
+              <option value="زنجان">زنجان</option>
+              <option value="تهران">تهران</option>
+              <option value="قزوین">قزوین</option>
             </select>
           </div>
 
@@ -190,18 +235,20 @@ export default function BillOrTransportationForm() {
               <span className="Star-BillOrTransportation">*</span>
             </label>
             <input
-              value={DataUsersContext.cityNameBillOrTransportation}
+              value={DataUsersContext.cityNameCheckout}
               type="text"
               ref={CityNameBillOrTransportationRef}
               onChange={(e) =>
-                DataUsersContext.setCityNameBillOrTransportation(e.target.value)
+                DataUsersContext.setCityNameCheckout(e.target.value)
               }
               className={`${
                 DataUsersContext.validCityNameBillOrTransportation
                   ? ""
                   : "ValidMessage-Input-CityName-BillOrTransportation"
               }`}
-              onKeyDown={() => DataUsersContext.setValidCityNameBillOrTransportation(true)}
+              onKeyDown={() =>
+                DataUsersContext.setValidCityNameBillOrTransportation(true)
+              }
             />
             <span
               className={` ${
@@ -220,11 +267,11 @@ export default function BillOrTransportationForm() {
               <span className="Star-BillOrTransportation">*</span>
             </label>
             <input
-              value={DataUsersContext.addressNameBillOrTransportation}
+              value={DataUsersContext.addressNameCheckout}
               type="text"
               ref={AddressNameBillOrTransportationRef}
               onChange={(e) =>
-                DataUsersContext.setAddressNameBillOrTransportation(e.target.value)
+                DataUsersContext.setAddressNameCheckout(e.target.value)
               }
               className={`${
                 DataUsersContext.validAddressNameBillOrTransportation
@@ -252,11 +299,11 @@ export default function BillOrTransportationForm() {
               <span className="Star-BillOrTransportation">*</span>
             </label>
             <input
-              value={DataUsersContext.postalCodeBillOrTransportation}
+              value={DataUsersContext.postalCodeCheckout}
               type="text"
               ref={PostalCodeBillOrTransportationRef}
               onChange={(e) =>
-                DataUsersContext.setPostalCodeBillOrTransportation(e.target.value)
+                DataUsersContext.setPostalCodeCheckout(e.target.value)
               }
               className={`${
                 DataUsersContext.validPostalCodeBillOrTransportation
@@ -284,11 +331,11 @@ export default function BillOrTransportationForm() {
               <span className="Star-BillOrTransportation">*</span>
             </label>
             <input
-              value={DataUsersContext.tellNumberBillOrTransportation}
+              value={DataUsersContext.tellNumberCheckout}
               type="text"
               ref={TellNumberBillOrTransportationRef}
               onChange={(e) =>
-                DataUsersContext.setTellNumberBillOrTransportation(e.target.value)
+                DataUsersContext.setTellNumberCheckout(e.target.value)
               }
               className={`${
                 DataUsersContext.validTellNumberBillOrTransportation
@@ -316,18 +363,20 @@ export default function BillOrTransportationForm() {
               <span className="Star-BillOrTransportation">*</span>
             </label>
             <input
-              value={DataUsersContext.emailBillOrTransportation}
+              value={DataUsersContext.emailCheckout}
               type="text"
               ref={EmailBillOrTransportationRef}
               onChange={(e) =>
-                DataUsersContext.setEmailBillOrTransportation(e.target.value)
+                DataUsersContext.setEmailCheckout(e.target.value)
               }
               className={`${
                 DataUsersContext.validEmailBillOrTransportation
                   ? ""
                   : "ValidMessage-Input-Email-BillOrTransportation"
               }`}
-              onKeyDown={() => DataUsersContext.setValidEmailBillOrTransportation(true)}
+              onKeyDown={() =>
+                DataUsersContext.setValidEmailBillOrTransportation(true)
+              }
             />
             <span
               className={` ${
@@ -341,7 +390,6 @@ export default function BillOrTransportationForm() {
           </div>
 
           <button className="Btn-BillOrTransportationForm">ذخیره آدرس</button>
-
         </form>
       </div>
     </>

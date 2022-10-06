@@ -2,7 +2,7 @@
   width: 100%;
   margin: 0 auto;
   height: 100%;
-  z-index: 9999;
+  z-index: 99999;
   position: fixed;
   display: none;
   transition: all 0.5s;

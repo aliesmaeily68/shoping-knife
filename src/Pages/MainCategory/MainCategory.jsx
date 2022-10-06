@@ -12,18 +12,22 @@ export default function MainCategory() {
   }, []);
 
   let params = useParams();
-  const MainCategoryFilter = DataContext.products[0].filter(
-    (product) =>
-      product.MainCategory.title == params.categoriesTitle.split(":")[1]
-  );
-  const IsMainCategory = DataContext.products[0].some(
-    (product) =>
-      product.MainCategory.title == params.categoriesTitle.split(":")[1]
-  );
+  let MainCategoryFilter = [];
+  let IsMainCategory = false;
   const Infocategory = [];
-  DataContext.products[0].map((item) =>
-    item.Info.map((product) => Infocategory.push(product))
-  );
+  if (DataContext.productsDataFlag) {
+    MainCategoryFilter = DataContext.products1[0].filter(
+      (product) =>
+        product.MainCategory.title == params.categoriesTitle.split(":")[1]
+    );
+    IsMainCategory = DataContext.products1[0].some(
+      (product) =>
+        product.MainCategory.title == params.categoriesTitle.split(":")[1]
+    );
+    DataContext.products1[0].map((item) =>
+      item.Info.map((product) => Infocategory.push(product))
+    );
+  }
 
   const InfoCategoryFilter = Infocategory.filter(
     (product) => product.CategoryTitle == params.categoriesTitle.split(":")[1]

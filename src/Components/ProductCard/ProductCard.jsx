@@ -6,29 +6,29 @@ import { Link } from "react-router-dom";
 import "./ProductCard.css";
 
 export default function ProductCard(props) {
-  const DataContext = useContext(AllProductContext);
+  const DataProductsContext = useContext(AllProductContext);
   const AddtoCart = (props) => {
-    DataContext.setTotal(
+    DataProductsContext.setTotal(
       (prevTotal) =>
         prevTotal + props.price - (props.price * props.discount) / 100
     );
-    DataContext.setCartConter((prevCartConter) => prevCartConter + 1);
-    DataContext.setToastTitle("محصول با موفقیت به سبد خرید اضافه گردید .");
-    DataContext.setShowToasts(true);
+    DataProductsContext.setCartConter((prevCartConter) => prevCartConter + 1);
+    DataProductsContext.setToastTitle("محصول با موفقیت به سبد خرید اضافه گردید .");
+    DataProductsContext.setShowToasts(true);
     setTimeout(() => {
-      DataContext.setShowToasts(false);
+      DataProductsContext.setShowToasts(false);
     }, 3000);
-    const products = [...DataContext.userCart];
+    const products = [...DataProductsContext.userCart];
     const IsProductInCart = products.some((Item) => Item.title == props.title);
     if (!IsProductInCart) {
       const Newobject = {
-        id: DataContext.userCart.length + 1,
+        id: DataProductsContext.userCart.length + 1,
         title: props.title,
         price: props.price - (props.price * props.discount) / 100,
-        imgName: props.imgName,
+        productImgName: props.productImgName,
         conter: 1,
       };
-      DataContext.setUserCart((p) => [...p, Newobject]);
+      DataProductsContext.setUserCart((p) => [...p, Newobject]);
     } else {
       products.map((item) => {
         if (item.title == props.title) {
@@ -48,7 +48,7 @@ export default function ProductCard(props) {
           <div className="Product-Discount">
             <span>{props.discount}%</span>
           </div>
-          <Card.Img variant="top" src={`../Image/${props.imgName}`} />
+          <Card.Img variant="top" src={`../Image/${props.productImgName}`} />
           <div className="Card-Product-Body">
             <div className="Card-Product-Title">
               <span> {props.title}</span>
@@ -62,7 +62,7 @@ export default function ProductCard(props) {
               </div>
             </div>
             <div className="MoreInfo-Product-Card">
-              <Link to={`/products/${props.id}-${props.title}`} >
+              <Link to={`/products/${props.id}&&${props.title}`} >
                 <span> مشاهده بیشتر</span>
               </Link>
             </div>

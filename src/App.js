@@ -8,6 +8,7 @@ import BagCart from './Components/BagCart/BagCart'
 import LoginSidebar from "./Components/LoginSidebar/LoginSidebar";
 import Modals from './Components/Modal/Modal';
 import ErrorMessage from './Components/ErrorMessage/ErrorMessage';
+import SuccessMessage from './Components/SuccessMessage/SuccessMessage';
 import { ProductsProvider } from './Contexts/ProductContext'
 import { ProposalProductsProvider } from "./Contexts/ProposalProductContext";
 import { MobileNavProvider } from './Contexts/MobailNavDataContext';
@@ -50,6 +51,7 @@ export default function App() {
                 <AllPage />
                 <Footer />
                 <ErrorMessage />
+                <SuccessMessage />
               </UsersProvider>
             </ProposalProductsProvider>
           </ProductsProvider>

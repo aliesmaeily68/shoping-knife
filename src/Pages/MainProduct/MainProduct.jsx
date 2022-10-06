@@ -16,14 +16,19 @@ export default function MainProduct() {
   }, []);
 
   let params = useParams();
-  let MainProduct = DataContext.fullProducts.find(
-    (product) => params.productTitle.split("-")[0] == product.id
-  );
+  let MainProduct = [];
+  let hasProduct = false;
 
-  let hasProduct = DataContext.fullProducts.some(
-    (product) => params.productTitle.split("-")[0] == product.id
-  );
-  DataContext.setMainProduct(MainProduct);
+  if (DataContext.productsDataFlag) {
+    MainProduct = DataContext.fullProducts.find(
+      (product) => params.productTitle.split("&&")[0] == product.id
+    );
+
+    hasProduct = DataContext.fullProducts.some(
+      (product) => params.productTitle.split("&&")[0] == product.id
+    );
+    DataContext.setMainProduct(MainProduct);
+  }
 
   const IncreaseCounter = (MainProduct) => {
     if (MainProduct.stock === 0) {
@@ -56,11 +61,11 @@ export default function MainProduct() {
     );
     if (!IsProductInCart) {
       const NewMainProductObj = {
-        id: DataContext.userCart.length + 1,
+        id: MainProduct.id,
         title: MainProduct.title,
         price:
           MainProduct.price - (MainProduct.price * MainProduct.discount) / 100,
-        imgName: MainProduct.imgName,
+        productImgName: MainProduct.productImgName,
         conter: counterProduct,
       };
       DataContext.setUserCart((p) => [...p, NewMainProductObj]);
@@ -100,7 +105,7 @@ export default function MainProduct() {
           price:
             MainProduct.price -
             (MainProduct.price * MainProduct.discount) / 100,
-          imgName: MainProduct.imgName,
+          productImgName: MainProduct.productImgName,
           stock: MainProduct.stock,
           conter: MainProduct.conter,
           Weight: MainProduct.Weight,
@@ -142,7 +147,7 @@ export default function MainProduct() {
         title: MainProduct.title,
         price:
           MainProduct.price - (MainProduct.price * MainProduct.discount) / 100,
-        imgName: MainProduct.imgName,
+        productImgName: MainProduct.productImgName,
         stock: MainProduct.stock,
         conter: MainProduct.conter,
       };
@@ -165,7 +170,10 @@ export default function MainProduct() {
           <div className="MainProduct-Container">
             <div className="MainProduct-wrapper">
               <div className="MainProduct-img">
-                <img src={`../Image/${MainProduct.imgName}`} alt="product" />
+                <img
+                  src={`../Image/${MainProduct.productImgName}`}
+                  alt="product"
+                />
               </div>
               <div className="MainProduct-ProductInfo">
                 <nav className="MainProduct-Breadcrumb">

@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { AllProductContext } from "../../../Contexts/ProductContext";
 import { AiOutlineClose } from "react-icons/ai";
@@ -22,12 +22,10 @@ export default function InsertNewProductForm() {
   const InsertGenusFormRef = useRef();
   const InsertUsageFormRef = useRef();
   const InsertProducerFormRef = useRef();
-
-  const InsertNewProductHandler = (event) => {
+  const InsertNewProductHandler = async (event) => {
     event.preventDefault();
 
     const RegexNotEmpty = /./;
-    // const RegexEmail = /^\w+([\.-]?\w)*@\w+([\.-]?\w)*(\.\w{2,3})+$/;
 
     if (RegexNotEmpty.test(InsertMainCategoryFormRef.current.value)) {
       DataProductContext.setInsertMainCategoryForm(true);
@@ -140,47 +138,53 @@ export default function InsertNewProductForm() {
       DataProductContext.setInsertProducerForm(false);
       DataProductContext.setIsKeyDownInsertProducerForm(false);
     }
-
     if (
-      RegexNotEmpty.test(InsertMainCategoryFormRef.current.value) &&
-      RegexNotEmpty.test(InsertImg1MainCategoryFormRef.current.value) &&
-      RegexNotEmpty.test(InsertImg2MainCategoryFormRef.current.value) &&
-      RegexNotEmpty.test(InsertCategoryFormRef.current.value)&&
-      RegexNotEmpty.test(InsertSubCategoryFormRef.current.value) &&
-      RegexNotEmpty.test(InsertTitleFormRef.current.value) &&
-      RegexNotEmpty.test(InsertPriceFormRef.current.value) &&
-      RegexNotEmpty.test(InsertImgProductFormRef.current.value) &&
-      RegexNotEmpty.test(InsertStockFormRef.current.value) &&
-      RegexNotEmpty.test(InsertDiscountFormRef.current.value) &&
-      RegexNotEmpty.test(InsertWeightFormRef.current.value) &&
-      RegexNotEmpty.test(InsertGenusFormRef.current.value) &&
-      RegexNotEmpty.test(InsertUsageFormRef.current.value) &&
-      RegexNotEmpty.test(InsertProducerFormRef.current.value)
-       
+      InsertMainCategoryFormRef.current.value &&
+      InsertImg1MainCategoryFormRef.current.value &&
+      InsertImg2MainCategoryFormRef.current.value &&
+      InsertCategoryFormRef.current.value &&
+      InsertSubCategoryFormRef.current.value &&
+      InsertTitleFormRef.current.value &&
+      InsertPriceFormRef.current.value &&
+      InsertImgProductFormRef.current.value &&
+      InsertStockFormRef.current.value &&
+      InsertDiscountFormRef.current.value &&
+      InsertWeightFormRef.current.value &&
+      InsertGenusFormRef.current.value &&
+      InsertUsageFormRef.current.value &&
+      InsertProducerFormRef.current.value
     ) {
-      let ProductInfo = {
-        id: uuidv4(),
-        mainCategoryTitle: DataProductContext.insertMainCategoryValue,
-        mainCategoryImgName1: DataProductContext.insertImg1MainCategoryValue,
-        mainCategoryImgName2: DataProductContext.insertImg2MainCategoryValue,
-        CategoryTitle: DataProductContext.insertCategoryValue,
-        Category: DataProductContext.insertSubCategoryValue,
-        title: DataProductContext.insertTitleValue,
-        price: DataProductContext.insertPriceValue,
-        productImgName: DataProductContext.insertImgProductValue,
-        stock: DataProductContext.insertStockValue,
-        conter: 0,
-        discount: DataProductContext.insertDiscountValue,
-        Weight: DataProductContext.insertWeightValue,
-        genus: DataProductContext.insertGenusValue,
-        usage: DataProductContext.insertUsageValue,
-        Producer: DataProductContext.insertProducerValue,
-      };
-
-      fetch("https://shopingknife-default-rtdb.firebaseio.com//product.json", {
-        method: "POST",
-        body: JSON.stringify(ProductInfo),
-      }).then((response) => console.log(response));
+      let ProductInfo = [
+        {
+          MainCategory: {
+            id: uuidv4(),
+            title: DataProductContext.insertMainCategoryValue,
+            imgName: DataProductContext.insertImg1MainCategoryValue,
+            imgName2: DataProductContext.insertImg2MainCategoryValue,
+          },
+          Info: [
+            {
+              CategoryTitle: DataProductContext.insertCategoryValue,
+              MainInfo: [
+                {
+                  id: uuidv4(),
+                  Category: DataProductContext.insertSubCategoryValue,
+                  title: DataProductContext.insertTitleValue,
+                  price: DataProductContext.insertPriceValue,
+                  productImgName: DataProductContext.insertImgProductValue,
+                  stock: DataProductContext.insertStockValue,
+                  conter: 0,
+                  discount: DataProductContext.insertDiscountValue,
+                  Weight: DataProductContext.insertWeightValue,
+                  genus: DataProductContext.insertGenusValue,
+                  usage: DataProductContext.insertUsageValue,
+                  Producer: DataProductContext.insertProducerValue,
+                },
+              ],
+            },
+          ],
+        },
+      ];
       DataProductContext.setInsertMainCategoryValue("");
       DataProductContext.setInsertImg1MainCategoryValue("");
       DataProductContext.setInsertImg2MainCategoryValue("");
@@ -196,6 +200,92 @@ export default function InsertNewProductForm() {
       DataProductContext.setInsertUsageValue("");
       DataProductContext.setInsertProducerValue("");
       InsertMainCategoryFormRef.current.focus();
+      DataProductContext.setInsertProducerForm(true);
+      await fetch(
+        "https://shopingknife-default-rtdb.firebaseio.com/product.json"
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          if (data) {
+            const AllProduct = [];
+            let IndexMainCategoryCounter = 0;
+            let MainCategoryCounter = 0;
+            let IndexInfoCategoryCounter = 0;
+            let InfoCategoryCounter = 0;
+            let InfoFlag = false;
+
+            Object.entries(data)[0][1].map((p) => AllProduct.push(p));
+
+            AllProduct.map((maincategoryProduct) => {
+              IndexMainCategoryCounter++;
+
+              if (
+                maincategoryProduct.MainCategory.title ===
+                ProductInfo[0].MainCategory.title
+              ) {
+                maincategoryProduct.Info.map((infocategoryProduct) => {
+                  IndexInfoCategoryCounter++;
+                  if (
+                    infocategoryProduct.CategoryTitle ===
+                    ProductInfo[0].Info[0].CategoryTitle
+                  ) {
+                    infocategoryProduct.MainInfo.push(
+                      ProductInfo[0].Info[0].MainInfo
+                    );
+                  } else {
+                    InfoCategoryCounter++;
+                    if (InfoCategoryCounter === IndexInfoCategoryCounter) {
+                      InfoFlag = true;
+                    }
+                  }
+                });
+              } else {
+                MainCategoryCounter++;
+              }
+            });
+
+            if (MainCategoryCounter === IndexMainCategoryCounter) {
+              AllProduct.push(ProductInfo[0]);
+            }
+            if (InfoCategoryCounter === IndexInfoCategoryCounter && InfoFlag) {
+              AllProduct.map((maincategoryProduct) => {
+                if (
+                  maincategoryProduct.MainCategory.title ===
+                  ProductInfo[0].MainCategory.title
+                ) {
+                  maincategoryProduct.Info.push(ProductInfo[0].Info[0]);
+                }
+              });
+            }
+
+            fetch(
+              "https://shopingknife-default-rtdb.firebaseio.com/product.json",
+              {
+                method: "POST",
+                body: JSON.stringify(AllProduct),
+              }
+            ).then((response) => console.log(response));
+            DataProductContext.setGetData((p) => !p);
+            fetch(
+              `https://shopingknife-default-rtdb.firebaseio.com/product/${
+                Object.entries(data)[0][0]
+              }.json`,
+              {
+                method: "DELETE",
+              }
+            ).then((res) => console.log(res));
+            DataProductContext.setGetData((p) => !p);
+          } else {
+            fetch(
+              "https://shopingknife-default-rtdb.firebaseio.com/product.json",
+              {
+                method: "POST",
+                body: JSON.stringify(ProductInfo),
+              }
+            ).then((response) => console.log(response));
+            DataProductContext.setGetData((p) => !p);
+          }
+        });
     }
   };
 
@@ -269,7 +359,7 @@ export default function InsertNewProductForm() {
               DataProductContext.setIsKeyDownInsertImg1MainCategoryForm(true)
             }
             onChange={(event) =>
-              DataProductContext.setInsertImg1Img1MainCategoryValue(
+              DataProductContext.setInsertImg1MainCategoryValue(
                 event.target.value
               )
             }

@@ -5,6 +5,7 @@ import { AiOutlineOrderedList } from "react-icons/ai";
 import { BsHeart } from "react-icons/bs";
 import { ImExit } from "react-icons/im";
 import { RiFileUserLine } from "react-icons/ri";
+import { deleteCooKie, clearAllInputData } from "../../utils";
 
 import { Link } from "react-router-dom";
 
@@ -21,7 +22,12 @@ export default function MyAccountContent() {
           <span>{DataUsersContext.loginFormUserNameOrEmailValue}</span> نیستید؟{" "}
           <Link
             to={"/my-account"}
-            onClick={() => DataUsersContext.setIsUserInData(false)}
+            onClick={() => {
+              DataUsersContext.setIsUserInData(false);
+              deleteCooKie("login-setPasswordValue", 50);
+              deleteCooKie("login-setUserNameOrEmailValue", 50);
+              clearAllInputData(DataUsersContext);
+            }}
           >
             <span>خارج شوید</span>
           </Link>
@@ -105,7 +111,12 @@ export default function MyAccountContent() {
 
           <Link
             to={"/my-account"}
-            onClick={() => DataUsersContext.setIsUserInData(false)}
+            onClick={() => {
+              DataUsersContext.setIsUserInData(false);
+              deleteCooKie("login-setPasswordValue", 50);
+              deleteCooKie("login-setUserNameOrEmailValue", 50);
+              clearAllInputData(DataUsersContext);
+            }}
           >
             <li>
               <div className="Icon-MyAccountContent">

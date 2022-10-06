@@ -4,9 +4,17 @@ import { useState } from "react";
 export const UsersContext = createContext();
 
 export const UsersProvider = ({ children }) => {
+  const [allUser, setAllUser] = useState();
+  const [usersDataFlag, setUsersDataFlag] = useState(false);
+  const [getuserData, setGetuserData] = useState(false);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [titleErrorMessage, setTitleErrorMessage] = useState();
-  const [userType, setUserType] = useState("admin");
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [titleSuccessMessage, setTitleSuccessMessage] = useState();
+  const [userId, setUserId] = useState("");
+  const [userToken, setUserToken] = useState("");
+  const [userpost, setUserpost] = useState("");
+  const [userType, setUserType] = useState("");
   const [loginFormUserNameOrEmailValue, setLoginFormUserNameOrEmailValue] =
     useState();
   const [loginFormPasswordValue, setLoginFormPasswordValue] = useState();
@@ -23,9 +31,6 @@ export const UsersProvider = ({ children }) => {
   const [showPasswordRegisterForm, setShowPasswordRegisterForm] =
     useState(false);
 
-  const [nameRegisterForm, setNameRegisterForm] = useState(true);
-  const [isKeyDownNameRegisterForm, setIsKeyDownNameRegisterForm] =
-    useState(true);
   const [nameEditAcountForm, setNameEditAcountForm] = useState(true);
   const [isKeyDownNameEditAcountForm, setIsKeyDownNameEditAcountForm] =
     useState(true);
@@ -44,30 +49,44 @@ export const UsersProvider = ({ children }) => {
   const [resetPasswordEditAcountForm, setResetPasswordEditAcountForm] =
     useState(true);
   const [
+    resetPasswordEditAcountFormValue,
+    setResetPasswordEditAcountFormValue,
+  ] = useState("");
+  const [
     isKeyDownResetPasswordEditAcountForm,
     setIsKeyDownResetPasswordEditAcountForm,
   ] = useState(true);
   const [repetPasswordEditAcountForm, setRepetPasswordEditAcountForm] =
     useState(true);
   const [
+    repetPasswordEditAcountFormValue,
+    setRepetPasswordEditAcountFormValue,
+  ] = useState("");
+  const [
     isKeyDownRepetPasswordEditAcountForm,
     setIsKeyDownRepetPasswordEditAcountForm,
   ] = useState(true);
+
+  const [nameRegisterFormValue, setNameRegisterFormValue] = useState();
+  const [nameRegisterForm, setNameRegisterForm] = useState(true);
+  const [isKeyDownNameRegisterForm, setIsKeyDownNameRegisterForm] =
+    useState(true);
+  const [emailRegisterFormValue, setEmailRegisterFormValue] = useState();
   const [emailRegisterForm, setEmailRegisterForm] = useState(true);
   const [isKeyDownEmailRegisterForm, setIsKeyDownEmailRegisterForm] =
     useState(true);
+  const [passwordRegisterFormValue, setPasswordRegisterFormValue] = useState();
   const [passwordRegisterForm, setPasswordRegisterForm] = useState(true);
   const [isKeyDownPasswordRegisterForm, setIsKeyDownPasswordRegisterForm] =
     useState(true);
-  const [
-    notCleanInputForFirstTimeRegisterForm,
-    setNotCleanInputForFirstTimeRegisterForm,
-  ] = useState(false);
 
   const [firstNameCheckout, setFirstNameCheckout] = useState("");
   const [validFirstNameCheckout, setValidFirstNameCheckout] = useState(true);
   const [lastNameCheckout, setLastNameCheckout] = useState("");
   const [validLastNameCheckout, setValidLastNameCheckout] = useState(true);
+  const [companyNameCheckout, setCompanyNameCheckout] = useState("");
+  const [countryNameCheckout, setCountryNameCheckout] = useState("ایران");
+  const [stateNameCheckout, setStateNameCheckout] = useState("زنجان");
   const [cityNameCheckout, setCityNameCheckout] = useState("");
   const [validCityNameCheckout, setValidCityNameCheckout] = useState(true);
   const [addressNameCheckout, setAddressNameCheckout] = useState("");
@@ -80,61 +99,61 @@ export const UsersProvider = ({ children }) => {
   const [emailCheckout, setEmailCheckout] = useState("");
   const [validEmailCheckout, setValidEmailCheckout] = useState(true);
   const [passwordCheckout, setPasswordCheckout] = useState("");
+  const [moreInfoCheckout, setMoreInfoCheckout] = useState("");
   const [validPasswordCheckout, setValidPasswordCheckout] = useState(true);
   const [userNameCheckout, setUserNameCheckout] = useState("");
   const [validUserNameCheckout, setValidUserNameCheckout] = useState(true);
-  const [
-    notCleanInputForFirstTimeCheckout,
-    setNotCleanInputForFirstTimeCheckout,
-  ] = useState(false);
-  const [firstNameBillOrTransportation, setFirstNameBillOrTransportation] =
-    useState("");
+
   const [
     validFirstNameBillOrTransportation,
     setValidFirstNameBillOrTransportation,
   ] = useState(true);
-  const [lastNameBillOrTransportation, setLastNameBillOrTransportation] =
-    useState("");
   const [
     validLastNameBillOrTransportation,
     setValidLastNameBillOrTransportation,
   ] = useState(true);
-  const [cityNameBillOrTransportation, setCityNameBillOrTransportation] =
-    useState("");
   const [
     validCityNameBillOrTransportation,
     setValidCityNameBillOrTransportation,
   ] = useState(true);
-  const [addressNameBillOrTransportation, setAddressNameBillOrTransportation] =
-    useState("");
   const [
     validAddressNameBillOrTransportation,
     setValidAddressNameBillOrTransportation,
   ] = useState(true);
-  const [postalCodeBillOrTransportation, setPostalCodeBillOrTransportation] =
-    useState("");
   const [
     validPostalCodeBillOrTransportation,
     setValidPostalCodeBillOrTransportation,
   ] = useState(true);
-  const [tellNumberBillOrTransportation, setTellNumberBillOrTransportation] =
-    useState("");
   const [
     validTellNumberBillOrTransportation,
     setValidTellNumberBillOrTransportation,
   ] = useState(true);
-  const [emailBillOrTransportation, setEmailBillOrTransportation] =
-    useState("");
   const [validEmailBillOrTransportation, setValidEmailBillOrTransportation] =
     useState(true);
 
   return (
     <UsersContext.Provider
       value={{
+        allUser,
+        setAllUser,
+        usersDataFlag,
+        setUsersDataFlag,
+        getuserData,
+        setGetuserData,
         showErrorMessage,
         setShowErrorMessage,
         titleErrorMessage,
         setTitleErrorMessage,
+        showSuccessMessage,
+        setShowSuccessMessage,
+        titleSuccessMessage,
+        setTitleSuccessMessage,
+        userId,
+        setUserId,
+        userToken,
+        setUserToken,
+        userpost,
+        setUserpost,
         userType,
         setUserType,
         loginFormUserNameOrEmailValue,
@@ -158,10 +177,6 @@ export const UsersProvider = ({ children }) => {
         showPasswordRegisterForm,
         setShowPasswordRegisterForm,
 
-        nameRegisterForm,
-        setNameRegisterForm,
-        isKeyDownNameRegisterForm,
-        setIsKeyDownNameRegisterForm,
         nameEditAcountForm,
         setNameEditAcountForm,
         isKeyDownNameEditAcountForm,
@@ -184,22 +199,35 @@ export const UsersProvider = ({ children }) => {
         setIsKeyDownPasswordEditAcountForm,
         resetPasswordEditAcountForm,
         setResetPasswordEditAcountForm,
+        resetPasswordEditAcountFormValue,
+        setResetPasswordEditAcountFormValue,
         isKeyDownResetPasswordEditAcountForm,
         setIsKeyDownResetPasswordEditAcountForm,
         repetPasswordEditAcountForm,
         setRepetPasswordEditAcountForm,
+        repetPasswordEditAcountFormValue,
+        setRepetPasswordEditAcountFormValue,
         isKeyDownRepetPasswordEditAcountForm,
         setIsKeyDownRepetPasswordEditAcountForm,
+
+        nameRegisterFormValue,
+        setNameRegisterFormValue,
+        nameRegisterForm,
+        setNameRegisterForm,
+        isKeyDownNameRegisterForm,
+        setIsKeyDownNameRegisterForm,
+        emailRegisterFormValue,
+        setEmailRegisterFormValue,
         emailRegisterForm,
         setEmailRegisterForm,
         isKeyDownEmailRegisterForm,
         setIsKeyDownEmailRegisterForm,
+        passwordRegisterFormValue,
+        setPasswordRegisterFormValue,
         passwordRegisterForm,
         setPasswordRegisterForm,
         isKeyDownPasswordRegisterForm,
         setIsKeyDownPasswordRegisterForm,
-        notCleanInputForFirstTimeRegisterForm,
-        setNotCleanInputForFirstTimeRegisterForm,
 
         firstNameCheckout,
         setFirstNameCheckout,
@@ -209,6 +237,12 @@ export const UsersProvider = ({ children }) => {
         setLastNameCheckout,
         validLastNameCheckout,
         setValidLastNameCheckout,
+        companyNameCheckout,
+        setCompanyNameCheckout,
+        countryNameCheckout,
+        setCountryNameCheckout,
+        stateNameCheckout,
+        setStateNameCheckout,
         cityNameCheckout,
         setCityNameCheckout,
         validCityNameCheckout,
@@ -231,41 +265,27 @@ export const UsersProvider = ({ children }) => {
         setValidEmailCheckout,
         passwordCheckout,
         setPasswordCheckout,
+        moreInfoCheckout,
+        setMoreInfoCheckout,
         validPasswordCheckout,
         setValidPasswordCheckout,
         userNameCheckout,
         setUserNameCheckout,
         validUserNameCheckout,
         setValidUserNameCheckout,
-        notCleanInputForFirstTimeCheckout,
-        setNotCleanInputForFirstTimeCheckout,
 
-        firstNameBillOrTransportation,
-        setFirstNameBillOrTransportation,
         validFirstNameBillOrTransportation,
         setValidFirstNameBillOrTransportation,
-        lastNameBillOrTransportation,
-        setLastNameBillOrTransportation,
         validLastNameBillOrTransportation,
         setValidLastNameBillOrTransportation,
-        cityNameBillOrTransportation,
-        setCityNameBillOrTransportation,
         validCityNameBillOrTransportation,
         setValidCityNameBillOrTransportation,
-        addressNameBillOrTransportation,
-        setAddressNameBillOrTransportation,
         validAddressNameBillOrTransportation,
         setValidAddressNameBillOrTransportation,
-        postalCodeBillOrTransportation,
-        setPostalCodeBillOrTransportation,
         validPostalCodeBillOrTransportation,
         setValidPostalCodeBillOrTransportation,
-        tellNumberBillOrTransportation,
-        setTellNumberBillOrTransportation,
         validTellNumberBillOrTransportation,
         setValidTellNumberBillOrTransportation,
-        emailBillOrTransportation,
-        setEmailBillOrTransportation,
         validEmailBillOrTransportation,
         setValidEmailBillOrTransportation,
       }}

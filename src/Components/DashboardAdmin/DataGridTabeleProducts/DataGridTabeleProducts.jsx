@@ -1,25 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import useFetch from "../../../hooks/useFetch";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AllProductContext } from "../../../Contexts/ProductContext";
 
 export default function ProductsComponent() {
+  const DataProductContext = useContext(AllProductContext);
+
   const [productId, setProductId] = useState("");
   const [showdeleteModal, setShowdeleteModal] = useState("");
-  const [getData, setGetData] = useState(false);
 
   const { posts } = useFetch(
     "https://shopingknife-default-rtdb.firebaseio.com/product.json",
-    getData
+    DataProductContext.getData
   );
-  let AllProduct = posts.map((product, index) => {
+  const AllProduct = posts.map((product, index) => {
     let newProducts = { ...product[1], id: index + 1, productId: product[0] };
     return newProducts;
   });
-  console.log(AllProduct);
+
+
+
   let removeProduct = async () => {
     await fetch(
       `https://shopingknife-default-rtdb.firebaseio.com/product/${productId}.json`,
@@ -29,11 +33,11 @@ export default function ProductsComponent() {
     ).then((res) => console.log(res));
 
     setShowdeleteModal(false);
-    setGetData((prev) => !prev);
+    DataProductContext.setGetData((prev) => !prev);
   };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "id", headerName: "شماره", width: 90 },
     {
       field: "title&productImgName",
       headerName: "نام محصول",

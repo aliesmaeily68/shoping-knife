@@ -76,7 +76,7 @@ export default function ProposalProductCard() {
                       </div>
                     </div>
                     <div className="Proposal-MoreInfo-Product-Card">
-                      <Link to={`/products/${product.id}-${product.title}`} >
+                      <Link to={`/products/${product.id}&&${product.title}`} >
                         <span> مشاهده بیشتر</span>
                       </Link>
                     </div>

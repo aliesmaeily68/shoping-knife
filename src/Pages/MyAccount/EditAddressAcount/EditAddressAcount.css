@@ -41,9 +41,7 @@
     color: var(--Danger-Color);
 }
 
-.ListGroup-EditAddressAcount li p{
-    opacity: .4;
-}
+
  @media(max-width:768px){
   .Wrapper-EditAddressAcount h2 {
     margin:  0;

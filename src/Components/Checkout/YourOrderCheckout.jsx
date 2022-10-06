@@ -1,9 +1,10 @@
 import React from "react";
 import { useContext } from "react";
-
+import { v4 as uuidv4 } from "uuid";
 import { BiX } from "react-icons/bi";
 import { AllProductContext } from "../../Contexts/ProductContext";
 import { UsersContext } from "../../Contexts/UsersContext";
+import { loginDataset } from "../../utils";
 
 import "./YourOrderCheckout.css";
 
@@ -13,6 +14,7 @@ export default function YourOrderCheckout() {
 
   const SubmitCheckoutHandler = () => {
     const RegexNameCheckout = /../;
+    const RegexEnglishData = /^[A-z0-9\-]+$/;
     const RegexNotEmpty = /./;
     const RegexPostalCode = /^[0-9]{10}$/;
     const RegexTellNumber = /09(1[0-9]|3[1-9]|2[012]|9[012])([0-9]{7})/;
@@ -55,50 +57,111 @@ export default function YourOrderCheckout() {
       DataUsersContext.setValidTellNumberCheckout(false);
     }
 
-    if (RegexEmail.test(DataUsersContext.emailCheckout)) {
-      DataUsersContext.setValidEmailCheckout(true);
-    } else {
-      DataUsersContext.setValidEmailCheckout(false);
+    if (!DataUsersContext.isUserInData) {
+      if (RegexEmail.test(DataUsersContext.emailCheckout)) {
+        DataUsersContext.setValidEmailCheckout(true);
+      } else {
+        DataUsersContext.setValidEmailCheckout(false);
+      }
+
+      if (RegexPassword.test(DataUsersContext.passwordCheckout)) {
+        DataUsersContext.setValidPasswordCheckout(true);
+      } else {
+        DataUsersContext.setValidPasswordCheckout(false);
+      }
+      if (RegexEnglishData.test(DataUsersContext.userNameCheckout)) {
+        DataUsersContext.setValidUserNameCheckout(true);
+      } else {
+        DataUsersContext.setValidUserNameCheckout(false);
+      }
+    }
+
+    if (
+      DataUsersContext.isUserInData &&
+      RegexNameCheckout.test(DataUsersContext.firstNameCheckout) &&
+      RegexNameCheckout.test(DataUsersContext.lastNameCheckout) &&
+      RegexNotEmpty.test(DataUsersContext.cityNameCheckout) &&
+      RegexNotEmpty.test(DataUsersContext.addressNameCheckout) &&
+      RegexPostalCode.test(DataUsersContext.postalCodeCheckout) &&
+      RegexTellNumber.test(DataUsersContext.tellNumberCheckout)
+    ) {
+      let NewUserCheckoutObj = {
+        token: DataUsersContext.userToken,
+        firstName: DataUsersContext.firstNameCheckout,
+        lastName: DataUsersContext.lastNameCheckout,
+        companyName: DataUsersContext.companyNameCheckout,
+        countryName: DataUsersContext.countryNameCheckout,
+        stateName: DataUsersContext.stateNameCheckout,
+        city: DataUsersContext.cityNameCheckout,
+        addressName: DataUsersContext.addressNameCheckout,
+        postalCode: DataUsersContext.postalCodeCheckout,
+        tellNumber: DataUsersContext.tellNumberCheckout,
+        email: DataUsersContext.emailCheckout,
+        password: DataUsersContext.passwordCheckout,
+        moreInfo: DataUsersContext.moreInfoCheckout,
+        userName: DataUsersContext.userNameCheckout,
+        post: DataUsersContext.userpost,
+      };
+
+      fetch(
+        `https://shopingknife-default-rtdb.firebaseio.com/users/${DataUsersContext.userId}.json`,
+        {
+          method: "PUT",
+          body: JSON.stringify(NewUserCheckoutObj),
+        }
+      ).then((response) => console.log(response));
     }
 
     if (
       !DataUsersContext.isUserInData &&
+      RegexNameCheckout.test(DataUsersContext.firstNameCheckout) &&
+      RegexNameCheckout.test(DataUsersContext.lastNameCheckout) &&
+      RegexNotEmpty.test(DataUsersContext.cityNameCheckout) &&
+      RegexNotEmpty.test(DataUsersContext.addressNameCheckout) &&
+      RegexPostalCode.test(DataUsersContext.postalCodeCheckout) &&
+      RegexTellNumber.test(DataUsersContext.tellNumberCheckout) &&
+      RegexEmail.test(DataUsersContext.emailCheckout) &&
+      RegexEnglishData.test(DataUsersContext.userNameCheckout) &&
       RegexPassword.test(DataUsersContext.passwordCheckout)
     ) {
-      DataUsersContext.setValidPasswordCheckout(true);
-    } else {
-      DataUsersContext.setValidPasswordCheckout(false);
-    }
-    if (
-      !DataUsersContext.isUserInData &&
-      RegexNotEmpty.test(DataUsersContext.userNameCheckout)
-    ) {
-      DataUsersContext.setValidUserNameCheckout(true);
-    } else {
-      DataUsersContext.setValidUserNameCheckout(false);
-    }
-
-    if (
-      DataUsersContext.notCleanInputForFirstTimeCheckout &&
-      DataUsersContext.validFirstNameCheckout &&
-      DataUsersContext.validLastNameCheckout &&
-      DataUsersContext.validCityNameCheckout &&
-      DataUsersContext.validAddressNameCheckout &&
-      DataUsersContext.validPostalCodeCheckout &&
-      DataUsersContext.validTellNumberCheckout &&
-      DataUsersContext.validEmailCheckout
-    ) {
-      DataUsersContext.setFirstNameCheckout("");
-      DataUsersContext.setLastNameCheckout("");
-      DataUsersContext.setCityNameCheckout("");
-      DataUsersContext.setAddressNameCheckout("");
-      DataUsersContext.setPostalCodeCheckout("");
-      DataUsersContext.setTellNumberCheckout("");
+      let NewUserCheckoutObj = {
+        id: uuidv4(),
+        firstName: DataUsersContext.firstNameCheckout,
+        lastName: DataUsersContext.lastNameCheckout,
+        companyName: DataUsersContext.companyNameCheckout,
+        countryName: DataUsersContext.countryNameCheckout,
+        stateName: DataUsersContext.stateNameCheckout,
+        city: DataUsersContext.cityNameCheckout,
+        addressName: DataUsersContext.addressNameCheckout,
+        postalCode: DataUsersContext.postalCodeCheckout,
+        tellNumber: DataUsersContext.tellNumberCheckout,
+        email: DataUsersContext.emailCheckout,
+        password: DataUsersContext.passwordCheckout,
+        moreInfo: DataUsersContext.moreInfoCheckout,
+        userName: DataUsersContext.userNameCheckout,
+        post: "کاربر",
+      };
       DataUsersContext.setEmailCheckout("");
       DataUsersContext.setPasswordCheckout("");
       DataUsersContext.setUserNameCheckout("");
+      fetch("https://shopingknife-default-rtdb.firebaseio.com/users.json", {
+        method: "POST",
+        body: JSON.stringify(NewUserCheckoutObj),
+      }).then((response) => console.log(response));
+      DataUsersContext.setIsUserInData(true);
+      DataUsersContext.setLoginFormUserNameOrEmailValue(
+        DataUsersContext.userNameCheckout
+      );
+      DataUsersContext.setLoginFormPasswordValue(
+        DataUsersContext.passwordCheckout
+      );
+      loginDataset(DataUsersContext, NewUserCheckoutObj);
     }
-    DataUsersContext.setNotCleanInputForFirstTimeCheckout(true);
+    DataUsersContext.setShowSuccessMessage(true);
+    DataUsersContext.setTitleSuccessMessage("ثبت سفارش با موفقیت انجام شد");
+    setTimeout(() => {
+      DataUsersContext.setShowSuccessMessage(false);
+    }, 4000);
   };
   return (
     <>

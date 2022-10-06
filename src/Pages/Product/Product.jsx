@@ -1,6 +1,5 @@
-import React,{useEffect} from 'react'
-import AllProduct from '../../Components/AllProduct/AllProduct'
-
+import React, { useEffect } from "react";
+import AllProduct from "../../Components/AllProduct/AllProduct";
 
 export default function Product() {
   useEffect(() => {
@@ -10,5 +9,5 @@ export default function Product() {
     <>
       <AllProduct />
     </>
-  )
+  );
 }

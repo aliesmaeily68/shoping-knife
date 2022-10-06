@@ -10,6 +10,7 @@ import { BsEmojiHeartEyes } from "react-icons/bs";
 import { MdOutlineArticle } from "react-icons/md";
 import { BiExit, BiCommentDetail } from "react-icons/bi";
 import { TiArrowBackOutline } from "react-icons/ti";
+import { clearAllInputData, deleteCooKie } from "../../../utils";
 
 import "./SidebarDashboard.css";
 import { UsersContext } from "../../../Contexts/UsersContext";
@@ -68,8 +69,11 @@ export default function SidebarDashboard() {
           <NavLink
             to={"/my-account"}
             onClick={() => {
-              DataUsersContext.setIsUserInData(false);
               DataUsersContext.setShowDashboardAdmin(false);
+              DataUsersContext.setIsUserInData(false);
+              deleteCooKie("login-setPasswordValue", 50);
+              deleteCooKie("login-setUserNameOrEmailValue", 50);
+              clearAllInputData(DataUsersContext);
             }}
           >
             <li className="Back-Close-SidebarDashboard">

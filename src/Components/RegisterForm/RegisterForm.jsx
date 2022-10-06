@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRef } from "react";
 import { useContext } from "react";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { UsersContext } from "../../Contexts/UsersContext";
+import { v4 as uuidv4 } from "uuid";
 import "./RegisterForm.css";
 
 export default function RegisterForm() {
@@ -13,11 +14,11 @@ export default function RegisterForm() {
 
   const RegisterFormHandler = (event) => {
     event.preventDefault();
-    const RegexNotEmpty = /./;
+    const RegexEnglishData = /^[A-z0-9\-]+$/;
     const RegexEmail = /^\w+([\.-]?\w)*@\w+([\.-]?\w)*(\.\w{2,3})+$/;
     const RegexPassword = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
 
-    if (RegexNotEmpty.test(NameRegisterFormRef.current.value)) {
+    if (RegexEnglishData.test(NameRegisterFormRef.current.value)) {
       DataUsersContext.setNameRegisterForm(true);
       DataUsersContext.setIsKeyDownNameRegisterForm(true);
     } else {
@@ -42,16 +43,53 @@ export default function RegisterForm() {
     }
 
     if (
-      DataUsersContext.notCleanInputForFirstTimeRegisterForm &&
-      DataUsersContext.nameRegisterForm &&
-      DataUsersContext.emailRegisterForm &&
-      DataUsersContext.passwordRegisterForm
+      RegexEnglishData.test(NameRegisterFormRef.current.value) &&
+      RegexEmail.test(EmailRegisterFormRef.current.value) &&
+      RegexPassword.test(PasswordRegisterFormRef.current.value)
     ) {
-      NameRegisterFormRef.current.value = "";
-      PasswordRegisterFormRef.current.value = "";
-      EmailRegisterFormRef.current.value = "";
+      let NewUserRegisterObj = {
+        token: uuidv4(),
+        userName: DataUsersContext.nameRegisterFormValue,
+        email: DataUsersContext.emailRegisterFormValue,
+        password: DataUsersContext.passwordRegisterFormValue,
+        post: "کاربر",
+        firstName: "",
+        lastName: "",
+        companyName: "",
+        countryName: "ایران",
+        stateName: "زنجان",
+        city: "",
+        addressName: "",
+        postalCode: "",
+        tellNumber: "",
+        moreInfo: "",
+      };
+      DataUsersContext.setNameRegisterFormValue("");
+      DataUsersContext.setEmailRegisterFormValue("");
+      DataUsersContext.setPasswordRegisterFormValue("");
+      fetch("https://shopingknife-default-rtdb.firebaseio.com/users.json", {
+        method: "POST",
+        body: JSON.stringify(NewUserRegisterObj),
+      }).then((response) => console.log(response));
+      DataUsersContext.setIsUserInData(true);
+      DataUsersContext.setEmailCheckout(
+        DataUsersContext.emailRegisterFormValue
+      );
+      DataUsersContext.setPasswordCheckout(
+        DataUsersContext.passwordRegisterFormValue
+      );
+      DataUsersContext.setUserNameCheckout(
+        DataUsersContext.nameRegisterFormValue
+      );
+      DataUsersContext.setLoginFormUserNameOrEmailValue(
+        DataUsersContext.nameRegisterFormValue
+      );
+      DataUsersContext.setLoginFormPasswordValue(
+        DataUsersContext.passwordRegisterFormValue
+      );
+      DataUsersContext.setShowLoginSidebar(false);
+      DataUsersContext.setShowAccountRoute(false);
     }
-    DataUsersContext.setNotCleanInputForFirstTimeRegisterForm(true);
   };
 
   return (
@@ -67,6 +105,10 @@ export default function RegisterForm() {
               <input
                 type="text"
                 ref={NameRegisterFormRef}
+                value={DataUsersContext.nameRegisterFormValue}
+                onChange={(event) =>
+                  DataUsersContext.setNameRegisterFormValue(event.target.value)
+                }
                 className={`${
                   DataUsersContext.nameRegisterForm ||
                   DataUsersContext.isKeyDownNameRegisterForm
@@ -86,7 +128,7 @@ export default function RegisterForm() {
                     : "NotValidMessage-Name-RegisterForm"
                 }`}
               >
-                فیلد مورد نظر را پر نمایید
+                از اعداد و حروف انگلیسی استفاده نمایید
               </span>
             </div>
             <div className="Email-RegisterForm">
@@ -97,6 +139,10 @@ export default function RegisterForm() {
               <input
                 type="text"
                 ref={EmailRegisterFormRef}
+                value={DataUsersContext.emailRegisterFormValue}
+                onChange={(event) =>
+                  DataUsersContext.setEmailRegisterFormValue(event.target.value)
+                }
                 className={`${
                   DataUsersContext.emailRegisterForm ||
                   DataUsersContext.isKeyDownEmailRegisterForm
@@ -130,13 +176,19 @@ export default function RegisterForm() {
                     <AiOutlineEye
                       size={20}
                       onClick={() =>
-                        DataUsersContext.setShowPasswordRegisterForm(true)
+                        DataUsersContext.setShowPasswordRegisterForm(false)
                       }
                     />
                   </div>
                   <input
                     type="text"
                     ref={PasswordRegisterFormRef}
+                    value={DataUsersContext.passwordRegisterFormValue}
+                    onChange={(event) =>
+                      DataUsersContext.setPasswordRegisterFormValue(
+                        event.target.value
+                      )
+                    }
                     className={`${
                       DataUsersContext.passwordRegisterForm ||
                       DataUsersContext.isKeyDownPasswordRegisterForm
@@ -166,13 +218,19 @@ export default function RegisterForm() {
                     <AiOutlineEyeInvisible
                       size={20}
                       onClick={() =>
-                        DataUsersContext.setShowPasswordRegisterForm(false)
+                        DataUsersContext.setShowPasswordRegisterForm(true)
                       }
                     />
                   </div>
                   <input
                     type="password"
                     ref={PasswordRegisterFormRef}
+                    value={DataUsersContext.passwordRegisterFormValue}
+                    onChange={(event) =>
+                      DataUsersContext.setPasswordRegisterFormValue(
+                        event.target.value
+                      )
+                    }
                     className={`${
                       DataUsersContext.passwordRegisterForm ||
                       DataUsersContext.isKeyDownPasswordRegisterForm

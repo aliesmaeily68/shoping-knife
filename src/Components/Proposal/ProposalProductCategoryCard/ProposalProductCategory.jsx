@@ -8,7 +8,7 @@ export default function ProposalProductCategoryCard() {
   const DataContext = useContext(AllProductContext);
   return (
     <>
-      {DataContext.products.map((data) =>
+      {DataContext.productsDataFlag && DataContext.products1.map((data) =>
         data.map((product, index) => (
           <Link to={`/product/category:${product.MainCategory.title}`} >
             <div className="Wrapper-Proposal-Product-Category" key={index}>

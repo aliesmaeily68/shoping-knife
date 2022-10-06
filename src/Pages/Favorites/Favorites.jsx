@@ -46,7 +46,7 @@ export default function Favorites() {
                       </td>
 
                       <td class="Product-Name-Thumbnail-Favorites">
-                        <img src={`../Image/${product.imgName}`} alt="" />
+                        <img src={`../Image/${product.productImgName}`} alt="" />
                         <div className="Title-Favorites">
                           <span>{product.title}</span>
                         </div>

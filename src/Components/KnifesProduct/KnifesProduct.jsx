@@ -21,11 +21,13 @@ export default function KnifesProduct() {
             <div className="KnifesProduct-Category-Br"></div>
           </div>
 
-          <div className="products-Card">
-            {DataContext.products[0][0].Info.map((data) =>
-              data.MainInfo.map((product) => <ProductCard {...product} />)
-            )}
-          </div>
+          {DataContext.productsDataFlag && DataContext.products1[0][0].Info.map((data, index) => (
+            <div className="products-Card" key={index}>
+              {data.MainInfo.map((product) => (
+                <ProductCard {...product} key={product.id} />
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </>

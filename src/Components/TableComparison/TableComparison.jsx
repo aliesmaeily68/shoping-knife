@@ -23,7 +23,7 @@ export default function TableComparison() {
             </th>
             {DataContext.userComparison.map((product) => (
               <td key={product.id}>
-                <img src={`./Image/${product.imgName}`} alt="productImg" />
+                <img src={`./Image/${product.productImgName}`} alt="productImg" />
                 <h2>{product.title}</h2>
               </td>
             ))}

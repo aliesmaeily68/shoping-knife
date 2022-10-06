@@ -1,4 +1,4 @@
-import React, { useContext, useRef ,useEffect } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import { UsersContext } from "../../../Contexts/UsersContext";
 import "./EditAcount.css";
 
@@ -10,7 +10,7 @@ export default function EditAcount() {
 
   const NameEditAcountFormRef = useRef();
   const LastNameEditAcountFormRef = useRef();
-  const UserNameEditAcountFormRef = useRef();
+  const UserNameOREmailEditAcountFormRef = useRef();
   const EmailEditAcountFormRef = useRef();
   const PasswordEditAcountFormRef = useRef();
   const ResetPasswordEditAcountFormRef = useRef();
@@ -39,7 +39,7 @@ export default function EditAcount() {
       DataUsersContext.setIsKeyDownLastNameEditAcountForm(false);
     }
 
-    if (RegexNotEmpty.test(UserNameEditAcountFormRef.current.value)) {
+    if (RegexNotEmpty.test(UserNameOREmailEditAcountFormRef.current.value)) {
       DataUsersContext.setUserNameEditAcountForm(true);
       DataUsersContext.setIsKeyDownUserNameEditAcountForm(true);
     } else {
@@ -78,6 +78,67 @@ export default function EditAcount() {
       DataUsersContext.setRepetPasswordEditAcountForm(false);
       DataUsersContext.setIsKeyDownRepetPasswordEditAcountForm(false);
     }
+
+    if (
+      DataUsersContext.repetPasswordEditAcountFormValue !=
+      DataUsersContext.resetPasswordEditAcountFormValue
+    ) {
+      DataUsersContext.setShowErrorMessage(true);
+      DataUsersContext.setTitleErrorMessage(" گذرواژه ها مطابقت ندارند");
+      ResetPasswordEditAcountFormRef.current.focus();
+      setTimeout(() => {
+        DataUsersContext.setShowErrorMessage(false);
+      }, 3000);
+    }
+
+    if (
+      RegexNotEmpty.test(NameEditAcountFormRef.current.value) &&
+      RegexNotEmpty.test(LastNameEditAcountFormRef.current.value) &&
+      RegexNotEmpty.test(UserNameOREmailEditAcountFormRef.current.value) &&
+      RegexEmail.test(EmailEditAcountFormRef.current.value) &&
+      RegexPassword.test(PasswordEditAcountFormRef.current.value) &&
+      RegexPassword.test(ResetPasswordEditAcountFormRef.current.value) &&
+      RegexPassword.test(RepetPasswordEditAcountFormRef.current.value) &&
+      DataUsersContext.repetPasswordEditAcountFormValue ==
+        DataUsersContext.resetPasswordEditAcountFormValue
+    ) {
+      let NewUserCheckoutObj = {
+        token: DataUsersContext.userToken,
+        firstName: DataUsersContext.firstNameCheckout,
+        lastName: DataUsersContext.lastNameCheckout,
+        companyName: DataUsersContext.companyNameCheckout,
+        countryName: DataUsersContext.countryNameCheckout,
+        stateName: DataUsersContext.stateNameCheckout,
+        city: DataUsersContext.cityNameCheckout,
+        addressName: DataUsersContext.addressNameCheckout,
+        postalCode: DataUsersContext.postalCodeCheckout,
+        tellNumber: DataUsersContext.tellNumberCheckout,
+        email: DataUsersContext.emailCheckout,
+        password: DataUsersContext.repetPasswordEditAcountFormValue,
+        moreInfo: DataUsersContext.moreInfoCheckout,
+        userName: DataUsersContext.userNameCheckout,
+        post: DataUsersContext.userpost,
+      };
+
+      fetch(
+        `https://shopingknife-default-rtdb.firebaseio.com/users/${DataUsersContext.userId}.json`,
+        {
+          method: "PUT",
+          body: JSON.stringify(NewUserCheckoutObj),
+        }
+      ).then((response) => console.log(response));
+
+      DataUsersContext.setResetPasswordEditAcountFormValue("");
+      DataUsersContext.setRepetPasswordEditAcountFormValue("");
+      DataUsersContext.setPasswordCheckout(
+        DataUsersContext.repetPasswordEditAcountFormValue
+      );
+      DataUsersContext.setShowSuccessMessage(true);
+      DataUsersContext.setTitleSuccessMessage("اطلاعات با موفقیت تغییر کرد");
+      setTimeout(() => {
+        DataUsersContext.setShowSuccessMessage(false);
+      }, 4000);
+    }
   };
 
   return (
@@ -92,6 +153,10 @@ export default function EditAcount() {
               </label>
               <input
                 type="text"
+                value={DataUsersContext.firstNameCheckout}
+                onChange={(e) =>
+                  DataUsersContext.setFirstNameCheckout(e.target.value)
+                }
                 ref={NameEditAcountFormRef}
                 className={`${
                   DataUsersContext.nameEditAcountForm ||
@@ -122,6 +187,10 @@ export default function EditAcount() {
               </label>
               <input
                 type="text"
+                value={DataUsersContext.lastNameCheckout}
+                onChange={(e) =>
+                  DataUsersContext.setLastNameCheckout(e.target.value)
+                }
                 ref={LastNameEditAcountFormRef}
                 className={`${
                   DataUsersContext.lastNameEditAcountForm ||
@@ -153,7 +222,13 @@ export default function EditAcount() {
             </label>
             <input
               type="text"
-              ref={UserNameEditAcountFormRef}
+              value={DataUsersContext.loginFormUserNameOrEmailValue}
+              onChange={(e) =>
+                DataUsersContext.setLoginFormUserNameOrEmailValue(
+                  e.target.value
+                )
+              }
+              ref={UserNameOREmailEditAcountFormRef}
               className={`${
                 DataUsersContext.userNameEditAcountForm ||
                 DataUsersContext.isKeyDownUserNameEditAcountForm
@@ -186,6 +261,10 @@ export default function EditAcount() {
             </label>
             <input
               type="text"
+              value={DataUsersContext.emailCheckout}
+              onChange={(e) =>
+                DataUsersContext.setEmailCheckout(e.target.value)
+              }
               ref={EmailEditAcountFormRef}
               className={`${
                 DataUsersContext.emailEditAcountForm ||
@@ -213,12 +292,13 @@ export default function EditAcount() {
             <h2>تغییر گذرواژه</h2>
             <div className="Password-Form-EditAcount">
               <label htmlFor="#">
-                <span>
-                  گذرواژه پیشین (در صورتی که قصد تغییر ندارید خالی بگذارید)
-                </span>
+                <span>گذرواژه پیشین</span>
               </label>
               <input
-                type="password"
+                value={DataUsersContext.passwordCheckout}
+                onChange={(e) =>
+                  DataUsersContext.setPasswordCheckout(e.target.value)
+                }
                 ref={PasswordEditAcountFormRef}
                 className={`${
                   DataUsersContext.passwordEditAcountForm ||
@@ -244,12 +324,16 @@ export default function EditAcount() {
             </div>
             <div className="Reset-Password-Form-EditAcount">
               <label htmlFor="#">
-                <span>
-                  گذرواژه جدید (در صورتی که قصد تغییر ندارید خالی بگذارید)
-                </span>
+                <span>گذرواژه جدید</span>
               </label>
               <input
-                type="password"
+                type="text"
+                value={DataUsersContext.resetPasswordEditAcountFormValue}
+                onChange={(e) =>
+                  DataUsersContext.setResetPasswordEditAcountFormValue(
+                    e.target.value
+                  )
+                }
                 ref={ResetPasswordEditAcountFormRef}
                 className={`${
                   DataUsersContext.resetPasswordEditAcountForm ||
@@ -278,7 +362,13 @@ export default function EditAcount() {
                 <span>تکرار گذرواژه جدید</span>
               </label>
               <input
-                type="password"
+                type="text"
+                value={DataUsersContext.repetPasswordEditAcountFormValue}
+                onChange={(e) =>
+                  DataUsersContext.setRepetPasswordEditAcountFormValue(
+                    e.target.value
+                  )
+                }
                 ref={RepetPasswordEditAcountFormRef}
                 className={`${
                   DataUsersContext.repetPasswordEditAcountForm ||

@@ -8,26 +8,26 @@ import { useContext } from "react";
 import { AllProductContext } from "../../../Contexts/ProductContext";
 
 export default function ProductIconCard(props) {
-  const DataContext = useContext(AllProductContext);
+  const DataProductsContext = useContext(AllProductContext);
 
   const AddToComparison = () => {
-    if (DataContext.userComparison.length < 4) {
-      DataContext.setToastTitle("محصول به مقایسه اضافه گردید .");
-      DataContext.setShowToasts(true);
+    if (DataProductsContext.userComparison.length < 4) {
+      DataProductsContext.setToastTitle("محصول به مقایسه اضافه گردید .");
+      DataProductsContext.setShowToasts(true);
       setTimeout(() => {
-        DataContext.setShowToasts(false);
+        DataProductsContext.setShowToasts(false);
       }, 3000);
-      const productComparison = [...DataContext.userComparison];
+      const productComparison = [...DataProductsContext.userComparison];
       const IsProductInComparison = productComparison.some(
         (Item) => Item.title == props.title
       );
       if (!IsProductInComparison) {
-        DataContext.setComparisonConter((p) => p + 1);
+        DataProductsContext.setComparisonConter((p) => p + 1);
         const Newobject = {
           id: props.id,
           title: props.title,
           price: props.price - (props.price * props.discount) / 100,
-          imgName: props.imgName,
+          productImgName: props.productImgName,
           stock: props.stock,
           conter: props.conter,
           Weight: props.Weight,
@@ -35,51 +35,51 @@ export default function ProductIconCard(props) {
           usage: props.usage,
           Producer: props.Producer,
         };
-        DataContext.setUserComparison((p) => [...p, Newobject]);
+        DataProductsContext.setUserComparison((p) => [...p, Newobject]);
       } else {
-        DataContext.setToastTitle("این محصول قبلا به مقایسه اضافه شده است.");
-        DataContext.setShowToasts(true);
+        DataProductsContext.setToastTitle("این محصول قبلا به مقایسه اضافه شده است.");
+        DataProductsContext.setShowToasts(true);
         setTimeout(() => {
-          DataContext.setShowToasts(false);
+          DataProductsContext.setShowToasts(false);
         }, 3000);
       }
     }else{
-      DataContext.setToastTitle("حداکثر 4 محصول میتوان به مقایسه اضافه کرد.");
-      DataContext.setShowToasts(true);
+      DataProductsContext.setToastTitle("حداکثر 4 محصول میتوان به مقایسه اضافه کرد.");
+      DataProductsContext.setShowToasts(true);
       setTimeout(() => {
-        DataContext.setShowToasts(false);
+        DataProductsContext.setShowToasts(false);
       }, 3000);
     }
   };
 
   const AddToFavorites = () => {
-    DataContext.setToastTitle("محصول به علاقه مندی ها اضافه گردید .");
-    DataContext.setShowToasts(true);
+    DataProductsContext.setToastTitle("محصول به علاقه مندی ها اضافه گردید .");
+    DataProductsContext.setShowToasts(true);
     setTimeout(() => {
-      DataContext.setShowToasts(false);
+      DataProductsContext.setShowToasts(false);
     }, 3000);
-    const productFavorites = [...DataContext.userFavorites];
+    const productFavorites = [...DataProductsContext.userFavorites];
     const IsProductInFavorites = productFavorites.some(
       (Item) => Item.title == props.title
     );
     if (!IsProductInFavorites) {
-      DataContext.setFavoritesConter((p) => p + 1);
+      DataProductsContext.setFavoritesConter((p) => p + 1);
       const Newobject = {
         id: props.id,
         title: props.title,
         price: props.price - (props.price * props.discount) / 100,
-        imgName: props.imgName,
+        productImgName: props.productImgName,
         stock: props.stock,
         conter: props.conter,
       };
-      DataContext.setUserFavorites((p) => [...p, Newobject]);
+      DataProductsContext.setUserFavorites((p) => [...p, Newobject]);
     } else {
-      DataContext.setToastTitle(
+      DataProductsContext.setToastTitle(
         "این محصول قبلا به علاقه مندی ها اضافه شده است."
       );
-      DataContext.setShowToasts(true);
+      DataProductsContext.setShowToasts(true);
       setTimeout(() => {
-        DataContext.setShowToasts(false);
+        DataProductsContext.setShowToasts(false);
       }, 3000);
     }
   };

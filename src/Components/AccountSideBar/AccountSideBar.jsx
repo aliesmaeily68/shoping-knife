@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UsersContext } from "../../Contexts/UsersContext";
+import { deleteCooKie,clearAllInputData } from "../../utils";
 
 import "./AccountSideBar.css";
 
@@ -27,7 +28,7 @@ export default function AccountSideBar() {
               <li>پنل مدیریت</li>
             </Link>
           )}
-          
+
           <Link
             to={"orders"}
             onClick={() => DataUsersContext.setShowAccountRoute(true)}
@@ -57,7 +58,12 @@ export default function AccountSideBar() {
           </Link>
           <Link
             to={"/my-account"}
-            onClick={() => DataUsersContext.setIsUserInData(false)}
+            onClick={() => {
+              DataUsersContext.setIsUserInData(false);
+              deleteCooKie("login-setPasswordValue", 50);
+              deleteCooKie("login-setUserNameOrEmailValue", 50);
+              clearAllInputData(DataUsersContext)
+            }}
           >
             <li className="close-AccountSideBar">خروج</li>
           </Link>

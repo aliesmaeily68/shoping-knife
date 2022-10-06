@@ -5,28 +5,27 @@ import ProductCard from "../ProductCard/ProductCard";
 import "./AllProduct.css";
 
 export default function AllProduct() {
-  const DataContext = useContext(AllProductContext);
-
+  const DataProductsContext = useContext(AllProductContext);
   return (
     <>
       <div className="products-Container">
-        {DataContext.products[0].map((product) => (
-          <div className="products-wrapper" key={product.id}>
-            <div className="Product-Category-Title">
-              {" "}
-              <h2>{product.MainCategory.title} </h2>
-              <div className="Br-CategoryTitle"></div>
+        {DataProductsContext.productsDataFlag &&
+          DataProductsContext.products1[0].map((product) => (
+            <div className="products-wrapper" key={product.MainCategory.id}>
+              <div className="Product-Category-Title">
+                <h2>{product.MainCategory.title} </h2>
+                <div className="Br-CategoryTitle"></div>
+              </div>
+              {product.Info.map((data, index) => (
+                <div className="Allproducts-Card" key={index}>
+                 
+                  {data.MainInfo.map((product) => (
+                    <ProductCard {...product} key={product.id} />
+                  ))}
+                </div>
+              ))}
             </div>
-
-            <div className="Allproducts-Card">
-              {product.Info.map((data) =>
-                data.MainInfo.map((product) => (
-                  <ProductCard {...product} key={product.id} />
-                ))
-              )}
-            </div>
-          </div>
-        ))}
+          ))}
       </div>
     </>
   );

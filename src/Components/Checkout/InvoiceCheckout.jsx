@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRef } from "react";
 import { useContext } from "react";
 import { UsersContext } from "../../Contexts/UsersContext";
@@ -95,7 +95,13 @@ export default function InvoiceCheckout() {
             <label htmlFor="">
               <span>نام شرکت (اختیاری)</span>
             </label>
-            <input type="text" />
+            <input
+              type="text"
+              value={DataUsersContext.companyNameCheckout}
+              onChange={(e) =>
+                DataUsersContext.setCompanyNameCheckout(e.target.value)
+              }
+            />
           </div>
 
           <div className="CountryName-Checkout">
@@ -103,8 +109,18 @@ export default function InvoiceCheckout() {
               <span>کشور </span>
               <span className="Star-Checkout">*</span>
             </label>
-            <select name="CountryName" id="Country-Checkout">
-              <option value="Iran">ایران</option>
+            <select
+              name="CountryName"
+              id="Country-Checkout"
+              value={DataUsersContext.countryNameCheckout}
+              onChange={(e) =>
+                DataUsersContext.setCountryNameCheckout(e.target.value)
+              }
+            >
+              <option value="ایران">ایران</option>
+              <option value="ترکیه">ترکیه</option>
+              <option value="کانادا">کانادا</option>
+              <option value="ژاپن">ژاپن</option>
             </select>
           </div>
 
@@ -113,10 +129,17 @@ export default function InvoiceCheckout() {
               <span>استان </span>
               <span className="Star-Checkout">*</span>
             </label>
-            <select name="CountryName" id="State-Checkout">
-              <option value="zanjan">زنجان</option>
-              <option value="tehran">تهران</option>
-              <option value="gazvin">قزوین</option>
+            <select
+              name="CountryName"
+              id="State-Checkout"
+              value={DataUsersContext.stateNameCheckout}
+              onChange={(e) =>
+                DataUsersContext.setStateNameCheckout(e.target.value)
+              }
+            >
+              <option value="زنجان">زنجان</option>
+              <option value="تهران">تهران</option>
+              <option value="قزوین">قزوین</option>
             </select>
           </div>
 
@@ -246,37 +269,8 @@ export default function InvoiceCheckout() {
             </span>
           </div>
 
-          <div className="Email-Checkout">
-            <label htmlFor="">
-              <span>آدرس ایمیل </span>
-              <span className="Star-Checkout">*</span>
-            </label>
-            <input
-              value={DataUsersContext.emailCheckout}
-              type="text"
-              ref={EmailCheckoutRef}
-              onChange={(e) =>
-                DataUsersContext.setEmailCheckout(e.target.value)
-              }
-              className={`${
-                DataUsersContext.validEmailCheckout
-                  ? ""
-                  : "ValidMessage-Input-Email-Checkout"
-              }`}
-              onKeyDown={() => DataUsersContext.setValidEmailCheckout(true)}
-            />
-            <span
-              className={` ${
-                DataUsersContext.validEmailCheckout
-                  ? "ValidMessage-Email-Checkout"
-                  : "NotValidMessage-Email-Checkout"
-              }`}
-            >
-              ایمیل وارد شده صحیح نمی باشد
-            </span>
-          </div>
           {!DataUsersContext.isUserInData && (
-            <div className="UserName-Password-Checkout">
+            <div className="Email-UserName-Password-Checkout">
               <div className="UserName-Checkout">
                 <label htmlFor="">
                   <span>نام کاربری </span>
@@ -305,7 +299,37 @@ export default function InvoiceCheckout() {
                       : "NotValidMessage-UserName-Checkout"
                   }`}
                 >
-                  فیلد مورد نظر را پر نمایید
+                  از اعداد و حروف انگلیسی استفاده نمایید
+                </span>
+              </div>
+
+              <div className="Email-Checkout">
+                <label htmlFor="">
+                  <span>آدرس ایمیل </span>
+                  <span className="Star-Checkout">*</span>
+                </label>
+                <input
+                  value={DataUsersContext.emailCheckout}
+                  type="text"
+                  ref={EmailCheckoutRef}
+                  onChange={(e) =>
+                    DataUsersContext.setEmailCheckout(e.target.value)
+                  }
+                  className={`${
+                    DataUsersContext.validEmailCheckout
+                      ? ""
+                      : "ValidMessage-Input-Email-Checkout"
+                  }`}
+                  onKeyDown={() => DataUsersContext.setValidEmailCheckout(true)}
+                />
+                <span
+                  className={` ${
+                    DataUsersContext.validEmailCheckout
+                      ? "ValidMessage-Email-Checkout"
+                      : "NotValidMessage-Email-Checkout"
+                  }`}
+                >
+                  ایمیل وارد شده صحیح نمی باشد
                 </span>
               </div>
 
@@ -351,6 +375,10 @@ export default function InvoiceCheckout() {
                 <span> توضیحات سفارش (اختیاری)</span>
               </label>
               <textarea
+                value={DataUsersContext.moreInfoCheckout}
+                onChange={(e) =>
+                  DataUsersContext.setMoreInfoCheckout(e.target.value)
+                }
                 name="MoreInfo"
                 id="MoreInfo"
                 cols="30"

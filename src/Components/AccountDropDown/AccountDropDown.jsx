@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UsersContext } from "../../Contexts/UsersContext";
+import { deleteCooKie, clearAllInputData } from "../../utils";
 import "./AccountDropDown.css";
 
 export default function AccountDropDown() {
@@ -59,7 +60,12 @@ export default function AccountDropDown() {
 
           <Link
             to={"/my-account"}
-            onClick={() => DataUsersContext.setIsUserInData(false)}
+            onClick={() => {
+              DataUsersContext.setIsUserInData(false);
+              deleteCooKie("login-setPasswordValue", 50);
+              deleteCooKie("login-setUserNameOrEmailValue", 50);
+              clearAllInputData(DataUsersContext);
+            }}
           >
             <li className="Close-AccountDropDown">خروج</li>
           </Link>

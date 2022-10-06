@@ -1,13 +1,18 @@
 import { createContext } from "react";
 import { useState } from "react";
-import { AllProduct, FullProduct } from "./../Datas";
+// import { AllProduct } from "./../Datas";
 
 export const AllProductContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
-  const [products, setProducts] = useState([AllProduct]);
-  const [fullProducts, setFullProducts] = useState(FullProduct);
+  const [products1, setProducts1] = useState();
+  const [productsDataFlag, setProductsDataFlag] = useState(false);
+  // const [products, setProducts] = useState([AllProduct]);
+  const [fullProducts, setFullProducts] = useState();
   const [mainProduct, setMainProduct] = useState([]);
+
+  const [getData, setGetData] = useState(false);
+
   const [showModalComparison, setShowModalComparison] = useState(false);
   const [showModalFavorites, setShowModalFavorites] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -50,12 +55,18 @@ export const ProductsProvider = ({ children }) => {
   const [insertMainCategoryForm, setInsertMainCategoryForm] = useState(true);
   const [isKeyDownInsertMainCategoryForm, setIsKeyDownInsertMainCategoryForm] =
     useState(true);
-  const [insertImg1MainCategoryForm, setInsertImg1MainCategoryForm] = useState(true);
-  const [isKeyDownInsertImg1MainCategoryForm, setIsKeyDownInsertImg1MainCategoryForm] =
+  const [insertImg1MainCategoryForm, setInsertImg1MainCategoryForm] =
     useState(true);
-  const [insertImg2MainCategoryForm, setInsertImg2MainCategoryForm] = useState(true);
-  const [isKeyDownInsertImg2MainCategoryForm, setIsKeyDownInsertImg2MainCategoryForm] =
+  const [
+    isKeyDownInsertImg1MainCategoryForm,
+    setIsKeyDownInsertImg1MainCategoryForm,
+  ] = useState(true);
+  const [insertImg2MainCategoryForm, setInsertImg2MainCategoryForm] =
     useState(true);
+  const [
+    isKeyDownInsertImg2MainCategoryForm,
+    setIsKeyDownInsertImg2MainCategoryForm,
+  ] = useState(true);
   const [insertCategoryForm, setInsertCategoryForm] = useState(true);
   const [isKeyDownInsertCategoryForm, setIsKeyDownInsertCategoryForm] =
     useState(true);
@@ -93,12 +104,18 @@ export const ProductsProvider = ({ children }) => {
   return (
     <AllProductContext.Provider
       value={{
-        products,
-        setProducts,
+        products1,
+        setProducts1,
+        productsDataFlag,
+        setProductsDataFlag,
+        // products,
+        // setProducts,
         fullProducts,
         setFullProducts,
         mainProduct,
         setMainProduct,
+        getData,
+        setGetData,
         showModalComparison,
         setShowModalComparison,
         showModalFavorites,

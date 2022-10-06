@@ -27,9 +27,12 @@ export default function Categories() {
         onClick={() => HiddenCategory()}
       >
         <div className="Wrapper-Categories ">
-          {DataContext.products.map((data) =>
+          {DataContext.productsDataFlag && DataContext.products1.map((data) =>
             data.map((product) => (
-              <Link to={`/product/category:${product.MainCategory.title}`}>
+              <Link
+                to={`/product/category:${product.MainCategory.title}`}
+                key={product.MainCategory.id}
+              >
                 <div
                   className="Main-Category"
                   onMouseOver={() => ShowSubCategory(product)}

@@ -46,7 +46,7 @@ export default function TableProductCart() {
           <tbody>
             {DataContext.userCart &&
               DataContext.userCart.map((product) => (
-                <tr className="Cart-Item">
+                <tr className="Cart-Item" key={product.id}>
                   <td
                     class="Product-Remove-Cart"
                     onClick={() => RemoveProduct(product)}
@@ -54,7 +54,7 @@ export default function TableProductCart() {
                     <AiOutlineClose />
                   </td>
                   <td class="Product-Name-Thumbnail-Cart">
-                    <img src={`./Image/${product.imgName}`} alt="" />
+                    <img src={`./Image/${product.productImgName}`} alt="" />
                     <div className="Title-Cart">
                       <span>{product.title} </span>
                     </div>
