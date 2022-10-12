@@ -64,7 +64,7 @@ export default function Favorites() {
                         <span>{product.price} تومان</span>
                       </td>
                       <td class="Product-Btn-Favorites" data-title="قیمت">
-                        <Link to={`/products/${product.id}-${product.title}`}>
+                        <Link to={`/products/${product.id}&&${product.title}`}>
                           <button>مشاهده بیشتر</button>
                         </Link>
                       </td>

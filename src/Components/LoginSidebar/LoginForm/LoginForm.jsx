@@ -7,9 +7,11 @@ import useFetch from "../../../hooks/useFetch";
 import { setCookie, getCookie, loginDataset } from "../../../utils";
 
 import "./LoginForm.css";
+import { AllProductContext } from "../../../Contexts/ProductContext";
 
 export default function LoginForm() {
   const DataUsersContext = useContext(UsersContext);
+  const DataProductContext = useContext(AllProductContext);
 
   const [isChecked, setIschecked] = useState();
 
@@ -17,27 +19,21 @@ export default function LoginForm() {
     "https://shopingknife-default-rtdb.firebaseio.com/users.json",
     DataUsersContext.getuserData
   );
-
   useEffect(() => {
-    if (getCookie("setUserNameOrEmailValue") && getCookie("setPasswordValue")) {
+    if (getCookie("setToken") || sessionStorage.getItem("SessionToken")) {
       let Alluser = posts.map((user, index) => {
         let newusers = { ...user[1], id: index + 1, userId: user[0] };
         return newusers;
       });
       const IsUserInData = Alluser.some(
         (user) =>
-          user.password == getCookie("setPasswordValue") &&
-          (user.userName == getCookie("setUserNameOrEmailValue") ||
-            user.email == getCookie("setUserNameOrEmailValue"))
+          user.token == getCookie("setToken") ||
+          user.token == sessionStorage.getItem("SessionToken")
       );
       const UserData = Alluser.find(
         (user) =>
-          user.password == getCookie("setPasswordValue") &&
-          (user.userName == getCookie("setUserNameOrEmailValue") ||
-            user.email == getCookie("setUserNameOrEmailValue"))
-      );
-      DataUsersContext.setLoginFormUserNameOrEmailValue(
-        getCookie("setUserNameOrEmailValue")
+          user.token == getCookie("setToken") ||
+          user.token == sessionStorage.getItem("SessionToken")
       );
 
       DataUsersContext.setIsUserInData(IsUserInData);
@@ -47,10 +43,12 @@ export default function LoginForm() {
         } else if (UserData.post == "مدیر") {
           DataUsersContext.setUserType("admin");
         }
+        DataUsersContext.setLoginFormUserNameOrEmailValue(UserData.userName);
         loginDataset(DataUsersContext, UserData);
       }
     }
   });
+
   const SubmitLoginForm = (e) => {
     e.preventDefault();
 
@@ -71,26 +69,119 @@ export default function LoginForm() {
           user.email == DataUsersContext.loginFormUserNameOrEmailValue)
     );
     if (isChecked && IsUserInData) {
-      setCookie(
-        "login-setUserNameOrEmailValue",
-        DataUsersContext.loginFormUserNameOrEmailValue,
-        6
-      );
-      setCookie(
-        "login-setPasswordValue",
-        DataUsersContext.loginFormPasswordValue,
-        6
-      );
+      setCookie("login-setToken", UserData.token, 6);
     }
 
     DataUsersContext.setIsUserInData(IsUserInData);
+
     if (IsUserInData) {
       if (UserData.post == "کاربر") {
         DataUsersContext.setUserType("user");
       } else if (UserData.post == "مدیر") {
         DataUsersContext.setUserType("admin");
       }
+      sessionStorage.setItem("SessionToken", UserData.token);
       loginDataset(DataUsersContext, UserData);
+
+      const seenCartProductArray = new Set();
+      const userCartProductArray = [
+        ...DataProductContext.userCart,
+        ...UserData.userDatas.userCart,
+      ];
+      const filteredCartProductArr = userCartProductArray.filter((product) => {
+        const duplicate = seenCartProductArray.has(product.title);
+        seenCartProductArray.add(product.title);
+        return !duplicate;
+      });
+      {
+        UserData.userDatas.userCart || DataProductContext.userCart
+          ? DataProductContext.setUserCart(filteredCartProductArr)
+          : DataProductContext.setUserCart("");
+      }
+
+      {
+        UserData.userDatas.userCart || DataProductContext.userCart
+          ? localStorage.setItem(
+              "userProductCart",
+              JSON.stringify(filteredCartProductArr)
+            )
+          : localStorage.setItem("userProductCart", JSON.stringify(""));
+      }
+      let total = 0;
+      let counterProduct = 0;
+      filteredCartProductArr &&
+        filteredCartProductArr.map((product) => {
+          total += product.price * product.conter;
+          counterProduct += product.conter;
+        });
+      DataProductContext.setTotal(total);
+      DataProductContext.setCartConter(counterProduct);
+      localStorage.setItem("totalProductsCart", JSON.stringify(total));
+      localStorage.setItem(
+        "counterProductsCart",
+        JSON.stringify(counterProduct)
+      );
+
+      const seenFavoritesArray = new Set();
+
+      const userFavoritesArray = [
+        ...UserData.userDatas.userFavorites,
+        ...DataProductContext.userFavorites,
+      ];
+      const filteredFavoritesArr = userFavoritesArray.filter((product) => {
+        const duplicate = seenFavoritesArray.has(product.title);
+        seenFavoritesArray.add(product.title);
+        return !duplicate;
+      });
+      {
+        UserData.userDatas.userFavorites || DataProductContext.userFavorites
+          ? DataProductContext.setUserFavorites(filteredFavoritesArr)
+          : DataProductContext.setUserFavorites("");
+      }
+
+      {
+        UserData.userDatas.userFavorites || DataProductContext.userFavorites
+          ? localStorage.setItem(
+              "userFavorites",
+              JSON.stringify(filteredFavoritesArr)
+            )
+          : localStorage.setItem("userFavorites", JSON.stringify(""));
+      }
+      DataProductContext.setFavoritesConter(filteredFavoritesArr.length);
+      localStorage.setItem(
+        "counterFavorites",
+        JSON.stringify(filteredFavoritesArr.length)
+      );
+
+      const seenComparisonArray = new Set();
+      const userComparisonArray = [
+        ...UserData.userDatas.userComparison,
+        ...DataProductContext.userComparison,
+      ];
+      const filteredComparisonArr = userComparisonArray.filter((product) => {
+        const duplicate = seenComparisonArray.has(product.title);
+        seenComparisonArray.add(product.title);
+        return !duplicate;
+      });
+      {
+        UserData.userDatas.userComparison || DataProductContext.userComparison
+          ? DataProductContext.setUserComparison(filteredComparisonArr)
+          : DataProductContext.setUserComparison("");
+      }
+      DataProductContext.setComparisonConter(filteredComparisonArr.length);
+
+      {
+        UserData.userDatas.userComparison || DataProductContext.userComparison
+          ? localStorage.setItem(
+              "userComparison",
+              JSON.stringify(filteredComparisonArr)
+            )
+          : localStorage.setItem("userComparison", JSON.stringify(""));
+      }
+      localStorage.setItem(
+        "counterComparison",
+        JSON.stringify(filteredComparisonArr.length)
+      );
     } else {
       DataUsersContext.setTitleErrorMessage(
         "لطفا نام کاربری و رمز عبور معتبر وارد نمایید."

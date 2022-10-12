@@ -1,9 +1,12 @@
 import React, { useContext, useRef, useEffect } from "react";
+import { AllProductContext } from "../../../Contexts/ProductContext";
 import { UsersContext } from "../../../Contexts/UsersContext";
+import { userDatas } from "../../../utils";
 import "./EditAcount.css";
 
 export default function EditAcount() {
   const DataUsersContext = useContext(UsersContext);
+  const DataProductContext = useContext(AllProductContext);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -118,6 +121,7 @@ export default function EditAcount() {
         moreInfo: DataUsersContext.moreInfoCheckout,
         userName: DataUsersContext.userNameCheckout,
         post: DataUsersContext.userpost,
+        userDatas: userDatas(DataProductContext),
       };
 
       fetch(

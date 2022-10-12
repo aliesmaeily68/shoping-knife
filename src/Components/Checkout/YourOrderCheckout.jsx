@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { BiX } from "react-icons/bi";
 import { AllProductContext } from "../../Contexts/ProductContext";
 import { UsersContext } from "../../Contexts/UsersContext";
-import { loginDataset } from "../../utils";
+import { loginDataset, userDatas } from "../../utils";
 
 import "./YourOrderCheckout.css";
 
@@ -101,6 +101,7 @@ export default function YourOrderCheckout() {
         moreInfo: DataUsersContext.moreInfoCheckout,
         userName: DataUsersContext.userNameCheckout,
         post: DataUsersContext.userpost,
+        userDatas: userDatas(DataContext),
       };
 
       fetch(
@@ -140,6 +141,7 @@ export default function YourOrderCheckout() {
         moreInfo: DataUsersContext.moreInfoCheckout,
         userName: DataUsersContext.userNameCheckout,
         post: "کاربر",
+        userDatas: userDatas(DataContext),
       };
       DataUsersContext.setEmailCheckout("");
       DataUsersContext.setPasswordCheckout("");
@@ -162,6 +164,24 @@ export default function YourOrderCheckout() {
     setTimeout(() => {
       DataUsersContext.setShowSuccessMessage(false);
     }, 4000);
+    fetch("https://shopingknife-default-rtdb.firebaseio.com/users.json")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          let Alluser = Object.entries(data).map((user, index) => {
+            let newusers = { ...user[1], id: index + 1, userId: user[0] };
+            return newusers;
+          });
+          const UserData = Alluser.find(
+            (user) =>
+              user.password == DataUsersContext.loginFormPasswordValue &&
+              (user.userName ==
+                DataUsersContext.loginFormUserNameOrEmailValue ||
+                user.email == DataUsersContext.loginFormUserNameOrEmailValue)
+          );
+          DataUsersContext.setUserId(UserData.userId);
+        }
+      });
   };
   return (
     <>

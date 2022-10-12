@@ -5,9 +5,12 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { UsersContext } from "../../Contexts/UsersContext";
 import { v4 as uuidv4 } from "uuid";
 import "./RegisterForm.css";
+import { AllProductContext } from "../../Contexts/ProductContext";
+import { userDatas, loginDataset } from "../../utils";
 
 export default function RegisterForm() {
   const DataUsersContext = useContext(UsersContext);
+  const DataProductContext = useContext(AllProductContext);
   const NameRegisterFormRef = useRef();
   const EmailRegisterFormRef = useRef();
   const PasswordRegisterFormRef = useRef();
@@ -63,6 +66,7 @@ export default function RegisterForm() {
         postalCode: "",
         tellNumber: "",
         moreInfo: "",
+        userDatas: userDatas(DataProductContext),
       };
       DataUsersContext.setNameRegisterFormValue("");
       DataUsersContext.setEmailRegisterFormValue("");
@@ -70,25 +74,50 @@ export default function RegisterForm() {
       fetch("https://shopingknife-default-rtdb.firebaseio.com/users.json", {
         method: "POST",
         body: JSON.stringify(NewUserRegisterObj),
-      }).then((response) => console.log(response));
-      DataUsersContext.setIsUserInData(true);
-      DataUsersContext.setEmailCheckout(
-        DataUsersContext.emailRegisterFormValue
-      );
-      DataUsersContext.setPasswordCheckout(
-        DataUsersContext.passwordRegisterFormValue
-      );
-      DataUsersContext.setUserNameCheckout(
-        DataUsersContext.nameRegisterFormValue
-      );
-      DataUsersContext.setLoginFormUserNameOrEmailValue(
-        DataUsersContext.nameRegisterFormValue
-      );
-      DataUsersContext.setLoginFormPasswordValue(
-        DataUsersContext.passwordRegisterFormValue
-      );
-      DataUsersContext.setShowLoginSidebar(false);
-      DataUsersContext.setShowAccountRoute(false);
+      }).then((response) => {
+        if (response == 200) {
+          DataUsersContext.setIsUserInData(true);
+          DataUsersContext.setEmailCheckout(
+            DataUsersContext.emailRegisterFormValue
+          );
+          DataUsersContext.setPasswordCheckout(
+            DataUsersContext.passwordRegisterFormValue
+          );
+          DataUsersContext.setUserNameCheckout(
+            DataUsersContext.nameRegisterFormValue
+          );
+          DataUsersContext.setLoginFormUserNameOrEmailValue(
+            DataUsersContext.nameRegisterFormValue
+          );
+          DataUsersContext.setLoginFormPasswordValue(
+            DataUsersContext.passwordRegisterFormValue
+          );
+          DataUsersContext.setShowLoginSidebar(false);
+          DataUsersContext.setShowAccountRoute(false);
+        }
+      });
+
+      fetch("https://shopingknife-default-rtdb.firebaseio.com/users.json")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data) {
+            let Alluser = Object.entries(data).map((user, index) => {
+              let newusers = { ...user[1], id: index + 1, userId: user[0] };
+              return newusers;
+            });
+            const UserData = Alluser.find(
+              (user) =>
+                user.password == DataUsersContext.loginFormPasswordValue &&
+                (user.userName ==
+                  DataUsersContext.loginFormUserNameOrEmailValue ||
+                  user.email == DataUsersContext.loginFormUserNameOrEmailValue)
+            );
+            DataUsersContext.setUserId(UserData.userId);
+            sessionStorage.setItem("SessionToken", UserData.token);
+            loginDataset(DataUsersContext, UserData);
+            window.location.reload();
+          }
+        });
     }
   };
 
@@ -106,9 +135,12 @@ export default function RegisterForm() {
                 type="text"
                 ref={NameRegisterFormRef}
                 value={DataUsersContext.nameRegisterFormValue}
-                onChange={(event) =>
-                  DataUsersContext.setNameRegisterFormValue(event.target.value)
-                }
+                onChange={(event) => {
+                  DataUsersContext.setNameRegisterFormValue(event.target.value);
+                  DataUsersContext.setLoginFormUserNameOrEmailValue(
+                    event.target.value
+                  );
+                }}
                 className={`${
                   DataUsersContext.nameRegisterForm ||
                   DataUsersContext.isKeyDownNameRegisterForm
@@ -184,11 +216,14 @@ export default function RegisterForm() {
                     type="text"
                     ref={PasswordRegisterFormRef}
                     value={DataUsersContext.passwordRegisterFormValue}
-                    onChange={(event) =>
+                    onChange={(event) => {
                       DataUsersContext.setPasswordRegisterFormValue(
                         event.target.value
-                      )
-                    }
+                      );
+                      DataUsersContext.setLoginFormPasswordValue(
+                        event.target.value
+                      );
+                    }}
                     className={`${
                       DataUsersContext.passwordRegisterForm ||
                       DataUsersContext.isKeyDownPasswordRegisterForm
@@ -226,11 +261,14 @@ export default function RegisterForm() {
                     type="password"
                     ref={PasswordRegisterFormRef}
                     value={DataUsersContext.passwordRegisterFormValue}
-                    onChange={(event) =>
+                    onChange={(event) => {
                       DataUsersContext.setPasswordRegisterFormValue(
                         event.target.value
-                      )
-                    }
+                      );
+                      DataUsersContext.setLoginFormPasswordValue(
+                        event.target.value
+                      );
+                    }}
                     className={`${
                       DataUsersContext.passwordRegisterForm ||
                       DataUsersContext.isKeyDownPasswordRegisterForm

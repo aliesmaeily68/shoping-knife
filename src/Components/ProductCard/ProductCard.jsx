@@ -1,19 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Card } from "react-bootstrap";
 import ProductIconCard from "../AllProduct/ProductIconCard/ProductIconCard";
 import { AllProductContext } from "../../Contexts/ProductContext";
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 import "./ProductCard.css";
 
 export default function ProductCard(props) {
   const DataProductsContext = useContext(AllProductContext);
+
   const AddtoCart = (props) => {
     DataProductsContext.setTotal(
       (prevTotal) =>
-        prevTotal + props.price - (props.price * props.discount) / 100
+        prevTotal + (props.price - (props.price * props.discount) / 100)
     );
     DataProductsContext.setCartConter((prevCartConter) => prevCartConter + 1);
-    DataProductsContext.setToastTitle("محصول با موفقیت به سبد خرید اضافه گردید .");
+    DataProductsContext.setToastTitle(
+      "محصول با موفقیت به سبد خرید اضافه گردید ."
+    );
     DataProductsContext.setShowToasts(true);
     setTimeout(() => {
       DataProductsContext.setShowToasts(false);
@@ -22,13 +26,14 @@ export default function ProductCard(props) {
     const IsProductInCart = products.some((Item) => Item.title == props.title);
     if (!IsProductInCart) {
       const Newobject = {
-        id: DataProductsContext.userCart.length + 1,
+        id: uuidv4(),
         title: props.title,
         price: props.price - (props.price * props.discount) / 100,
         productImgName: props.productImgName,
         conter: 1,
       };
-      DataProductsContext.setUserCart((p) => [...p, Newobject]);
+      products.push(Newobject);
+      DataProductsContext.setUserCart(products);
     } else {
       products.map((item) => {
         if (item.title == props.title) {
@@ -37,7 +42,18 @@ export default function ProductCard(props) {
         }
       });
     }
+    let total = 0;
+    let counters = 0;
+    products.map((product) => {
+      counters += product.conter;
+      total += product.price * product.conter;
+    });
+
+    localStorage.setItem("counterProductsCart", JSON.stringify(counters));
+    localStorage.setItem("totalProductsCart", JSON.stringify(total));
+    localStorage.setItem("userProductCart", JSON.stringify(products));
   };
+
   return (
     <>
       <div className="Product-Card" key={props.id}>
@@ -62,7 +78,7 @@ export default function ProductCard(props) {
               </div>
             </div>
             <div className="MoreInfo-Product-Card">
-              <Link to={`/products/${props.id}&&${props.title}`} >
+              <Link to={`/products/${props.id}&&${props.title}`}>
                 <span> مشاهده بیشتر</span>
               </Link>
             </div>

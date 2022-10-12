@@ -90,7 +90,7 @@ export default function TableComparison() {
             {DataContext.userComparison.map((product) => (
               <td key={product.id}>
                 <button>
-                  <Link to={`/products/${product.id}-${product.title}`}>
+                  <Link to={`/products/${product.id}&&${product.title}`}>
                     مشاهده محصول
                   </Link>
                 </button>

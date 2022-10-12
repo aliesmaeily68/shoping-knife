@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TbArrowsShuffle } from "react-icons/tb";
 import { AiOutlineHeart } from "react-icons/ai";
 import { CgMoreO } from "react-icons/cg";
@@ -9,6 +9,7 @@ import { AllProductContext } from "../../../Contexts/ProductContext";
 
 export default function ProductIconCard(props) {
   const DataProductsContext = useContext(AllProductContext);
+
 
   const AddToComparison = () => {
     if (DataProductsContext.userComparison.length < 4) {
@@ -23,6 +24,7 @@ export default function ProductIconCard(props) {
       );
       if (!IsProductInComparison) {
         DataProductsContext.setComparisonConter((p) => p + 1);
+
         const Newobject = {
           id: props.id,
           title: props.title,
@@ -35,16 +37,29 @@ export default function ProductIconCard(props) {
           usage: props.usage,
           Producer: props.Producer,
         };
-        DataProductsContext.setUserComparison((p) => [...p, Newobject]);
+        productComparison.push(Newobject);
+        DataProductsContext.setUserComparison(productComparison);
+        localStorage.setItem(
+          "counterComparison",
+          JSON.stringify(DataProductsContext.comparisonConter + 1)
+        );
+        localStorage.setItem(
+          "userComparison",
+          JSON.stringify(productComparison)
+        );
       } else {
-        DataProductsContext.setToastTitle("این محصول قبلا به مقایسه اضافه شده است.");
+        DataProductsContext.setToastTitle(
+          "این محصول قبلا به مقایسه اضافه شده است."
+        );
         DataProductsContext.setShowToasts(true);
         setTimeout(() => {
           DataProductsContext.setShowToasts(false);
         }, 3000);
       }
-    }else{
-      DataProductsContext.setToastTitle("حداکثر 4 محصول میتوان به مقایسه اضافه کرد.");
+    } else {
+      DataProductsContext.setToastTitle(
+        "حداکثر 4 محصول میتوان به مقایسه اضافه کرد."
+      );
       DataProductsContext.setShowToasts(true);
       setTimeout(() => {
         DataProductsContext.setShowToasts(false);
@@ -72,7 +87,13 @@ export default function ProductIconCard(props) {
         stock: props.stock,
         conter: props.conter,
       };
-      DataProductsContext.setUserFavorites((p) => [...p, Newobject]);
+      productFavorites.push(Newobject);
+      DataProductsContext.setUserFavorites(productFavorites);
+      localStorage.setItem(
+        "counterFavorites",
+        JSON.stringify(DataProductsContext.favoritesConter + 1)
+      );
+      localStorage.setItem("userFavorites", JSON.stringify(productFavorites));
     } else {
       DataProductsContext.setToastTitle(
         "این محصول قبلا به علاقه مندی ها اضافه شده است."
@@ -83,6 +104,7 @@ export default function ProductIconCard(props) {
       }, 3000);
     }
   };
+
   return (
     <>
       <div className="Card-Icons">
@@ -95,7 +117,7 @@ export default function ProductIconCard(props) {
           <div className="Tooltip-CardIcon">افزودن به علاقه مندی </div>
         </div>
         <div className="card-Icon">
-          <Link to={`/products/${props.id}-${props.title}`} >
+          <Link to={`/products/${props.id}&&${props.title}`}>
             <CgMoreO />
           </Link>
           <div className="Tooltip-CardIcon">مشاهده بیشتر </div>

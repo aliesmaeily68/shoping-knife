@@ -16,14 +16,13 @@ export default function AllProduct() {
                 <h2>{product.MainCategory.title} </h2>
                 <div className="Br-CategoryTitle"></div>
               </div>
-              {product.Info.map((data, index) => (
-                <div className="Allproducts-Card" key={index}>
-                 
-                  {data.MainInfo.map((product) => (
+              <div className="Allproducts-Card">
+                {product.Info.map((data) =>
+                  data.MainInfo.map((product) => (
                     <ProductCard {...product} key={product.id} />
-                  ))}
-                </div>
-              ))}
+                  ))
+                )}
+              </div>
             </div>
           ))}
       </div>

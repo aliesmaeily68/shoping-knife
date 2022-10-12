@@ -10,6 +10,47 @@ export default function AllPage() {
   const DataContext = useContext(AllProductContext);
   const DataUserContext = useContext(UsersContext);
   useEffect(() => {
+    const userProductCart = JSON.parse(localStorage.getItem("userProductCart"));
+    if (userProductCart) {
+      DataContext.setUserCart(userProductCart);
+    }
+    const totalProductsCart = JSON.parse(
+      localStorage.getItem("totalProductsCart")
+    );
+    if (totalProductsCart) {
+      DataContext.setTotal(totalProductsCart);
+    }
+    const counterProductsCart = JSON.parse(
+      localStorage.getItem("counterProductsCart")
+    );
+    if (counterProductsCart) {
+      DataContext.setCartConter(counterProductsCart);
+    }
+    const userFavorites = JSON.parse(localStorage.getItem("userFavorites"));
+
+    if (userFavorites) {
+      DataContext.setUserFavorites(userFavorites);
+    }
+    const counterFavorites = JSON.parse(
+      localStorage.getItem("counterFavorites")
+    );
+    if (counterFavorites) {
+      DataContext.setFavoritesConter(counterFavorites);
+    }
+    const userComparison = JSON.parse(localStorage.getItem("userComparison"));
+
+    if (userComparison) {
+      DataContext.setUserComparison(userComparison);
+    }
+    const counterComparison = JSON.parse(
+      localStorage.getItem("counterComparison")
+    );
+    if (counterComparison) {
+      DataContext.setComparisonConter(counterComparison);
+    }
+  }, []);
+
+  useEffect(() => {
     fetch("https://shopingknife-default-rtdb.firebaseio.com/product.json")
       .then((res) => res.json())
       .then((data) => {

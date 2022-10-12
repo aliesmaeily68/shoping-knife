@@ -23,9 +23,9 @@ export const ProductsProvider = ({ children }) => {
   const [showCartBag, setShowCartBag] = useState(false);
   const [showToasts, setShowToasts] = useState(false);
   const [toastTitle, setToastTitle] = useState("");
-  const [userCart, setUserCart] = useState([]);
-  const [userFavorites, setUserFavorites] = useState([]);
-  const [userComparison, setUserComparison] = useState([]);
+  const [userCart, setUserCart] = useState("");
+  const [userFavorites, setUserFavorites] = useState("");
+  const [userComparison, setUserComparison] = useState("");
   const [removeComparisonId, setRemoveComparisonId] = useState();
   const [removeFavoritesId, setRemoveFavoritesId] = useState();
   const [total, setTotal] = useState(0);

@@ -5,15 +5,16 @@ import { AiOutlineOrderedList } from "react-icons/ai";
 import { BsHeart } from "react-icons/bs";
 import { ImExit } from "react-icons/im";
 import { RiFileUserLine } from "react-icons/ri";
-import { deleteCooKie, clearAllInputData } from "../../utils";
-
+import { exitAccount } from "../../utils";
 import { Link } from "react-router-dom";
+import { UsersContext } from "../../Contexts/UsersContext";
+import { AllProductContext } from "../../Contexts/ProductContext";
 
 import "./MyAccountContent.css";
-import { UsersContext } from "../../Contexts/UsersContext";
 
 export default function MyAccountContent() {
   const DataUsersContext = useContext(UsersContext);
+  const DataProductContext = useContext(AllProductContext);
   return (
     <div className="Container-MyAccountContent">
       <div className="Wrapper-MyAccountContent">
@@ -23,10 +24,7 @@ export default function MyAccountContent() {
           <Link
             to={"/my-account"}
             onClick={() => {
-              DataUsersContext.setIsUserInData(false);
-              deleteCooKie("login-setPasswordValue", 50);
-              deleteCooKie("login-setUserNameOrEmailValue", 50);
-              clearAllInputData(DataUsersContext);
+              exitAccount(DataUsersContext, DataProductContext);
             }}
           >
             <span>خارج شوید</span>
@@ -112,10 +110,7 @@ export default function MyAccountContent() {
           <Link
             to={"/my-account"}
             onClick={() => {
-              DataUsersContext.setIsUserInData(false);
-              deleteCooKie("login-setPasswordValue", 50);
-              deleteCooKie("login-setUserNameOrEmailValue", 50);
-              clearAllInputData(DataUsersContext);
+              exitAccount(DataUsersContext, DataProductContext);
             }}
           >
             <li>

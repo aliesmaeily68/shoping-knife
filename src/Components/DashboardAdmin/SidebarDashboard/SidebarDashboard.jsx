@@ -10,13 +10,15 @@ import { BsEmojiHeartEyes } from "react-icons/bs";
 import { MdOutlineArticle } from "react-icons/md";
 import { BiExit, BiCommentDetail } from "react-icons/bi";
 import { TiArrowBackOutline } from "react-icons/ti";
-import { clearAllInputData, deleteCooKie } from "../../../utils";
+import { exitAccount } from "../../../utils";
 
 import "./SidebarDashboard.css";
 import { UsersContext } from "../../../Contexts/UsersContext";
+import { AllProductContext } from "../../../Contexts/ProductContext";
 
 export default function SidebarDashboard() {
   const DataUsersContext = useContext(UsersContext);
+  const DataProductContext = useContext(AllProductContext);
   return (
     <div className="Container-SidebarDashboard">
       <div className="Wrapper-SidebarDashboard">
@@ -70,10 +72,7 @@ export default function SidebarDashboard() {
             to={"/my-account"}
             onClick={() => {
               DataUsersContext.setShowDashboardAdmin(false);
-              DataUsersContext.setIsUserInData(false);
-              deleteCooKie("login-setPasswordValue", 50);
-              deleteCooKie("login-setUserNameOrEmailValue", 50);
-              clearAllInputData(DataUsersContext);
+              exitAccount(DataUsersContext, DataProductContext);
             }}
           >
             <li className="Back-Close-SidebarDashboard">

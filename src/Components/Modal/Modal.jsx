@@ -17,6 +17,11 @@ export default function Modals() {
       DataContext.setUserFavorites(NewFavorites);
       DataContext.setFavoritesConter((p) => p - 1);
       DataContext.setShowModalFavorites(false);
+      localStorage.setItem(
+        "counterFavorites",
+        JSON.stringify(DataContext.favoritesConter - 1)
+      );
+      localStorage.setItem("userFavorites", JSON.stringify(NewFavorites));
     }
 
     if (DataContext.showModalComparison) {
@@ -28,6 +33,11 @@ export default function Modals() {
       DataContext.setUserComparison(NewComparison);
       DataContext.setComparisonConter((p) => p - 1);
       DataContext.setShowModalComparison(false);
+      localStorage.setItem(
+        "counterComparison",
+        JSON.stringify(DataContext.comparisonConter - 1)
+      );
+      localStorage.setItem("userComparison", JSON.stringify(NewComparison));
     }
   };
   return ReactDOM.createPortal(

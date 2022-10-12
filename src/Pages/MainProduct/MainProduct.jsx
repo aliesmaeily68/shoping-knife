@@ -68,7 +68,8 @@ export default function MainProduct() {
         productImgName: MainProduct.productImgName,
         conter: counterProduct,
       };
-      DataContext.setUserCart((p) => [...p, NewMainProductObj]);
+      products.push(NewMainProductObj);
+      DataContext.setUserCart(products);
     } else {
       products.map((item) => {
         if (item.title === MainProduct.title) {
@@ -85,7 +86,18 @@ export default function MainProduct() {
     );
     DataContext.setCartConter((p) => p + counterProduct);
     setCounterProduct(0);
+    let total = 0;
+    let counters = 0;
+    products.map((product) => {
+      counters += product.conter;
+      total += product.price * product.conter;
+    });
+
+    localStorage.setItem("counterProductsCart", JSON.stringify(counters));
+    localStorage.setItem("totalProductsCart", JSON.stringify(total));
+    localStorage.setItem("userProductCart", JSON.stringify(products));
   };
+
   const AddToComparison = (MainProduct) => {
     if (DataContext.userComparison.length < 4) {
       DataContext.setToastTitle("محصول به مقایسه اضافه گردید .");
@@ -113,7 +125,16 @@ export default function MainProduct() {
           usage: MainProduct.usage,
           Producer: MainProduct.Producer,
         };
-        DataContext.setUserComparison((p) => [...p, Newobject]);
+        productComparison.push(Newobject);
+        DataContext.setUserComparison(productComparison);
+        localStorage.setItem(
+          "counterComparison",
+          JSON.stringify(DataContext.comparisonConter + 1)
+        );
+        localStorage.setItem(
+          "userComparison",
+          JSON.stringify(productComparison)
+        );
       } else {
         DataContext.setToastTitle("این محصول قبلا به مقایسه اضافه شده است.");
         DataContext.setShowToasts(true);
@@ -151,7 +172,13 @@ export default function MainProduct() {
         stock: MainProduct.stock,
         conter: MainProduct.conter,
       };
-      DataContext.setUserFavorites((p) => [...p, Newobject]);
+      productFavorites.push(Newobject);
+      DataContext.setUserFavorites(productFavorites);
+      localStorage.setItem(
+        "counterFavorites",
+        JSON.stringify(DataContext.favoritesConter + 1)
+      );
+      localStorage.setItem("userFavorites", JSON.stringify(productFavorites));
     } else {
       DataContext.setToastTitle(
         "این محصول قبلا به علاقه مندی ها اضافه شده است."

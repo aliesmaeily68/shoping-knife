@@ -230,7 +230,7 @@ export default function InsertNewProductForm() {
                     ProductInfo[0].Info[0].CategoryTitle
                   ) {
                     infocategoryProduct.MainInfo.push(
-                      ProductInfo[0].Info[0].MainInfo
+                      ProductInfo[0].Info[0].MainInfo[0]
                     );
                   } else {
                     InfoCategoryCounter++;

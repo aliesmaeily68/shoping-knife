@@ -14,7 +14,16 @@ export default function ProductInfo() {
     DataContext.setUserCart(PlusconterData);
     DataContext.setTotal((prevTotal) => prevTotal + product.price);
     DataContext.setCartConter((prevCartConter) => prevCartConter + 1);
-    DataContext.setUserCart(DataContext.userCart);
+    let total = 0;
+    let counters = 0;
+    PlusconterData.map((product) => {
+      counters += product.conter;
+      total += product.price * product.conter;
+    });
+
+    localStorage.setItem("counterProductsCart", JSON.stringify(counters));
+    localStorage.setItem("totalProductsCart", JSON.stringify(total));
+    localStorage.setItem("userProductCart", JSON.stringify(PlusconterData));
   };
 
   const Minusconter = (product) => {
@@ -27,11 +36,22 @@ export default function ProductInfo() {
     const MinusconterData = DataContext.userCart.map((product) => product);
     DataContext.setUserCart(MinusconterData);
     DataContext.setTotal((prevTotal) => prevTotal - product.price);
+    let total = 0;
+    let counters = 0;
+    MinusconterData.map((product) => {
+      counters += product.conter;
+      total += product.price * product.conter;
+    });
+
+    localStorage.setItem("counterProductsCart", JSON.stringify(counters));
+    localStorage.setItem("totalProductsCart", JSON.stringify(total));
+    localStorage.setItem("userProductCart", JSON.stringify(MinusconterData));
   };
 
   const DeleteProduct = (product) => {
     product.conter = 0;
-    DataContext.setUserCart(DataContext.userCart);
+    // DataContext.setUserCart(DataContext.userCart);
+    console.log(DataContext.userCart);
     let total = 0;
     let CartConter = 0;
     DataContext.userCart.map((product) => {
@@ -41,6 +61,12 @@ export default function ProductInfo() {
 
     DataContext.setTotal(total);
     DataContext.setCartConter(CartConter);
+    localStorage.setItem("counterProductsCart", JSON.stringify(CartConter));
+    localStorage.setItem("totalProductsCart", JSON.stringify(total));
+    localStorage.setItem(
+      "userProductCart",
+      JSON.stringify(DataContext.userCart)
+    );
   };
 
   return (

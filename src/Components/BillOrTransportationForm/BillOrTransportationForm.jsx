@@ -1,11 +1,14 @@
 import React from "react";
 import { useRef } from "react";
 import { useContext } from "react";
+import { AllProductContext } from "../../Contexts/ProductContext";
 import { UsersContext } from "../../Contexts/UsersContext";
+import { userDatas } from "../../utils";
 import "./BillOrTransportationForm.css";
 
 export default function BillOrTransportationForm() {
   const DataUsersContext = useContext(UsersContext);
+  const DataProductContext = useContext(AllProductContext);
 
   const FirstNameBillOrTransportationRef = useRef();
   const LastNameBillOrTransportationRef = useRef();
@@ -91,6 +94,7 @@ export default function BillOrTransportationForm() {
         moreInfo: DataUsersContext.moreInfoCheckout,
         userName: DataUsersContext.userNameCheckout,
         post: DataUsersContext.userpost,
+        userDatas: userDatas(DataProductContext),
       };
 
       fetch(

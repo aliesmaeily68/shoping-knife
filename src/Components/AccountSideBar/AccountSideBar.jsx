@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AllProductContext } from "../../Contexts/ProductContext";
 import { UsersContext } from "../../Contexts/UsersContext";
-import { deleteCooKie,clearAllInputData } from "../../utils";
+import { exitAccount } from "../../utils";
 
 import "./AccountSideBar.css";
 
 export default function AccountSideBar() {
   const DataUsersContext = useContext(UsersContext);
+  const DataProductContext = useContext(AllProductContext);
   return (
     <div className="Container-AccountSideBar">
       <div className="Wrapper-AccountSideBar">
@@ -59,10 +61,7 @@ export default function AccountSideBar() {
           <Link
             to={"/my-account"}
             onClick={() => {
-              DataUsersContext.setIsUserInData(false);
-              deleteCooKie("login-setPasswordValue", 50);
-              deleteCooKie("login-setUserNameOrEmailValue", 50);
-              clearAllInputData(DataUsersContext)
+              exitAccount(DataUsersContext, DataProductContext);
             }}
           >
             <li className="close-AccountSideBar">خروج</li>
