@@ -76,28 +76,28 @@
 //     },
 // ]
 
-let ProposalProducts = [
-    {
-        MainProposalProduct: [
-            { id: 26, title: ' ست حرفه ای کارد و چنگال', price: 350_000, imgName: 'ست حرفه ای کارد و چنگال مخصوص استیک دستساز.png', stock: 9, conter: 0, discount: 20 },
-            { id: 27, title: 'قوری مسی', price: 170_000, imgName: 'قوری مسی.png', stock: 12, conter: 0, discount: 15 },
-            { id: 28, title: 'شیرینی خوری مسی', price: 200_000, imgName: 'شیرینی خوری مسی.png', stock: 7, conter: 5, discount: 10 },
-            { id: 29, title: 'شیرینی خوری مینا کاری', price: 250_000, imgName: 'شیرینی خوری پایه دار مینا کاری.png', stock: 11, conter: 0, discount: 20 },
-        ],
-        AllProposalProduct: [
-            { id: 17, Category: 'شیرینی خوری و شکلات خوری', title: 'شکلات خوری درب دار بزرگ', price: 519_000, productImgName: 'شکلات_خوری_درب_دار_بزرگ-.png', stock: 9, conter: 0, discount: 10 },
-            { id: 7, Category: 'شمشیرهای موزه ای و تزئینی خاص', title: 'شمشیر عربی کلکسیونی با تیغه برنز', price: 2_500_000, productImgName: 'شمشیر_عربی_کلکسیونی_با_تیغه_برنز.png', stock: 1, conter: 0, discount: 3 },
-            { id: 8, Category: 'چاقوهای سفارشی و خاص', title: 'چاقوی طرح عقاب با نوک مسی', price: 2_730_000, productImgName: 'چاقوی_طرح_عقاب_با_نوک_مسی-.png', stock: 10, conter: 0, discount: 17 },
-            { id: 19, Category: "بشقاب میناکاری", title: 'بشقاب میناکاری قهوه ای استاد محمدی', price: 250_000, productImgName: 'بشقاب_میناکاری_قهوه ای_استاد_محمدی-.png', stock: 15, conter: 0, discount: 5 },
-            { id: 20, Category: 'قندان میناکاری', title: 'قندان میناکاری بدون پایه', price: 85_000, productImgName: 'قندان_میناکاری_بدون_پایه-.png', stock: 7, conter: 0, discount: 10 },
-            { id: 3, Category: 'کارد آشپزخانه دم دستی', title: 'چاقوی دم دستی 19 سانتی ناصر', price: 150_000, productImgName: 'چاقوی_دم_دستی_19_سانتی_ناصر-.png', stock: 1, conter: 0, discount: 2 },
-            { id: 16, Category: 'سماورهای ذغالی', title: 'سماور ذغالی طرح شکمی 6 لیتری', price: 1_800_000, productImgName: 'سماور_ذغالی_طرح_شکمی_6_لیتری-.png', stock: 0, conter: 0, discount: 10 },
-            { id: 4, Category: 'کارد آشپزخانه دم دستی', title: 'چاقوی دم دستی غفاری تیغه استیل', price: 50_000, productImgName: 'چاقوی_دم_دستی_غفاری_استیل-.png', stock: 12, conter: 0, discount: 10 },
-            { id: 10, Category: 'کتری و قوری مسی', title: 'کتری مسی چکشی', price: 436_000, productImgName: 'کتری_مسی_چکشی-.png', stock: 9, conter: 0, discount: 10 },
-            { id: 38, title: 'بشقاب میناکاری', price: 250_000, productImgName: 'بشقاب_19_سانتی_میناکاری-.png', stock: 15, conter: 0, discount: 5 },
-        ],
-    }
-]
+// let ProposalProducts = [
+//     {
+//         MainProposalProduct: [
+//             { id: 26, title: ' ست حرفه ای کارد و چنگال', price: 350_000, imgName: 'ست حرفه ای کارد و چنگال مخصوص استیک دستساز.png', stock: 9, conter: 0, discount: 20 },
+//             { id: 27, title: 'قوری مسی', price: 170_000, imgName: 'قوری مسی.png', stock: 12, conter: 0, discount: 15 },
+//             { id: 28, title: 'شیرینی خوری مسی', price: 200_000, imgName: 'شیرینی خوری مسی.png', stock: 7, conter: 5, discount: 10 },
+//             { id: 29, title: 'شیرینی خوری مینا کاری', price: 250_000, imgName: 'شیرینی خوری پایه دار مینا کاری.png', stock: 11, conter: 0, discount: 20 },
+//         ],
+//         AllProposalProduct: [
+//             { id: 17, Category: 'شیرینی خوری و شکلات خوری', title: 'شکلات خوری درب دار بزرگ', price: 519_000, productImgName: 'شکلات_خوری_درب_دار_بزرگ-.png', stock: 9, conter: 0, discount: 10 },
+//             { id: 7, Category: 'شمشیرهای موزه ای و تزئینی خاص', title: 'شمشیر عربی کلکسیونی با تیغه برنز', price: 2_500_000, productImgName: 'شمشیر_عربی_کلکسیونی_با_تیغه_برنز.png', stock: 1, conter: 0, discount: 3 },
+//             { id: 8, Category: 'چاقوهای سفارشی و خاص', title: 'چاقوی طرح عقاب با نوک مسی', price: 2_730_000, productImgName: 'چاقوی_طرح_عقاب_با_نوک_مسی-.png', stock: 10, conter: 0, discount: 17 },
+//             { id: 19, Category: "بشقاب میناکاری", title: 'بشقاب میناکاری قهوه ای استاد محمدی', price: 250_000, productImgName: 'بشقاب_میناکاری_قهوه ای_استاد_محمدی-.png', stock: 15, conter: 0, discount: 5 },
+//             { id: 20, Category: 'قندان میناکاری', title: 'قندان میناکاری بدون پایه', price: 85_000, productImgName: 'قندان_میناکاری_بدون_پایه-.png', stock: 7, conter: 0, discount: 10 },
+//             { id: 3, Category: 'کارد آشپزخانه دم دستی', title: 'چاقوی دم دستی 19 سانتی ناصر', price: 150_000, productImgName: 'چاقوی_دم_دستی_19_سانتی_ناصر-.png', stock: 1, conter: 0, discount: 2 },
+//             { id: 16, Category: 'سماورهای ذغالی', title: 'سماور ذغالی طرح شکمی 6 لیتری', price: 1_800_000, productImgName: 'سماور_ذغالی_طرح_شکمی_6_لیتری-.png', stock: 0, conter: 0, discount: 10 },
+//             { id: 4, Category: 'کارد آشپزخانه دم دستی', title: 'چاقوی دم دستی غفاری تیغه استیل', price: 50_000, productImgName: 'چاقوی_دم_دستی_غفاری_استیل-.png', stock: 12, conter: 0, discount: 10 },
+//             { id: 10, Category: 'کتری و قوری مسی', title: 'کتری مسی چکشی', price: 436_000, productImgName: 'کتری_مسی_چکشی-.png', stock: 9, conter: 0, discount: 10 },
+//             { id: 38, title: 'بشقاب میناکاری', price: 250_000, productImgName: 'بشقاب_19_سانتی_میناکاری-.png', stock: 15, conter: 0, discount: 5 },
+//         ],
+//     }
+// ]
 
 // const FullProduct = []
 // AllProduct.map(data => data.Info.map(productInfo => productInfo.MainInfo.map(product => {
@@ -517,4 +517,4 @@ ArticleHomeData.map(article => AllArticle.push(article))
 ArticlesData.map(article => AllArticle.push(article))
 
 
-export {  ProposalProducts, ContactAnswerQuestionData, MainArticleHomeData, ArticleHomeData, ArticlesData, AllArticle }
+export {  ContactAnswerQuestionData, MainArticleHomeData, ArticleHomeData, ArticlesData, AllArticle }

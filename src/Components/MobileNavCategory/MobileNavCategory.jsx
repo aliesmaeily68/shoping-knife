@@ -29,7 +29,7 @@ export default function MobileNavCategory() {
         >
           {DataProductContext.productsDataFlag &&
             DataProductContext.products1[0].map((productCategory) => (
-              <li className="List-Category-MobileNav" key={productCategory.id}>
+              <li className="List-Category-MobileNav" key={productCategory.MainCategory.id}>
                 <div>
                   <Link
                     to={`/product/category:${productCategory.MainCategory.title}`}
@@ -39,11 +39,7 @@ export default function MobileNavCategory() {
                   </Link>
 
                   {showSubCategory === productCategory.MainCategory.id ? (
-                    <IoIosArrowUp
-                      onClick={() =>
-                        setShowSubCategory(false)
-                      }
-                    />
+                    <IoIosArrowUp onClick={() => setShowSubCategory(false)} />
                   ) : (
                     <IoIosArrowDown
                       onClick={() =>
@@ -63,9 +59,8 @@ export default function MobileNavCategory() {
                   }`}
                 >
                   {productCategory.Info.length &&
-                    productCategory.Info.map((productSubCategory) => (
-                     
-                      <li key={productSubCategory.id}>
+                    productCategory.Info.map((productSubCategory, index) => (
+                      <li key={index}>
                         <Link
                           onClick={() =>
                             DataMobileNavContext.setShowMobileNav(false)
@@ -75,7 +70,6 @@ export default function MobileNavCategory() {
                           {productSubCategory.CategoryTitle}
                         </Link>
                       </li>
-                    
                     ))}
                 </ul>
                 <hr />

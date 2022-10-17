@@ -1,0 +1,107 @@
+.InsertMainProposal-New-Product-Form {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  row-gap: 1.5em;
+  margin: 0 3em;
+  background-color: rgb(224, 224, 224);
+  border-radius: 0.3em;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.6s;
+}
+
+.Show-New-MainProposalProduct-Form {
+  height: 100%;
+  padding: 3em 0;
+  overflow: visible;
+  opacity: 1;
+  margin-top: 3em;
+}
+
+.Icon-Close-New-MainProposalProduct {
+  color: var(--Danger-Color);
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.InsertMainProposal-New-Product-Form div {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+}
+
+.InsertMainProposal-New-Product-Form label {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.8);
+  padding-right: 0.5em;
+}
+.InsertMainProposal-New-Product-Form input {
+  width: 80%;
+  margin: 0 auto;
+  outline: none;
+  padding: 0.5em 0;
+  border-radius: 0.3em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.InsertMainProposal-New-Product-Form input:focus {
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.ValidMessage-MainProposal-Input-ProducerForm,
+.ValidMessage-MainProposal-Input-UsageForm,
+.ValidMessage-MainProposal-Input-GenusForm,
+.ValidMessage-MainProposal-Input-WeightForm,
+.ValidMessage-MainProposal-Input-DiscountForm,
+.ValidMessage-MainProposal-Input-StockForm,
+.ValidMessage-MainProposal-Input-ImgProductForm,
+.ValidMessage-MainProposal-Input-PriceForm,
+.ValidMessage-MainProposal-Input-TitleForm {
+  border: 2px solid var(--Danger-Color) !important;
+}
+
+.ValidMessage-MainProposal-ProducerForm,
+.ValidMessage-MainProposal-UsageForm,
+.ValidMessage-MainProposal-GenusForm,
+.ValidMessage-MainProposal-WeightForm,
+.ValidMessage-MainProposal-DiscountForm,
+.ValidMessage-MainProposal-StockForm,
+.ValidMessage-MainProposal-ImgProductForm,
+.ValidMessage-MainProposal-PriceForm,
+.ValidMessage-MainProposal-TitleForm {
+  display: none;
+}
+
+.NotValidMessage-MainProposal-ProducerForm,
+.NotValidMessage-MainProposal-UsageForm,
+.NotValidMessage-MainProposal-GenusForm,
+.NotValidMessage-MainProposal-WeightForm,
+.NotValidMessage-MainProposal-DiscountForm,
+.NotValidMessage-MainProposal-StockForm,
+.NotValidMessage-MainProposal-ImgProductForm,
+.NotValidMessage-MainProposal-PriceForm,
+.NotValidMessage-MainProposal-TitleForm {
+  display: block;
+  font-size: 0.8em;
+  color: var(--Danger-Color);
+  padding: 1em;
+  margin-right: 4em;
+}
+
+.Btn-InsertMainProposal-Product {
+  width: 45%;
+  margin: 0 auto;
+  border: none;
+  background-color: var(--Primary-Color);
+  padding: 0.7em 0;
+  border-radius: 0.3em;
+  margin-top: 2em;
+}

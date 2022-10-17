@@ -1,20 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { Card } from "react-bootstrap";
 import { AllProductContext } from "../../../Contexts/ProductContext";
-import { AllProposalProductContext } from "../../../Contexts/ProposalProductContext";
 import ProductIconCard from "../../AllProduct/ProductIconCard/ProductIconCard";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 import "./ProposalProductCard.css";
 
 export default function ProposalProductCard() {
   const DataContex = useContext(AllProductContext);
-  const DataProposalContext = useContext(AllProposalProductContext);
+  let ProposalData = [];
+  const [mainProposalData, setMainProposalData] = useState([]);
+  const [mainProposalDataFlag, setMainProposalDataFlag] = useState(false);
+
+  useEffect(() => {
+    fetch(
+      "https://shopingknife-default-rtdb.firebaseio.com/mainProposalProduct.json"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          setMainProposalDataFlag(true);
+          Object.entries(data).map((product) => ProposalData.push(product[1]));
+          {
+            DataContex.fullProducts &&
+              DataContex.setFullProducts((prev) => [...prev, ...ProposalData]);
+          }
+          setMainProposalData(ProposalData);
+        }
+      });
+  });
   const AddtoCart = (product) => {
-    DataContex.setToastTitle('محصول با موفقیت به سبد خرید اضافه گردید .')
+    DataContex.setToastTitle("محصول با موفقیت به سبد خرید اضافه گردید .");
     DataContex.setTotal(
       (prevTotal) =>
-        prevTotal + product.price - (product.price * product.discount) / 100
+        prevTotal + (product.price - (product.price * product.discount) / 100)
     );
     DataContex.setCartConter((prevCartConter) => prevCartConter + 1);
     DataContex.setShowToasts(true);
@@ -27,13 +47,14 @@ export default function ProposalProductCard() {
     );
     if (!IsProductInCart) {
       const Newobject = {
-        id: DataContex.userCart.length + 1,
+        id: uuidv4(),
         title: product.title,
         price: product.price - (product.price * product.discount) / 100,
-        imgName: product.imgName,
+        productImgName: product.productImgName,
         conter: 1,
       };
-      DataContex.setUserCart((p) => [...p, Newobject]);
+      products.push(Newobject);
+      DataContex.setUserCart(products);
     } else {
       products.map((item) => {
         if (item.title == product.title) {
@@ -42,55 +63,67 @@ export default function ProposalProductCard() {
         }
       });
     }
+
+    let total = 0;
+    let counters = 0;
+    products.map((product) => {
+      counters += product.conter;
+      total += product.price * product.conter;
+    });
+    localStorage.setItem("counterProductsCart", JSON.stringify(counters));
+    localStorage.setItem("totalProductsCart", JSON.stringify(total));
+    localStorage.setItem("userProductCart", JSON.stringify(products));
   };
   return (
     <>
       <div className="Proposal-products-Card">
-        {DataProposalContext.proposalProduct &&
-          DataProposalContext.proposalProduct[0].map((data) =>
-            data.MainProposalProduct.map((product) => (
-              <div className="Proposal-Product-Card" key={product.id}>
-                <div className="Proposal-Icon-Card-Product">
-                  <ProductIconCard {...product}/>
+        {mainProposalDataFlag &&
+          mainProposalData &&
+          mainProposalData.map((product) => (
+            <div className="Proposal-Product-Card" key={product.id}>
+              <div className="Proposal-Icon-Card-Product">
+                <ProductIconCard {...product} />
+              </div>
+              <div className="Proposal-Product-Wrapper-Card">
+                <div className="Proposal-Product-Discount">
+                  <span>{product.discount}%</span>
                 </div>
-                <div className="Proposal-Product-Wrapper-Card">
-                  <div className="Proposal-Product-Discount">
-                    <span>{product.discount}%</span>
-                  </div>
 
-                  <Card.Img variant="top" src={`./Image/${product.imgName}`} />
-                  <div className="Proposal-Card-Product-Body">
-                    <div className="Proposal-Card-Product-Title">
-                      <span> {product.title}</span>
-                    </div>
-                    <div className="Proposal-Price-Product-Card">
-                      <span className="Proposal-Price-Discount-Card">
-                        {product.price}
+                <Card.Img
+                  variant="top"
+                  src={`./Image/${product.productImgName}`}
+                />
+                <div className="Proposal-Card-Product-Body">
+                  <div className="Proposal-Card-Product-Title">
+                    <span> {product.title}</span>
+                  </div>
+                  <div className="Proposal-Price-Product-Card">
+                    <span className="Proposal-Price-Discount-Card">
+                      {product.price}
+                    </span>
+                    <div>
+                      <span className="Proposal-Price-Card">
+                        {product.price -
+                          (product.price * product.discount) / 100}{" "}
+                        تومان
                       </span>
-                      <div>
-                        <span className="Proposal-Price-Card">
-                          {product.price -
-                            (product.price * product.discount) / 100}{" "}
-                          تومان
-                        </span>
-                      </div>
                     </div>
-                    <div className="Proposal-MoreInfo-Product-Card">
-                      <Link to={`/products/${product.id}&&${product.title}`} >
-                        <span> مشاهده بیشتر</span>
-                      </Link>
-                    </div>
-                    <div
-                      className="Proposal-Insert-Cart"
-                      onClick={() => AddtoCart(product)}
-                    >
-                      <span>افزودن به سبد خرید</span>
-                    </div>
+                  </div>
+                  <div className="Proposal-MoreInfo-Product-Card">
+                    <Link to={`/products/${product.id}&&${product.title}`}>
+                      <span> مشاهده بیشتر</span>
+                    </Link>
+                  </div>
+                  <div
+                    className="Proposal-Insert-Cart"
+                    onClick={() => AddtoCart(product)}
+                  >
+                    <span>افزودن به سبد خرید</span>
                   </div>
                 </div>
               </div>
-            ))
-          )}
+            </div>
+          ))}
       </div>
     </>
   );

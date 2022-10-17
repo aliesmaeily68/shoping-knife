@@ -1,0 +1,12 @@
+.Users-Title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0;
+}
+
+.Users-Title h2{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-bottom: 1em;
+}

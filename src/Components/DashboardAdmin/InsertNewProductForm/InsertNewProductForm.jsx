@@ -139,20 +139,20 @@ export default function InsertNewProductForm() {
       DataProductContext.setIsKeyDownInsertProducerForm(false);
     }
     if (
-      InsertMainCategoryFormRef.current.value &&
-      InsertImg1MainCategoryFormRef.current.value &&
-      InsertImg2MainCategoryFormRef.current.value &&
-      InsertCategoryFormRef.current.value &&
-      InsertSubCategoryFormRef.current.value &&
-      InsertTitleFormRef.current.value &&
-      InsertPriceFormRef.current.value &&
-      InsertImgProductFormRef.current.value &&
-      InsertStockFormRef.current.value &&
-      InsertDiscountFormRef.current.value &&
-      InsertWeightFormRef.current.value &&
-      InsertGenusFormRef.current.value &&
-      InsertUsageFormRef.current.value &&
-      InsertProducerFormRef.current.value
+      RegexNotEmpty.test(InsertImg1MainCategoryFormRef.current.value) &&
+      RegexNotEmpty.test(InsertMainCategoryFormRef.current.value) &&
+      RegexNotEmpty.test(InsertImg2MainCategoryFormRef.current.value) &&
+      RegexNotEmpty.test(InsertCategoryFormRef.current.value) &&
+      RegexNotEmpty.test(InsertSubCategoryFormRef.current.value) &&
+      RegexNotEmpty.test(InsertTitleFormRef.current.value) &&
+     RegexNotEmpty.test(InsertPriceFormRef.current.value) &&
+      RegexNotEmpty.test(InsertImgProductFormRef.current.value) &&
+      RegexNotEmpty.test(InsertStockFormRef.current.value) &&
+      RegexNotEmpty.test(InsertDiscountFormRef.current.value) &&
+      RegexNotEmpty.test(InsertWeightFormRef.current.value) &&
+      RegexNotEmpty.test(InsertGenusFormRef.current.value) &&
+      RegexNotEmpty.test(InsertUsageFormRef.current.value) &&
+      RegexNotEmpty.test(InsertProducerFormRef.current.value)
     ) {
       let ProductInfo = [
         {
