@@ -22,7 +22,7 @@ export default function MyAccountContent() {
           سلام <span>{DataUsersContext.loginFormUserNameOrEmailValue}</span> (
           <span>{DataUsersContext.loginFormUserNameOrEmailValue}</span> نیستید؟{" "}
           <Link
-            to={"/my-account"}
+            to={"/"}
             onClick={() => {
               exitAccount(DataUsersContext, DataProductContext);
             }}
@@ -108,7 +108,7 @@ export default function MyAccountContent() {
           </Link>
 
           <Link
-            to={"/my-account"}
+            to={"/"}
             onClick={() => {
               exitAccount(DataUsersContext, DataProductContext);
             }}

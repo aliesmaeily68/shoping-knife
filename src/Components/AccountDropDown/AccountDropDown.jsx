@@ -61,7 +61,7 @@ export default function AccountDropDown() {
           </Link>
 
           <Link
-            to={"/my-account"}
+            to={"/"}
             onClick={() => {
               exitAccount(DataUsersContext, DataProductContext);
             }}

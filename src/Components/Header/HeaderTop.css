@@ -18,7 +18,7 @@
   grid-template-columns: 1.2fr 2fr 1fr;
 }
 
-.Logo-HeaderTop{
+.Logo-HeaderTop {
   width: 70%;
 }
 
@@ -35,7 +35,19 @@
     display: none;
   }
   .Container-HeaderTop-M1024 {
+    position: relative;
     display: block;
+  }
+  .AccountName-Icon-Header-M1024 {
+    position: absolute;
+    display: flex;
+    column-gap: 0.5em;
+    bottom: -25%;
+    left: 35%;
+    font-weight: bold;
+  }
+  .AccountName-Icon-Header-M1024  .AccountName{
+    color: rgb(0, 159, 0);
   }
   .Wrapper-HeaderTop-M1024 {
     display: grid;
@@ -56,6 +68,7 @@
     margin-top: 1em;
     cursor: pointer;
   }
+
   .ShopingBag-HeaderTop-M1024:hover .Tooltip-ShopingBag-HeaderTop-M1024 {
     display: block;
   }
@@ -98,6 +111,11 @@
 }
 
 @media (max-width: 768px) {
+  .AccountName-Icon-Header-M1024{
+    bottom: 0;
+    left: 30%;
+    font-size: 1.1em;
+  }
   .Logo-HeaderTop-M1024 {
     width: 70%;
     height: 70%;
@@ -116,6 +134,9 @@
 }
 
 @media (max-width: 500px) {
+  .AccountName-Icon-Header-M1024{
+    left: 10%;
+  }
   .Wrapper-HeaderTop-M1024 {
     padding-bottom: 0.5em;
   }

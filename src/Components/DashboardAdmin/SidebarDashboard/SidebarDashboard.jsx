@@ -69,7 +69,7 @@ export default function SidebarDashboard() {
             </li>
           </NavLink>
           <NavLink
-            to={"/my-account"}
+            to={"/"}
             onClick={() => {
               DataUsersContext.setShowDashboardAdmin(false);
               exitAccount(DataUsersContext, DataProductContext);

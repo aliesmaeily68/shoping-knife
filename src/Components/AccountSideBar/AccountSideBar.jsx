@@ -59,7 +59,7 @@ export default function AccountSideBar() {
             <li>علاقه مندی ها</li>
           </Link>
           <Link
-            to={"/my-account"}
+            to={"/"}
             onClick={() => {
               exitAccount(DataUsersContext, DataProductContext);
             }}

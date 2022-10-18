@@ -9,7 +9,7 @@
 }
 @media (max-width: 1024px){
   .MainToasts{
-    top: 0;
+    bottom: 3.5em;
     right:0;
   }
 }

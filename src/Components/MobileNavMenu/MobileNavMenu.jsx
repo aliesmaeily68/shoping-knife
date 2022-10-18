@@ -1,15 +1,19 @@
 import React, { useContext } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { TbArrowsShuffle } from "react-icons/tb";
+import { BiExit } from "react-icons/bi";
 import { FaRegUser } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import "./MobileNavMenu.css";
 import { AllMobileNavContext } from "../../Contexts/MobailNavDataContext";
 import { UsersContext } from "../../Contexts/UsersContext";
+import { exitAccount } from "../../utils";
+import { AllProductContext } from "../../Contexts/ProductContext";
 
 export default function MobileNavMenu() {
   const DataUserContext = useContext(UsersContext);
   const DataMobileNavContext = useContext(AllMobileNavContext);
+  const DataProductContext = useContext(AllProductContext);
   const CloseMobileNav = () => {
     DataMobileNavContext.setShowMobileNav(false);
   };
@@ -54,13 +58,23 @@ export default function MobileNavMenu() {
             مقایسه
           </NavLink>
         </li>
-        {!DataUserContext.isUserInData && (
+        {!DataUserContext.isUserInData ? (
           <li>
-            <NavLink to={"/login-register"} onClick={() => CloseMobileNav()}>
+            <NavLink to={"/my-account"} onClick={() => CloseMobileNav()}>
               <FaRegUser />
               ورود/ثبت نام
             </NavLink>
           </li>
+        ) : (
+          <NavLink
+            to={"/"}
+            onClick={() => {
+              exitAccount(DataUserContext, DataProductContext);
+            }}
+          >
+            <BiExit />
+            خروج
+          </NavLink>
         )}
       </ul>
     </>

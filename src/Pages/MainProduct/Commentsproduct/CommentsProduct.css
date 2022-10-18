@@ -112,6 +112,8 @@
 
 @media (max-width: 768px) {
   .CommentsProduct-Wrapper {
+    width: 95%;
+    margin: 0 auto;
     grid-template-columns: 1fr;
   }
   .CommentsProducts {
@@ -136,6 +138,7 @@
   }
 }
 @media (max-width: 425px) {
+ 
   .CommentsProducts h2,
   .CommentsProducts span {
     font-size: 0.7em;

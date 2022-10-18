@@ -157,7 +157,7 @@ export default function YourOrderCheckout() {
       DataUsersContext.setLoginFormPasswordValue(
         DataUsersContext.passwordCheckout
       );
-      loginDataset(DataUsersContext, NewUserCheckoutObj);
+      
     }
     DataUsersContext.setShowSuccessMessage(true);
     DataUsersContext.setTitleSuccessMessage("ثبت سفارش با موفقیت انجام شد");
@@ -180,6 +180,9 @@ export default function YourOrderCheckout() {
                 user.email == DataUsersContext.loginFormUserNameOrEmailValue)
           );
           DataUsersContext.setUserId(UserData.userId);
+          sessionStorage.setItem("SessionToken", UserData.token);
+          loginDataset(DataUsersContext, UserData);
+          window.location.reload();
         }
       });
   };

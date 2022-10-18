@@ -8,9 +8,11 @@ import { BsCart2 } from "react-icons/bs";
 import { BsList } from "react-icons/bs";
 import { AllProductContext } from "../../Contexts/ProductContext";
 import { AllMobileNavContext } from "../../Contexts/MobailNavDataContext";
+import { UsersContext } from "../../Contexts/UsersContext";
 
 export default function HeaderTop() {
   const DataMobileNavContext = useContext(AllMobileNavContext);
+  const DataUsersContext = useContext(UsersContext);
   const [logoName, SetLogoName] = useState("LOGO");
   const [iconName1, SetIconName1] = useState(true);
   const DataContext = useContext(AllProductContext);
@@ -37,6 +39,13 @@ export default function HeaderTop() {
 
       {/* /////for media Max-Width<1024///// */}
       <div className="Container-HeaderTop-M1024">
+        {DataUsersContext.isUserInData && (
+          <div className="AccountName-Icon-Header-M1024">
+            <p>سلام</p>
+            <p className="AccountName">{DataUsersContext.loginFormUserNameOrEmailValue}</p>
+            <p>به سایت ما خوش آمدید</p>
+          </div>
+        )}
         <div className="Wrapper-HeaderTop-M1024">
           <div className="BsList-HeaderTop-M1024">
             <BsList
