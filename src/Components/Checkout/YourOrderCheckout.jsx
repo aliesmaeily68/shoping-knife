@@ -105,7 +105,7 @@ export default function YourOrderCheckout() {
       };
 
       fetch(
-        `https://shopingknife-default-rtdb.firebaseio.com/users/${DataUsersContext.userId}.json`,
+        `https://knifeshop-b9f2f-default-rtdb.firebaseio.com/users/${DataUsersContext.userId}.json`,
         {
           method: "PUT",
           body: JSON.stringify(NewUserCheckoutObj),
@@ -146,7 +146,7 @@ export default function YourOrderCheckout() {
       DataUsersContext.setEmailCheckout("");
       DataUsersContext.setPasswordCheckout("");
       DataUsersContext.setUserNameCheckout("");
-      fetch("https://shopingknife-default-rtdb.firebaseio.com/users.json", {
+      fetch("https://knifeshop-b9f2f-default-rtdb.firebaseio.com/users.json", {
         method: "POST",
         body: JSON.stringify(NewUserCheckoutObj),
       }).then((response) => console.log(response));
@@ -164,7 +164,7 @@ export default function YourOrderCheckout() {
     setTimeout(() => {
       DataUsersContext.setShowSuccessMessage(false);
     }, 4000);
-    fetch("https://shopingknife-default-rtdb.firebaseio.com/users.json")
+    fetch("https://knifeshop-b9f2f-default-rtdb.firebaseio.com/users.json")
       .then((res) => res.json())
       .then((data) => {
         if (data) {

@@ -14,7 +14,7 @@ export default function MainProposalProductsComponent() {
   const [showdeleteModal, setShowdeleteModal] = useState("");
 
   const { posts } = useFetch(
-    "https://shopingknife-default-rtdb.firebaseio.com/mainProposalProduct.json",
+    "https://knifeshop-b9f2f-default-rtdb.firebaseio.com/mainProposalProduct.json",
     DataProductContext.getData
   );
   const AllProduct = posts.map((product, index) => {
@@ -26,7 +26,7 @@ export default function MainProposalProductsComponent() {
 
   let removeProduct = async () => {
     await fetch(
-      `https://shopingknife-default-rtdb.firebaseio.com/mainProposalProduct/${productId}.json`,
+      `https://knifeshop-b9f2f-default-rtdb.firebaseio.com/mainProposalProduct/${productId}.json`,
       {
         method: "DELETE",
       }

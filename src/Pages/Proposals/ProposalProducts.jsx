@@ -12,7 +12,7 @@ export default function ProposalProducts() {
   let AllProposalData = [];
   useEffect(() => {
     fetch(
-      "https://shopingknife-default-rtdb.firebaseio.com/allProposalProduct.json"
+      "https://knifeshop-b9f2f-default-rtdb.firebaseio.com/allProposalProduct.json"
     )
       .then((res) => res.json())
       .then((data) => {

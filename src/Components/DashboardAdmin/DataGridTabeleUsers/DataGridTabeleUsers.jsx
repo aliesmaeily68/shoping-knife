@@ -15,7 +15,7 @@ export default function UsersComponent() {
   const [showdeleteuserModal, setShowdeleteuserModal] = useState("");
 
   const { posts } = useFetch(
-    "https://shopingknife-default-rtdb.firebaseio.com/users.json",
+    "https://knifeshop-b9f2f-default-rtdb.firebaseio.com/users.json",
     DataUsersContext.getuserData
   );
   let Alluser = posts.map((user, index) => {
@@ -25,7 +25,7 @@ export default function UsersComponent() {
 
   let removeuser = async () => {
     await fetch(
-      `https://shopingknife-default-rtdb.firebaseio.com/users/${userId}.json`,
+      `https://knifeshop-b9f2f-default-rtdb.firebaseio.com/users/${userId}.json`,
       {
         method: "DELETE",
       }
