@@ -21,10 +21,13 @@ export default function AccountDropDown() {
           >
             <li>پیشخوان</li>
           </Link>
+
+
           {DataUsersContext.userType == "admin" && (
             <Link
               to={"/dashboard-admin/dashboard-home"}
               onClick={() => DataUsersContext.setShowDashboardAdmin(true)}
+              className="DashboardAdmin-listItem-AccountDropDown"
             >
               <li>پنل مدیریت</li>
             </Link>

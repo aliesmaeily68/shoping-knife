@@ -41,6 +41,7 @@ export default function MyAccountContent() {
             <Link
               to={"/dashboard-admin/dashboard-home"}
               onClick={() => DataUsersContext.setShowDashboardAdmin(true)}
+              className="DashboardAdmin-listItem-MyAccountContent"
             >
               <li>
                 <div className="Icon-MyAccountContent">

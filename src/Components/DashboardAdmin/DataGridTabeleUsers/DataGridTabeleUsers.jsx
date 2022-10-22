@@ -8,17 +8,21 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UsersContext } from "../../../Contexts/UsersContext";
+import EditUserModal from "./EditUserModal/EditUserModal";
 
 export default function UsersComponent() {
   const DataUsersContext = useContext(UsersContext);
   const [userId, setUserId] = useState("");
   const [showdeleteuserModal, setShowdeleteuserModal] = useState("");
+  const [showeditmodal, setShoweditmodal] = useState(false);
 
   const { posts } = useFetch(
     "https://knifeshop-b9f2f-default-rtdb.firebaseio.com/users.json",
     DataUsersContext.getuserData
   );
-  let Alluser = posts.map((user, index) => {
+
+  let users = [...posts];
+  let Alluser = users.map((user, index) => {
     let newusers = { ...user[1], id: index + 1, userId: user[0] };
     return newusers;
   });
@@ -93,6 +97,7 @@ export default function UsersComponent() {
         >
           <ModeEditIcon
             style={{ color: "rgb(4, 187, 4)", cursor: "pointer" }}
+            onClick={() => setShoweditmodal(true)}
           />
 
           {/* <Link to={`/user/${params.row.userId}`}>
@@ -115,9 +120,12 @@ export default function UsersComponent() {
             onClick={() => {
               setUserId(params.row.userId);
               setShowdeleteuserModal(true);
+              console.log(params.row);
             }}
           />
-          <MoreHorizIcon style={{ color: "darkblue", cursor: "pointer" }} />
+          <Link to={`/dashboard-admin/${params.row.userId}`}>
+            <MoreHorizIcon style={{ color: "darkblue", cursor: "pointer" }} />
+          </Link>
         </div>
       ),
     },
@@ -176,6 +184,9 @@ export default function UsersComponent() {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      {/**edit modal */}
+      <EditUserModal />
     </>
   );
 }

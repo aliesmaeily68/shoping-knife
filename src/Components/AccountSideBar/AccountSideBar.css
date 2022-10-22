@@ -21,3 +21,9 @@
 .ListGroup-AccountSideBar a .close-AccountSideBar:hover {
   color: var(--Danger-Color);
 }
+
+@media (max-width: 768px) {
+  .DashboardAdmin-listItem-AccountSideBar {
+    display: none;
+  }
+}
