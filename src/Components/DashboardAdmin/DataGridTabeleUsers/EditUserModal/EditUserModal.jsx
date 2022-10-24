@@ -1,44 +1,83 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-let editUserHandler = async () => {
-  console.log("ali");
-  //   let newUserObject = {
-  //     name,
-  //     userJob,
-  //     email,
-  //     imgurl,
-  //     pricetransaction,
-  //     datatransaction,
-  //     pricetransaction,
-  //     statustransaction,
-  //     statusactive,
-  //   };
-  //   await fetch(
-  //     `https://dashboard-35c87-default-rtdb.firebaseio.com/users/${userId}.json`,
-  //     {
-  //       method: "PUT",
-  //       body: JSON.stringify(newUserObject),
-  //     }
-  //   ).then((res) => console.log(res));
-  //   setShowEditmodal(false);
-  //   setGetData((prev) => !prev);
-};
+import { UsersContext } from "../../../../Contexts/UsersContext";
 
-// useEffect(() => {
-//   let userInfo = users.find((user) => user[0] == userId);
-//   if (userInfo) {
-//     setName(userInfo[1].name);
-//     setUserJob(userInfo[1].userJob);
-//     setEmail(userInfo[1].email);
-//     setImgurl(userInfo[1].imgurl);
-//     setDataTransaction(userInfo[1].datatransaction);
-//     setPriceTransaction(userInfo[1].pricetransaction);
-//     setStatusTransaction(userInfo[1].statustransaction);
-//     setStatusActive(userInfo[1].statusactive);
-//   }
-// }, [userId]);
+import "./EditUserModal.css";
+
 export default function EditUserModal(props) {
-    console.log(props);
+  const DataUsersContext = useContext(UsersContext);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [countryName, setCountryName] = useState("");
+  const [stateName, setStateName] = useState("");
+  const [city, setCity] = useState("");
+  const [addressName, setAddressName] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [tellNumber, setTellNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("");
+  const [post, setPost] = useState("");
+  let userInfo = props.users.find((user) => user[0] == props.userId);
+
+  let editUserHandler = async () => {
+    let NewUsersObj = {
+      token: userInfo[1].token,
+      firstName,
+      lastName,
+      companyName,
+      countryName,
+      stateName,
+      city,
+      addressName,
+      postalCode,
+      tellNumber,
+      email,
+      password,
+      moreInfo: userInfo[1].moreInfo,
+      userName,
+      post,
+      userDatas: {
+        cartConter: userInfo[1].userDatas.cartConter,
+        favoritesConter: userInfo[1].userDatas.favoritesConter,
+        comparisonConter: userInfo[1].userDatas.comparisonConter,
+        total: userInfo[1].userDatas.total,
+        userCart: userInfo[1].userDatas.userCart,
+        userFavorites: userInfo[1].userDatas.userFavorites,
+        userComparison: userInfo[1].userDatas.userComparison,
+      },
+    };
+
+    await fetch(
+      `https://knifeshop-b9f2f-default-rtdb.firebaseio.com/users/${props.userId}.json`,
+      {
+        method: "PUT",
+        body: JSON.stringify(NewUsersObj),
+      }
+    ).then((res) => console.log(res));
+    props.setShowEditmodal(false);
+    DataUsersContext.setGetuserData((prev) => !prev);
+  };
+
+  useEffect(() => {
+    let userInfo = props.users.find((user) => user[0] == props.userId);
+    if (userInfo) {
+      setFirstName(userInfo[1].firstName);
+      setLastName(userInfo[1].lastName);
+      setCompanyName(userInfo[1].companyName);
+      setCountryName(userInfo[1].countryName);
+      setStateName(userInfo[1].stateName);
+      setCity(userInfo[1].city);
+      setAddressName(userInfo[1].addressName);
+      setPostalCode(userInfo[1].postalCode);
+      setTellNumber(userInfo[1].tellNumber);
+      setEmail(userInfo[1].email);
+      setPassword(userInfo[1].password);
+      setUserName(userInfo[1].userName);
+      setPost(userInfo[1].post);
+    }
+  }, [props.userId]);
   return (
     <div>
       {" "}
@@ -54,95 +93,140 @@ export default function EditUserModal(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
-            {/* <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>نام ونام خانوادگی :</Form.Label>
+          <Form className="EditUser-GridForm">
+            <Form.Group className="mb-3">
+              <Form.Label>وضعیت کاربر : </Form.Label>
+              <Form.Select
+                value={post}
+                onChange={(event) => setPost(event.target.value)}
+              >
+                <option value="کاربر">کاربر</option>
+                <option value="مدیر"> مدیر</option>
+              </Form.Select>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label> نام کاربری :</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="نام و نام خانوادگی"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
+                value={userName}
+                onChange={(event) => setUserName(event.target.value)}
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>ایمیل : </Form.Label>
+            <Form.Group className="mb-3">
+              <Form.Label> پسوورد :</Form.Label>
               <Form.Control
-                type="email"
-                placeholder="Email "
+                type="text"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label> ایمیل :</Form.Label>
+              <Form.Control
+                type="text"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>شغل :</Form.Label>
+            <Form.Group className="mb-3">
+              <Form.Label>نام :</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="شغل"
-                value={userJob}
-                onChange={(event) => setUserJob(event.target.value)}
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>آدرس عکس :</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="آدرس عکس"
-                value={imgurl}
-                onChange={(event) => setImgurl(event.target.value)}
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>مبلغ تراکنش :</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="مبلغ تراکنش"
-                value={pricetransaction}
-                onChange={(event) => setPriceTransaction(event.target.value)}
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>تاریخ تراکنش :</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="تاریخ تراکنش"
-                value={datatransaction}
-                onChange={(event) => setDataTransaction(event.target.value)}
+                value={firstName}
+                onChange={(event) => setFirstName(event.target.value)}
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>وضعیت تراکنش: </Form.Label>
+              <Form.Label>نام خانوادگی :</Form.Label>
+              <Form.Control
+                type="text"
+                value={lastName}
+                onChange={(event) => setLastName(event.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label> شرکت :</Form.Label>
+              <Form.Control
+                type="text"
+                value={companyName}
+                onChange={(event) => setCompanyName(event.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>کشور : </Form.Label>
               <Form.Select
-                aria-label="Default select example"
-                onChange={(event) => setStatusTransaction(event.target.value)}
+                value={countryName}
+                onChange={(event) => setCountryName(event.target.value)}
               >
-                <option>انتخاب تراکنش </option>
-                <option value="پرداخت شد">پرداخت شده</option>
-                <option value="درحال پرداخت">درحال پرداخت</option>
-                <option value="پرداخت نشده">پرداخت نشده</option>
+                <option value="ایران">ایران</option>
+                <option value="آمریکا"> آمریکا</option>
+                <option value="کانادا"> کانادا</option>
+                <option value="ترکیه"> ترکیه</option>
+                <option value="ژاپن"> ژاپن</option>
               </Form.Select>
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>وضعیت فعالیت: </Form.Label>
+              <Form.Label>استان : </Form.Label>
               <Form.Select
-                aria-label="Default select example"
-                onChange={(event) => setStatusActive(event.target.value)}
+                value={stateName}
+                onChange={(event) => setStateName(event.target.value)}
               >
-                <option>انتخاب وضعیت </option>
-                <option value=" فعال"> فعال</option>
-                <option value=" غیر فعال">غیرفعال </option>
+                <option value="زنجان">زنجان</option>
+                <option value="تهران"> تهران</option>
+                <option value="تبریز"> تبریز</option>
+                <option value="اصفهان"> اصفهان</option>
+                <option value="گیلان"> گیلان</option>
+                <option value="البرز"> البرز</option>
               </Form.Select>
-            </Form.Group> */}
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label> شهر :</Form.Label>
+              <Form.Control
+                type="text"
+                value={city}
+                onChange={(event) => setCity(event.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label> آدرس :</Form.Label>
+              <Form.Control
+                type="text"
+                value={addressName}
+                onChange={(event) => setAddressName(event.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>کدپستی :</Form.Label>
+              <Form.Control
+                type="text"
+                value={postalCode}
+                onChange={(event) => setPostalCode(event.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label> شماره موبایل :</Form.Label>
+              <Form.Control
+                type="text"
+                value={tellNumber}
+                onChange={(event) => setTellNumber(event.target.value)}
+              />
+            </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer style={{ display: "flex", alignSelf: "center" }}>
-          <Button onClick={() => editUserHandler()}>ویرایش</Button>
+          <Button onClick={(props) => editUserHandler(props)}>ویرایش</Button>
           <Button onClick={() => props.setShowEditmodal(false)}>
             بستن مدال
           </Button>

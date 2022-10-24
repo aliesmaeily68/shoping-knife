@@ -3,25 +3,30 @@ import useFetch from "../../../hooks/useFetch";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AllProductContext } from "../../../Contexts/ProductContext";
+import EditProposalProductModal from "./EditProposalProductModal/EditProposalProductModal";
 
 export default function DataGridTabeleProposal() {
   const DataProductContext = useContext(AllProductContext);
 
   const [productId, setProductId] = useState("");
   const [showdeleteModal, setShowdeleteModal] = useState("");
+  const [showEditmodal, setShowEditmodal] = useState(false);
 
   const { posts } = useFetch(
     "https://knifeshop-b9f2f-default-rtdb.firebaseio.com/allProposalProduct.json",
     DataProductContext.getData
   );
+
+  let Products = [...posts];
   const AllProduct = posts.map((product, index) => {
     let newProducts = { ...product[1], id: index + 1, productId: product[0] };
     return newProducts;
   });
-
   let removeProduct = async () => {
     await fetch(
       `https://knifeshop-b9f2f-default-rtdb.firebaseio.com/allProposalProduct/${productId}.json`,
@@ -71,6 +76,7 @@ export default function DataGridTabeleProposal() {
       width: 150,
       editable: true,
     },
+
     {
       field: "action",
       headerName: "ویرایش",
@@ -82,24 +88,17 @@ export default function DataGridTabeleProposal() {
           style={{
             width: "100%",
             display: "flex",
-            justifyContent: "space-evenly",
+            justifyContent: "space-between",
           }}
         >
-          <Link to={`/product/${params.row.productId}`}>
-            <button
-              className="editUser"
-              style={{
-                backgroundcolor: "rgb(202, 246, 231)",
-                border: "none",
-                color: "rgb(4, 187, 4)",
-                cursor: "pointer",
-                padding: ".2em .3em",
-                borderRadius: "1em",
-              }}
-            >
-              Edit
-            </button>
-          </Link>
+          <ModeEditIcon
+            style={{ color: "rgb(4, 187, 4)", cursor: "pointer" }}
+            onClick={() => {
+              setShowEditmodal(true);
+              setProductId(params.row.productId);
+            }}
+          />
+
           <DeleteIcon
             style={{ color: "rgb(255, 50, 50)", cursor: "pointer" }}
             onClick={() => {
@@ -107,6 +106,10 @@ export default function DataGridTabeleProposal() {
               setShowdeleteModal(true);
             }}
           />
+
+          <Link to={`/dashboard-admin/${params.row.productId}`}>
+            <MoreHorizIcon style={{ color: "darkblue", cursor: "pointer" }} />
+          </Link>
         </div>
       ),
     },
@@ -165,6 +168,15 @@ export default function DataGridTabeleProposal() {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      {/**edit modal */}
+      <EditProposalProductModal
+        setProductId={setProductId}
+        productId={productId}
+        setShowEditmodal={setShowEditmodal}
+        showEditmodal={showEditmodal}
+        Products={Products}
+      />
     </>
   );
 }

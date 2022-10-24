@@ -1,0 +1,17 @@
+.Total-Counters-UserCartDataGrid {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.Total-UserCartDataGrid,
+.Counters-UserCartDataGrid {
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+.Total-UserCartDataGrid h5,
+.Counters-UserCartDataGrid h5 {
+  font-weight: bold;
+}

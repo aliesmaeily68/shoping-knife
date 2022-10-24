@@ -14,7 +14,7 @@ export default function UsersComponent() {
   const DataUsersContext = useContext(UsersContext);
   const [userId, setUserId] = useState("");
   const [showdeleteuserModal, setShowdeleteuserModal] = useState("");
-  const [showeditmodal, setShoweditmodal] = useState(false);
+  const [showeditmodal, setShowEditmodal] = useState(false);
 
   const { posts } = useFetch(
     "https://knifeshop-b9f2f-default-rtdb.firebaseio.com/users.json",
@@ -97,32 +97,20 @@ export default function UsersComponent() {
         >
           <ModeEditIcon
             style={{ color: "rgb(4, 187, 4)", cursor: "pointer" }}
-            onClick={() => setShoweditmodal(true)}
+            onClick={() => {
+              setShowEditmodal(true);
+              setUserId(params.row.userId);
+            }}
           />
 
-          {/* <Link to={`/user/${params.row.userId}`}>
-            <button
-              className="editUser"
-              style={{
-                backgroundcolor: "rgb(202, 246, 231)",
-                border: "none",
-                color: "rgb(4, 187, 4)",
-                cursor: "pointer",
-                padding: ".2em .3em",
-                borderRadius: "1em",
-              }}
-            >
-              <FaUserEdit />
-            </button>
-          </Link> */}
           <DeleteIcon
             style={{ color: "rgb(255, 50, 50)", cursor: "pointer" }}
             onClick={() => {
               setUserId(params.row.userId);
               setShowdeleteuserModal(true);
-              console.log(params.row);
             }}
           />
+          
           <Link to={`/dashboard-admin/${params.row.userId}`}>
             <MoreHorizIcon style={{ color: "darkblue", cursor: "pointer" }} />
           </Link>
@@ -186,7 +174,13 @@ export default function UsersComponent() {
       </Modal>
 
       {/**edit modal */}
-      <EditUserModal />
+      <EditUserModal
+        setUserId={setUserId}
+        userId={userId}
+        setShowEditmodal={setShowEditmodal}
+        showeditmodal={showeditmodal}
+        users={users}
+      />
     </>
   );
 }

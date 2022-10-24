@@ -1,0 +1,65 @@
+.Container-UserData {
+  width: 100%;
+  height: 100%;
+}
+
+.Info-UserData {
+  width: 100%;
+  height: 100%;
+}
+
+.General-Info-UserData {
+  padding: 1em;
+}
+.Title-General-Info-UserData,
+.Title-UserCart-UserData,
+.Title-Favorites-UserData,
+.Title-Comparison-UserData {
+  font-weight: bold;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 1.5em 0;
+}
+.Title-UserCart-UserData,
+.Title-Favorites-UserData,
+.Title-Comparison-UserData {
+  margin-top: 2.5em;
+}
+
+.Buy-Info-UserData {
+  height: 100%;
+}
+
+.Table-UserData {
+  width: 100%;
+}
+
+.Table-UserData table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.Table-UserData table,
+.Table-UserData table td,
+.Table-UserData table th {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.Table-UserData table thead tr,
+.Table-UserData table tbody tr {
+  display: flex;
+}
+.Table-UserData table thead tr th {
+  width: 15%;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding: 1em;
+}
+.Table-UserData table tbody tr td {
+  width: 15%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 2em;
+  padding: 1em;
+}
