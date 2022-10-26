@@ -1,0 +1,11 @@
+.EditProduct-GridForm {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2em;
+}
+
+.Title-EditMainProposalProductGrid {
+  font-weight: bold;
+  color: darkblue;
+  padding: 0.5em;
+}

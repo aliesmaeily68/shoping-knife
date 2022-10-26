@@ -34,8 +34,8 @@ export default function DashboardProduct() {
             </h2>
             <InsertNewProductForm />
           </div>
-          <div>موقتا محصولات نمایش داده نمی شود و در دست توسعه می باشد😌</div>
-          {/* <DataGridTabeleProducts /> */}
+          {/* <div>موقتا محصولات نمایش داده نمی شود و در دست توسعه می باشد😌</div> */}
+          <DataGridTabeleProducts />
         </>
       ) : (
         <>

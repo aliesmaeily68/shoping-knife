@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AllProductContext } from "../../../Contexts/ProductContext";
@@ -88,7 +87,7 @@ export default function DataGridTabeleProposal() {
           style={{
             width: "100%",
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "space-evenly",
           }}
         >
           <ModeEditIcon
@@ -106,10 +105,6 @@ export default function DataGridTabeleProposal() {
               setShowdeleteModal(true);
             }}
           />
-
-          <Link to={`/dashboard-admin/${params.row.productId}`}>
-            <MoreHorizIcon style={{ color: "darkblue", cursor: "pointer" }} />
-          </Link>
         </div>
       ),
     },

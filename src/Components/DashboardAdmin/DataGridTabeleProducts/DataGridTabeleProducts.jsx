@@ -1,49 +1,33 @@
-import React, { useContext, useEffect, useState } from "react";
-import useFetch from "../../../hooks/useFetch";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { Modal, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { AllProductContext } from "../../../Contexts/ProductContext";
 
 export default function ProductsComponent() {
-  const DataProductContext = useContext(AllProductContext);
+  const [allProducts, setAllProducts] = useState([]);
 
-  const [productId, setProductId] = useState("");
-  const [showdeleteModal, setShowdeleteModal] = useState("");
-
-  const { posts } = useFetch(
-    "https://knifeshop-b9f2f-default-rtdb.firebaseio.com/product.json",
-    DataProductContext.getData
-  );
-  const AllProduct = posts.map((product, index) => {
-    let newProducts = { ...product[1], id: index + 1, productId: product[0] };
-    return newProducts;
+  useEffect(() => {
+    fetch("https://knifeshop-b9f2f-default-rtdb.firebaseio.com/product.json")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          let Products = [];
+          Object.entries(data)[0][1].map((item) =>
+            item.Info.map((info) =>
+              info.MainInfo.map((product) => Products.push(product))
+            )
+          );
+          setAllProducts(Products);
+        }
+      });
   });
 
-
-
-  let removeProduct = async () => {
-    await fetch(
-      `https://knifeshop-b9f2f-default-rtdb.firebaseio.com/product/${productId}.json`,
-      {
-        method: "DELETE",
-      }
-    ).then((res) => console.log(res));
-
-    setShowdeleteModal(false);
-    DataProductContext.setGetData((prev) => !prev);
-  };
-
   const columns = [
-    { field: "id", headerName: "شماره", width: 90 },
     {
       field: "title&productImgName",
       headerName: "نام محصول",
       description: "This column has a value getter and is not sortable.",
       sortable: false,
-      width: 260,
+      width: 350,
       renderCell: (params) => (
         <div style={{ display: "flex", alignItems: "center" }}>
           <img
@@ -74,43 +58,22 @@ export default function ProductsComponent() {
       editable: true,
     },
     {
-      field: "action",
-      headerName: "ویرایش",
-      description: "This column has a value getter and is not sortable.",
-      width: 160,
-      renderCell: (params) => (
-        <div
-          className="action"
-          style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <Link to={`/product/${params.row.productId}`}>
-            <button
-              className="editUser"
-              style={{
-                backgroundcolor: "rgb(202, 246, 231)",
-                border: "none",
-                color: "rgb(4, 187, 4)",
-                cursor: "pointer",
-                padding: ".2em .3em",
-                borderRadius: "1em",
-              }}
-            >
-              Edit
-            </button>
-          </Link>
-          <DeleteIcon
-            style={{ color: "rgb(255, 50, 50)", cursor: "pointer" }}
-            onClick={() => {
-              setProductId(params.row.productId);
-              setShowdeleteModal(true);
-            }}
-          />
-        </div>
-      ),
+      field: "genus",
+      headerName: "جنس",
+      width: 150,
+      editable: true,
+    },
+    {
+      field: "Weight",
+      headerName: "وزن",
+      width: 150,
+      editable: true,
+    },
+    {
+      field: "usage",
+      headerName: "کاربرد",
+      width: 150,
+      editable: true,
     },
   ];
 
@@ -118,7 +81,7 @@ export default function ProductsComponent() {
     <>
       <Box sx={{ height: 400, width: "100%" }}>
         <DataGrid
-          rows={AllProduct}
+          rows={allProducts}
           columns={columns}
           pageSize={5}
           rowsPerPageOptions={[5]}
@@ -126,47 +89,6 @@ export default function ProductsComponent() {
           disableSelectionOnClick
         />
       </Box>
-      {/* ////delete modal/// */}
-      <Modal
-        show={showdeleteModal}
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header
-          onClick={() => setShowdeleteModal(false)}
-          style={{ color: "red" }}
-          closeButton
-        >
-          <Modal.Title id="contained-modal-title-vcenter"></Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>آیا از حذف محصول مطمئنید؟</p>
-        </Modal.Body>
-        <Modal.Footer style={{ display: "flex", alignSelf: "center" }}>
-          <Button
-            style={{
-              color: "#fff",
-              border: "none",
-              borderRadius: ".5em",
-              backgroundColor: "#1e1ef7",
-            }}
-            onClick={removeProduct}
-          >
-            بله, حذف شود
-          </Button>
-          <Button
-            style={{
-              color: "#fff",
-              border: "none",
-              borderRadius: ".5em",
-              backgroundColor: "#1e1ef7",
-            }}
-            onClick={() => setShowdeleteModal(false)}
-          >
-            نه, بستن مدال
-          </Button>
-        </Modal.Footer>
-      </Modal>
     </>
   );
 }

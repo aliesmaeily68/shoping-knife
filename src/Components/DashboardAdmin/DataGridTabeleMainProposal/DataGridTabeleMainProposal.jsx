@@ -4,25 +4,29 @@ import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Modal, Button } from "react-bootstrap";
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import { Link } from "react-router-dom";
 import { AllProductContext } from "../../../Contexts/ProductContext";
+import EditMainProposalModal from "./EditMainProposalModal/EditMainProposalModal";
 
 export default function MainProposalProductsComponent() {
   const DataProductContext = useContext(AllProductContext);
 
   const [productId, setProductId] = useState("");
   const [showdeleteModal, setShowdeleteModal] = useState("");
+  const [showEditmodal, setShowEditmodal] = useState(false);
 
   const { posts } = useFetch(
     "https://knifeshop-b9f2f-default-rtdb.firebaseio.com/mainProposalProduct.json",
     DataProductContext.getData
   );
+
+  let Products = [...posts];
+
   const AllProduct = posts.map((product, index) => {
     let newProducts = { ...product[1], id: index + 1, productId: product[0] };
     return newProducts;
   });
-
-
 
   let removeProduct = async () => {
     await fetch(
@@ -87,21 +91,14 @@ export default function MainProposalProductsComponent() {
             justifyContent: "space-evenly",
           }}
         >
-          <Link to={`/product/${params.row.productId}`}>
-            <button
-              className="editUser"
-              style={{
-                backgroundcolor: "rgb(202, 246, 231)",
-                border: "none",
-                color: "rgb(4, 187, 4)",
-                cursor: "pointer",
-                padding: ".2em .3em",
-                borderRadius: "1em",
-              }}
-            >
-              Edit
-            </button>
-          </Link>
+          <ModeEditIcon
+            style={{ color: "rgb(4, 187, 4)", cursor: "pointer" }}
+            onClick={() => {
+              setShowEditmodal(true);
+              setProductId(params.row.productId);
+            }}
+          />
+
           <DeleteIcon
             style={{ color: "rgb(255, 50, 50)", cursor: "pointer" }}
             onClick={() => {
@@ -109,6 +106,7 @@ export default function MainProposalProductsComponent() {
               setShowdeleteModal(true);
             }}
           />
+
         </div>
       ),
     },
@@ -167,6 +165,15 @@ export default function MainProposalProductsComponent() {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      {/**edit modal */}
+      <EditMainProposalModal
+        setProductId={setProductId}
+        productId={productId}
+        setShowEditmodal={setShowEditmodal}
+        showEditmodal={showEditmodal}
+        Products={Products}
+      />
     </>
   );
 }
