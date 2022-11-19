@@ -127,7 +127,7 @@ export default function InsertNewProposalProductForm() {
       DataProductContext.setInsertProposalUsageValue("");
       DataProductContext.setInsertProposalProducerValue("");
       fetch(
-        "https://knifeshop-b9f2f-default-rtdb.firebaseio.com/allProposalProduct.json",
+        "https://shopingknife-aef7c-default-rtdb.firebaseio.com/allProposalProduct.json",
         {
           method: "POST",
           body: JSON.stringify(NewProposalObj),

@@ -9,7 +9,7 @@ export default function DashboardUser() {
   const DataUserContext = useContext(UsersContext);
 
   const { posts } = useFetch(
-    "https://knifeshop-b9f2f-default-rtdb.firebaseio.com/users.json",
+    "https://shopingknife-aef7c-default-rtdb.firebaseio.com/users.json",
     DataUserContext.getuserData
   );
 

@@ -19,6 +19,7 @@ import MainArticle from './Pages/Article/MainArticle/MainArticle'
 import Checkout from './Pages/Checkout/Checkout'
 import Cart from './Pages/Cart/Cart'
 import ProposalProducts from './Pages/Proposals/ProposalProducts'
+import SearchPage from './Pages/Search/SearchPage' 
 import CommentsProduct from './Pages/MainProduct/Commentsproduct/CommentsProduct'
 import DescriptionProduct from './Pages/MainProduct/DescriptionProduct/DescriptionProduct'
 import DashboardAdmin from './Pages/DashboardAdmin/DashboardAdmin'
@@ -70,6 +71,7 @@ let routes = [
     { path: '/checkout', element: <Checkout /> },
     { path: '/cart', element: <Cart /> },
     { path: '/proposalProducts', element: <ProposalProducts /> },
+    { path: '/search/:value', element: <SearchPage /> },
     
     {
         path: '/dashboard-admin/*', element: <DashboardAdmin />, children: [

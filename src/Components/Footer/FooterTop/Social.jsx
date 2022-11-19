@@ -1,23 +1,37 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Social.css";
 import { TbBrandTelegram } from "react-icons/tb";
-import { RiWhatsappLine } from "react-icons/ri";
-import { RiInstagramLine } from "react-icons/ri";
+import { AiFillGithub } from "react-icons/ai";
+import { AiFillLinkedin } from "react-icons/ai";
 
 export default function Social() {
   return (
     <div className="Social">
-      <div className="Social-Icon">
+      <Link to="/@Ali68Zanjan" >
         {" "}
-        <TbBrandTelegram />
-      </div>
-      <div className="Social-Icon">
+        <div className="Social-Icon">
+          {" "}
+          <TbBrandTelegram />
+        </div>
+      </Link>
+
+      <a href="https://github.com/aliesmaeily68" target="_blank">
         {" "}
-        <RiWhatsappLine />
-      </div>
-      <div className="Social-Icon">
-        <RiInstagramLine />
-      </div>
+        <div className="Social-Icon">
+          {" "}
+          <AiFillGithub />
+        </div>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/ali-esmaily-4691a3246/"
+        target="_blank"
+      >
+        {" "}
+        <div className="Social-Icon">
+          <AiFillLinkedin />
+        </div>
+      </a>
     </div>
   );
 }

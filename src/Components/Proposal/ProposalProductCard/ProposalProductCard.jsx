@@ -15,7 +15,7 @@ export default function ProposalProductCard() {
 
   useEffect(() => {
     fetch(
-      "https://knifeshop-b9f2f-default-rtdb.firebaseio.com/mainProposalProduct.json"
+      "https://shopingknife-aef7c-default-rtdb.firebaseio.com/mainProposalProduct.json"
     )
       .then((res) => res.json())
       .then((data) => {

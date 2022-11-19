@@ -1,0 +1,42 @@
+.Search-Empty {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 2em;
+}
+
+.Search-Title h1 {
+  padding: 2.5em;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-bottom: 0 !important;
+  text-align: center;
+}
+
+.Search-Wrapper {
+  width: 90%;
+  margin: 2em auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}
+
+@media (max-width: 1024px) {
+  .Search-Title h1 {
+    padding: 1.5em !important;
+  }
+  .Search-Wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .Search-Title h1 {
+    padding: 0.5em !important;
+  }
+  .Search-Wrapper {
+    width: 98%;
+  }
+  .Search-Wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

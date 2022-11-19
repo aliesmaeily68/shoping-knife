@@ -51,7 +51,7 @@ export default function AllPage() {
   }, []);
 
   useEffect(() => {
-    fetch("https://knifeshop-b9f2f-default-rtdb.firebaseio.com/product.json")
+    fetch("https://shopingknife-aef7c-default-rtdb.firebaseio.com/product.json")
       .then((res) => res.json())
       .then((data) => {
         if (data) {
