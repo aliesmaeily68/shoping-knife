@@ -132,7 +132,7 @@ function exitAccount(DataUsersContext, DataProductContext) {
         },
     };
     fetch(
-        `https://shopingknife-aef7c-default-rtdb.firebaseio.com/users/${DataUsersContext.userId}.json`,
+        `https://myknife-2e73f-default-rtdb.firebaseio.com/users/${DataUsersContext.userId}.json`,
         {
             method: "PUT",
             body: JSON.stringify(NewUsersObj),

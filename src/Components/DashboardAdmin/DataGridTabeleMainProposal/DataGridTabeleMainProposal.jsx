@@ -17,7 +17,7 @@ export default function MainProposalProductsComponent() {
   const [showEditmodal, setShowEditmodal] = useState(false);
 
   const { posts } = useFetch(
-    "https://shopingknife-aef7c-default-rtdb.firebaseio.com/mainProposalProduct.json",
+    "https://myknife-2e73f-default-rtdb.firebaseio.com/mainProposalProduct.json",
     DataProductContext.getData
   );
 
@@ -30,7 +30,7 @@ export default function MainProposalProductsComponent() {
 
   let removeProduct = async () => {
     await fetch(
-      `https://shopingknife-aef7c-default-rtdb.firebaseio.com/mainProposalProduct/${productId}.json`,
+      `https://myknife-2e73f-default-rtdb.firebaseio.com/mainProposalProduct/${productId}.json`,
       {
         method: "DELETE",
       }
