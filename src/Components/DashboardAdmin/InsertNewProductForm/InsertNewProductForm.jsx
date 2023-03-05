@@ -202,7 +202,7 @@ export default function InsertNewProductForm() {
       InsertMainCategoryFormRef.current.focus();
       DataProductContext.setInsertProducerForm(true);
       await fetch(
-        "https://myknife-2e73f-default-rtdb.firebaseio.com/product.json"
+        "https://newshoping-172ff-default-rtdb.firebaseio.com//product.json"
       )
         .then((res) => res.json())
         .then((data) => {
@@ -259,7 +259,7 @@ export default function InsertNewProductForm() {
             }
 
             fetch(
-              "https://myknife-2e73f-default-rtdb.firebaseio.com/product.json",
+              "https://newshoping-172ff-default-rtdb.firebaseio.com//product.json",
               {
                 method: "POST",
                 body: JSON.stringify(AllProduct),
@@ -267,7 +267,7 @@ export default function InsertNewProductForm() {
             ).then((response) => console.log(response));
             DataProductContext.setGetData((p) => !p);
             fetch(
-              `https://myknife-2e73f-default-rtdb.firebaseio.com/product/${
+              `https://newshoping-172ff-default-rtdb.firebaseio.com//product/${
                 Object.entries(data)[0][0]
               }.json`,
               {
@@ -277,7 +277,7 @@ export default function InsertNewProductForm() {
             DataProductContext.setGetData((p) => !p);
           } else {
             fetch(
-              "https://myknife-2e73f-default-rtdb.firebaseio.com/product.json",
+              "https://newshoping-172ff-default-rtdb.firebaseio.com//product.json",
               {
                 method: "POST",
                 body: JSON.stringify(ProductInfo),

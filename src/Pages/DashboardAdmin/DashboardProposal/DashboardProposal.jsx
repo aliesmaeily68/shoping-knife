@@ -13,7 +13,7 @@ export default function DashboardProposal() {
   const DataProductContext = useContext(AllProductContext);
 
   const { posts } = useFetch(
-    "https://myknife-2e73f-default-rtdb.firebaseio.com/mainProposalProduct.json",
+    "https://newshoping-172ff-default-rtdb.firebaseio.com//mainProposalProduct.json",
     DataProductContext.getData
   );
 

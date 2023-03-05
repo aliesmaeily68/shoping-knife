@@ -98,7 +98,7 @@ export default function BillOrTransportationForm() {
       };
 
       fetch(
-        `https://myknife-2e73f-default-rtdb.firebaseio.com/users/${DataUsersContext.userId}.json`,
+        `https://newshoping-172ff-default-rtdb.firebaseio.com//users/${DataUsersContext.userId}.json`,
         {
           method: "PUT",
           body: JSON.stringify(NewUserCheckoutObj),
