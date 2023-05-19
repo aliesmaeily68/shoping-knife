@@ -33,7 +33,7 @@ export default function EditProposalProductModal(props) {
     };
 
     await fetch(
-      `https://newshoping-172ff-default-rtdb.firebaseio.com//allProposalProduct/${props.productId}.json`,
+      `https://aaaa-f46f5-default-rtdb.firebaseio.com//allProposalProduct/${props.productId}.json`,
       {
         method: "PUT",
         body: JSON.stringify(NewProductsObj),

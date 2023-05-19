@@ -132,7 +132,7 @@ function exitAccount(DataUsersContext, DataProductContext) {
         },
     };
     fetch(
-        `https://newshoping-172ff-default-rtdb.firebaseio.com//users/${DataUsersContext.userId}.json`,
+        `https://aaaa-f46f5-default-rtdb.firebaseio.com//users/${DataUsersContext.userId}.json`,
         {
             method: "PUT",
             body: JSON.stringify(NewUsersObj),

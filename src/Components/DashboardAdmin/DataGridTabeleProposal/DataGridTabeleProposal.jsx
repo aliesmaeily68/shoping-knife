@@ -17,7 +17,7 @@ export default function DataGridTabeleProposal() {
   const [showEditmodal, setShowEditmodal] = useState(false);
 
   const { posts } = useFetch(
-    "https://newshoping-172ff-default-rtdb.firebaseio.com//allProposalProduct.json",
+    "https://aaaa-f46f5-default-rtdb.firebaseio.com//allProposalProduct.json",
     DataProductContext.getData
   );
 
@@ -28,7 +28,7 @@ export default function DataGridTabeleProposal() {
   });
   let removeProduct = async () => {
     await fetch(
-      `https://newshoping-172ff-default-rtdb.firebaseio.com//allProposalProduct/${productId}.json`,
+      `https://aaaa-f46f5-default-rtdb.firebaseio.com//allProposalProduct/${productId}.json`,
       {
         method: "DELETE",
       }

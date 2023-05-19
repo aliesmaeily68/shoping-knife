@@ -127,7 +127,7 @@ export default function InsertNewMainProposalProductForm() {
       DataProductContext.setInsertMainProposalUsageValue("");
       DataProductContext.setInsertMainProposalProducerValue("");
       fetch(
-        "https://newshoping-172ff-default-rtdb.firebaseio.com//mainProposalProduct.json",
+        "https://aaaa-f46f5-default-rtdb.firebaseio.com//mainProposalProduct.json",
         {
           method: "POST",
           body: JSON.stringify(NewMainProposalObj),

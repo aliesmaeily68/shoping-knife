@@ -11,7 +11,7 @@ export default function MainDashboardUser() {
   let MainUser = [];
   let HasUserInData = false;
   useEffect(() => {
-    fetch("https://newshoping-172ff-default-rtdb.firebaseio.com//users.json")
+    fetch("https://aaaa-f46f5-default-rtdb.firebaseio.com//users.json")
       .then((res) => res.json())
       .then((data) => {
         if (data) {

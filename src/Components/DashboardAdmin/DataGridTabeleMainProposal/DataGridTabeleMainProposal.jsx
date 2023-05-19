@@ -17,7 +17,7 @@ export default function MainProposalProductsComponent() {
   const [showEditmodal, setShowEditmodal] = useState(false);
 
   const { posts } = useFetch(
-    "https://newshoping-172ff-default-rtdb.firebaseio.com//mainProposalProduct.json",
+    "https://aaaa-f46f5-default-rtdb.firebaseio.com//mainProposalProduct.json",
     DataProductContext.getData
   );
 
@@ -30,7 +30,7 @@ export default function MainProposalProductsComponent() {
 
   let removeProduct = async () => {
     await fetch(
-      `https://newshoping-172ff-default-rtdb.firebaseio.com//mainProposalProduct/${productId}.json`,
+      `https://aaaa-f46f5-default-rtdb.firebaseio.com//mainProposalProduct/${productId}.json`,
       {
         method: "DELETE",
       }
